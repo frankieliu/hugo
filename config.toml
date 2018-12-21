@@ -1,3 +1,4 @@
 baseURL = "http://frankliu.org/hugo"
 languageCode = "en-us"
 title = "My New Hugo Site"
+theme = "ananke"
