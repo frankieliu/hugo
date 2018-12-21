@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://frankliu.org/hugo/categories/</loc>
+    <loc>http://frankliu.org/hugo/categories.html</loc>
     <priority>0</priority>
   </url>
   
@@ -13,7 +13,7 @@
   </url>
   
   <url>
-    <loc>http://frankliu.org/hugo/tags/</loc>
+    <loc>http://frankliu.org/hugo/tags.html</loc>
     <priority>0</priority>
   </url>
   
