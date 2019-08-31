@@ -3,45 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://frankliu.org/hugo/posts/my-third-post/</loc>
-    <lastmod>2018-12-21T14:59:44-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://frankliu.org/hugo/posts/my-second-post/</loc>
-    <lastmod>2018-12-21T14:59:04-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://frankliu.org/hugo/posts/my-first-post/</loc>
-    <lastmod>2018-12-21T14:57:41-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://frankliu.org/hugo/posts/32-longest-valid-parentheses/</loc>
-    <lastmod>2018-12-21T21:21:10+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://frankliu.org/hugo/categories/</loc>
-    <priority>0</priority>
+    <loc>http://frankliu.org/hugo/posts/fb-distributed-data-store-tao/</loc>
+    <lastmod>2019-08-30T19:13:32-07:00</lastmod>
   </url>
   
   <url>
     <loc>http://frankliu.org/hugo/</loc>
-    <lastmod>2018-12-21T14:59:44-08:00</lastmod>
-    <priority>0</priority>
+    <lastmod>2019-08-30T19:13:32-07:00</lastmod>
   </url>
   
   <url>
     <loc>http://frankliu.org/hugo/posts/</loc>
-    <lastmod>2018-12-21T14:59:44-08:00</lastmod>
-    <priority>0</priority>
+    <lastmod>2019-08-30T19:13:32-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://frankliu.org/hugo/categories/</loc>
   </url>
   
   <url>
     <loc>http://frankliu.org/hugo/tags/</loc>
-    <priority>0</priority>
   </url>
   
 </urlset>
