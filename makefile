@@ -4,4 +4,5 @@ deploy:
 	git commit -m"adding content"
 	git push
 	cd ~/github/hugo
-
+server:
+	hugo server -D
