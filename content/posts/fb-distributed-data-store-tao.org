@@ -17,3 +17,17 @@ cache. If the fetch to memory originates from the caller on cache miss, then
 you’re using a look-aside cache. If the fetch to memory originates from the
 cache on cache miss, then you’re using a look-through cache.
 #+end_quote
+
+1. @ FB, cache is controlled by client code
+2. PHP abstraction direct r/w nodes and edges
+* inefficient edge lists
+1. kv cache not good for edges, must fetch entire edge list to change a single
+   edge list
+2. basic list support not sufficient for concurrent incremental updates to
+   cached lists
+* distributed control logic
+1. control logic run on the clients which don't communication with each other
+2. leases -> a general solution
+3. fixed API, control logic moved into cache
+* read-after-write consistency
+
