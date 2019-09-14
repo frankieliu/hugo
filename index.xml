@@ -20,5 +20,14 @@
       <description>intro   read-optimized social graph memcache and look-aside    The distinction between look-aside and look-through caches is not whether data is fetched from the cache and memory in serial or in parallel. The distinction is whether the fetch to memory on a cache miss originates from the caller or the cache. If the fetch to memory originates from the caller on cache miss, then you’re using a look-aside cache.</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>http://frankliu.org/hugo/920-number-of-music-playlists/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://frankliu.org/hugo/920-number-of-music-playlists/</guid>
+      <description>Music playlist   Let&amp;#39;s take the example from the article, songs: $≤ft\$abcde\right\$, playlist: $abacabdcbaeacbd$,  $_bar{x} = (1,2,4,7,11)$  For $_bar{x}$, each number in the n-tuple indicates a position in the playlist for the first occurrence of a particular unique song. The article uses 1-indexing so I will use the same to be consistent.  As an example for the $_bar{x}$ abovei, consider the playlist family:  $p_l = (1_1,2_2,c_3,3_4,c_5,c_6,4_7,c_8,c_9,c10,511,c12,c13,c14)$  Here I have used the numbers (characters) $1-5$, to indicate a song number, instead of the $a-e$ in the article.</description>
+    </item>
+    
   </channel>
 </rss>

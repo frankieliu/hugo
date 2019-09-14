@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | Fb Distributed Data Store Tao</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.57.2" />
+    <meta name="generator" content="Hugo 0.58.2" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -37,7 +37,7 @@
 
 <meta itemprop="datePublished" content="2019-08-30T19:13:32-07:00" />
 <meta itemprop="dateModified" content="2019-08-30T19:13:32-07:00" />
-<meta itemprop="wordCount" content="85">
+<meta itemprop="wordCount" content="161">
 
 
 
@@ -123,6 +123,58 @@ you’re using a look-aside cache. If the fetch to memory originates from the
 cache on cache miss, then you’re using a look-through cache.
 </p>
 </blockquote>
+<ol>
+<li>
+<p>
+@ FB, cache is controlled by client code
+</p>
+</li>
+<li>
+<p>
+PHP abstraction direct r/w nodes and edges
+</p>
+</li>
+</ol>
+<h1 id="headline-3">
+inefficient edge lists
+</h1>
+<ol>
+<li>
+<p>
+kv cache not good for edges, must fetch entire edge list to change a single
+edge list
+</p>
+</li>
+<li>
+<p>
+basic list support not sufficient for concurrent incremental updates to
+cached lists
+</p>
+</li>
+</ol>
+<h1 id="headline-4">
+distributed control logic
+</h1>
+<ol>
+<li>
+<p>
+control logic run on the clients which don&#39;t communication with each other
+</p>
+</li>
+<li>
+<p>
+leases -&gt; a general solution
+</p>
+</li>
+<li>
+<p>
+fixed API, control logic moved into cache
+</p>
+</li>
+</ol>
+<h1 id="headline-5">
+read-after-write consistency
+</h1>
 <ul class="pa0">
   
 </ul>
