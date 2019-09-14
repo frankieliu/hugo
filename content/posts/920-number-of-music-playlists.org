@@ -1,7 +1,12 @@
+---
+title: "920 Number of music playlists"
+date: 2019-08-30T19:13:32-07:00
+draft: false
+---
 # -*- mode: org -*-
 #+STARTUP: indent hidestars showall
 
-* Music playlist
+* Notes on solution to Leetcode 920
 
 Let's take the example from the article, songs: $\left\$abcde\right\$,
 playlist: $abacabdcbaeacbd$,
