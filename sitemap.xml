@@ -13,7 +13,57 @@
   </url>
   
   <url>
+    <loc>http://frankliu.org/hugo/posts/dynamo/</loc>
+    <lastmod>2019-09-15T16:38:01-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://frankliu.org/hugo/tags/amazon/</loc>
+    <lastmod>2019-09-15T16:38:01-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://frankliu.org/hugo/categories/</loc>
+    <lastmod>2019-09-15T16:38:01-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://frankliu.org/hugo/tags/db/</loc>
+    <lastmod>2019-09-15T16:38:01-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://frankliu.org/hugo/tags/dynamo/</loc>
+    <lastmod>2019-09-15T16:38:01-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://frankliu.org/hugo/</loc>
+    <lastmod>2019-09-15T16:38:01-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://frankliu.org/hugo/posts/</loc>
+    <lastmod>2019-09-15T16:38:01-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://frankliu.org/hugo/categories/scalable/</loc>
+    <lastmod>2019-09-15T16:38:01-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://frankliu.org/hugo/tags/scalable/</loc>
+    <lastmod>2019-09-15T16:38:01-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://frankliu.org/hugo/tags/</loc>
+    <lastmod>2019-09-15T16:38:01-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://frankliu.org/hugo/categories/hugo/</loc>
     <lastmod>2019-09-14T19:30:04-07:00</lastmod>
   </url>
   
@@ -23,27 +73,7 @@
   </url>
   
   <url>
-    <loc>http://frankliu.org/hugo/categories/hugo/</loc>
-    <lastmod>2019-09-14T19:30:04-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://frankliu.org/hugo/tags/mathjax/</loc>
-    <lastmod>2019-09-14T19:30:04-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://frankliu.org/hugo/</loc>
-    <lastmod>2019-09-14T19:30:04-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://frankliu.org/hugo/posts/</loc>
-    <lastmod>2019-09-14T19:30:04-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://frankliu.org/hugo/tags/</loc>
     <lastmod>2019-09-14T19:30:04-07:00</lastmod>
   </url>
   
