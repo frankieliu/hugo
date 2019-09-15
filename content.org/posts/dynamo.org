@@ -1,0 +1,41 @@
+#+HUGO_BASE_DIR: ../..
+#+HUGO_SECTION: posts
+#+HUGO_WEIGHT: 2003
+#+HUGO_AUTO_SET_LASTMOD: t
+#+TITLE: "DynamoDB"
+#+DATE: 2019-09-15T15:25:05-07:00
+#+HUGO_TAGS: dynamo db amazon scalable
+#+HUGO_CATEGORIES: scalable
+# +HUGO_MENU: :menu "main" :weight 2003
+#+HUGO_CUSTOM_FRONTMATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true
+#+HUGO_DRAFT: false
+
+# -*- mode: org -*-
+#+STARTUP: indent hidestars showall
+
+* Highlights
+1. kv store
+2. data partitioning and replication by consistent hashing
+3. consistency facilitated by object versioning
+4. consistency among replicas during update by quorum
+5. decentralized replica synchronization
+6. gossip based distributed failure detection and membership
+* Background
+- Authors confuses 'C' in ACID with 'C' in CAP
+** 2.3
+- optimistic replication - conflict resolution when you need item
+- allow writes/updates - "always writable"
+- pushes complex conflict resolution on the reader
+  - at data store means "last write wins"
+  - too simple, allow client to do the conflict resolution
+* Related work
+1. "always writable" requirement
+2. trusted nodes
+3. simple k-v
+4. latency ~ 100-200ms
+   - zero-hop DHT, each node can route request to appropriate node
+[[file:dynamo-table-1.png]]
+* System architecture
+
+* Conclusions
+- not very useful

@@ -1,0 +1,29 @@
+#+HUGO_BASE_DIR: ../..
+#+HUGO_SECTION: posts
+#+HUGO_WEIGHT: 2002
+#+HUGO_AUTO_SET_LASTMOD: t
+#+TITLE: "Setting up mathjax for hugo"
+#+DATE: 2019-09-14T19:10:31-07:00
+#+HUGO_TAGS: mathjax hugo
+#+HUGO_CATEGORIES: hugo
+#+HUGO_MENU: :menu "main" :weight 2002
+#+HUGO_CUSTOM_FRONTMATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true
+#+HUGO_DRAFT: false
+
+# -*- mode: org -*-
+#+STARTUP: indent hidestars showall
+
+* Problem
+Adding mathjax support for posts
+
+* Solution
+1. Modify the current theme
+2. Add a partial template
+3. Add a parameter called mathjax: true in the frontmatter
+
+* Details
+** Modifying the current theme
+1. Note that the current theme is set in config.tolm
+#+BEGIN_SRC python
+  theme = "ananke"
+#+END_SRC

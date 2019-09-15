@@ -4,3 +4,6 @@ baseURL = "http://frankliu.org/hugo/"
 languageCode = "en-us"
 title = "My New Hugo Site"
 theme = "ananke"
+pygmentsCodeFences = true
+# pygmentsUseClasses = true
+# pygmentsUseClassic = false
