@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>My New Hugo Site  | 920 Number of music playlists</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.58.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/hugo/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+
+    <meta property="og:title" content="920 Number of music playlists" />
+<meta property="og:description" content="Notes on solution to Leetcode 920 Let&rsquo;s take the example from the article, songs: \(\left\{abcde\right\}\), playlist: \(abacabdcbaeacbd\),
+\(\bar{x} = (1,2,4,7,11)\)
+For \(\bar{x}\), each number in the n-tuple indicates a position in the playlist for the first occurrence of a particular unique song. The article uses 1-indexing so I will use the same to be consistent.
+As an example for the \(\bar{x}\) above, consider the playlist family:
+\(p_l = (1_1,2_2,c_3,3_4,c_5,c_6,4_7,c_8,c_9,c_{10},5_{11},c_{12},c_{13},c_{14})\)" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://frankliu.org/hugo/posts/920-number-of-music-playlists/" />
+<meta property="article:published_time" content="2019-08-30T19:13:32-07:00" />
+<meta property="article:modified_time" content="2019-09-14T18:39:19-07:00" />
+<meta itemprop="name" content="920 Number of music playlists">
+<meta itemprop="description" content="Notes on solution to Leetcode 920 Let&rsquo;s take the example from the article, songs: \(\left\{abcde\right\}\), playlist: \(abacabdcbaeacbd\),
+\(\bar{x} = (1,2,4,7,11)\)
+For \(\bar{x}\), each number in the n-tuple indicates a position in the playlist for the first occurrence of a particular unique song. The article uses 1-indexing so I will use the same to be consistent.
+As an example for the \(\bar{x}\) above, consider the playlist family:
+\(p_l = (1_1,2_2,c_3,3_4,c_5,c_6,4_7,c_8,c_9,c_{10},5_{11},c_{12},c_{13},c_{14})\)">
+
+
+<meta itemprop="datePublished" content="2019-08-30T19:13:32-07:00" />
+<meta itemprop="dateModified" content="2019-09-14T18:39:19-07:00" />
+<meta itemprop="wordCount" content="815">
+
+
+
+<meta itemprop="keywords" content="leetcode," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="920 Number of music playlists"/>
+<meta name="twitter:description" content="Notes on solution to Leetcode 920 Let&rsquo;s take the example from the article, songs: \(\left\{abcde\right\}\), playlist: \(abacabdcbaeacbd\),
+\(\bar{x} = (1,2,4,7,11)\)
+For \(\bar{x}\), each number in the n-tuple indicates a position in the playlist for the first occurrence of a particular unique song. The article uses 1-indexing so I will use the same to be consistent.
+As an example for the \(\bar{x}\) above, consider the playlist family:
+\(p_l = (1_1,2_2,c_3,3_4,c_5,c_6,4_7,c_8,c_9,c_{10},5_{11},c_{12},c_{13},c_{14})\)"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://frankliu.org/hugo/" class="f3 fw2 hover-white no-underline white-90 dib">
+      My New Hugo Site
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/hugo/posts/920-number-of-music-playlists/" title="920 Number of music playlists page">
+              920 Number of music playlists
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+     tex2jax: {
+         inlineMath: [['$','$'], ['\\(','\\)']],
+         displayMath: [['$$','$$'], ['\\[','\\]']],
+         processEscapes: true,
+         processEnvironments: true,
+         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+         TeX: { equationNumbers: { autoNumber: "AMS" },
+                extensions: ["AMSmath.js", "AMSsymbols.js"] }
+     }
+ });
+</script>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">920 Number of music playlists</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-08-30T19:13:32-07:00">August 30, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<h2 id="notes-on-solution-to-leetcode-920">Notes on solution to Leetcode 920</h2>
+
+<p>Let&rsquo;s take the example from the article, songs: \(\left\{abcde\right\}\),
+playlist: \(abacabdcbaeacbd\),</p>
+
+<p>\(\bar{x} = (1,2,4,7,11)\)</p>
+
+<p>For \(\bar{x}\), each number in the n-tuple indicates a position in the playlist
+for the first occurrence of a particular unique song. The article uses
+1-indexing so I will use the same to be consistent.</p>
+
+<p>As an example for the \(\bar{x}\) above, consider the playlist family:</p>
+
+<p>\(p_l = (1_1,2_2,c_3,3_4,c_5,c_6,4_7,c_8,c_9,c_{10},5_{11},c_{12},c_{13},c_{14})\)</p>
+
+<p>Here I have used the numbers (characters) \(1-5\), to indicate a song number,
+instead of the \(a-e\) in the article. The subscripts indicate the position in
+\(p_l\) for ease of reference. And I will refer to the song as characters in a
+string for simplicity. The characters \(c\) in \(p_l\) indicate the possible
+characters that may be inserted at that position. Note that for the character
+\(c\) at position 3, since I have only seen \(2\) unique songs so far, \(c_3\) must
+come from \(\left\{1,2\right\}\) whereas for \(c_{5,6}\) must come from the set
+\(\{1,2,3\}\) since I have only seen \(3\) unique songs so far.</p>
+
+<p>Now take in consideration the restriction of \(K\), it implies that there must be
+a window \(K+1\) of non-repeating characters. Let&rsquo;s take \(K+1 = 2\) for the example
+above. That means for the \(c_3\), its choice of characters must come from the set
+\(\left\{1,2\right\}\) and in addition it must be different from character at
+position \(2\) (&rdquo;\(2\)&rdquo; in the example above). This restriction implies that there
+is only one possible choice for \(c_3\), namely &ldquo;\(1\)&ldquo;. We will count this
+possibility as \(1^\delta\), where \(\delta\) denotes the number of characters
+between the first occurrence of the $K+1$th character and the first occurrence
+of the $K+2$th character, or \(x_{K+2}-x_{K+1}-1\) from \(\bar{x}\). Similarly for
+\(c\) at positions \(5\) and \(6\), their choice must come from the set
+\(\left\{1,2,3\right\}\) and in addition it must differ from the previous \(K\)
+characters, translating to a choice of two characters for \(c_{5,6}\). We will
+count this possibilities as \(2^\delta\), where \(\delta\) here denotes the number
+of characters between \(K+2\) and \(K+3\) characters (first occurrences), or
+\(x_{K+3} - x_{K+2} - 1\).</p>
+
+<p>The careful reader will note that I count the first \(K+1\) characters as being
+unique, whereas the article counts the first \(K\) characters. My suspicion is
+that the author also thinks in terms of a window of \(K\) unique characters rather
+than of \(K+1\) characters, thus interchanging the usage of the \(K\) previous other
+characters with the window length for unique characters. To be consistent, I
+stick with the definition of \(K\) in the problem statement.</p>
+
+<p>Given \(N\), \(L\), and \(K\), how many \(\delta\)&rsquo;s are there? This should be equal to
+the number of unique characters discounting the grouping at the beginning or
+\(N-K \equiv P\). Conveniently, the article suggests adding a \(x_{N+1} = L+1\) to
+\(\bar{x}\) so the last \(\delta\) can be determined from \(\bar{x}\).</p>
+
+<p>Given \(N\), \(L\), and \(K\), what is the sum of \(\delta\) values? Since each \(\delta\)
+for a given \(\bar{x}\) corresponds to the spacing between first occurrences, the
+total sum of spaces plus the unique characters must sum to \(L\), in other words,
+\(\sum \delta_i + N = L\), or \(\sum \delta_i = L-N \equiv S\), where I have appended
+a subscript \(i\) to enumerate each spacing. Note that a vector of \(\delta_i\)&rsquo;s
+uniquely determines an \(\bar{x}\). So an enumeration of all possible \(\bar{x}\) is
+equivalent to enumerating all possible \(\bar{\delta}\), where a \(\bar{\delta}\)
+denotes a n-tuple of \(\delta_i\)&rsquo;s corresponding to some \(\bar{x}\). The article
+expresses the sum of all these enumerations as
+ \[
+ \sum_{\bar{\delta}\ \rm{ s.t. }\sum \delta_i = S} \cdots
+ \]
+To be consistent with the definition of \(K\) in the problem, the final answer
+should almost match the one in the article
+\[
+N! \left( \sum_{\bar{\delta}} \mathop{\LARGE\Pi}_{j=1}^{N-K} j^{x_{K+1+j}-x_{K+j}-1} \right)
+\]</p>
+
+<p>For the answer utilizing the generating functions, the key idea is as follow,
+you are looking for all combinations of \(P\) numbers that sum up to a number \(S\).
+The \(x^S\) coefficient of the generating function is conveniently the sum of all
+possible \(j^\delta\) products. Since each infinite geometric series in the
+generating function can be expressed as simple fraction, the generation function
+becomes the product of simple fractions.</p>
+
+<p>The product of fractions can be expanded to the sum of partials fractions. Since
+each partial fraction has the form of the sum of an infinite geometric series,
+we just return the \(x^S\) term from each of the partial fractions.</p>
+
+<p>The only other thing not mentioned in the article, but used in the code is
+finding the inverse of a number in a modulo ring. One way to get the inverse of
+a number is to use the extended Eucledian algorithm. Instead, for modulo \(p\),
+where \(p\) is prime, we can use Fermat&rsquo;s little theorem, which says that \(a^p
+\equiv a \mod p\), so \(a^{p-1} \equiv 1 \mod p\), and \(a^{p-2} \equiv a^{-1}
+\mod p\), which shows up in the article&rsquo;s solution.</p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="/hugo/tags/leetcode" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">leetcode</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://frankliu.org/hugo/" >
+    &copy; 2019 My New Hugo Site
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/hugo/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

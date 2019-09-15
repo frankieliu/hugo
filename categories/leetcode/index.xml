@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on My New Hugo Site</title>
-    <link>http://frankliu.org/hugo/posts/</link>
-    <description>Recent content in Posts on My New Hugo Site</description>
+    <title>leetcode on My New Hugo Site</title>
+    <link>http://frankliu.org/hugo/categories/leetcode/</link>
+    <description>Recent content in leetcode on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 30 Aug 2019 19:13:32 -0700</lastBuildDate>
     
-	<atom:link href="http://frankliu.org/hugo/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://frankliu.org/hugo/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -22,15 +22,6 @@
 For \(\bar{x}\), each number in the n-tuple indicates a position in the playlist for the first occurrence of a particular unique song. The article uses 1-indexing so I will use the same to be consistent.
 As an example for the \(\bar{x}\) above, consider the playlist family:
 \(p_l = (1_1,2_2,c_3,3_4,c_5,c_6,4_7,c_8,c_9,c_{10},5_{11},c_{12},c_{13},c_{14})\)</description>
-    </item>
-    
-    <item>
-      <title>Fb Distributed Data Store Tao</title>
-      <link>http://frankliu.org/hugo/posts/fb-distributed-data-store-tao/</link>
-      <pubDate>Fri, 30 Aug 2019 19:13:32 -0700</pubDate>
-      
-      <guid>http://frankliu.org/hugo/posts/fb-distributed-data-store-tao/</guid>
-      <description>intro   read-optimized social graph memcache and look-aside    The distinction between look-aside and look-through caches is not whether data is fetched from the cache and memory in serial or in parallel. The distinction is whether the fetch to memory on a cache miss originates from the caller or the cache. If the fetch to memory originates from the caller on cache miss, then you’re using a look-aside cache.</description>
     </item>
     
   </channel>
