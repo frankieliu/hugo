@@ -34,7 +34,7 @@
 3. simple k-v
 4. latency ~ 100-200ms
    - zero-hop DHT, each node can route request to appropriate node
-[[file:dynamo-table-1.png]]
+[[/images/dynamo/dynamo-table-1.png]]
 * System architecture
 
 * Conclusions

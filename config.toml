@@ -7,3 +7,4 @@ theme = "ananke"
 pygmentsCodeFences = true
 # pygmentsUseClasses = true
 # pygmentsUseClassic = false
+canonifyURLs = true
