@@ -33,7 +33,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://frankliu.org/hugo/" />
 
-<meta property="og:updated_time" content="2019-09-14T19:10:31-07:00" />
+<meta property="og:updated_time" content="2019-09-15T15:25:05-07:00" />
 <meta itemprop="name" content="My New Hugo Site">
 <meta itemprop="description" content="">
 
@@ -189,14 +189,14 @@ Solution  Modify the current theme Add a partial template Add a parameter called
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://frankliu.org/hugo/posts/fb-distributed-data-store-tao/" class="color-inherit dim link">
-            Fb Distributed Data Store Tao
+          <a href="https://frankliu.org/hugo/posts/dynamo/" class="color-inherit dim link">
+            DynamoDB
             </a>
         </h1>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          intro   read-optimized social graph memcache and look-aside    The distinction between look-aside and look-through caches is not whether data is fetched from the cache and memory in serial or in parallel. The distinction is whether the fetch to memory on a cache miss originates from the caller or the cache. If the fetch to memory originates from the caller on cache miss, then you’re using a look-aside cache.
+           Highlights  kv store data partitioning and replication by consistent hashing consistency facilitated by object versioning consistency among replicas during update by quorum decentralized replica synchronization gossip based distributed failure detection and membership  Background  Authors confuse &lsquo;C&rsquo; in ACID with &lsquo;C&rsquo; in CAP  2.3  optimistic replication - conflict resolution when you need item allow writes/updates - &ldquo;always writable&rdquo; pushes complex conflict resolution on the reader  at data store means &ldquo;last write wins&rdquo; too simple, allow client to do the conflict resolution   Related work  &ldquo;always writable&rdquo; requirement trusted nodes simple k-v latency ~ 100-200ms  zero-hop DHT, each node can route request to appropriate node     System architecture Conclusions  not very useful  
         </div>
-          <a href="https://frankliu.org/hugo/posts/fb-distributed-data-store-tao/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+          <a href="https://frankliu.org/hugo/posts/dynamo/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
         
       </div>
     </div>
@@ -207,6 +207,23 @@ Solution  Modify the current theme Add a partial template Add a parameter called
         
       </section>
 
+      
+      <section class="w-100">
+        <h1 class="f3">More</h1>
+        
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="https://frankliu.org/hugo/posts/fb-distributed-data-store-tao/" class="link black dim">
+              Fb Distributed Data Store Tao
+            </a>
+          </h2>
+        
+
+        
+        
+          <a href="https://frankliu.org/hugo/posts/" class="link db f6 pa2 br3 bg-mid-gray white dim w4 tc">All Posts</a>
+        
+        </section>
       
 
       </div>
