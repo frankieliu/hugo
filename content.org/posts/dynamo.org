@@ -21,7 +21,7 @@
 5. decentralized replica synchronization
 6. gossip based distributed failure detection and membership
 * Background
-- Authors confuses 'C' in ACID with 'C' in CAP
+- Authors confuse 'C' in ACID with 'C' in CAP
 ** 2.3
 - optimistic replication - conflict resolution when you need item
 - allow writes/updates - "always writable"
@@ -33,7 +33,7 @@
 2. trusted nodes
 3. simple k-v
 4. latency ~ 100-200ms
-   - zero-hop DHT, each node can route request to appropriate node:w
+   - zero-hop DHT, each node can route request to appropriate node
 
 [[/images/dynamo/dynamo-table-1.png][/images/dynamo/dynamo-table-1.png]]
 
