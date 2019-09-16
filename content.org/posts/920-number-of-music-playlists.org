@@ -44,8 +44,8 @@ $\left\{1,2\right\}$ and in addition it must be different from character at
 position $2$ ("$2$" in the example above). This restriction implies that there
 is only one possible choice for $c_3$, namely "$1$". We will count this
 possibility as $1^\delta$, where $\delta$ denotes the number of characters
-between the first occurrence of the $K+1$th character and the first occurrence
-of the $K+2$th character, or $x_{K+2}-x_{K+1}-1$ from $\bar{x}$. Similarly for
+between the first occurrence of the $K+1$ th character and the first occurrence
+of the $K+2$ th character, or $x_{K+2}-x_{K+1}-1$ from $\bar{x}$. Similarly for
 $c$ at positions $5$ and $6$, their choice must come from the set
 $\left\{1,2,3\right\}$ and in addition it must differ from the previous $K$
 characters, translating to a choice of two characters for $c_{5,6}$. We will

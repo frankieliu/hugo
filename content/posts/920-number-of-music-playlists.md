@@ -2,7 +2,7 @@
 title = "920 Number of music playlists"
 author = ["adam"]
 date = 2019-08-30T19:13:32-07:00
-lastmod = 2019-09-14T18:39:19-07:00
+lastmod = 2019-09-15T21:09:37-07:00
 tags = ["leetcode"]
 categories = ["leetcode"]
 draft = false
@@ -49,8 +49,8 @@ above. That means for the \\(c\_3\\), its choice of characters must come from th
 position \\(2\\) ("\\(2\\)" in the example above). This restriction implies that there
 is only one possible choice for \\(c\_3\\), namely "\\(1\\)". We will count this
 possibility as \\(1^\delta\\), where \\(\delta\\) denotes the number of characters
-between the first occurrence of the $K+1$th character and the first occurrence
-of the $K+2$th character, or \\(x\_{K+2}-x\_{K+1}-1\\) from \\(\bar{x}\\). Similarly for
+between the first occurrence of the \\(K+1\\) th character and the first occurrence
+of the \\(K+2\\) th character, or \\(x\_{K+2}-x\_{K+1}-1\\) from \\(\bar{x}\\). Similarly for
 \\(c\\) at positions \\(5\\) and \\(6\\), their choice must come from the set
 \\(\left\\{1,2,3\right\\}\\) and in addition it must differ from the previous \\(K\\)
 characters, translating to a choice of two characters for \\(c\_{5,6}\\). We will
