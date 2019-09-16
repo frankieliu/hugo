@@ -2,7 +2,7 @@
 title = "DynamoDB"
 author = ["adam"]
 date = 2019-09-15T15:25:05-07:00
-lastmod = 2019-09-15T16:54:27-07:00
+lastmod = 2019-09-15T17:35:51-07:00
 tags = ["dynamo", "db", "amazon", "scalable"]
 categories = ["scalable"]
 draft = false
@@ -39,9 +39,9 @@ weight = 2003
 2.  trusted nodes
 3.  simple k-v
 4.  latency ~ 100-200ms
-    -   zero-hop DHT, each node can route request to appropriate node
+    -   zero-hop DHT, each node can route request to appropriate node:w
 
-{{< figure src="/images/dynamo/dynamo-table-1.png" >}}
+[/images/dynamo/dynamo-table-1.png](/images/dynamo/dynamo-table-1.png)
 
 
 ## System architecture {#system-architecture}

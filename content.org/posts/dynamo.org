@@ -33,8 +33,10 @@
 2. trusted nodes
 3. simple k-v
 4. latency ~ 100-200ms
-   - zero-hop DHT, each node can route request to appropriate node
-[[/images/dynamo/dynamo-table-1.png]]
+   - zero-hop DHT, each node can route request to appropriate node:w
+
+[[/images/dynamo/dynamo-table-1.png][/images/dynamo/dynamo-table-1.png]]
+
 * System architecture
 
 * Conclusions
