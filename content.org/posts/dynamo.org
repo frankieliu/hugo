@@ -6,8 +6,8 @@
 #+DATE: 2019-09-15T15:25:05-07:00
 #+HUGO_TAGS: dynamo db amazon scalable
 #+HUGO_CATEGORIES: scalable
-# +HUGO_MENU: :menu "main" :weight 2003
-#+HUGO_CUSTOM_FRONTMATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true
+#+HUGO_MENU: :menu "main" :weight 2003
+#+HUGO_CUSTOM_FRONT_MATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true
 #+HUGO_DRAFT: false
 
 # -*- mode: org -*-

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-09-15 Sun 17:33 -->
+<!-- 2019-09-16 Mon 21:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>"DynamoDB"</title>
@@ -239,6 +239,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -247,21 +269,37 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2458b6c">1. Highlights</a></li>
-<li><a href="#org72be342">2. Background</a>
+<li><a href="#org0307058">1. Highlights</a></li>
+<li><a href="#orgc1a72b3">2. Background</a>
 <ul>
-<li><a href="#org85e9cd8">2.1. 2.3</a></li>
+<li><a href="#orgde707e4">2.1. 2.3</a></li>
 </ul>
 </li>
-<li><a href="#orgd93eb0b">3. Related work</a></li>
-<li><a href="#org075d79e">4. System architecture</a></li>
-<li><a href="#org5522063">5. Conclusions</a></li>
+<li><a href="#org0a38776">3. Related work</a></li>
+<li><a href="#org8e0f77d">4. System architecture</a>
+<ul>
+<li><a href="#org4671fc4">4.1. system interface</a></li>
+<li><a href="#orgea82e4c">4.2. partitioning</a></li>
+<li><a href="#org8b99ab6">4.3. replication</a></li>
+<li><a href="#org52c2ae6">4.4. data versioning</a></li>
+<li><a href="#org85df580">4.5. get and put operations</a></li>
+<li><a href="#org600376b">4.6. handling failure</a></li>
+<li><a href="#orgf3f2b62">4.7. membership and failure detection</a>
+<ul>
+<li><a href="#orgc2d551d">4.7.1. seeds</a></li>
+<li><a href="#org024b07e">4.7.2. failure detection</a></li>
+</ul>
+</li>
+<li><a href="#org7b27602">4.8. adding and removing storage nodes</a></li>
+</ul>
+</li>
+<li><a href="#orgc1f4683">5. Conclusions</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2458b6c" class="outline-2">
-<h2 id="org2458b6c"><span class="section-number-2">1</span> Highlights</h2>
+<div id="outline-container-org0307058" class="outline-2">
+<h2 id="org0307058"><span class="section-number-2">1</span> Highlights</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li>kv store</li>
@@ -273,15 +311,15 @@ for the JavaScript code in this tag.
 </ol>
 </div>
 </div>
-<div id="outline-container-org72be342" class="outline-2">
-<h2 id="org72be342"><span class="section-number-2">2</span> Background</h2>
+<div id="outline-container-orgc1a72b3" class="outline-2">
+<h2 id="orgc1a72b3"><span class="section-number-2">2</span> Background</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
-<li>Authors confuses 'C' in ACID with 'C' in CAP</li>
+<li>Authors confuse 'C' in ACID with 'C' in CAP</li>
 </ul>
 </div>
-<div id="outline-container-org85e9cd8" class="outline-3">
-<h3 id="org85e9cd8"><span class="section-number-3">2.1</span> 2.3</h3>
+<div id="outline-container-orgde707e4" class="outline-3">
+<h3 id="orgde707e4"><span class="section-number-3">2.1</span> 2.3</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>optimistic replication - conflict resolution when you need item</li>
@@ -295,8 +333,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-orgd93eb0b" class="outline-2">
-<h2 id="orgd93eb0b"><span class="section-number-2">3</span> Related work</h2>
+<div id="outline-container-org0a38776" class="outline-2">
+<h2 id="org0a38776"><span class="section-number-2">3</span> Related work</h2>
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li>"always writable" requirement</li>
@@ -307,17 +345,228 @@ for the JavaScript code in this tag.
 <li>zero-hop DHT, each node can route request to appropriate node</li>
 </ul></li>
 </ol>
-<p>
-<a href="file:///images/dynamo/dynamo-table-1.png">table-1</a>
+
+
+<div class="figure">
+<p><img src="file:///images/dynamo/dynamo-table-1.png" alt="dynamo-table-1.png" />
 </p>
 </div>
 </div>
-<div id="outline-container-org075d79e" class="outline-2">
-<h2 id="org075d79e"><span class="section-number-2">4</span> System architecture</h2>
 </div>
 
-<div id="outline-container-org5522063" class="outline-2">
-<h2 id="org5522063"><span class="section-number-2">5</span> Conclusions</h2>
+<div id="outline-container-org8e0f77d" class="outline-2">
+<h2 id="org8e0f77d"><span class="section-number-2">4</span> System architecture</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>components: 
+<ul class="org-ul">
+<li>data persistence component</li>
+<li>load balancing</li>
+<li>membership</li>
+<li>failure detection</li>
+<li>failure recovery</li>
+<li>replica synchronization</li>
+<li>overload handling</li>
+<li>state transfer</li>
+<li>concurrency</li>
+<li>job scheduling</li>
+<li>request marshalling</li>
+<li>request routing</li>
+<li>system monitoring</li>
+<li>system alarming</li>
+<li>configuration management</li>
+</ul></li>
+<li>cover:
+<ul class="org-ul">
+<li>partitioning</li>
+<li>replication</li>
+<li>versioning</li>
+<li>membership</li>
+<li>failure handling</li>
+<li>scaling</li>
+</ul></li>
+</ul>
+</div>
+<div id="outline-container-org4671fc4" class="outline-3">
+<h3 id="org4671fc4"><span class="section-number-3">4.1</span> system interface</h3>
+<div class="outline-text-3" id="text-4-1">
+<ol class="org-ol">
+<li>api get and put</li>
+<li>get(key)
+<ol class="org-ol">
+<li>locates object replicas</li>
+<li>returns with conflicting versions</li>
+<li>returns with a context</li>
+</ol></li>
+<li>put(key, context, object)
+<ol class="org-ol">
+<li>determines which replica</li>
+<li>context : metadata such as version</li>
+</ol></li>
+<li>key and object are opaque array of bytes
+<ol class="org-ol">
+<li>use MD5 hash to generate a 128-bit id</li>
+</ol></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgea82e4c" class="outline-3">
+<h3 id="orgea82e4c"><span class="section-number-3">4.2</span> partitioning</h3>
+<div class="outline-text-3" id="text-4-2">
+<ol class="org-ol">
+<li>consistent hashing</li>
+<li>each node assigned a random position in the ring</li>
+<li>each data item hashed to ring and served by first node larger position</li>
+<li>each node serves data between it and its predecessor</li>
+<li>each node actually mapped to multiple points in the ring (tokens)</li>
+<li>virtual node advantages
+<ol class="org-ol">
+<li>if node goes down, load gets handled more evenly by other nodes</li>
+</ol></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org8b99ab6" class="outline-3">
+<h3 id="org8b99ab6"><span class="section-number-3">4.3</span> replication</h3>
+<div class="outline-text-3" id="text-4-3">
+<ol class="org-ol">
+<li>data item is replicated at \(N\) hosts</li>
+<li>each key assigned to a coordinator node</li>
+<li>coordinator is in charge of replication of the data items that fall in its
+range</li>
+<li>coordinator replicates key at N-1 clockwise successor nodes in the ring
+<ol class="org-ol">
+<li>each node is responsible for between it and its \(N\) th predecessor</li>
+</ol></li>
+<li>preference list is the list of nodes responsible for a key</li>
+<li>every node in the system can determine which nodes for a key</li>
+<li>the pref list skips positions in the ring to ensure that it contains only
+distinct physical nodes</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org52c2ae6" class="outline-3">
+<h3 id="org52c2ae6"><span class="section-number-3">4.4</span> data versioning</h3>
+<div class="outline-text-3" id="text-4-4">
+<ol class="org-ol">
+<li>eventual consistency, data propagates asynchronously</li>
+<li>guarantees that writes cannot be forgotten or rejected
+<ol class="org-ol">
+<li>each modificaiton is a new and immutable version of the data</li>
+</ol></li>
+<li>version branching can happen in the presence of failures
+resulting in conflicting versions, client must perform 
+reconciliation</li>
+<li>vector clocks used to capture causality
+<ol class="org-ol">
+<li>(node, counter)</li>
+<li>if the counters of an object are less-than-or-equal to all the
+nodes in a second clock, the first is an ancestor</li>
+</ol></li>
+<li>on update, client must specify which version is being updated
+<ol class="org-ol">
+<li>pass the context from earlier read</li>
+</ol></li>
+</ol>
+
+
+<div class="figure">
+<p><img src="file:///images/dynamo/vector-clock.png" alt="vector-clock.png" />
+</p>
+</div>
+
+<ol class="org-ol">
+<li>timestamp is used to truncate the clock which may be growing</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org85df580" class="outline-3">
+<h3 id="org85df580"><span class="section-number-3">4.5</span> get and put operations</h3>
+<div class="outline-text-3" id="text-4-5">
+<ol class="org-ol">
+<li>route request through LB</li>
+<li>use partition aware client library that routes to coordinator</li>
+<li>requests received through a LB routed to any random node in ring
+<ol class="org-ol">
+<li>node will forward to the first among top \(N\) in preference list</li>
+</ol></li>
+<li>quorum protocol \(R+W > N\)</li>
+<li>put(), coordinator generates vector clock for new version
+<ol class="org-ol">
+<li>sends to \(N\) highest-ranked reachable nodes</li>
+<li>if \(W-1\) nodes respond then the write is considered successful</li>
+</ol></li>
+<li>get(), coordinator requests all existing versions of data forward  
+for that key, wiates for \(R\) responses before returning value to
+client</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org600376b" class="outline-3">
+<h3 id="org600376b"><span class="section-number-3">4.6</span> handling failure</h3>
+<div class="outline-text-3" id="text-4-6">
+<ul class="org-ul">
+<li>anti-entropy, replica synchronization protocol</li>
+<li>merkle tree
+<ul class="org-ul">
+<li>each branch can be checked independently without checking entire
+tree</li>
+<li>each node maintains a separate merkle tree for each key range</li>
+<li>two nodes exchange the root of the merkle tree for key range</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf3f2b62" class="outline-3">
+<h3 id="orgf3f2b62"><span class="section-number-3">4.7</span> membership and failure detection</h3>
+<div class="outline-text-3" id="text-4-7">
+<ul class="org-ul">
+<li>gossip based protocol propagates membership changes</li>
+<li>maintains an eventually consistent view of membership</li>
+<li>each node contacts a peer chosen at random every second
+<ul class="org-ul">
+<li>two nodes reconcile their persisteted membership change
+histories</li>
+</ul></li>
+<li>nodes choose set of tokens (virtual nodes in the consistent
+hash space) and maps nodes to their respective token sets</li>
+<li>mapping persisted on disk, contains local node and token set</li>
+<li>mappings reconciled via gossip</li>
+</ul>
+</div>
+<div id="outline-container-orgc2d551d" class="outline-4">
+<h4 id="orgc2d551d"><span class="section-number-4">4.7.1</span> seeds</h4>
+<div class="outline-text-4" id="text-4-7-1">
+<ul class="org-ul">
+<li>special nodes known to all nodes</li>
+<li>seeds obtained through static config or config service</li>
+<li>all nodes must reconcile at seeds, logical partitions unlikely</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org024b07e" class="outline-4">
+<h4 id="org024b07e"><span class="section-number-4">4.7.2</span> failure detection</h4>
+<div class="outline-text-4" id="text-4-7-2">
+<ul class="org-ul">
+<li>local notion of failure, if node A can't communicate with B, then
+uses alternate nodes</li>
+<li>decentralized failure detection use simple gossip-style protocol</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org7b27602" class="outline-3">
+<h3 id="org7b27602"><span class="section-number-3">4.8</span> adding and removing storage nodes</h3>
+<div class="outline-text-3" id="text-4-8">
+<ul class="org-ul">
+<li>transfer keys to new node</li>
+<li>reallocation of keys upon removal</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc1f4683" class="outline-2">
+<h2 id="orgc1f4683"><span class="section-number-2">5</span> Conclusions</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>not very useful</li>
@@ -328,7 +577,7 @@ for the JavaScript code in this tag.
 <div id="postamble" class="status">
 <p class="date">Date: 2019-09-15T15:25:05-07:00</p>
 <p class="author">Author: adam</p>
-<p class="date">Created: 2019-09-15 Sun 17:33</p>
+<p class="date">Created: 2019-09-16 Mon 21:07</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
