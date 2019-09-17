@@ -1,4 +1,4 @@
-baseURL = "https://frankliu.org/hugo/"
+baseURL = "https://www.frankliu.org/hugo/"
 # relativeURLs = true
 # uglyURLs = true
 languageCode = "en-us"
