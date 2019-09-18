@@ -31,15 +31,15 @@ Spanner zones Zone  zonemaster assigns data to spanservers (1000) location proxi
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/spanner/" />
 <meta property="article:published_time" content="2019-09-17T18:45:19-07:00" />
-<meta property="article:modified_time" content="2019-09-18T11:31:37-07:00" />
+<meta property="article:modified_time" content="2019-09-18T11:46:05-07:00" />
 <meta itemprop="name" content="Spanner">
 <meta itemprop="description" content="Key to paper TrueTime exposes clock uncertainty, if the uncertainty is large, Spanner slows down to wait out the uncertainty. TS reflect serialization order, external consistency, or linearizability.
 Spanner zones Zone  zonemaster assigns data to spanservers (1000) location proxies used by clients to locate spanservers  Spanserver  responsible for 1000 tablets  Tablet  (key: string, timestamp: int64) -&gt; string more like multiversion kv store state store in a set of B-tree-like files and a write ahead log  in DFS called colossus  one Paxos state machine per tablet  Paxos  long time leader leases (10 sec) implements a consistently replicated bag of mappings writes initiates paxos protocol at leader reads access state directly from any replica set of replicas called Paxos group  Logs:  every &lsquo;Paxos write&rsquo; goes to tablet log and to Paxos logic  Replica leader  every leader replica implements a lock table contains the state for 2-phase locking  maps ranges of keys to lock states  leaders are long lived to maintain this lock table  performs poorly under optimistic concurrency control  replicas in paxos group called participant slaves implements a transaction manager  implements a participant leader used between other paxos groups for 2-phase commit   Participant/Coordinator  one participant leader (leader to a paxos group) is chosen as coordinator leader, other replica leader called coordinator slaves state of transaction manager store in underlying paxos group    Directory and placement directory  set of contiguous keys with common prefix unit of data placement -&gt; same replica config unit of data movement between paxos groups  paxos group/tablet  contains multiple directories not necessarily lex.">
 
 
 <meta itemprop="datePublished" content="2019-09-17T18:45:19-07:00" />
-<meta itemprop="dateModified" content="2019-09-18T11:31:37-07:00" />
-<meta itemprop="wordCount" content="1043">
+<meta itemprop="dateModified" content="2019-09-18T11:46:05-07:00" />
+<meta itemprop="wordCount" content="1177">
 
 
 
@@ -480,6 +480,56 @@ across leaders</li>
     <img src="https://www.frankliu.org/hugo/images/spanner/spanner-two-phase-locking-a.svg"/> 
 </figure>
 
+
+<ul>
+<li>Define arrival event of a commit request at coordinator for the write of
+a transaction Ti to be ei(server)</li>
+
+<li><p>Start</p>
+
+<p>si &gt; TT.now().latest    @ ei(server)</p></li>
+
+<li><p>Commit wait</p>
+
+<ul>
+<li>coordinator leader ensure that clients cannot see any data committed
+by Ti until TT.after(si)</li>
+</ul>
+
+<p>si &lt; TT.now().earliest  @ ei(commit)</p></li>
+</ul>
+
+<h3 id="tsafe">tsafe</h3>
+
+<ul>
+<li>when is it safer to read?</li>
+<li>each replica keeps a tsafe, which is the max TS at which a replica
+is up-to-date, i.e. read are safe if TS(read) &lt;= tsafe</li>
+
+<li><p>define</p>
+
+<p>tsafe = min(tpaxos(safe), ttm(safe))</p></li>
+
+<li><p>tpaxos(safe) = TS of the highest-applied paxos write</p></li>
+
+<li><p>ttm(safe)</p>
+
+<ul>
+<li>\(\infty\) if there are zero prepared but not committed
+transactions</li>
+
+<li><p>coordinator ensures that</p>
+
+<p>si &gt;= si,g(prepare)</p>
+
+<p>i.e. transaction&rsquo;s commit TS is greater that all participants
+si,g(prepare) amont all participant groups g</p></li>
+
+<li><p>ttm(safe) = mini(si,g(prepare)) -1 over all transactions prepared at g</p></li>
+</ul></li>
+</ul>
+
+<h3 id="read-only-transactions">read-only transactions</h3>
 
 <h2 id="microbenchmarks">Microbenchmarks</h2>
 
