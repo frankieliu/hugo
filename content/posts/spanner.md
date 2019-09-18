@@ -2,7 +2,7 @@
 title = "Spanner"
 author = ["adam"]
 date = 2019-09-17T18:45:19-07:00
-lastmod = 2019-09-18T11:31:37-07:00
+lastmod = 2019-09-18T11:46:05-07:00
 tags = ["spanner", "db", "google", "timestamp"]
 categories = ["spanner"]
 draft = false
@@ -247,6 +247,45 @@ Note: distinguish between Paxos writes and Spanner writes
     -   t(e1.commit) < t(e2.start) => s1 < s2
 
 {{< figure src="/images/spanner/spanner-two-phase-locking-a.svg" >}}
+
+-   Define arrival event of a commit request at coordinator for the write of
+    a transaction Ti to be ei(server)
+-   Start
+
+    si > TT.now().latest    @ ei(server)
+
+-   Commit wait
+
+    -   coordinator leader ensure that clients cannot see any data committed
+        by Ti until TT.after(si)
+
+    si < TT.now().earliest  @ ei(commit)
+
+
+### tsafe {#tsafe}
+
+-   when is it safer to read?
+-   each replica keeps a tsafe, which is the max TS at which a replica
+    is up-to-date, i.e. read are safe if TS(read) <= tsafe
+-   define
+
+    tsafe = min(tpaxos(safe), ttm(safe))
+
+-   tpaxos(safe) = TS of the highest-applied paxos write
+-   ttm(safe)
+    -   \\(\infty\\) if there are zero prepared but not committed
+        transactions
+    -   coordinator ensures that
+
+        si >= si,g(prepare)
+
+        i.e. transaction's commit TS is greater that all participants
+        si,g(prepare) amont all participant groups g
+
+    -   ttm(safe) = mini(si,g(prepare)) -1 over all transactions prepared at g
+
+
+### read-only transactions {#read-only-transactions}
 
 
 ## Microbenchmarks {#microbenchmarks}
