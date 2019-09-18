@@ -2,7 +2,7 @@
 title = "Spanner"
 author = ["adam"]
 date = 2019-09-17T18:45:19-07:00
-lastmod = 2019-09-18T10:37:35-07:00
+lastmod = 2019-09-18T11:31:37-07:00
 tags = ["spanner", "db", "google", "timestamp"]
 categories = ["spanner"]
 draft = false
@@ -196,6 +196,10 @@ TT.now() : returns TTinterval: [earliest, latest]
     -   non-blocking reads in the past
     -   audit read at TS t
 
+Note: distinguish between Paxos writes and Spanner writes
+
+-   paxos writes for 2-phase commits
+
 
 ### TS management {#ts-management}
 
@@ -233,7 +237,16 @@ TT.now() : returns TTinterval: [earliest, latest]
     -   simple in single leader
     -   enforced across leaders by disjointness invariant
         -   leader must only assign TS within interval of its leader lease
-        -   when TS s is assignde, smax is advanced to s to preserve disjointness
+        -   when TS s is assigned, smax is advanced to s to preserve disjointness
+
+
+### externally consistency invariant {#externally-consistency-invariant}
+
+-   if start of T2 is after commit of T1, T2's commit time > T1's commit time
+    -   define events for trans Ti: ei.start ei.commit si (commit time)
+    -   t(e1.commit) < t(e2.start) => s1 < s2
+
+{{< figure src="/images/spanner/spanner-two-phase-locking-a.svg" >}}
 
 
 ## Microbenchmarks {#microbenchmarks}
