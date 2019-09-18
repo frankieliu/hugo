@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>My New Hugo Site  | Spanner</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.58.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="https://www.frankliu.org/hugo/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+
+    <meta property="og:title" content="Spanner" />
+<meta property="og:description" content="Key to paper TrueTime exposes clock uncertainty, if the uncertainty is large, Spanner slows down to wait out the uncertainty. TS reflect serialization order, external consistency, or linearizability.
+Spanner zones Zone  zonemaster assigns data to spanservers (1000) location proxies used by clients to locate spanservers  Spanserver  responsible for 1000 tablets  Tablet  (key: string, timestamp: int64) -&gt; string more like multiversion kv store state store in a set of B-tree-like files and a write ahead log  in DFS called colossus  one Paxos state machine per tablet  Paxos  long time leader leases (10 sec) implements a consistently replicated bag of mappings writes initiates paxos protocol at leader reads access state directly from any replica set of replicas called Paxos group  Logs:  every &lsquo;Paxos write&rsquo; goes to tablet log and to Paxos logic  Replica leader  every leader replica implements a lock table contains the state for 2-phase locking  maps ranges of keys to lock states  leaders are long lived to maintain this lock table  performs poorly under optimistic concurrency control  replicas in paxos group called participant slaves implements a transaction manager  implements a participant leader used between other paxos groups for 2-phase commit   Participant/Coordinator  one participant leader (leader to a paxos group) is chosen as coordinator leader, other replica leader called coordinator slaves state of transaction manager store in underlying paxos group    Directory and placement directory  set of contiguous keys with common prefix unit of data placement -&gt; same replica config unit of data movement between paxos groups  paxos group/tablet  contains multiple directories not necessarily lex." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.frankliu.org/hugo/posts/spanner/" />
+<meta property="article:published_time" content="2019-09-17T18:45:19-07:00" />
+<meta property="article:modified_time" content="2019-09-18T10:37:35-07:00" />
+<meta itemprop="name" content="Spanner">
+<meta itemprop="description" content="Key to paper TrueTime exposes clock uncertainty, if the uncertainty is large, Spanner slows down to wait out the uncertainty. TS reflect serialization order, external consistency, or linearizability.
+Spanner zones Zone  zonemaster assigns data to spanservers (1000) location proxies used by clients to locate spanservers  Spanserver  responsible for 1000 tablets  Tablet  (key: string, timestamp: int64) -&gt; string more like multiversion kv store state store in a set of B-tree-like files and a write ahead log  in DFS called colossus  one Paxos state machine per tablet  Paxos  long time leader leases (10 sec) implements a consistently replicated bag of mappings writes initiates paxos protocol at leader reads access state directly from any replica set of replicas called Paxos group  Logs:  every &lsquo;Paxos write&rsquo; goes to tablet log and to Paxos logic  Replica leader  every leader replica implements a lock table contains the state for 2-phase locking  maps ranges of keys to lock states  leaders are long lived to maintain this lock table  performs poorly under optimistic concurrency control  replicas in paxos group called participant slaves implements a transaction manager  implements a participant leader used between other paxos groups for 2-phase commit   Participant/Coordinator  one participant leader (leader to a paxos group) is chosen as coordinator leader, other replica leader called coordinator slaves state of transaction manager store in underlying paxos group    Directory and placement directory  set of contiguous keys with common prefix unit of data placement -&gt; same replica config unit of data movement between paxos groups  paxos group/tablet  contains multiple directories not necessarily lex.">
+
+
+<meta itemprop="datePublished" content="2019-09-17T18:45:19-07:00" />
+<meta itemprop="dateModified" content="2019-09-18T10:37:35-07:00" />
+<meta itemprop="wordCount" content="994">
+
+
+
+<meta itemprop="keywords" content="spanner,db,google,timestamp," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spanner"/>
+<meta name="twitter:description" content="Key to paper TrueTime exposes clock uncertainty, if the uncertainty is large, Spanner slows down to wait out the uncertainty. TS reflect serialization order, external consistency, or linearizability.
+Spanner zones Zone  zonemaster assigns data to spanservers (1000) location proxies used by clients to locate spanservers  Spanserver  responsible for 1000 tablets  Tablet  (key: string, timestamp: int64) -&gt; string more like multiversion kv store state store in a set of B-tree-like files and a write ahead log  in DFS called colossus  one Paxos state machine per tablet  Paxos  long time leader leases (10 sec) implements a consistently replicated bag of mappings writes initiates paxos protocol at leader reads access state directly from any replica set of replicas called Paxos group  Logs:  every &lsquo;Paxos write&rsquo; goes to tablet log and to Paxos logic  Replica leader  every leader replica implements a lock table contains the state for 2-phase locking  maps ranges of keys to lock states  leaders are long lived to maintain this lock table  performs poorly under optimistic concurrency control  replicas in paxos group called participant slaves implements a transaction manager  implements a participant leader used between other paxos groups for 2-phase commit   Participant/Coordinator  one participant leader (leader to a paxos group) is chosen as coordinator leader, other replica leader called coordinator slaves state of transaction manager store in underlying paxos group    Directory and placement directory  set of contiguous keys with common prefix unit of data placement -&gt; same replica config unit of data movement between paxos groups  paxos group/tablet  contains multiple directories not necessarily lex."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://www.frankliu.org/hugo/" class="f3 fw2 hover-white no-underline white-90 dib">
+      My New Hugo Site
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/920-number-of-music-playlists/" title="920 Number of music playlists page">
+              920 Number of music playlists
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/mathjax-hugo/" title="Setting up mathjax for hugo page">
+              Setting up mathjax for hugo
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/dynamo/" title="DynamoDB page">
+              DynamoDB
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+    extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+    });
+</script>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">Spanner</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-09-17T18:45:19-07:00">September 17, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<h2 id="key-to-paper">Key to paper</h2>
+
+<p>TrueTime exposes clock uncertainty, if the uncertainty is large, Spanner slows
+down to wait out the uncertainty. TS reflect serialization order, external
+consistency, or linearizability.</p>
+
+<h2 id="spanner-zones">Spanner zones</h2>
+
+<h3 id="zone">Zone</h3>
+
+<ul>
+<li>zonemaster assigns data to spanservers (1000)</li>
+<li>location proxies used by clients to locate spanservers</li>
+</ul>
+
+<h3 id="spanserver">Spanserver</h3>
+
+<ul>
+<li>responsible for 1000 tablets</li>
+</ul>
+
+<h3 id="tablet">Tablet</h3>
+
+<ul>
+<li>(key: string, timestamp: int64) -&gt; string</li>
+<li>more like multiversion kv store</li>
+<li>state store in a set of B-tree-like files and a write ahead log
+
+<ul>
+<li>in DFS called colossus</li>
+</ul></li>
+<li>one Paxos state machine per tablet</li>
+</ul>
+
+<h3 id="paxos">Paxos</h3>
+
+<ul>
+<li>long time leader leases (10 sec)</li>
+<li>implements a consistently replicated bag of mappings</li>
+<li>writes initiates paxos protocol at leader</li>
+<li>reads access state directly from any replica</li>
+<li>set of replicas called Paxos group</li>
+</ul>
+
+<h4 id="logs">Logs:</h4>
+
+<ul>
+<li>every &lsquo;Paxos write&rsquo; goes to tablet log and to Paxos logic</li>
+</ul>
+
+<h3 id="replica-leader">Replica leader</h3>
+
+<ul>
+<li>every leader replica implements a lock table</li>
+<li>contains the state for 2-phase locking
+
+<ul>
+<li>maps ranges of keys to lock states</li>
+</ul></li>
+<li>leaders are long lived to maintain this lock table
+
+<ul>
+<li>performs poorly under optimistic concurrency control</li>
+</ul></li>
+<li>replicas in paxos group called participant slaves</li>
+<li>implements a transaction manager
+
+<ul>
+<li>implements a participant leader</li>
+<li>used between other paxos groups for 2-phase commit</li>
+</ul></li>
+</ul>
+
+<h3 id="participant-coordinator">Participant/Coordinator</h3>
+
+<ul>
+<li>one participant leader (leader to a paxos group) is chosen as
+coordinator leader, other replica leader called coordinator slaves</li>
+<li>state of transaction manager store in underlying paxos group</li>
+</ul>
+
+<figure>
+    <img src="https://www.frankliu.org/hugo/images/spanner/spanner-sw-stack.png"/> 
+</figure>
+
+
+<h2 id="directory-and-placement">Directory and placement</h2>
+
+<h3 id="directory">directory</h3>
+
+<ul>
+<li>set of contiguous keys with common prefix</li>
+<li>unit of data placement -&gt; same replica config</li>
+<li>unit of data movement between paxos groups</li>
+</ul>
+
+<h3 id="paxos-group-tablet">paxos group/tablet</h3>
+
+<ul>
+<li>contains multiple directories</li>
+<li>not necessarily lex. cont. partition of row space</li>
+<li>collocate directories that are freq. accessed together</li>
+</ul>
+
+<h3 id="movement-movedir">movement/movedir</h3>
+
+<ul>
+<li>used to add and remove replicas to p.groups</li>
+<li>not implemented as a single transaction
+
+<ul>
+<li>void blocking ongoing reads and writes</li>
+</ul></li>
+<li>moves data in the background</li>
+<li>small remaining amount uses a transaction to atom. move and update the
+metadata for the two paxos groups</li>
+</ul>
+
+<h3 id="geographical-replication">geographical replication</h3>
+
+<ul>
+<li>directory smallest unit for rep. config</li>
+<li>Options:
+
+<ul>
+<li>North America (one dimension)</li>
+<li>replicated 5 ways with 1 witness (second dimension)</li>
+</ul></li>
+<li>application tags data with these controls
+
+<ul>
+<li>store user A in 3 replicas in Europe</li>
+<li>store user B in 5 replicas in NA</li>
+</ul></li>
+</ul>
+
+<h3 id="fragments">fragments</h3>
+
+<ul>
+<li>directories are sharded into multiple fragments</li>
+<li>may be served from different Paxos groups</li>
+<li>movedir moves fragments</li>
+</ul>
+
+<figure>
+    <img src="https://www.frankliu.org/hugo/images/spanner/spanner-directories.png"/> 
+</figure>
+
+
+<h2 id="data-model">Data model</h2>
+
+<ul>
+<li>megastore
+
+<ul>
+<li>easier to use, trumps performance</li>
+<li>supports sync replication across dc&rsquo;s</li>
+<li>gmail, picasa, calendar, market, appengine</li>
+</ul></li>
+<li>dremel
+
+<ul>
+<li>interactive data analysis tools</li>
+</ul></li>
+<li>bigtable
+
+<ul>
+<li>no cross-row transactions</li>
+</ul></li>
+</ul>
+
+<h3 id="applications">applications</h3>
+
+<ul>
+<li>directory-bucketed kv mappings</li>
+<li>db can contain number of tables</li>
+</ul>
+
+<h3 id="data-model-1">data model</h3>
+
+<ul>
+<li>row have names</li>
+<li>table must have ordered set of one or more primary key cols</li>
+<li>primary keys form the name for a row</li>
+<li>table defines mapping from primary key cols to non-primary-key cols</li>
+</ul>
+
+<h3 id="hierarchy">hierarchy</h3>
+
+<ul>
+<li>INTERVEAVE IN: create a sub-directory</li>
+<li>directory table: table at top of hierarchy</li>
+<li>directory: row K in directory table + all rows in descendant
+tables with key K</li>
+<li>ON DELETE CASCADE: remove row K in directory table + propagate</li>
+</ul>
+
+<figure>
+    <img src="https://www.frankliu.org/hugo/images/spanner/spanner-directory-table.png"/> 
+</figure>
+
+
+<ul>
+<li>Albums are interleaved with the users</li>
+</ul>
+
+<h2 id="truetime">TrueTime</h2>
+
+<p>TT.now() : returns TTinterval: [earliest, latest]</p>
+
+<ul>
+<li><p>timemaster per datacenter</p>
+
+<ul>
+<li>have GPS receivers</li>
+<li>all timemasters&rsquo; are compared against each other</li>
+</ul></li>
+
+<li><p>armageddon master have atomic clocks</p>
+
+<ul>
+<li>between syncs, armageddon masters ad a slowly inc time uncertainty</li>
+</ul></li>
+
+<li><p>timeslave daemon per machine</p>
+
+<ul>
+<li>poll from masters</li>
+<li>implement Marzullo&rsquo;s algo to detect and reject liars</li>
+<li>sync local clock to non-liars</li>
+<li>between syncs, daemon ad a slowly inc time uncertainty
+
+<ul>
+<li>polls every 30s</li>
+<li>drift of 200us/s</li>
+<li>6 ms drift per polling + 1 ms communication delay</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h2 id="concurrency-control">Concurrency control</h2>
+
+<ul>
+<li>TrueTime allows
+
+<ul>
+<li>externally consistent transactions</li>
+<li>lock-free read-only transactions</li>
+<li>non-blocking reads in the past</li>
+<li>audit read at TS t</li>
+</ul></li>
+</ul>
+
+<h3 id="ts-management">TS management</h3>
+
+<ul>
+<li>supports
+
+<ul>
+<li>RW transactions</li>
+<li>read only transactions</li>
+<li>snapshot reads</li>
+<li>standalone writes -&gt; rw transactions</li>
+<li>non-snapshot reads as read only</li>
+</ul></li>
+<li>read-only trans
+
+<ul>
+<li>no writes</li>
+<li>execute at a system-chosen TS without locking</li>
+<li>incoming writes not blocked</li>
+<li>can go to any replica that is sufficiently up-to-date</li>
+</ul></li>
+<li>snapshot read
+
+<ul>
+<li>read in the past without locking</li>
+</ul></li>
+</ul>
+
+<h3 id="paxos-leader-lease">paxos leader lease</h3>
+
+<ul>
+<li>leaders live 10 seconds</li>
+<li>leader requests timed lease votes, if it gets a quorum it knows
+it has a lease</li>
+<li>replica extends its lease vote on a succ writes</li>
+<li>lease interval starts when it discovers it has a quorum</li>
+<li>ends when it no longer has a quorum (because of expiration)</li>
+<li>paxos leader lease interval is disjoint from other&rsquo;s</li>
+<li>abdication is permissible must wait TT.after(smax)</li>
+<li>trans read and writes use two-phase locking
+
+<ul>
+<li>TS when all locks acquired, before any release</li>
+<li>Spanner assigns TS that Paxos assigns to Paxos write (commit)</li>
+</ul></li>
+<li>DEPENDS on the monotonicity invariant
+
+<ul>
+<li>in each group, Spanner assigns TS to Paxos writes in mon. inc. order, even
+across leaders</li>
+<li>simple in single leader</li>
+<li>enforced across leaders by disjointness invariant
+
+<ul>
+<li>leader must only assign TS within interval of its leader lease</li>
+<li>when TS s is assignde, smax is advanced to s to preserve disjointness</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h2 id="microbenchmarks">Microbenchmarks</h2>
+
+<ul>
+<li>snapshot read execute on any up-to-date replica
+
+<ul>
+<li>linear increase with # replicas</li>
+</ul></li>
+<li>single read read-only execute at leaders because of TS
+
+<ul>
+<li>linear increase because # of effective spanservers increases</li>
+</ul></li>
+<li>write throughput
+
+<ul>
+<li>some increase but now more work to write to replicas</li>
+</ul></li>
+</ul>
+
+<h2 id="truetime-1">TrueTime</h2>
+
+<p>worst uncertainty by bad CPUs</p>
+
+<h2 id="f1">F1</h2>
+
+<ul>
+<li>10 TB data</li>
+<li>difficulties in sharing MySQL
+
+<ul>
+<li>assigned each customer and related data to a fixed shard</li>
+<li>allowed indexes and complex query processing on a per-customer basis
+
+<ul>
+<li>business logic has to be aware of sharding</li>
+</ul></li>
+<li>resharding takes a longtime</li>
+</ul></li>
+<li>Spanner
+
+<ul>
+<li>don&rsquo;t have to manually reshard</li>
+<li>provides synchronous replication and failover</li>
+<li>transactional semantics</li>
+<li>consistent global indexes</li>
+<li>application writes through Spanner</li>
+<li>timestamps - F1 can maintain in-mem data struct computed from DB state
+
+<ul>
+<li>logical history log of all changes</li>
+<li>snapshots for init and reads inc changes</li>
+</ul></li>
+</ul></li>
+<li>most directories in one fragment</li>
+<li>write latency pretty fat tail due to lock conflicts</li>
+<li>read latency larger SD due to paxos leaders spread across two data centers</li>
+</ul>
+
+<h2 id="related-work">Related work</h2>
+
+<ul>
+<li>integrating multiple layers:
+
+<ul>
+<li>integrating concurrency control with replication reduces the
+commit cost</li>
+</ul></li>
+<li>layering transactions on top of replication</li>
+<li>reduce locking overheads</li>
+<li>master slave replication over large area</li>
+<li>derivation of clock uncertainty</li>
+</ul>
+
+<h2 id="future-work">Future work</h2>
+
+<ul>
+<li>Moving data between datacenters automatically</li>
+<li>Move client-application processes between datacenters</li>
+</ul>
+
+<h2 id="conclusions">Conclusions</h2>
+
+<p>Linchpin is TrueTime</p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/spanner" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">spanner</a>
+   </li>
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/db" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">db</a>
+   </li>
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/google" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">google</a>
+   </li>
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/timestamp" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">timestamp</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="https://www.frankliu.org/hugo/posts/dynamo/">DynamoDB</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://www.frankliu.org/hugo/" >
+    &copy; 2019 My New Hugo Site
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="https://www.frankliu.org/hugo/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

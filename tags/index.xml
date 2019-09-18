@@ -6,10 +6,46 @@
     <description>Recent content in Tags on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Sep 2019 15:25:05 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 17 Sep 2019 18:45:19 -0700</lastBuildDate>
     
 	<atom:link href="https://www.frankliu.org/hugo/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>db</title>
+      <link>https://www.frankliu.org/hugo/tags/db/</link>
+      <pubDate>Tue, 17 Sep 2019 18:45:19 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/db/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>google</title>
+      <link>https://www.frankliu.org/hugo/tags/google/</link>
+      <pubDate>Tue, 17 Sep 2019 18:45:19 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/google/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spanner</title>
+      <link>https://www.frankliu.org/hugo/tags/spanner/</link>
+      <pubDate>Tue, 17 Sep 2019 18:45:19 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/spanner/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>timestamp</title>
+      <link>https://www.frankliu.org/hugo/tags/timestamp/</link>
+      <pubDate>Tue, 17 Sep 2019 18:45:19 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/timestamp/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>amazon</title>
@@ -17,15 +53,6 @@
       <pubDate>Sun, 15 Sep 2019 15:25:05 -0700</pubDate>
       
       <guid>https://www.frankliu.org/hugo/tags/amazon/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>db</title>
-      <link>https://www.frankliu.org/hugo/tags/db/</link>
-      <pubDate>Sun, 15 Sep 2019 15:25:05 -0700</pubDate>
-      
-      <guid>https://www.frankliu.org/hugo/tags/db/</guid>
       <description></description>
     </item>
     
