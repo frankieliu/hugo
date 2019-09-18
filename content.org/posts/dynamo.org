@@ -121,6 +121,12 @@
    for that key, wiates for $R$ responses before returning value to
    client
 ** handling failure
+- hinted handoff
+  - loose quorum membership "sloppy quorum" : first $N$ healthy
+    nodes from preference list
+
+  [[file:/images/dynamo/consistent-hashing.svg]]
+
 - anti-entropy, replica synchronization protocol
 - merkle tree
   - each branch can be checked independently without checking entire

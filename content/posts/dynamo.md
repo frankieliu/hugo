@@ -2,7 +2,7 @@
 title = "DynamoDB"
 author = ["adam"]
 date = 2019-09-15T15:25:05-07:00
-lastmod = 2019-09-16T21:08:18-07:00
+lastmod = 2019-09-17T15:23:30-07:00
 tags = ["dynamo", "db", "amazon", "scalable"]
 categories = ["scalable"]
 draft = false
@@ -155,6 +155,13 @@ mathjax = true
 
 
 ### handling failure {#handling-failure}
+
+-   hinted handoff
+
+    -   loose quorum membership "sloppy quorum" : first \\(N\\) healthy
+        nodes from preference list
+
+    {{< figure src="/images/dynamo/consistent-hashing.svg" >}}
 
 -   anti-entropy, replica synchronization protocol
 -   merkle tree
