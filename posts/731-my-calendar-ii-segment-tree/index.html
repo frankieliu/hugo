@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>My New Hugo Site  | 731 My Calendar II</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.58.3" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="https://www.frankliu.org/hugo/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+
+    <meta property="og:title" content="731 My Calendar II" />
+<meta property="og:description" content="Acknowledgement Taken from fun4leet&rsquo;s My Calendar II wonderful article
+tl;dr A max segment tree, with an incremental update function is sufficient for this problem. Max is used because such tree allows quick query of the max number of bookings given a range. Incremental update is useful because each time book is called, one needs to increment the bookings in a particular range.
+Data structure 4 things: a range \([l,r]\), data, lazy flag" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.frankliu.org/hugo/posts/731-my-calendar-ii-segment-tree/" />
+<meta property="article:published_time" content="2019-10-03T20:56:27-07:00" />
+<meta property="article:modified_time" content="2019-10-04T18:33:02-07:00" />
+<meta itemprop="name" content="731 My Calendar II">
+<meta itemprop="description" content="Acknowledgement Taken from fun4leet&rsquo;s My Calendar II wonderful article
+tl;dr A max segment tree, with an incremental update function is sufficient for this problem. Max is used because such tree allows quick query of the max number of bookings given a range. Incremental update is useful because each time book is called, one needs to increment the bookings in a particular range.
+Data structure 4 things: a range \([l,r]\), data, lazy flag">
+
+
+<meta itemprop="datePublished" content="2019-10-03T20:56:27-07:00" />
+<meta itemprop="dateModified" content="2019-10-04T18:33:02-07:00" />
+<meta itemprop="wordCount" content="661">
+
+
+
+<meta itemprop="keywords" content="leetcode," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="731 My Calendar II"/>
+<meta name="twitter:description" content="Acknowledgement Taken from fun4leet&rsquo;s My Calendar II wonderful article
+tl;dr A max segment tree, with an incremental update function is sufficient for this problem. Max is used because such tree allows quick query of the max number of bookings given a range. Incremental update is useful because each time book is called, one needs to increment the bookings in a particular range.
+Data structure 4 things: a range \([l,r]\), data, lazy flag"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://www.frankliu.org/hugo/" class="f3 fw2 hover-white no-underline white-90 dib">
+      My New Hugo Site
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/731-my-calendar-ii-segment-tree/" title="731 My Calendar II page">
+              731 My Calendar II
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/920-number-of-music-playlists/" title="920 Number of music playlists page">
+              920 Number of music playlists
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/mathjax-hugo/" title="Setting up mathjax for hugo page">
+              Setting up mathjax for hugo
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/dynamo/" title="DynamoDB page">
+              DynamoDB
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+    extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+    });
+</script>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">731 My Calendar II</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-10-03T20:56:27-07:00">October 3, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<h2 id="acknowledgement">Acknowledgement</h2>
+
+<p>Taken from fun4leet&rsquo;s My Calendar II wonderful article</p>
+
+<h2 id="tl-dr">tl;dr</h2>
+
+<p>A max segment tree, with an incremental update function is sufficient for this
+problem.  Max is used because such tree allows quick query of the max number
+of bookings given a range.  Incremental update is useful because each time
+<code>book</code> is called, one needs to increment the bookings in a particular range.</p>
+
+<h2 id="data-structure">Data structure</h2>
+
+<p>4 things: a range \([l,r]\), data, lazy flag</p>
+
+<h3 id="implementation">Implementation</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">segment_node</span>:
+    <span style="color:#66d9ef">def</span> __init__(self):
+        self<span style="color:#f92672">.</span>range <span style="color:#f92672">=</span> [None,None]
+        self<span style="color:#f92672">.</span>lazy <span style="color:#f92672">=</span> None
+
+        <span style="color:#75715e"># normal tree stuff below</span>
+        self<span style="color:#f92672">.</span>val <span style="color:#f92672">=</span> None
+        self<span style="color:#f92672">.</span>left <span style="color:#f92672">=</span> None
+        self<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> None</code></pre></div>
+<h2 id="api">API</h2>
+
+<h3 id="query--arange">query(arange)</h3>
+
+<ul>
+<li>check if query range is valid/invalid</li>
+<li>normalize: deal with lazy propagation</li>
+<li>return value if covers current segment</li>
+<li>recurse on left and right subtrees</li>
+<li>combine the left and right results</li>
+</ul>
+
+<!--listend-->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">query</span>(root, arange):
+
+    <span style="color:#75715e"># take care of edge cases</span>
+    <span style="color:#66d9ef">if</span> root <span style="color:#f92672">is</span> None:
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+    i,j <span style="color:#f92672">=</span> arange
+    si, sj <span style="color:#f92672">=</span> root<span style="color:#f92672">.</span>range
+    <span style="color:#66d9ef">if</span> i<span style="color:#f92672">&gt;</span>j <span style="color:#f92672">or</span> j<span style="color:#f92672">&lt;</span>si <span style="color:#f92672">or</span> i<span style="color:#f92672">&gt;</span>sj:
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+
+    <span style="color:#75715e"># normal case</span>
+    normalize(root)    <span style="color:#75715e"># deal with lazy</span>
+    <span style="color:#66d9ef">if</span> i<span style="color:#f92672">&lt;=</span>si <span style="color:#f92672">and</span> sj<span style="color:#f92672">&lt;=</span>j:
+        <span style="color:#66d9ef">return</span> root<span style="color:#f92672">.</span>val
+    <span style="color:#66d9ef">return</span> fcombine(query(root<span style="color:#f92672">.</span>left, arange), query(root,right, arange))</code></pre></div>
+<h3 id="update--arange-val">update(arange,val)</h3>
+
+<ul>
+<li>check if arange is valid/invalid</li>
+<li>normalize</li>
+<li>if arange covers current segment, update segment, mark children as lazy</li>
+<li>recurse to left and right subtrees with the same arange</li>
+<li>propagate results from left and right subtrees back to parent node</li>
+</ul>
+
+<!--listend-->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">update</span>(root, arange, val):
+
+    <span style="color:#66d9ef">if</span> root <span style="color:#f92672">is</span> None:
+        <span style="color:#66d9ef">return</span>
+    i,j <span style="color:#f92672">=</span> arange
+    si,sj <span style="color:#f92672">=</span> root<span style="color:#f92672">.</span>range
+    <span style="color:#66d9ef">if</span> i<span style="color:#f92672">&gt;</span>j <span style="color:#f92672">or</span> j<span style="color:#f92672">&lt;</span>si <span style="color:#f92672">or</span> i<span style="color:#f92672">&gt;</span>sj:
+        <span style="color:#66d9ef">return</span>
+
+    normalize(root)
+    <span style="color:#66d9ef">if</span> i <span style="color:#f92672">&lt;=</span> si <span style="color:#f92672">and</span> sj <span style="color:#f92672">&lt;=</span> j:
+        root<span style="color:#f92672">.</span>lazy <span style="color:#f92672">=</span> val
+        normalize(root)
+        <span style="color:#66d9ef">return</span>
+    update(root<span style="color:#f92672">.</span>left, arange, val)
+    update(root<span style="color:#f92672">.</span>right, arange, val)
+    root<span style="color:#f92672">.</span>val <span style="color:#f92672">=</span> fcombine(root<span style="color:#f92672">.</span>left<span style="color:#f92672">.</span>val, root<span style="color:#f92672">.</span>right<span style="color:#f92672">.</span>val)</code></pre></div>
+<h3 id="normalize">normalize</h3>
+
+<ul>
+<li>if lazy is not None, then update the node&rsquo;s value, push laziness to children</li>
+</ul>
+
+<!--listend-->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">normalize</span>(root):
+    <span style="color:#66d9ef">if</span> root <span style="color:#f92672">is</span> None:
+        <span style="color:#66d9ef">return</span>
+    <span style="color:#66d9ef">if</span> root<span style="color:#f92672">.</span>lazy <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None:
+        root<span style="color:#f92672">.</span>val <span style="color:#f92672">=</span> fupdate(root<span style="color:#f92672">.</span>val, root<span style="color:#f92672">.</span>lazy)
+    si,sj <span style="color:#f92672">=</span> root<span style="color:#f92672">.</span>range
+    <span style="color:#66d9ef">if</span> si <span style="color:#f92672">&lt;</span> sj:
+        <span style="color:#66d9ef">if</span> root<span style="color:#f92672">.</span>left <span style="color:#f92672">is</span> None <span style="color:#f92672">or</span> root<span style="color:#f92672">.</span>right <span style="color:#f92672">is</span> None:
+           mid <span style="color:#f92672">=</span> (si <span style="color:#f92672">+</span> sj) <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>
+           root<span style="color:#f92672">.</span>left <span style="color:#f92672">=</span> segment_node((si,mid), root<span style="color:#f92672">.</span>val)
+           root<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> segment_node((mid<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>,sj), root<span style="color:#f92672">.</span>val)
+        <span style="color:#66d9ef">elif</span> root<span style="color:#f92672">.</span>lazy <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None:
+            root<span style="color:#f92672">.</span>left<span style="color:#f92672">.</span>lazy <span style="color:#f92672">=</span> fupdate(root<span style="color:#f92672">.</span>left<span style="color:#f92672">.</span>lazy, root<span style="color:#f92672">.</span>lazy)
+            root<span style="color:#f92672">.</span>right<span style="color:#f92672">.</span>lazy <span style="color:#f92672">=</span> fupdate(root<span style="color:#f92672">.</span>right<span style="color:#f92672">.</span>lazy, root<span style="color:#f92672">.</span>lazy)
+    root<span style="color:#f92672">.</span>lazy <span style="color:#f92672">=</span> None</code></pre></div>
+<h2 id="for-the-problem">For the problem</h2>
+
+<h3 id="initialization">initialization</h3>
+
+<p>Root node contains the whole range (0, 1e9) with everything initialized to 0.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">root <span style="color:#f92672">=</span> segment_node((<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1000000000</span>),<span style="color:#ae81ff">0</span>)</code></pre></div>
+<h3 id="book--arange">book(arange)</h3>
+
+<ul>
+<li>if \(k&gt;=2\) in range, then adding this booking will result in a triple
+booking, function returns false</li>
+<li>else update range and return true</li>
+</ul>
+
+<!--listend-->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">book</span>(arange):
+    k <span style="color:#f92672">=</span> query(root, arange)
+    <span style="color:#66d9ef">if</span> k <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">2</span>:
+        <span style="color:#66d9ef">return</span> False
+    update(root, arange, <span style="color:#ae81ff">1</span>)
+    <span style="color:#66d9ef">return</span> True</code></pre></div>
+<h2 id="complexity">Complexity</h2>
+
+<p>In <code>book</code>, there is one query and one update, both of which take \(\log(d)\) where
+\(d\) is the max range.  For \(n\) calls to <code>book</code>, \(O(n \log d)\).</p>
+
+<p>In the worst case, each call to <code>book</code> generates a completely separate range.
+Assuming this reaches down to leaf nodes, then \(O(n \log d)\) is used.</p>
+
+<h2 id="k-booking">K booking</h2>
+
+<p>The only modification in <code>book</code> is to compare \(k&gt;=K-1\).</p>
+
+<h2 id="full-solution">Full solution</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">segment_node</span>:
+    <span style="color:#66d9ef">def</span> __init__(self, arange, val):
+        self<span style="color:#f92672">.</span>range <span style="color:#f92672">=</span> arange
+        self<span style="color:#f92672">.</span>lazy <span style="color:#f92672">=</span> None
+
+        self<span style="color:#f92672">.</span>val <span style="color:#f92672">=</span> val
+        self<span style="color:#f92672">.</span>left <span style="color:#f92672">=</span> None
+        self<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> None
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">query</span>(root, arange):
+    <span style="color:#66d9ef">if</span> root <span style="color:#f92672">is</span> None:
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+    normalize(root)
+    i,j <span style="color:#f92672">=</span> arange
+    si,sj <span style="color:#f92672">=</span> root<span style="color:#f92672">.</span>range
+    <span style="color:#66d9ef">if</span> i<span style="color:#f92672">&gt;</span>j <span style="color:#f92672">or</span> j<span style="color:#f92672">&lt;</span>si <span style="color:#f92672">or</span> i<span style="color:#f92672">&gt;</span>sj:
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+    <span style="color:#66d9ef">if</span> i <span style="color:#f92672">&lt;=</span> si <span style="color:#f92672">and</span> sj <span style="color:#f92672">&lt;=</span> j:
+        <span style="color:#66d9ef">return</span> root<span style="color:#f92672">.</span>val
+    <span style="color:#66d9ef">return</span> max(query(root<span style="color:#f92672">.</span>left,arange),query(root<span style="color:#f92672">.</span>right,arange))
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">update</span>(root, arange, val):
+    <span style="color:#66d9ef">if</span> root <span style="color:#f92672">is</span> None:
+        <span style="color:#66d9ef">return</span>
+    i,j <span style="color:#f92672">=</span> arange
+    si,sj <span style="color:#f92672">=</span> root<span style="color:#f92672">.</span>range
+    <span style="color:#66d9ef">if</span> i<span style="color:#f92672">&gt;</span>j <span style="color:#f92672">or</span> j<span style="color:#f92672">&lt;</span>si <span style="color:#f92672">or</span> i<span style="color:#f92672">&gt;</span>sj:
+        <span style="color:#66d9ef">return</span>
+
+    normalize(root)
+    <span style="color:#66d9ef">if</span> i<span style="color:#f92672">&lt;=</span>si <span style="color:#f92672">and</span> sj<span style="color:#f92672">&lt;=</span>j:
+        root<span style="color:#f92672">.</span>lazy <span style="color:#f92672">=</span> val
+        normalize(root)
+        <span style="color:#66d9ef">return</span>
+    update(root<span style="color:#f92672">.</span>left, arange, val)
+    update(root<span style="color:#f92672">.</span>right, arange, val)
+    root<span style="color:#f92672">.</span>val <span style="color:#f92672">=</span> max(root<span style="color:#f92672">.</span>left<span style="color:#f92672">.</span>val, root<span style="color:#f92672">.</span>light<span style="color:#f92672">.</span>val)
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">normalize</span>(root):
+    <span style="color:#66d9ef">if</span> root <span style="color:#f92672">is</span> None:
+        <span style="color:#66d9ef">return</span>
+    <span style="color:#66d9ef">if</span> root<span style="color:#f92672">.</span>lazy <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None:
+        root<span style="color:#f92672">.</span>val <span style="color:#f92672">=</span> root<span style="color:#f92672">.</span>val <span style="color:#f92672">+</span> root<span style="color:#f92672">.</span>lazy
+    si,sj <span style="color:#f92672">=</span> root<span style="color:#f92672">.</span>range
+    <span style="color:#66d9ef">if</span> si <span style="color:#f92672">&lt;</span> sj:
+        <span style="color:#66d9ef">if</span> root<span style="color:#f92672">.</span>left <span style="color:#f92672">is</span> None <span style="color:#f92672">or</span> root<span style="color:#f92672">.</span>right <span style="color:#f92672">is</span> None:
+            mid <span style="color:#f92672">=</span> (si <span style="color:#f92672">+</span> sj) <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>
+            root<span style="color:#f92672">.</span>left <span style="color:#f92672">=</span> segment_node((si, mid), root<span style="color:#f92672">.</span>val)
+            root<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> segment_node((mid<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>,sj), root<span style="color:#f92672">.</span>val)
+        <span style="color:#66d9ef">elif</span> root<span style="color:#f92672">.</span>lazy <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None:
+            root<span style="color:#f92672">.</span>left<span style="color:#f92672">.</span>lazy <span style="color:#f92672">=</span> root<span style="color:#f92672">.</span>left<span style="color:#f92672">.</span>lazy <span style="color:#f92672">+</span> root<span style="color:#f92672">.</span>lazy
+            root<span style="color:#f92672">.</span>right<span style="color:#f92672">.</span>lazy <span style="color:#f92672">=</span> root<span style="color:#f92672">.</span>right<span style="color:#f92672">.</span>lazy <span style="color:#f92672">+</span> root<span style="color:#f92672">.</span>lazy
+    root<span style="color:#f92672">.</span>lazy <span style="color:#f92672">=</span> None
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyCalendarTwo</span>:
+    <span style="color:#66d9ef">def</span> __init__(self):
+        self<span style="color:#f92672">.</span>root <span style="color:#f92672">=</span> segment_node((<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1000000000</span>),<span style="color:#ae81ff">0</span>)
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">book</span>(self, start, end):
+        arange <span style="color:#f92672">=</span> (start,end)
+        k <span style="color:#f92672">=</span> query(self<span style="color:#f92672">.</span>root, arange)
+        <span style="color:#66d9ef">if</span> k <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">2</span>:
+            <span style="color:#66d9ef">return</span> False
+        update(self<span style="color:#f92672">.</span>root, arange)
+        <span style="color:#66d9ef">return</span> True</code></pre></div><ul class="pa0">
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/leetcode" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">leetcode</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="https://www.frankliu.org/hugo/posts/920-number-of-music-playlists/">920 Number of music playlists</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://www.frankliu.org/hugo/" >
+    &copy; 2019 My New Hugo Site
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="https://www.frankliu.org/hugo/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
