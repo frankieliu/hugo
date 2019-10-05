@@ -2,7 +2,7 @@
 title = "Spanner"
 author = ["adam"]
 date = 2019-09-17T18:45:19-07:00
-lastmod = 2019-09-18T11:46:05-07:00
+lastmod = 2019-09-18T11:53:18-07:00
 tags = ["spanner", "db", "google", "timestamp"]
 categories = ["spanner"]
 draft = false
@@ -286,6 +286,22 @@ Note: distinguish between Paxos writes and Spanner writes
 
 
 ### read-only transactions {#read-only-transactions}
+
+RO transactions 2 phases:
+
+-   assign TS sread
+-   execute read from snapshot at sread
+
+sread > TT.now().latest  @ ei.start
+
+-   preserves external consistency
+-   may require block if tsafe has not advanced sufficiently
+-   sread may also advance smax to preserve disjointness
+-   to reduce blocking, assign the oldest TS that preserves
+    external consistency
+
+
+## TrueTime details {#truetime-details}
 
 
 ## Microbenchmarks {#microbenchmarks}

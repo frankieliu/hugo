@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2019-10-04 Fri 18:32 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>"731 My Calendar II"</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="adam" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">"731 My Calendar II"</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org15661ae">1. Acknowledgement</a></li>
+<li><a href="#org5dd41a3">2. tl;dr</a></li>
+<li><a href="#orgc1ddda0">3. Data structure</a>
+<ul>
+<li><a href="#orge5ee650">3.1. Implementation</a></li>
+</ul>
+</li>
+<li><a href="#org060ac4a">4. API</a>
+<ul>
+<li><a href="#orgc44a674">4.1. query(arange)</a></li>
+<li><a href="#org41013aa">4.2. update(arange,val)</a></li>
+<li><a href="#org8c32048">4.3. normalize</a></li>
+</ul>
+</li>
+<li><a href="#orgf485ff6">5. For the problem</a>
+<ul>
+<li><a href="#org256c594">5.1. initialization</a></li>
+<li><a href="#org0b2a437">5.2. book(arange)</a></li>
+</ul>
+</li>
+<li><a href="#org0f5865c">6. Complexity</a></li>
+<li><a href="#orgc264b6c">7. K booking</a></li>
+<li><a href="#org70b0f2c">8. Full solution</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org15661ae" class="outline-2">
+<h2 id="org15661ae"><span class="section-number-2">1</span> Acknowledgement</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Taken from fun4leet's My Calendar II wonderful article
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5dd41a3" class="outline-2">
+<h2 id="org5dd41a3"><span class="section-number-2">2</span> tl;dr</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+A max segment tree, with an incremental update function is sufficient for this
+problem.  Max is used because such tree allows quick query of the max number
+of bookings given a range.  Incremental update is useful because each time 
+<code>book</code> is called, one needs to increment the bookings in a particular range.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc1ddda0" class="outline-2">
+<h2 id="orgc1ddda0"><span class="section-number-2">3</span> Data structure</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+4 things: a range \([l,r]\), data, lazy flag
+</p>
+</div>
+
+<div id="outline-container-orge5ee650" class="outline-3">
+<h3 id="orge5ee650"><span class="section-number-3">3.1</span> Implementation</h3>
+<div class="outline-text-3" id="text-3-1">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">segment_node</span>:
+    <span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">__init__</span><span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">self</span><span style="color: #4f97d7;">)</span>:
+        <span style="color: #4f97d7; font-weight: bold;">self</span>.<span style="color: #4f97d7;">range</span> = <span style="color: #4f97d7;">[</span><span style="color: #a45bad;">None</span>,<span style="color: #a45bad;">None</span><span style="color: #4f97d7;">]</span>
+        <span style="color: #4f97d7; font-weight: bold;">self</span>.lazy = <span style="color: #a45bad;">None</span>
+
+        <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">normal tree stuff below</span>
+        <span style="color: #4f97d7; font-weight: bold;">self</span>.val = <span style="color: #a45bad;">None</span>
+        <span style="color: #4f97d7; font-weight: bold;">self</span>.left = <span style="color: #a45bad;">None</span>
+        <span style="color: #4f97d7; font-weight: bold;">self</span>.right = <span style="color: #a45bad;">None</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org060ac4a" class="outline-2">
+<h2 id="org060ac4a"><span class="section-number-2">4</span> API</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orgc44a674" class="outline-3">
+<h3 id="orgc44a674"><span class="section-number-3">4.1</span> query(arange)</h3>
+<div class="outline-text-3" id="text-4-1">
+<ul class="org-ul">
+<li>check if query range is valid/invalid</li>
+<li>normalize: deal with lazy propagation</li>
+<li>return value if covers current segment</li>
+<li>recurse on left and right subtrees</li>
+<li>combine the left and right results</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">query</span><span style="color: #4f97d7;">(</span>root, arange<span style="color: #4f97d7;">)</span>:
+
+    <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">take care of edge cases </span>
+    <span style="color: #4f97d7; font-weight: bold;">if</span> root <span style="color: #4f97d7; font-weight: bold;">is</span> <span style="color: #a45bad;">None</span>:
+        <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #a45bad;">0</span>
+    <span style="color: #7590db;">i</span>,<span style="color: #7590db;">j</span> = arange
+    <span style="color: #7590db;">si</span>, <span style="color: #7590db;">sj</span> = root.<span style="color: #4f97d7;">range</span>
+    <span style="color: #4f97d7; font-weight: bold;">if</span> i&gt;j <span style="color: #4f97d7; font-weight: bold;">or</span> j&lt;si <span style="color: #4f97d7; font-weight: bold;">or</span> i&gt;sj:
+        <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #a45bad;">0</span>
+
+    <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">normal case </span>
+    normalize<span style="color: #4f97d7;">(</span>root<span style="color: #4f97d7;">)</span>    <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">deal with lazy</span>
+    <span style="color: #4f97d7; font-weight: bold;">if</span> i&lt;=si <span style="color: #4f97d7; font-weight: bold;">and</span> sj&lt;=j:
+        <span style="color: #4f97d7; font-weight: bold;">return</span> root.val
+    <span style="color: #4f97d7; font-weight: bold;">return</span> fcombine<span style="color: #4f97d7;">(</span>query<span style="color: #bc6ec5;">(</span>root.left, arange<span style="color: #bc6ec5;">)</span>, query<span style="color: #bc6ec5;">(</span>root,right, arange<span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org41013aa" class="outline-3">
+<h3 id="org41013aa"><span class="section-number-3">4.2</span> update(arange,val)</h3>
+<div class="outline-text-3" id="text-4-2">
+<ul class="org-ul">
+<li>check if arange is valid/invalid</li>
+<li>normalize</li>
+<li>if arange covers current segment, update segment, mark children as lazy</li>
+<li>recurse to left and right subtrees with the same arange</li>
+<li>propagate results from left and right subtrees back to parent node</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">update</span><span style="color: #4f97d7;">(</span>root, arange, val<span style="color: #4f97d7;">)</span>:
+
+    <span style="color: #4f97d7; font-weight: bold;">if</span> root <span style="color: #4f97d7; font-weight: bold;">is</span> <span style="color: #a45bad;">None</span>:
+        <span style="color: #4f97d7; font-weight: bold;">return</span>
+    <span style="color: #7590db;">i</span>,<span style="color: #7590db;">j</span> = arange
+    <span style="color: #7590db;">si</span>,<span style="color: #7590db;">sj</span> = root.<span style="color: #4f97d7;">range</span>
+    <span style="color: #4f97d7; font-weight: bold;">if</span> i&gt;j <span style="color: #4f97d7; font-weight: bold;">or</span> j&lt;si <span style="color: #4f97d7; font-weight: bold;">or</span> i&gt;sj:
+        <span style="color: #4f97d7; font-weight: bold;">return</span>
+
+    normalize<span style="color: #4f97d7;">(</span>root<span style="color: #4f97d7;">)</span>
+    <span style="color: #4f97d7; font-weight: bold;">if</span> i &lt;= si <span style="color: #4f97d7; font-weight: bold;">and</span> sj &lt;= j:
+        <span style="color: #7590db;">root.lazy</span> = val
+        normalize<span style="color: #4f97d7;">(</span>root<span style="color: #4f97d7;">)</span>
+        <span style="color: #4f97d7; font-weight: bold;">return</span>
+    update<span style="color: #4f97d7;">(</span>root.left, arange, val<span style="color: #4f97d7;">)</span>
+    update<span style="color: #4f97d7;">(</span>root.right, arange, val<span style="color: #4f97d7;">)</span>
+    <span style="color: #7590db;">root.val</span> = fcombine<span style="color: #4f97d7;">(</span>root.left.val, root.right.val<span style="color: #4f97d7;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8c32048" class="outline-3">
+<h3 id="org8c32048"><span class="section-number-3">4.3</span> normalize</h3>
+<div class="outline-text-3" id="text-4-3">
+<ul class="org-ul">
+<li>if lazy is not None, then update the node's value, push laziness to children</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">normalize</span><span style="color: #4f97d7;">(</span>root<span style="color: #4f97d7;">)</span>:
+    <span style="color: #4f97d7; font-weight: bold;">if</span> root <span style="color: #4f97d7; font-weight: bold;">is</span> <span style="color: #a45bad;">None</span>:
+        <span style="color: #4f97d7; font-weight: bold;">return</span>
+    <span style="color: #4f97d7; font-weight: bold;">if</span> root.lazy <span style="color: #4f97d7; font-weight: bold;">is</span> <span style="color: #4f97d7; font-weight: bold;">not</span> <span style="color: #a45bad;">None</span>:
+        <span style="color: #7590db;">root.val</span> = fupdate<span style="color: #4f97d7;">(</span>root.val, root.lazy<span style="color: #4f97d7;">)</span>
+    <span style="color: #7590db;">si</span>,<span style="color: #7590db;">sj</span> = root.<span style="color: #4f97d7;">range</span>
+    <span style="color: #4f97d7; font-weight: bold;">if</span> si &lt; sj:
+        <span style="color: #4f97d7; font-weight: bold;">if</span> root.left <span style="color: #4f97d7; font-weight: bold;">is</span> <span style="color: #a45bad;">None</span> <span style="color: #4f97d7; font-weight: bold;">or</span> root.right <span style="color: #4f97d7; font-weight: bold;">is</span> <span style="color: #a45bad;">None</span>:
+           <span style="color: #7590db;">mid</span> = <span style="color: #4f97d7;">(</span>si + sj<span style="color: #4f97d7;">)</span> // <span style="color: #a45bad;">2</span>
+           <span style="color: #7590db;">root.left</span> = segment_node<span style="color: #4f97d7;">(</span><span style="color: #bc6ec5;">(</span>si,mid<span style="color: #bc6ec5;">)</span>, root.val<span style="color: #4f97d7;">)</span>
+           <span style="color: #7590db;">root.right</span> = segment_node<span style="color: #4f97d7;">(</span><span style="color: #bc6ec5;">(</span>mid+<span style="color: #a45bad;">1</span>,sj<span style="color: #bc6ec5;">)</span>, root.val<span style="color: #4f97d7;">)</span>
+        <span style="color: #4f97d7; font-weight: bold;">elif</span> root.lazy <span style="color: #4f97d7; font-weight: bold;">is</span> <span style="color: #4f97d7; font-weight: bold;">not</span> <span style="color: #a45bad;">None</span>:
+            <span style="color: #7590db;">root.left.lazy</span> = fupdate<span style="color: #4f97d7;">(</span>root.left.lazy, root.lazy<span style="color: #4f97d7;">)</span>
+            <span style="color: #7590db;">root.right.lazy</span> = fupdate<span style="color: #4f97d7;">(</span>root.right.lazy, root.lazy<span style="color: #4f97d7;">)</span>
+    <span style="color: #7590db;">root.lazy</span> = <span style="color: #a45bad;">None</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf485ff6" class="outline-2">
+<h2 id="orgf485ff6"><span class="section-number-2">5</span> For the problem</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-org256c594" class="outline-3">
+<h3 id="org256c594"><span class="section-number-3">5.1</span> initialization</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+Root node contains the whole range (0, 1e9) with everything initialized to 0.
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #7590db;">root</span> = segment_node<span style="color: #4f97d7;">(</span><span style="color: #bc6ec5;">(</span><span style="color: #a45bad;">0</span>,<span style="color: #a45bad;">1000000000</span><span style="color: #bc6ec5;">)</span>,<span style="color: #a45bad;">0</span><span style="color: #4f97d7;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0b2a437" class="outline-3">
+<h3 id="org0b2a437"><span class="section-number-3">5.2</span> book(arange)</h3>
+<div class="outline-text-3" id="text-5-2">
+<ul class="org-ul">
+<li>if \(k>=2\) in range, then adding this booking will result in a triple
+booking, function returns false</li>
+<li>else update range and return true</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">book</span><span style="color: #4f97d7;">(</span>arange<span style="color: #4f97d7;">)</span>:
+    <span style="color: #7590db;">k</span> = query<span style="color: #4f97d7;">(</span>root, arange<span style="color: #4f97d7;">)</span>
+    <span style="color: #4f97d7; font-weight: bold;">if</span> k &gt;= <span style="color: #a45bad;">2</span>:
+        <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #a45bad;">False</span>
+    update<span style="color: #4f97d7;">(</span>root, arange, <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">)</span>
+    <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #a45bad;">True</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0f5865c" class="outline-2">
+<h2 id="org0f5865c"><span class="section-number-2">6</span> Complexity</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+In <code>book</code>, there is one query and one update, both of which take \(\log(d)\) where
+\(d\) is the max range.  For \(n\) calls to <code>book</code>, \(O(n \log d)\).
+</p>
+
+<p>
+In the worst case, each call to <code>book</code> generates a completely separate range.
+Assuming this reaches down to leaf nodes, then \(O(n \log d)\) is used.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc264b6c" class="outline-2">
+<h2 id="orgc264b6c"><span class="section-number-2">7</span> K booking</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+The only modification in <code>book</code> is to compare \(k>=K-1\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org70b0f2c" class="outline-2">
+<h2 id="org70b0f2c"><span class="section-number-2">8</span> Full solution</h2>
+<div class="outline-text-2" id="text-8">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">segment_node</span>:
+    <span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">__init__</span><span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">self</span>, arange, val<span style="color: #4f97d7;">)</span>:
+        <span style="color: #4f97d7; font-weight: bold;">self</span>.<span style="color: #4f97d7;">range</span> = arange
+        <span style="color: #4f97d7; font-weight: bold;">self</span>.lazy = <span style="color: #a45bad;">None</span>
+
+        <span style="color: #4f97d7; font-weight: bold;">self</span>.val = val
+        <span style="color: #4f97d7; font-weight: bold;">self</span>.left = <span style="color: #a45bad;">None</span>
+        <span style="color: #4f97d7; font-weight: bold;">self</span>.right = <span style="color: #a45bad;">None</span>
+
+<span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">query</span><span style="color: #4f97d7;">(</span>root, arange<span style="color: #4f97d7;">)</span>:
+    <span style="color: #4f97d7; font-weight: bold;">if</span> root <span style="color: #4f97d7; font-weight: bold;">is</span> <span style="color: #a45bad;">None</span>:
+        <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #a45bad;">0</span>
+    normalize<span style="color: #4f97d7;">(</span>root<span style="color: #4f97d7;">)</span>
+    <span style="color: #7590db;">i</span>,<span style="color: #7590db;">j</span> = arange
+    <span style="color: #7590db;">si</span>,<span style="color: #7590db;">sj</span> = root.<span style="color: #4f97d7;">range</span>
+    <span style="color: #4f97d7; font-weight: bold;">if</span> i&gt;j <span style="color: #4f97d7; font-weight: bold;">or</span> j&lt;si <span style="color: #4f97d7; font-weight: bold;">or</span> i&gt;sj:
+        <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #a45bad;">0</span>
+    <span style="color: #4f97d7; font-weight: bold;">if</span> i &lt;= si <span style="color: #4f97d7; font-weight: bold;">and</span> sj &lt;= j:
+        <span style="color: #4f97d7; font-weight: bold;">return</span> root.val
+    <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #4f97d7;">max</span><span style="color: #4f97d7;">(</span>query<span style="color: #bc6ec5;">(</span>root.left,arange<span style="color: #bc6ec5;">)</span>,query<span style="color: #bc6ec5;">(</span>root.right,arange<span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
+
+<span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">update</span><span style="color: #4f97d7;">(</span>root, arange, val<span style="color: #4f97d7;">)</span>:
+    <span style="color: #4f97d7; font-weight: bold;">if</span> root <span style="color: #4f97d7; font-weight: bold;">is</span> <span style="color: #a45bad;">None</span>:
+        <span style="color: #4f97d7; font-weight: bold;">return</span>
+    <span style="color: #7590db;">i</span>,<span style="color: #7590db;">j</span> = arange
+    <span style="color: #7590db;">si</span>,<span style="color: #7590db;">sj</span> = root.<span style="color: #4f97d7;">range</span>
+    <span style="color: #4f97d7; font-weight: bold;">if</span> i&gt;j <span style="color: #4f97d7; font-weight: bold;">or</span> j&lt;si <span style="color: #4f97d7; font-weight: bold;">or</span> i&gt;sj:
+        <span style="color: #4f97d7; font-weight: bold;">return</span>
+
+    normalize<span style="color: #4f97d7;">(</span>root<span style="color: #4f97d7;">)</span>
+    <span style="color: #4f97d7; font-weight: bold;">if</span> i&lt;=si <span style="color: #4f97d7; font-weight: bold;">and</span> sj&lt;=j:
+        <span style="color: #7590db;">root.lazy</span> = val
+        normalize<span style="color: #4f97d7;">(</span>root<span style="color: #4f97d7;">)</span>
+        <span style="color: #4f97d7; font-weight: bold;">return</span>
+    update<span style="color: #4f97d7;">(</span>root.left, arange, val<span style="color: #4f97d7;">)</span>
+    update<span style="color: #4f97d7;">(</span>root.right, arange, val<span style="color: #4f97d7;">)</span>
+    <span style="color: #7590db;">root.val</span> = <span style="color: #4f97d7;">max</span><span style="color: #4f97d7;">(</span>root.left.val, root.light.val<span style="color: #4f97d7;">)</span>
+
+<span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">normalize</span><span style="color: #4f97d7;">(</span>root<span style="color: #4f97d7;">)</span>:
+    <span style="color: #4f97d7; font-weight: bold;">if</span> root <span style="color: #4f97d7; font-weight: bold;">is</span> <span style="color: #a45bad;">None</span>:
+        <span style="color: #4f97d7; font-weight: bold;">return</span>
+    <span style="color: #4f97d7; font-weight: bold;">if</span> root.lazy <span style="color: #4f97d7; font-weight: bold;">is</span> <span style="color: #4f97d7; font-weight: bold;">not</span> <span style="color: #a45bad;">None</span>:
+        <span style="color: #7590db;">root.val</span> = root.val + root.lazy
+    <span style="color: #7590db;">si</span>,<span style="color: #7590db;">sj</span> = root.<span style="color: #4f97d7;">range</span>
+    <span style="color: #4f97d7; font-weight: bold;">if</span> si &lt; sj:
+        <span style="color: #4f97d7; font-weight: bold;">if</span> root.left <span style="color: #4f97d7; font-weight: bold;">is</span> <span style="color: #a45bad;">None</span> <span style="color: #4f97d7; font-weight: bold;">or</span> root.right <span style="color: #4f97d7; font-weight: bold;">is</span> <span style="color: #a45bad;">None</span>:
+            <span style="color: #7590db;">mid</span> = <span style="color: #4f97d7;">(</span>si + sj<span style="color: #4f97d7;">)</span> // <span style="color: #a45bad;">2</span>
+            <span style="color: #7590db;">root.left</span> = segment_node<span style="color: #4f97d7;">(</span><span style="color: #bc6ec5;">(</span>si, mid<span style="color: #bc6ec5;">)</span>, root.val<span style="color: #4f97d7;">)</span>
+            <span style="color: #7590db;">root.right</span> = segment_node<span style="color: #4f97d7;">(</span><span style="color: #bc6ec5;">(</span>mid+<span style="color: #a45bad;">1</span>,sj<span style="color: #bc6ec5;">)</span>, root.val<span style="color: #4f97d7;">)</span>
+        <span style="color: #4f97d7; font-weight: bold;">elif</span> root.lazy <span style="color: #4f97d7; font-weight: bold;">is</span> <span style="color: #4f97d7; font-weight: bold;">not</span> <span style="color: #a45bad;">None</span>:
+            <span style="color: #7590db;">root.left.lazy</span> = root.left.lazy + root.lazy
+            <span style="color: #7590db;">root.right.lazy</span> = root.right.lazy + root.lazy
+    <span style="color: #7590db;">root.lazy</span> = <span style="color: #a45bad;">None</span>
+
+<span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">MyCalendarTwo</span>:
+    <span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">__init__</span><span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">self</span><span style="color: #4f97d7;">)</span>:
+        <span style="color: #4f97d7; font-weight: bold;">self</span>.root = segment_node<span style="color: #4f97d7;">(</span><span style="color: #bc6ec5;">(</span><span style="color: #a45bad;">0</span>,<span style="color: #a45bad;">1000000000</span><span style="color: #bc6ec5;">)</span>,<span style="color: #a45bad;">0</span><span style="color: #4f97d7;">)</span>
+    <span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">book</span><span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">self</span>, start, end<span style="color: #4f97d7;">)</span>:
+        <span style="color: #7590db;">arange</span> = <span style="color: #4f97d7;">(</span>start,end<span style="color: #4f97d7;">)</span>
+        <span style="color: #7590db;">k</span> = query<span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">self</span>.root, arange<span style="color: #4f97d7;">)</span>
+        <span style="color: #4f97d7; font-weight: bold;">if</span> k &gt;= <span style="color: #a45bad;">2</span>:
+            <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #a45bad;">False</span>
+        update<span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">self</span>.root, arange<span style="color: #4f97d7;">)</span>
+        <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #a45bad;">True</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2019-10-03T20:56:27-07:00</p>
+<p class="author">Author: adam</p>
+<p class="date">Created: 2019-10-04 Fri 18:32</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

@@ -2,7 +2,7 @@
 title = "920 Number of music playlists"
 author = ["adam"]
 date = 2019-08-30T19:13:32-07:00
-lastmod = 2019-09-15T21:09:37-07:00
+lastmod = 2019-10-04T18:17:56-07:00
 tags = ["leetcode"]
 categories = ["leetcode"]
 draft = false

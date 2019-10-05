@@ -2,7 +2,7 @@
 title = "DynamoDB"
 author = ["adam"]
 date = 2019-09-15T15:25:05-07:00
-lastmod = 2019-09-17T15:23:30-07:00
+lastmod = 2019-09-19T08:05:45-07:00
 tags = ["dynamo", "db", "amazon", "scalable"]
 categories = ["scalable"]
 draft = false
@@ -202,6 +202,25 @@ mathjax = true
 
 -   transfer keys to new node
 -   reallocation of keys upon removal
+
+
+## Uneven partitioning {#uneven-partitioning}
+
+-   assigning to a data range between virtual nodes skews the distribution
+    of data among the virtual nodes
+-   instead break the (hashed) data into Q ranges (fixed size)
+-   assign to each node \\(\sum Q/S\\) where \\(S\\) is the number of nodes
+-   membership mapping then will look like
+
+| Q | Node  |
+|---|-------|
+| 1 | a,c,d |
+| 2 | a,f,k |
+| 3 | a,p,m |
+
+-   when you delete node a, replacements are added from the other remaining
+    nodes, since a was taking care of a fixed number of Q sections, then the
+    redistribution among other nodes will also be of fixed size
 
 
 ## Conclusions {#conclusions}

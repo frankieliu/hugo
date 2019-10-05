@@ -229,8 +229,23 @@ Note: distinguish between Paxos writes and Spanner writes
   - ttm(safe) = mini(si,g(prepare)) -1 over all transactions prepared at g
 
 ** read-only transactions
+RO transactions 2 phases:
+- assign TS sread
+- execute read from snapshot at sread
+
+sread > TT.now().latest  @ ei.start
+
+- preserves external consistency
+- may require block if tsafe has not advanced sufficiently
+- sread may also advance smax to preserve disjointness
+- to reduce blocking, assign the oldest TS that preserves
+  external consistency
+
+* TrueTime details
 
 
+
+ 
 
 * Microbenchmarks
 - snapshot read execute on any up-to-date replica
