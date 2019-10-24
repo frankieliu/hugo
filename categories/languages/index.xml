@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>languages on My New Hugo Site</title>
+    <link>https://www.frankliu.org/hugo/categories/languages/</link>
+    <description>Recent content in languages on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 04 Oct 2019 22:35:02 -0700</lastBuildDate>
+    
+	<atom:link href="https://www.frankliu.org/hugo/categories/languages/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>R lang</title>
+      <link>https://www.frankliu.org/hugo/posts/rlang/</link>
+      <pubDate>Fri, 04 Oct 2019 22:35:02 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/rlang/</guid>
+      <description>operators Exponent: ^
+difference between = and &amp;lt;- operators vectors (range)  1:9, 1:2:9, c(1,3,2,-8.1) c() for concat  vector addition  v1 + v2  matrices  matrix(c(1,2,3,4,5,6,7,8,9), nrow=3) nrow is the number of rows or ncol for number of columns fills in column order, i.e. [[1,4,7],[2,5,8],[3,6,9]]  matrix multiplication  m1 %*% m2  transpose  t(m1)  slicing  m1[1,3] m1[,3] : all elements on third column m1[1,] : all elements on first rows m1[,-2] : all but the second column m1[1,1] = 15 m1[,2:3] = 1 : set columns 2 and 3 to 2 m1[,2:3] = 4:9 : set columns 2 and 3 to col2:4,5,6, col3:7,8,9 m1[m1&amp;gt;5] : filter elements in m1 that are greater than 5 m1[m1&amp;gt;5] = 3 : set all elements greater than 5 to 3  loops for(i in 1:3) { print(i) } while(sum(v1)&amp;gt;=5) {}</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | scalable</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.58.3" />
+    <meta name="generator" content="Hugo 0.59.0" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -33,7 +33,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/categories/scalable/" />
 
-<meta property="og:updated_time" content="2019-09-15T15:25:05-07:00" />
+<meta property="og:updated_time" content="2019-10-12T12:46:54-07:00" />
 <meta itemprop="name" content="scalable">
 <meta itemprop="description" content="">
 
@@ -59,6 +59,18 @@
 
       
         <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/rlang/" title="R lang page">
+              R lang
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/vector-clocks/" title="Vector clocks page">
+              Vector clocks
+            </a>
+          </li>
           
           <li class="list f5 f4-ns fw4 dib pr3">
             <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/731-my-calendar-ii-segment-tree/" title="731 My Calendar II page">
@@ -121,6 +133,28 @@
   </article>
   <div class="mw8 center">    
     <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/vector-clocks/" class="link black dim">
+        Vector clocks
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      vector clocks A, B, C, D are trying to set a date.
+ Alice starts off (Wed, (A:1)) (Tue, (A:1,B:1)) (Tue, (A:1,B:1,D:1)) (Thu, (A:1,C:1)) -&gt; Conflict  (A:1,C:1) did not descencd from (A:1,B:1,D:1)
+Descend Each marker in vclk2 must have corresponding or greater marker than in vclk1
+Resolve (Thu, (A:1, B:1, C:1, D:2))
+problems width of vector clock grows with number of actors, or clients.
+ keep growth under control with timestamp to prune old clocks  revisited Actor Some entity in the system that makes an update to an object
+    </div>
+  </div>
+</div>
+
+        </div>
       
         <div class="relative w-100  mb4 bg-white">
           <div class="relative w-100 mb4 bg-white nested-copy-line-height">

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>My New Hugo Site  | R lang</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="https://www.frankliu.org/hugo/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+
+    <meta property="og:title" content="R lang" />
+<meta property="og:description" content="operators Exponent: ^
+difference between = and &lt;- operators vectors (range)  1:9, 1:2:9, c(1,3,2,-8.1) c() for concat  vector addition  v1 &#43; v2  matrices  matrix(c(1,2,3,4,5,6,7,8,9), nrow=3) nrow is the number of rows or ncol for number of columns fills in column order, i.e. [[1,4,7],[2,5,8],[3,6,9]]  matrix multiplication  m1 %*% m2  transpose  t(m1)  slicing  m1[1,3] m1[,3] : all elements on third column m1[1,] : all elements on first rows m1[,-2] : all but the second column m1[1,1] = 15 m1[,2:3] = 1 : set columns 2 and 3 to 2 m1[,2:3] = 4:9 : set columns 2 and 3 to col2:4,5,6, col3:7,8,9 m1[m1&gt;5] : filter elements in m1 that are greater than 5 m1[m1&gt;5] = 3 : set all elements greater than 5 to 3  loops for(i in 1:3) { print(i) } while(sum(v1)&gt;=5) {}" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.frankliu.org/hugo/posts/rlang/" />
+<meta property="article:published_time" content="2019-10-04T22:35:02-07:00" />
+<meta property="article:modified_time" content="2019-10-05T04:12:33-07:00" />
+<meta itemprop="name" content="R lang">
+<meta itemprop="description" content="operators Exponent: ^
+difference between = and &lt;- operators vectors (range)  1:9, 1:2:9, c(1,3,2,-8.1) c() for concat  vector addition  v1 &#43; v2  matrices  matrix(c(1,2,3,4,5,6,7,8,9), nrow=3) nrow is the number of rows or ncol for number of columns fills in column order, i.e. [[1,4,7],[2,5,8],[3,6,9]]  matrix multiplication  m1 %*% m2  transpose  t(m1)  slicing  m1[1,3] m1[,3] : all elements on third column m1[1,] : all elements on first rows m1[,-2] : all but the second column m1[1,1] = 15 m1[,2:3] = 1 : set columns 2 and 3 to 2 m1[,2:3] = 4:9 : set columns 2 and 3 to col2:4,5,6, col3:7,8,9 m1[m1&gt;5] : filter elements in m1 that are greater than 5 m1[m1&gt;5] = 3 : set all elements greater than 5 to 3  loops for(i in 1:3) { print(i) } while(sum(v1)&gt;=5) {}">
+
+
+<meta itemprop="datePublished" content="2019-10-04T22:35:02-07:00" />
+<meta itemprop="dateModified" content="2019-10-05T04:12:33-07:00" />
+<meta itemprop="wordCount" content="242">
+
+
+
+<meta itemprop="keywords" content="R," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="R lang"/>
+<meta name="twitter:description" content="operators Exponent: ^
+difference between = and &lt;- operators vectors (range)  1:9, 1:2:9, c(1,3,2,-8.1) c() for concat  vector addition  v1 &#43; v2  matrices  matrix(c(1,2,3,4,5,6,7,8,9), nrow=3) nrow is the number of rows or ncol for number of columns fills in column order, i.e. [[1,4,7],[2,5,8],[3,6,9]]  matrix multiplication  m1 %*% m2  transpose  t(m1)  slicing  m1[1,3] m1[,3] : all elements on third column m1[1,] : all elements on first rows m1[,-2] : all but the second column m1[1,1] = 15 m1[,2:3] = 1 : set columns 2 and 3 to 2 m1[,2:3] = 4:9 : set columns 2 and 3 to col2:4,5,6, col3:7,8,9 m1[m1&gt;5] : filter elements in m1 that are greater than 5 m1[m1&gt;5] = 3 : set all elements greater than 5 to 3  loops for(i in 1:3) { print(i) } while(sum(v1)&gt;=5) {}"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://www.frankliu.org/hugo/" class="f3 fw2 hover-white no-underline white-90 dib">
+      My New Hugo Site
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/rlang/" title="R lang page">
+              R lang
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/vector-clocks/" title="Vector clocks page">
+              Vector clocks
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/731-my-calendar-ii-segment-tree/" title="731 My Calendar II page">
+              731 My Calendar II
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/920-number-of-music-playlists/" title="920 Number of music playlists page">
+              920 Number of music playlists
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/mathjax-hugo/" title="Setting up mathjax for hugo page">
+              Setting up mathjax for hugo
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/dynamo/" title="DynamoDB page">
+              DynamoDB
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+    extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+    });
+</script>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">R lang</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-10-04T22:35:02-07:00">October 4, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<h2 id="operators">operators</h2>
+
+<p>Exponent: ^</p>
+
+<h2 id="difference-between-and-operators">difference between = and &lt;- operators</h2>
+
+<h2 id="vectors--range">vectors (range)</h2>
+
+<ul>
+<li>1:9, 1:2:9, c(1,3,2,-8.1)</li>
+<li>c() for concat</li>
+</ul>
+
+<h2 id="vector-addition">vector addition</h2>
+
+<ul>
+<li>v1 + v2</li>
+</ul>
+
+<h2 id="matrices">matrices</h2>
+
+<ul>
+<li>matrix(c(1,2,3,4,5,6,7,8,9), nrow=3)</li>
+<li>nrow is the number of rows or ncol for number of columns</li>
+<li>fills in column order, i.e.
+[[1,4,7],[2,5,8],[3,6,9]]</li>
+</ul>
+
+<h3 id="matrix-multiplication">matrix multiplication</h3>
+
+<ul>
+<li>m1 %*% m2</li>
+</ul>
+
+<h3 id="transpose">transpose</h3>
+
+<ul>
+<li>t(m1)</li>
+</ul>
+
+<h3 id="slicing">slicing</h3>
+
+<ul>
+<li>m1[1,3]</li>
+<li>m1[,3]  : all elements on third column</li>
+<li>m1[1,]  : all elements on first rows</li>
+<li>m1[,-2] : all but the second column</li>
+<li>m1[1,1] = 15</li>
+<li>m1[,2:3] = 1    : set columns 2 and 3 to 2</li>
+<li>m1[,2:3] = 4:9  : set columns 2 and 3 to col2:4,5,6, col3:7,8,9</li>
+<li>m1[m1&gt;5]        : filter elements in m1 that are greater than 5</li>
+<li>m1[m1&gt;5] = 3    : set all elements greater than 5 to 3</li>
+</ul>
+
+<h2 id="loops">loops</h2>
+
+<p>for(i in 1:3) { print(i) }
+while(sum(v1)&gt;=5) {}</p>
+
+<h2 id="control">control</h2>
+
+<p>if(m1[i,1]&gt;=2){}</p>
+
+<h2 id="ternary-if">ternary if</h2>
+
+<p>ifelse(a==1,1,0)</p>
+
+<h2 id="types">types</h2>
+
+<p>class(1)
+class(c(1,2))  : numeric
+class(1:3)     : integer : more specific, and saves footprint
+class(1.1:3)   : numeric
+class(&ldquo;hello&rdquo;) : character
+class(c(&ldquo;r&rdquo;,&ldquo;g&rdquo;)) : character
+class(c(1,&ldquo;r&rdquo;))   : character
+class(c(T,F))     : logical</p>
+
+<h2 id="vector">vector</h2>
+
+<p>vector(mode=&ldquo;logical&rdquo;,3)</p>
+
+<ul>
+<li>this class can only contain one type, &lsquo;numeric&rsquo;, &lsquo;character&rsquo;, or &lsquo;logical&rsquo;</li>
+</ul>
+
+<h3 id="matrix">matrix</h3>
+
+<p>is a 2-D &lsquo;vector&rsquo;
+class(m1)  : matrix</p>
+
+<h2 id="array">array</h2>
+
+<ul>
+<li>can only have one data type like vector and matrix</li>
+<li>arrays can also store matrices, data frames and lists</li>
+<li>can be multidimensional</li>
+</ul>
+
+<p>array(1:16, dim=c(4,2,2))</p>
+
+<h2 id="dataframe">dataframe</h2>
+
+<p>df = data.frame(c(1,2,3),c(T,F,F),row.names=c(&ldquo;r&rdquo;,&ldquo;g&rdquo;,&ldquo;b&rdquo;))
+names(df)[1] = &ldquo;col1&rdquo;
+names(df)[2] = &ldquo;col2&rdquo;</p>
+
+<h2 id="list">list</h2>
+
+<p>a = list(&ldquo;a&rdquo;,1&rdquo;,F)
+use double [] to access element
+a = list(category1=c(1), category2=c(T), category3=c(&ldquo;r&rdquo;))
+a$category1</p>
+
+<h2 id="hierarchy">hierarchy</h2>
+
+<figure>
+    <img src="https://www.frankliu.org/hugo/images/rlang/ds-hierarchy.png"/> 
+</figure>
+
+
+<h2 id="conversion">conversion</h2>
+
+<p>as.vector(), as.logical(), as.character</p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/r" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">R</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://www.frankliu.org/hugo/" >
+    &copy; 2019 My New Hugo Site
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="https://www.frankliu.org/hugo/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
