@@ -1,0 +1,24 @@
+#+HUGO_BASE_DIR: ../..
+#+HUGO_SECTION: posts
+
+#+HUGO_WEIGHT: 2001
+#+HUGO_AUTO_SET_LASTMOD: t
+#+TITLE: "KMP and Aho-Corasick"
+#+DATE: 2019-10-23T22:43:03-07:00
+#+HUGO_TAGS: algorithms strings
+#+HUGO_CATEGORIES: algorithms 
+#+HUGO_MENU: :menu "main" :weight 2001
+#+HUGO_CUSTOM_FRONT_MATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true
+#+HUGO_DRAFT: false
+
+# -*- mode: org -*-
+#+STARTUP: indent hidestars showall
+
+* Main concept of KMP
+
+Consider the following string:
+
+$\underbrace{a_1 a_2 a_3 a_4}_\text{text1}$
+
+
+
