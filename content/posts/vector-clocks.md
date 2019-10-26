@@ -1,15 +1,12 @@
 +++
 title = "Vector clocks"
-author = ["adam"]
+author = "adam"
 date = 2019-10-12T12:46:54-07:00
-lastmod = 2019-10-12T15:32:26-07:00
+lastmod = 2019-10-26T08:15:32-07:00
 tags = ["scalable", "vector-clocks", "concurrent-writes"]
 categories = ["scalable"]
 draft = false
 weight = 2000
-[menu.main]
-  identifier = "vector-clocks"
-  weight = 2000
 +++
 
 ## vector clocks {#vector-clocks}

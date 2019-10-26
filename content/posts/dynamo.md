@@ -1,8 +1,8 @@
 +++
 title = "DynamoDB"
-author = ["adam"]
+author = "adam"
 date = 2019-09-15T15:25:05-07:00
-lastmod = 2019-09-19T08:05:45-07:00
+lastmod = 2019-10-26T08:17:57-07:00
 tags = ["dynamo", "db", "amazon", "scalable"]
 categories = ["scalable"]
 draft = false
@@ -13,9 +13,6 @@ alpha = 1
 beta = "two words"
 gamma = 10
 mathjax = true
-[menu.main]
-  identifier = "dynamodb"
-  weight = 2003
 +++
 
 ## Highlights {#highlights}

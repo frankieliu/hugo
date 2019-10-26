@@ -1,8 +1,8 @@
 +++
 title = "731 My Calendar II"
-author = ["adam"]
+author = ["Frankie Liu"]
 date = 2019-10-03T20:56:27-07:00
-lastmod = 2019-10-04T18:33:02-07:00
+lastmod = 2019-10-26T08:37:22-07:00
 tags = ["leetcode"]
 categories = ["leetcode"]
 draft = false
@@ -13,9 +13,6 @@ alpha = 1
 beta = "two words"
 gamma = 10
 mathjax = true
-[menu.main]
-  identifier = "731-my-calendar-ii"
-  weight = 2001
 +++
 
 ## Acknowledgement {#acknowledgement}

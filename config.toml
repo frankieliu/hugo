@@ -8,3 +8,7 @@ pygmentsCodeFences = true
 # pygmentsUseClasses = true
 # pygmentsUseClassic = false
 canonifyURLs = true
+
+[author]
+	name = "Frankie Liu"
+

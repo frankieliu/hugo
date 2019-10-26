@@ -7,11 +7,10 @@
 #+DATE: 2019-09-17T18:45:19-07:00
 #+HUGO_TAGS: spanner db google timestamp
 #+HUGO_CATEGORIES: spanner
-# +HUGO_MENU: :menu "main" :weight 2000
+#+HUGO_MENU_off: :menu "main" :weight 2000
 #+HUGO_CUSTOM_FRONT_MATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true
 #+HUGO_DRAFT: false
 
-# -*- mode: org -*-
 #+STARTUP: indent hidestars showall
 
 * Key to paper

@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2019-10-26 Sat 08:15 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>"R lang"</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="adam" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">"R lang"</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgec3ad67">1. operators</a></li>
+<li><a href="#org86a3f35">2. difference between = and &lt;- operators</a></li>
+<li><a href="#orga4c3fd0">3. vectors (range)</a></li>
+<li><a href="#org294873a">4. vector addition</a></li>
+<li><a href="#org3224ae0">5. matrices</a>
+<ul>
+<li><a href="#org5d0223f">5.1. matrix multiplication</a></li>
+<li><a href="#org5b6c9be">5.2. transpose</a></li>
+<li><a href="#orgaed3b7b">5.3. slicing</a></li>
+</ul>
+</li>
+<li><a href="#org71e7b02">6. loops</a></li>
+<li><a href="#org0c3b4e8">7. control</a></li>
+<li><a href="#org1df1135">8. ternary if</a></li>
+<li><a href="#org47d1ccc">9. types</a>
+<ul>
+<li><a href="#orgac0daad">9.1. NA : Not available (null)</a></li>
+</ul>
+</li>
+<li><a href="#org792e4c9">10. vector</a>
+<ul>
+<li><a href="#orgbc1f2c4">10.1. matrix</a></li>
+</ul>
+</li>
+<li><a href="#orgdd6ac55">11. array</a></li>
+<li><a href="#orga30c700">12. dataframe</a></li>
+<li><a href="#org18e9635">13. list</a></li>
+<li><a href="#org0af073e">14. hierarchy</a></li>
+<li><a href="#org52ae7a0">15. conversion</a></li>
+<li><a href="#org6f565ac">16. file system</a></li>
+<li><a href="#org8673f75">17. rdata</a></li>
+<li><a href="#orgc3c8501">18. plotting</a></li>
+<li><a href="#org7eb8763">19. help</a></li>
+<li><a href="#org1a35699">20. functions</a>
+<ul>
+<li><a href="#orgae94acc">20.1. custom functions</a></li>
+</ul>
+</li>
+<li><a href="#org8e06b8e">21. running script from file</a></li>
+<li><a href="#org85dbd12">22. Installing packages</a></li>
+<li><a href="#orgb24a999">23. jsonlite</a></li>
+<li><a href="#org26def55">24. dict package</a></li>
+<li><a href="#org33693d4">25. tidyverse</a></li>
+<li><a href="#org8482e93">26. rss autocomplete</a></li>
+<li><a href="#org1441460">27. tidyverse</a></li>
+<li><a href="#org3b732e5">28. r for dummies</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgec3ad67" class="outline-2">
+<h2 id="orgec3ad67"><span class="section-number-2">1</span> operators</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Exponent: ^
+Bit: &amp; |
+Conditional: &amp;&amp; ||
+</p>
+</div>
+</div>
+
+<div id="outline-container-org86a3f35" class="outline-2">
+<h2 id="org86a3f35"><span class="section-number-2">2</span> difference between = and &lt;- operators</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Just use =
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga4c3fd0" class="outline-2">
+<h2 id="orga4c3fd0"><span class="section-number-2">3</span> vectors (range)</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>everything is a vector</li>
+<li>1:9, 1:2:9, c(1,3,2,-8.1)</li>
+<li>c() for concat</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org294873a" class="outline-2">
+<h2 id="org294873a"><span class="section-number-2">4</span> vector addition</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>v1 + v2 : element wise</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3224ae0" class="outline-2">
+<h2 id="org3224ae0"><span class="section-number-2">5</span> matrices</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li>matrix(c(1,2,3,4,5,6,7,8,9), nrow=3)</li>
+<li>nrow is the number of rows or ncol for number of columns</li>
+<li>fills in column order, i.e.
+[[1,4,7],[2,5,8],[3,6,9]]</li>
+<li>matrix(1:9, nrow=3, byrow=T) : fills in row order</li>
+</ul>
+</div>
+<div id="outline-container-org5d0223f" class="outline-3">
+<h3 id="org5d0223f"><span class="section-number-3">5.1</span> matrix multiplication</h3>
+<div class="outline-text-3" id="text-5-1">
+<ul class="org-ul">
+<li>m1 %*% m2</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5b6c9be" class="outline-3">
+<h3 id="org5b6c9be"><span class="section-number-3">5.2</span> transpose</h3>
+<div class="outline-text-3" id="text-5-2">
+<ul class="org-ul">
+<li>t(m1)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgaed3b7b" class="outline-3">
+<h3 id="orgaed3b7b"><span class="section-number-3">5.3</span> slicing</h3>
+<div class="outline-text-3" id="text-5-3">
+<ul class="org-ul">
+<li>m1[1,3]</li>
+<li>m1[,3]  : all elements on third column</li>
+<li>m1[1,]  : all elements on first rows</li>
+<li>m1[,-2] : all but the second column</li>
+<li>m1[1,1] = 15</li>
+<li>m1[,2:3] = 1    : set columns 2 and 3 to 2</li>
+<li>m1[,2:3] = 4:9  : set columns 2 and 3 to col2:4,5,6, col3:7,8,9</li>
+<li>m1[m1&gt;5]        : filter elements in m1 that are greater than 5</li>
+<li>m1[m1&gt;5] = 3    : set all elements greater than 5 to 3</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org71e7b02" class="outline-2">
+<h2 id="org71e7b02"><span class="section-number-2">6</span> loops</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+for(i in 1:3) { print(i) }
+while(sum(v1)&gt;=5) {}
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0c3b4e8" class="outline-2">
+<h2 id="org0c3b4e8"><span class="section-number-2">7</span> control</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+if(m1[i,1]&gt;=2){}
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1df1135" class="outline-2">
+<h2 id="org1df1135"><span class="section-number-2">8</span> ternary if</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+ifelse(a==1,1,0)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org47d1ccc" class="outline-2">
+<h2 id="org47d1ccc"><span class="section-number-2">9</span> types</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+class(1)
+class(c(1,2))  : numeric
+class(1:3)     : integer : more specific, and saves footprint
+class(1.1:3)   : numeric
+class("hello") : character
+class(c("r","g")) : character
+class(c(1,"r"))   : character
+class(c(T,F))     : logical
+</p>
+</div>
+<div id="outline-container-orgac0daad" class="outline-3">
+<h3 id="orgac0daad"><span class="section-number-3">9.1</span> NA : Not available (null)</h3>
+<div class="outline-text-3" id="text-9-1">
+<p>
+class(NaN) : numeric
+class(NA)  : logical
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org792e4c9" class="outline-2">
+<h2 id="org792e4c9"><span class="section-number-2">10</span> vector</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+vector(mode="logical",3)
+</p>
+<ul class="org-ul">
+<li>this class can only contain one type, 'numeric', 'character', or 'logical'</li>
+</ul>
+</div>
+
+<div id="outline-container-orgbc1f2c4" class="outline-3">
+<h3 id="orgbc1f2c4"><span class="section-number-3">10.1</span> matrix</h3>
+<div class="outline-text-3" id="text-10-1">
+<p>
+is a 2-D 'vector'
+class(m1)  : matrix
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdd6ac55" class="outline-2">
+<h2 id="orgdd6ac55"><span class="section-number-2">11</span> array</h2>
+<div class="outline-text-2" id="text-11">
+<ul class="org-ul">
+<li>can only have one data type like vector and matrix</li>
+<li>arrays can also store matrices, data frames and lists</li>
+<li>can be multidimensional</li>
+</ul>
+<p>
+array(1:16, dim=c(4,2,2))
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga30c700" class="outline-2">
+<h2 id="orga30c700"><span class="section-number-2">12</span> dataframe</h2>
+<div class="outline-text-2" id="text-12">
+<p>
+df = data.frame(c(1,2,3),c(T,F,F),row.names=c("r","g","b"))
+names(df)[1] = "col1"
+names(df)[2] = "col2"
+</p>
+</div>
+</div>
+
+<div id="outline-container-org18e9635" class="outline-2">
+<h2 id="org18e9635"><span class="section-number-2">13</span> list</h2>
+<div class="outline-text-2" id="text-13">
+<p>
+a = list("a",1",F)
+use double [] to access element
+a = list(category1=c(1), category2=c(T), category3=c("r"))
+a$category1
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0af073e" class="outline-2">
+<h2 id="org0af073e"><span class="section-number-2">14</span> hierarchy</h2>
+<div class="outline-text-2" id="text-14">
+
+<div class="figure">
+<p><img src="file:///images/rlang/ds-hierarchy.png" alt="ds-hierarchy.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org52ae7a0" class="outline-2">
+<h2 id="org52ae7a0"><span class="section-number-2">15</span> conversion</h2>
+<div class="outline-text-2" id="text-15">
+<p>
+as.vector(), as.logical(), as.character
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6f565ac" class="outline-2">
+<h2 id="org6f565ac"><span class="section-number-2">16</span> file system</h2>
+<div class="outline-text-2" id="text-16">
+<p>
+getwd() : pwd
+setwd() : cd
+p = read.csv("some.csv", header=TRUE)
+row.names(p) = p[,1]
+p = p[,-1]
+read.delim("filename.xxx", header=TRUE, sep=";', dec=".")
+</p>
+
+<p>
+write.csv(var1, file="some.csv")
+write.table(df, file="some.csv", sep=" ")
+save(var1, var2, file="some.rdata")
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8673f75" class="outline-2">
+<h2 id="org8673f75"><span class="section-number-2">17</span> rdata</h2>
+<div class="outline-text-2" id="text-17">
+<ul class="org-ul">
+<li>extension: .rdata</li>
+<li>load("some.rdata")</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc3c8501" class="outline-2">
+<h2 id="orgc3c8501"><span class="section-number-2">18</span> plotting</h2>
+<div class="outline-text-2" id="text-18">
+<p>
+plot(x,y)
+x11()    : new window
+par(mfrow=c(1,2), bg="grey", bty="n", cex=.75)
+</p>
+<ul class="org-ul">
+<li>mfrow : subplot</li>
+<li>bty : boundary box</li>
+<li>cex : text ratio</li>
+</ul>
+<p>
+plot(x,y,xlab="1:9", ylab="9:1", main="title", col="red", pch=3)
+</p>
+<ul class="org-ul">
+<li>pch : shape of the points</li>
+</ul>
+<p>
+hist(p[,1], main=colnames(p)[1], xlab="xlabel", breaks=c(0,.5,.7,.8,.9,1)
+boxplot(p)
+lines(x,y)
+abline(coef=c(intercept, slope), v=vertical<sub>x</sub>, h=horizontal<sub>y</sub>)
+points(1:5,c(4,4,4,4,4), pch=1:5, col=1:5)
+par(new=T)
+legend(x="topright", legend=c("r","g","b"), lwd=2, col=1:2, bg="grey")
+</p>
+<ul class="org-ul">
+<li>lwd : linewidth</li>
+</ul>
+<p>
+pdf("some.pdf")
+dev.off()
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7eb8763" class="outline-2">
+<h2 id="org7eb8763"><span class="section-number-2">19</span> help</h2>
+<div class="outline-text-2" id="text-19">
+<p>
+?plot
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1a35699" class="outline-2">
+<h2 id="org1a35699"><span class="section-number-2">20</span> functions</h2>
+<div class="outline-text-2" id="text-20">
+<p>
+abs(), sqrt()
+seq(0,8,2)
+rep(c(0,2), 5)
+length(c(1,2,3))
+system.time((seq1 = seq(0,1e6,1)))
+var() : variance
+mean(), median()
+sample(c(0,1), 10, replace=TRUE, prob = c(.5,.5))
+which(vec==1)  : return indices where T
+t.test(1:5, 5:10)  : student t-test
+runif(5, min=0, max=1)  : random sampling of 5 numbers, unif([0,1])
+ls() : what objects are in workspace
+rm(var) : remove a variable
+q() : quit
+</p>
+</div>
+<div id="outline-container-orgae94acc" class="outline-3">
+<h3 id="orgae94acc"><span class="section-number-3">20.1</span> custom functions</h3>
+<div class="outline-text-3" id="text-20-1">
+<p>
+doublex &lt;- function(x,y=10) { return(2) }dx
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8e06b8e" class="outline-2">
+<h2 id="org8e06b8e"><span class="section-number-2">21</span> running script from file</h2>
+<div class="outline-text-2" id="text-21">
+<p>
+source("some.r")
+</p>
+</div>
+</div>
+
+<div id="outline-container-org85dbd12" class="outline-2">
+<h2 id="org85dbd12"><span class="section-number-2">22</span> Installing packages</h2>
+<div class="outline-text-2" id="text-22">
+<p>
+install.packages("install.load")
+library(install.load)
+install<sub>load</sub>("somepackage")
+library(somepackage)
+detach("package:somepackge, unload=TRUE)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb24a999" class="outline-2">
+<h2 id="orgb24a999"><span class="section-number-2">23</span> jsonlite</h2>
+<div class="outline-text-2" id="text-23">
+<p>
+install<sub>load</sub>('jsonlite')
+a = jsonlite::read<sub>json</sub>('jobj.json')
+a$Diameter$mean
+</p>
+</div>
+</div>
+
+<div id="outline-container-org26def55" class="outline-2">
+<h2 id="org26def55"><span class="section-number-2">24</span> dict package</h2>
+<div class="outline-text-2" id="text-24">
+<p>
+if (!require("devtools")) install.packages("devtools")
+devtools::install<sub>github</sub>("mkuhn/dict")
+</p>
+</div>
+</div>
+
+<div id="outline-container-org33693d4" class="outline-2">
+<h2 id="org33693d4"><span class="section-number-2">25</span> tidyverse</h2>
+<div class="outline-text-2" id="text-25">
+<p>
+Warning messages:
+1: In install.packages("tidyverse") :
+  installation of package ‘curl’ had non-zero exit status
+2: In install.packages("tidyverse") :
+  installation of package ‘httr’ had non-zero exit status
+3: In install.packages("tidyverse") :
+  installation of package ‘rvest’ had non-zero exit status
+4: In install.packages("tidyverse") :
+  installation of package ‘tidyverse’ had non-zero exit status
+</p>
+
+<p>
+sudo aptitude install libcurl4-openssl-dev libxml2-dev
+<a href="https://stackoverflow.com/questions/31008877/unable-to-install-rvest-package">https://stackoverflow.com/questions/31008877/unable-to-install-rvest-package</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8482e93" class="outline-2">
+<h2 id="org8482e93"><span class="section-number-2">26</span> rss autocomplete</h2>
+<div class="outline-text-2" id="text-26">
+<p>
+<a href="https://ess.r-project.org/Manual/ess.html#Installation">https://ess.r-project.org/Manual/ess.html#Installation</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org1441460" class="outline-2">
+<h2 id="org1441460"><span class="section-number-2">27</span> tidyverse</h2>
+<div class="outline-text-2" id="text-27">
+<p>
+<a href="https://github.com/tidyverse/stringr">https://github.com/tidyverse/stringr</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org3b732e5" class="outline-2">
+<h2 id="org3b732e5"><span class="section-number-2">28</span> r for dummies</h2>
+<div class="outline-text-2" id="text-28">
+<p>
+<a href="https://www.dummies.com/programming/r/how-to-combine-logical-statements-in-r/">https://www.dummies.com/programming/r/how-to-combine-logical-statements-in-r/</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2019-10-04T22:35:02-07:00</p>
+<p class="author">Author: adam</p>
+<p class="date">Created: 2019-10-26 Sat 08:15</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

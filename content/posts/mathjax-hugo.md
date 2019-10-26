@@ -1,15 +1,12 @@
 +++
 title = "Setting up mathjax for hugo"
-author = ["adam"]
+author = "adam"
 date = 2019-09-14T19:10:31-07:00
-lastmod = 2019-09-14T19:30:04-07:00
+lastmod = 2019-10-26T08:16:07-07:00
 tags = ["mathjax", "hugo"]
 categories = ["hugo"]
 draft = false
 weight = 2002
-[menu.main]
-  identifier = "setting-up-mathjax-for-hugo"
-  weight = 2002
 +++
 
 ## Problem {#problem}
@@ -35,6 +32,4 @@ Adding mathjax support for posts
 
 ```python
 theme = "ananke"
-def add:
-    return 1+1
 ```

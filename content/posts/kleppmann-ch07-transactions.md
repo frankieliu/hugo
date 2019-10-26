@@ -1,8 +1,10 @@
 +++
 title = "Kleppmann Chapter 07 - Transactions"
-author = ["adam"]
+author = "adam"
 date = 2019-10-25T17:50:20-07:00
-lastmod = 2019-10-26T07:52:14-07:00
+lastmod = 2019-10-26T08:17:01-07:00
+tags = ["db", "transactions", "scalable", "kleppmann"]
+categories = ["kleppmann"]
 draft = false
 weight = 2000
 +++

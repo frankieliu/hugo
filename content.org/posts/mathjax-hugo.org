@@ -1,3 +1,4 @@
+# -*- mode: org -*-
 #+HUGO_BASE_DIR: ../..
 #+HUGO_SECTION: posts
 #+HUGO_WEIGHT: 2002
@@ -6,11 +7,10 @@
 #+DATE: 2019-09-14T19:10:31-07:00
 #+HUGO_TAGS: mathjax hugo
 #+HUGO_CATEGORIES: hugo
-#+HUGO_MENU: :menu "main" :weight 2002
+#+HUGO_MENU_off: :menu "main" :weight 2002
 #+HUGO_CUSTOM_FRONTMATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true
 #+HUGO_DRAFT: false
 
-# -*- mode: org -*-
 #+STARTUP: indent hidestars showall
 
 * Problem

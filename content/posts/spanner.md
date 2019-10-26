@@ -1,8 +1,8 @@
 +++
 title = "Spanner"
-author = ["adam"]
+author = "adam"
 date = 2019-09-17T18:45:19-07:00
-lastmod = 2019-09-18T11:53:18-07:00
+lastmod = 2019-10-26T08:16:47-07:00
 tags = ["spanner", "db", "google", "timestamp"]
 categories = ["spanner"]
 draft = false

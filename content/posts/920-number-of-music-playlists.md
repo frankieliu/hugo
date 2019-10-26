@@ -1,8 +1,8 @@
 +++
 title = "920 Number of music playlists"
-author = ["adam"]
+author = "adam"
 date = 2019-08-30T19:13:32-07:00
-lastmod = 2019-10-04T18:17:56-07:00
+lastmod = 2019-10-26T08:16:35-07:00
 tags = ["leetcode"]
 categories = ["leetcode"]
 draft = false
@@ -13,9 +13,6 @@ alpha = 1
 beta = "two words"
 gamma = 10
 mathjax = true
-[menu.main]
-  identifier = "920-number-of-music-playlists"
-  weight = 2001
 +++
 
 ## Notes on solution to Leetcode 920 {#notes-on-solution-to-leetcode-920}

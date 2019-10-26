@@ -7,11 +7,10 @@
 #+DATE: 2019-10-12T12:46:54-07:00
 #+HUGO_TAGS: scalable vector-clocks concurrent-writes 
 #+HUGO_CATEGORIES: scalable
-#+HUGO_MENU: :menu "main" :weight 2000
+#+HUGO_MENU_off: :menu "main" :weight 2000
 #+HUGO_CUSTOM_FRONTMATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true
 #+HUGO_DRAFT: false
 
-# -*- mode: org -*-
 #+STARTUP: indent hidestars showall
 * vector clocks
 A, B, C, D are trying to set a date.
