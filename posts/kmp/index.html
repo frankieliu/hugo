@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>My New Hugo Site  | languages</title>
+    <title>My New Hugo Site  | KMP and Aho-Corasick</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="generator" content="Hugo 0.59.0" />
     
@@ -24,31 +24,38 @@
     
 
     
-      <link href="https://www.frankliu.org/hugo/categories/languages/index.xml" rel="alternate" type="application/rss+xml" title="My New Hugo Site" />
-      <link href="https://www.frankliu.org/hugo/categories/languages/index.xml" rel="feed" type="application/rss+xml" title="My New Hugo Site" />
-    
 
-    <meta property="og:title" content="languages" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.frankliu.org/hugo/categories/languages/" />
+    <meta property="og:title" content="KMP and Aho-Corasick" />
+<meta property="og:description" content="Main concept of KMP Consider the following string: \(\underbrace{a_1 a_2 a_3}_\text{text1}\)" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.frankliu.org/hugo/posts/kmp/" />
+<meta property="article:published_time" content="2019-10-23T22:43:03-07:00" />
+<meta property="article:modified_time" content="2019-10-23T22:45:38-07:00" />
+<meta itemprop="name" content="KMP and Aho-Corasick">
+<meta itemprop="description" content="Main concept of KMP Consider the following string: \(\underbrace{a_1 a_2 a_3}_\text{text1}\)">
 
-<meta property="og:updated_time" content="2019-10-04T22:35:02-07:00" />
-<meta itemprop="name" content="languages">
-<meta itemprop="description" content="">
 
+<meta itemprop="datePublished" content="2019-10-23T22:43:03-07:00" />
+<meta itemprop="dateModified" content="2019-10-23T22:45:38-07:00" />
+<meta itemprop="wordCount" content="11">
+
+
+
+<meta itemprop="keywords" content="algorithms,strings," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="languages"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="KMP and Aho-Corasick"/>
+<meta name="twitter:description" content="Main concept of KMP Consider the following string: \(\underbrace{a_1 a_2 a_3}_\text{text1}\)"/>
 
   </head>
 
   <body class="ma0 avenir bg-near-white">
 
     
+   
+  
 
   <header>
-    <div class="pb3-m pb6-l bg-black">
+    <div class="bg-black">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
     <a href="https://www.frankliu.org/hugo/" class="f3 fw2 hover-white no-underline white-90 dib">
@@ -120,46 +127,76 @@
   </div>
 </nav>
 
-      <div class="tc-l pv3 ph3 ph4-ns">
-        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
-          languages
-        </h1>
-        
-      </div>
     </div>
   </header>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+    extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+    });
+</script>
+
 
 
     <main class="pb7" role="main">
       
-  <article class="cf pa3 pa4-m pa4-l">
-    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links nested-img mid-gray">
-      <p>Below you will find pages that utilize the taxonomy term “languages”</p>
-    </div>
-  </article>
-  <div class="mw8 center">    
-    <section class="flex-ns flex-wrap justify-around mt5">
-      
-        <div class="relative w-100  mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/rlang/" class="link black dim">
-        R lang
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      operators Exponent: ^
-difference between = and &lt;- operators vectors (range)  1:9, 1:2:9, c(1,3,2,-8.1) c() for concat  vector addition  v1 + v2  matrices  matrix(c(1,2,3,4,5,6,7,8,9), nrow=3) nrow is the number of rows or ncol for number of columns fills in column order, i.e. [[1,4,7],[2,5,8],[3,6,9]]  matrix multiplication  m1 %*% m2  transpose  t(m1)  slicing  m1[1,3] m1[,3] : all elements on third column m1[1,] : all elements on first rows m1[,-2] : all but the second column m1[1,1] = 15 m1[,2:3] = 1 : set columns 2 and 3 to 2 m1[,2:3] = 4:9 : set columns 2 and 3 to col2:4,5,6, col3:7,8,9 m1[m1&gt;5] : filter elements in m1 that are greater than 5 m1[m1&gt;5] = 3 : set all elements greater than 5 to 3  loops for(i in 1:3) { print(i) } while(sum(v1)&gt;=5) {}
-    </div>
-  </div>
-</div>
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
 
-        </div>
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">KMP and Aho-Corasick</h1>
       
+      <time class="f6 mv4 dib tracked" datetime="2019-10-23T22:43:03-07:00">October 23, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<h2 id="main-concept-of-kmp">Main concept of KMP</h2>
+
+<p>Consider the following string:
+\(\underbrace{a_1 a_2 a_3}_\text{text1}\)</p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/algorithms" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">algorithms</a>
+   </li>
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/strings" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">strings</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
     </section>
-  </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
 
     </main>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">

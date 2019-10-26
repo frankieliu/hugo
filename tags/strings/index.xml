@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>strings on My New Hugo Site</title>
+    <link>https://www.frankliu.org/hugo/tags/strings/</link>
+    <description>Recent content in strings on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 23 Oct 2019 22:43:03 -0700</lastBuildDate>
+    
+	<atom:link href="https://www.frankliu.org/hugo/tags/strings/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>KMP and Aho-Corasick</title>
+      <link>https://www.frankliu.org/hugo/posts/kmp/</link>
+      <pubDate>Wed, 23 Oct 2019 22:43:03 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/kmp/</guid>
+      <description>Main concept of KMP Consider the following string: \(\underbrace{a_1 a_2 a_3}_\text{text1}\)</description>
+    </item>
+    
+  </channel>
+</rss>

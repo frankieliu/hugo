@@ -6,10 +6,19 @@
     <description>Recent content in Categories on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Oct 2019 12:46:54 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 23 Oct 2019 22:43:03 -0700</lastBuildDate>
     
 	<atom:link href="https://www.frankliu.org/hugo/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>algorithms</title>
+      <link>https://www.frankliu.org/hugo/categories/algorithms/</link>
+      <pubDate>Wed, 23 Oct 2019 22:43:03 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/categories/algorithms/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>scalable</title>
