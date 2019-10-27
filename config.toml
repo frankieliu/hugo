@@ -8,3 +8,5 @@ pygmentsCodeFences = true
 # pygmentsUseClasses = true
 # pygmentsUseClassic = false
 canonifyURLs = true
+SectionPagesMenu = "main"
+
