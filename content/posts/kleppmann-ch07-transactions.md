@@ -1,8 +1,8 @@
 +++
 title = "Kleppmann Chapter 07 - Transactions"
-author = "adam"
+author = ["adam"]
 date = 2019-10-25T17:50:20-07:00
-lastmod = 2019-10-26T08:17:01-07:00
+lastmod = 2019-10-26T19:54:53-07:00
 tags = ["db", "transactions", "scalable", "kleppmann"]
 categories = ["kleppmann"]
 draft = false
@@ -93,6 +93,15 @@ weight = 2000
     -   no dirty writes, why
         -   A and B try to buy same car, listing and sales DB, invoice ovrwrt
         -   read committed does not prevent race condition btw counter increment
+        -
+
+| T1 | T2 |
+|----|----|
+| SA |    |
+|    | SB |
+|    | IB |
+| IA |    |
+
 -   Implementation
     -   row-level locks for duration of transaction
     -   lock for reads slows down the system
@@ -118,17 +127,211 @@ weight = 2000
 -   Transaction reads from a consistent snapshot of the database
     -   sees all the data that was committed at the start of the transactoin
 -   Implementation
-    -   wite locks to prevent dirty writes
+    -   write locks to prevent dirty writes
     -   no locks on reads
         -   DB keeps different committed versions of an object
             -   multi-version concurrency control (MVCC)
-    -   for read committed
-        -   use a separate snapshot for each query
-    -   for snapshot isolation
-        -   us a single snapshot for the whole transactoin
-    -   each transaction is given an always increasing transaction ID (txid)
-        -   each row has a created\_by field, the txid
-        -   each row has a deleted\_by field, the txid
-            -   when no transactions access deleted data can GC
-    -   on read use txid to decide which objects it can see and which are
-        invisible
+                -   for read committed, snapshot per query
+                -   for snapshot isolation, snapshot per transaction
+            -   each transaction - increasing transaction ID (txid)
+                -   each row has a created\_by field w txid
+                -   each row has a deleted\_by field w txid
+                    -   GC when no transactions access
+        -   txid decides read visibility
+
+
+### Indexes {#indexes}
+
+-   keep all the versions
+    -   let query filter visible ones
+    -   GC when no longer visible to any transactions
+-   B-tree with append-only/copy-on-write
+    -   parent pages are copied and updated to point to new versions
+    -   each root is a consistent snapshot of the DB
+    -   GC
+
+
+## Preventing lost updates {#preventing-lost-updates}
+
+-   two reads on same and modify data - clobber
+    -   scenario: inc counter, json object, wiki page
+-   atomic writes
+    -   atomic update counter
+    -   atomic write json
+    -   exclusive read/write lock on object - cursor stability
+-   explicit locking
+    -   FOR UPDATE: lock all selected rows
+-   alternative detect lost update
+-   compare-and-set
+    -   send previous read and new value, only set if previous matches
+
+
+### conflict resolution in multi-leader and leaderless {#conflict-resolution-in-multi-leader-and-leaderless}
+
+-   replicas take writes
+-   maintain different versions
+-   commutative operations such as inc are ok
+-   last write wins (LWW) prone to lost updates
+
+
+## Write skew {#write-skew}
+
+
+### doctor call list {#doctor-call-list}
+
+-   crux writing to different rows on on-call table
+    -   previously writing to same data
+
+
+### non-working solutions {#non-working-solutions}
+
+-   atomic single-object don't help
+-   automatic detection of lost updates not detectable
+
+
+### partial solutions {#partial-solutions}
+
+-   constraints, uniqueness or foreign key restrictions, but contraints over
+    multiple object is hard
+-   explicitly lock all rows with FOR UPDATE
+
+
+### other examples {#other-examples}
+
+-   Meeting room booking
+-   Multiplayer game - lock to prevent two players from moving same figure,
+    but does not prevent two users to move simultaneously while avoiding
+    some constraint, going to same bathroom
+-   Claiming a username - uniqueness constraint
+-   Double spending - inserting two items below threshold
+
+
+### phantom pattern {#phantom-pattern}
+
+-   read/modify/write
+-   doctor example can lock rows
+-   other examples can't attach lock
+-   write affect the query in another - phantom
+
+
+### materializing phantoms {#materializing-phantoms}
+
+-   meeting room
+    -   create room-time-period rows
+
+
+## Serializability {#serializability}
+
+
+### single-thread execution {#single-thread-execution}
+
+
+#### stored procedure {#stored-procedure}
+
+-   send application code to make decisions, remove network hop
+-   hard to debug and can hog DB
+
+
+#### partitioning {#partitioning}
+
+-   multi-partition transactions - hard
+
+
+#### limitations {#limitations}
+
+-   transactions must be small and fast, no long tail
+-   active dataset must fit into memory
+    -   use anti-caching, abort transaction, fetch data to memory
+-   write throught could slow things down require partitioning
+-   limit cross-partition transactions
+
+
+## two-phase locking (2PL) {#two-phase-locking--2pl}
+
+-   read lock in shared more
+-   write exclusive lock
+-   upgrade from shared to exclusive if r/w same object
+-   hold lock until end of transaction
+
+
+### Limitations {#limitations}
+
+-   several transactions (even simple ones) will form queue
+-   unstable latencies
+    -   very slow at high percentiles
+-   deadlocks
+
+
+### predicate locks {#predicate-locks}
+
+-   cannot have phantoms
+    -   select \* from table where room=123 and start\_time > & end\_time <
+    -   predicates lock on phantom rows which don't exist yet
+
+
+### index-range locks {#index-range-locks}
+
+-   have index on room\_id and index on start\_time and end\_time
+    -   shared lock on room\_id index
+    -   or shared lock on time range index
+-   inserting update or deletion will have to update a locakable index
+
+
+## Serializable Snapshot Isolation (SSI) {#serializable-snapshot-isolation--ssi}
+
+-   optimistic concurrency control
+-   detect isolation violation - abort and retry
+
+
+### implementaion {#implementaion}
+
+-   detect reads of a stale MVCC object
+-   detect writes that affect prior reads
+
+
+### detecting stale MVCC reads {#detecting-stale-mvcc-reads}
+
+-   doctor example:
+    -   A's update doctors on\_call affects B's reading of it
+    -   B's reading on an ealier MVCC vs A's later txid
+
+
+### detecting writes that affect prior reads {#detecting-writes-that-affect-prior-reads}
+
+-   doctor example:
+    -   A and B both read, but at different transactions, track this
+    -   on a write, see affected reads
+
+
+### performance {#performance}
+
+-   trade-off in granularity of r/w tracking
+
+
+## Summary {#summary}
+
+Treatment of different isolation levels
+
+-   read committed (no dirty reads and no dirty writes)
+    -   only read what has been committed
+    -   only overwrite what has been committed
+        -   don't overwrite partial transactions
+-   snapshot isolation
+    -   prevent read skews
+    -   read a consistent state of the DB
+    -   good when have to read a bunch of things
+    -   implemented with MVCC
+-   write concurrency issues
+    -   lost updates on read-modify-write cycle
+        -   lock all relevant rows
+    -   write skew also a read-modify-write but acting on different rows
+    -   phantom reads
+        -   cannot lock on non-existing rows
+        -   materialize or index-range lock
+-   serializable isolation (strongest)
+    -   single thread execution
+    -   two phase locking
+    -   serializable snapshot isolation
+        -   also use MVCC to detect isolation violations
+
+-   serializable

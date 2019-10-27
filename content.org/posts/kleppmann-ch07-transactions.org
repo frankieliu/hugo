@@ -227,3 +227,27 @@
 - trade-off in granularity of r/w tracking
 
 * Summary
+Treatment of different isolation levels
+- read committed (no dirty reads and no dirty writes)
+  - only read what has been committed
+  - only overwrite what has been committed
+    - don't overwrite partial transactions
+- snapshot isolation
+  - prevent read skews
+  - read a consistent state of the DB
+  - good when have to read a bunch of things
+  - implemented with MVCC
+- write concurrency issues
+  - lost updates on read-modify-write cycle
+    - lock all relevant rows
+  - write skew also a read-modify-write but acting on different rows
+  - phantom reads
+    - cannot lock on non-existing rows
+    - materialize or index-range lock
+- serializable isolation (strongest)
+  - single thread execution
+  - two phase locking
+  - serializable snapshot isolation
+    - also use MVCC to detect isolation violations
+
+- serializable
