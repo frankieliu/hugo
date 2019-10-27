@@ -17,7 +17,8 @@
       <pubDate>Wed, 23 Oct 2019 22:43:03 -0700</pubDate>
       
       <guid>https://www.frankliu.org/hugo/posts/kmp/</guid>
-      <description>Main concept of KMP Consider the following string: \(\underbrace{a_1 a_2 a_3}_\text{text1}\)</description>
+      <description>Main concept of KMP Consider the following string:
+\(\underbrace{a_1 a_2 a_3 a_4}_\text{text1}\)</description>
     </item>
     
   </channel>

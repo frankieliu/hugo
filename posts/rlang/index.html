@@ -24,30 +24,33 @@
     
 
     
-
+    
     <meta property="og:title" content="R lang" />
-<meta property="og:description" content="operators Exponent: ^
-difference between = and &lt;- operators vectors (range)  1:9, 1:2:9, c(1,3,2,-8.1) c() for concat  vector addition  v1 &#43; v2  matrices  matrix(c(1,2,3,4,5,6,7,8,9), nrow=3) nrow is the number of rows or ncol for number of columns fills in column order, i.e. [[1,4,7],[2,5,8],[3,6,9]]  matrix multiplication  m1 %*% m2  transpose  t(m1)  slicing  m1[1,3] m1[,3] : all elements on third column m1[1,] : all elements on first rows m1[,-2] : all but the second column m1[1,1] = 15 m1[,2:3] = 1 : set columns 2 and 3 to 2 m1[,2:3] = 4:9 : set columns 2 and 3 to col2:4,5,6, col3:7,8,9 m1[m1&gt;5] : filter elements in m1 that are greater than 5 m1[m1&gt;5] = 3 : set all elements greater than 5 to 3  loops for(i in 1:3) { print(i) } while(sum(v1)&gt;=5) {}" />
+<meta property="og:description" content="operators Exponent: ^ Bit: &amp; | Conditional: &amp;&amp; ||
+difference between = and &lt;- operators Just use =
+vectors (range)  everything is a vector 1:9, 1:2:9, c(1,3,2,-8.1) c() for concat  vector addition  v1 &#43; v2 : element wise  matrices  matrix(c(1,2,3,4,5,6,7,8,9), nrow=3) nrow is the number of rows or ncol for number of columns fills in column order, i.e. [[1,4,7],[2,5,8],[3,6,9]] matrix(1:9, nrow=3, byrow=T) : fills in row order  matrix multiplication  m1 %*% m2  transpose  t(m1)  slicing  m1[1,3] m1[,3] : all elements on third column m1[1,] : all elements on first rows m1[,-2] : all but the second column m1[1,1] = 15 m1[,2:3] = 1 : set columns 2 and 3 to 2 m1[,2:3] = 4:9 : set columns 2 and 3 to col2:4,5,6, col3:7,8,9 m1[m1&gt;5] : filter elements in m1 that are greater than 5 m1[m1&gt;5] = 3 : set all elements greater than 5 to 3  loops for(i in 1:3) { print(i) } while(sum(v1)&gt;=5) {}" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/rlang/" />
 <meta property="article:published_time" content="2019-10-04T22:35:02-07:00" />
-<meta property="article:modified_time" content="2019-10-05T04:12:33-07:00" />
+<meta property="article:modified_time" content="2019-10-26T08:12:32-07:00" />
 <meta itemprop="name" content="R lang">
-<meta itemprop="description" content="operators Exponent: ^
-difference between = and &lt;- operators vectors (range)  1:9, 1:2:9, c(1,3,2,-8.1) c() for concat  vector addition  v1 &#43; v2  matrices  matrix(c(1,2,3,4,5,6,7,8,9), nrow=3) nrow is the number of rows or ncol for number of columns fills in column order, i.e. [[1,4,7],[2,5,8],[3,6,9]]  matrix multiplication  m1 %*% m2  transpose  t(m1)  slicing  m1[1,3] m1[,3] : all elements on third column m1[1,] : all elements on first rows m1[,-2] : all but the second column m1[1,1] = 15 m1[,2:3] = 1 : set columns 2 and 3 to 2 m1[,2:3] = 4:9 : set columns 2 and 3 to col2:4,5,6, col3:7,8,9 m1[m1&gt;5] : filter elements in m1 that are greater than 5 m1[m1&gt;5] = 3 : set all elements greater than 5 to 3  loops for(i in 1:3) { print(i) } while(sum(v1)&gt;=5) {}">
+<meta itemprop="description" content="operators Exponent: ^ Bit: &amp; | Conditional: &amp;&amp; ||
+difference between = and &lt;- operators Just use =
+vectors (range)  everything is a vector 1:9, 1:2:9, c(1,3,2,-8.1) c() for concat  vector addition  v1 &#43; v2 : element wise  matrices  matrix(c(1,2,3,4,5,6,7,8,9), nrow=3) nrow is the number of rows or ncol for number of columns fills in column order, i.e. [[1,4,7],[2,5,8],[3,6,9]] matrix(1:9, nrow=3, byrow=T) : fills in row order  matrix multiplication  m1 %*% m2  transpose  t(m1)  slicing  m1[1,3] m1[,3] : all elements on third column m1[1,] : all elements on first rows m1[,-2] : all but the second column m1[1,1] = 15 m1[,2:3] = 1 : set columns 2 and 3 to 2 m1[,2:3] = 4:9 : set columns 2 and 3 to col2:4,5,6, col3:7,8,9 m1[m1&gt;5] : filter elements in m1 that are greater than 5 m1[m1&gt;5] = 3 : set all elements greater than 5 to 3  loops for(i in 1:3) { print(i) } while(sum(v1)&gt;=5) {}">
 
 
 <meta itemprop="datePublished" content="2019-10-04T22:35:02-07:00" />
-<meta itemprop="dateModified" content="2019-10-05T04:12:33-07:00" />
-<meta itemprop="wordCount" content="242">
+<meta itemprop="dateModified" content="2019-10-26T08:12:32-07:00" />
+<meta itemprop="wordCount" content="526">
 
 
 
 <meta itemprop="keywords" content="R," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="R lang"/>
-<meta name="twitter:description" content="operators Exponent: ^
-difference between = and &lt;- operators vectors (range)  1:9, 1:2:9, c(1,3,2,-8.1) c() for concat  vector addition  v1 &#43; v2  matrices  matrix(c(1,2,3,4,5,6,7,8,9), nrow=3) nrow is the number of rows or ncol for number of columns fills in column order, i.e. [[1,4,7],[2,5,8],[3,6,9]]  matrix multiplication  m1 %*% m2  transpose  t(m1)  slicing  m1[1,3] m1[,3] : all elements on third column m1[1,] : all elements on first rows m1[,-2] : all but the second column m1[1,1] = 15 m1[,2:3] = 1 : set columns 2 and 3 to 2 m1[,2:3] = 4:9 : set columns 2 and 3 to col2:4,5,6, col3:7,8,9 m1[m1&gt;5] : filter elements in m1 that are greater than 5 m1[m1&gt;5] = 3 : set all elements greater than 5 to 3  loops for(i in 1:3) { print(i) } while(sum(v1)&gt;=5) {}"/>
+<meta name="twitter:description" content="operators Exponent: ^ Bit: &amp; | Conditional: &amp;&amp; ||
+difference between = and &lt;- operators Just use =
+vectors (range)  everything is a vector 1:9, 1:2:9, c(1,3,2,-8.1) c() for concat  vector addition  v1 &#43; v2 : element wise  matrices  matrix(c(1,2,3,4,5,6,7,8,9), nrow=3) nrow is the number of rows or ncol for number of columns fills in column order, i.e. [[1,4,7],[2,5,8],[3,6,9]] matrix(1:9, nrow=3, byrow=T) : fills in row order  matrix multiplication  m1 %*% m2  transpose  t(m1)  slicing  m1[1,3] m1[,3] : all elements on third column m1[1,] : all elements on first rows m1[,-2] : all but the second column m1[1,1] = 15 m1[,2:3] = 1 : set columns 2 and 3 to 2 m1[,2:3] = 4:9 : set columns 2 and 3 to col2:4,5,6, col3:7,8,9 m1[m1&gt;5] : filter elements in m1 that are greater than 5 m1[m1&gt;5] = 3 : set all elements greater than 5 to 3  loops for(i in 1:3) { print(i) } while(sum(v1)&gt;=5) {}"/>
 
   </head>
 
@@ -67,52 +70,6 @@ difference between = and &lt;- operators vectors (range)  1:9, 1:2:9, c(1,3,2,-8
     <div class="flex-l items-center">
       
 
-      
-        <ul class="pl0 mr3">
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/rlang/" title="R lang page">
-              R lang
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/vector-clocks/" title="Vector clocks page">
-              Vector clocks
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/731-my-calendar-ii-segment-tree/" title="731 My Calendar II page">
-              731 My Calendar II
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/920-number-of-music-playlists/" title="920 Number of music playlists page">
-              920 Number of music playlists
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/kmp/" title="KMP and Aho-Corasick page">
-              KMP and Aho-Corasick
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/mathjax-hugo/" title="Setting up mathjax for hugo page">
-              Setting up mathjax for hugo
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/dynamo/" title="DynamoDB page">
-              DynamoDB
-            </a>
-          </li>
-          
-        </ul>
       
       
 
@@ -164,6 +121,15 @@ MathJax.Hub.Config({
       </p>
       <h1 class="f1 athelas mb1">R lang</h1>
       
+      <p class="tracked">
+          By <strong>
+          
+              adam
+          
+          </strong>
+      </p>
+      
+      
       <time class="f6 mv4 dib tracked" datetime="2019-10-04T22:35:02-07:00">October 4, 2019</time>
       
       
@@ -173,13 +139,18 @@ MathJax.Hub.Config({
 
 <h2 id="operators">operators</h2>
 
-<p>Exponent: ^</p>
+<p>Exponent: ^
+Bit: &amp; |
+Conditional: &amp;&amp; ||</p>
 
 <h2 id="difference-between-and-operators">difference between = and &lt;- operators</h2>
+
+<p>Just use =</p>
 
 <h2 id="vectors--range">vectors (range)</h2>
 
 <ul>
+<li>everything is a vector</li>
 <li>1:9, 1:2:9, c(1,3,2,-8.1)</li>
 <li>c() for concat</li>
 </ul>
@@ -187,7 +158,7 @@ MathJax.Hub.Config({
 <h2 id="vector-addition">vector addition</h2>
 
 <ul>
-<li>v1 + v2</li>
+<li>v1 + v2 : element wise</li>
 </ul>
 
 <h2 id="matrices">matrices</h2>
@@ -197,6 +168,7 @@ MathJax.Hub.Config({
 <li>nrow is the number of rows or ncol for number of columns</li>
 <li>fills in column order, i.e.
 [[1,4,7],[2,5,8],[3,6,9]]</li>
+<li>matrix(1:9, nrow=3, byrow=T) : fills in row order</li>
 </ul>
 
 <h3 id="matrix-multiplication">matrix multiplication</h3>
@@ -249,6 +221,11 @@ class(c(&ldquo;r&rdquo;,&ldquo;g&rdquo;)) : character
 class(c(1,&ldquo;r&rdquo;))   : character
 class(c(T,F))     : logical</p>
 
+<h3 id="na-not-available--null">NA : Not available (null)</h3>
+
+<p>class(NaN) : numeric
+class(NA)  : logical</p>
+
 <h2 id="vector">vector</h2>
 
 <p>vector(mode=&ldquo;logical&rdquo;,3)</p>
@@ -295,6 +272,134 @@ a$category1</p>
 <h2 id="conversion">conversion</h2>
 
 <p>as.vector(), as.logical(), as.character</p>
+
+<h2 id="file-system">file system</h2>
+
+<p>getwd() : pwd
+setwd() : cd
+p = read.csv(&ldquo;some.csv&rdquo;, header=TRUE)
+row.names(p) = p[,1]
+p = p[,-1]
+read.delim(&ldquo;filename.xxx&rdquo;, header=TRUE, sep=&ldquo;;&lsquo;, dec=&rdquo;.&ldquo;)</p>
+
+<p>write.csv(var1, file=&ldquo;some.csv&rdquo;)
+write.table(df, file=&ldquo;some.csv&rdquo;, sep=&rdquo; &ldquo;)
+save(var1, var2, file=&ldquo;some.rdata&rdquo;)</p>
+
+<h2 id="rdata">rdata</h2>
+
+<ul>
+<li>extension: .rdata</li>
+<li>load(&ldquo;some.rdata&rdquo;)</li>
+</ul>
+
+<h2 id="plotting">plotting</h2>
+
+<p>plot(x,y)
+x11()    : new window
+par(mfrow=c(1,2), bg=&ldquo;grey&rdquo;, bty=&ldquo;n&rdquo;, cex=.75)</p>
+
+<ul>
+<li>mfrow : subplot</li>
+<li>bty : boundary box</li>
+<li>cex : text ratio</li>
+</ul>
+
+<p>plot(x,y,xlab=&ldquo;1:9&rdquo;, ylab=&ldquo;9:1&rdquo;, main=&ldquo;title&rdquo;, col=&ldquo;red&rdquo;, pch=3)</p>
+
+<ul>
+<li>pch : shape of the points</li>
+</ul>
+
+<p>hist(p[,1], main=colnames(p)[1], xlab=&ldquo;xlabel&rdquo;, breaks=c(0,.5,.7,.8,.9,1)
+boxplot(p)
+lines(x,y)
+abline(coef=c(intercept, slope), v=vertical_x, h=horizontal_y)
+points(1:5,c(4,4,4,4,4), pch=1:5, col=1:5)
+par(new=T)
+legend(x=&ldquo;topright&rdquo;, legend=c(&ldquo;r&rdquo;,&ldquo;g&rdquo;,&ldquo;b&rdquo;), lwd=2, col=1:2, bg=&ldquo;grey&rdquo;)</p>
+
+<ul>
+<li>lwd : linewidth</li>
+</ul>
+
+<p>pdf(&ldquo;some.pdf&rdquo;)
+dev.off()</p>
+
+<h2 id="help">help</h2>
+
+<p>?plot</p>
+
+<h2 id="functions">functions</h2>
+
+<p>abs(), sqrt()
+seq(0,8,2)
+rep(c(0,2), 5)
+length(c(1,2,3))
+system.time((seq1 = seq(0,1e6,1)))
+var() : variance
+mean(), median()
+sample(c(0,1), 10, replace=TRUE, prob = c(.5,.5))
+which(vec==1)  : return indices where T
+t.test(1:5, 5:10)  : student t-test
+runif(5, min=0, max=1)  : random sampling of 5 numbers, unif([0,1])
+ls() : what objects are in workspace
+rm(var) : remove a variable
+q() : quit</p>
+
+<h3 id="custom-functions">custom functions</h3>
+
+<p>doublex &lt;- function(x,y=10) { return(2) }dx</p>
+
+<h2 id="running-script-from-file">running script from file</h2>
+
+<p>source(&ldquo;some.r&rdquo;)</p>
+
+<h2 id="installing-packages">Installing packages</h2>
+
+<p>install.packages(&ldquo;install.load&rdquo;)
+library(install.load)
+install_load(&ldquo;somepackage&rdquo;)
+library(somepackage)
+detach(&ldquo;package:somepackge, unload=TRUE)</p>
+
+<h2 id="jsonlite">jsonlite</h2>
+
+<p>install_load(&lsquo;jsonlite&rsquo;)
+a = jsonlite::read_json(&lsquo;jobj.json&rsquo;)
+a$Diameter$mean</p>
+
+<h2 id="dict-package">dict package</h2>
+
+<p>if (!require(&ldquo;devtools&rdquo;)) install.packages(&ldquo;devtools&rdquo;)
+devtools::install_github(&ldquo;mkuhn/dict&rdquo;)</p>
+
+<h2 id="tidyverse">tidyverse</h2>
+
+<p>Warning messages:
+1: In install.packages(&ldquo;tidyverse&rdquo;) :
+  installation of package ‘curl’ had non-zero exit status
+2: In install.packages(&ldquo;tidyverse&rdquo;) :
+  installation of package ‘httr’ had non-zero exit status
+3: In install.packages(&ldquo;tidyverse&rdquo;) :
+  installation of package ‘rvest’ had non-zero exit status
+4: In install.packages(&ldquo;tidyverse&rdquo;) :
+  installation of package ‘tidyverse’ had non-zero exit status</p>
+
+<p>sudo aptitude install libcurl4-openssl-dev libxml2-dev
+<a href="https://stackoverflow.com/questions/31008877/unable-to-install-rvest-package">https://stackoverflow.com/questions/31008877/unable-to-install-rvest-package</a></p>
+
+<h2 id="rss-autocomplete">rss autocomplete</h2>
+
+<p><a href="https://ess.r-project.org/Manual/ess.html#Installation">https://ess.r-project.org/Manual/ess.html#Installation</a></p>
+
+<h2 id="tidyverse-1">tidyverse</h2>
+
+<p><a href="https://github.com/tidyverse/stringr">https://github.com/tidyverse/stringr</a></p>
+
+<h2 id="r-for-dummies">r for dummies</h2>
+
+<p><a href="https://www.dummies.com/programming/r/how-to-combine-logical-statements-in-r/">https://www.dummies.com/programming/r/how-to-combine-logical-statements-in-r/</a></p>
 <ul class="pa0">
   
    <li class="list">

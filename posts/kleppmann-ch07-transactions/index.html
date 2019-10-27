@@ -24,24 +24,24 @@
     
 
     
-
+    
     <meta property="og:title" content="Kleppmann Chapter 07 - Transactions" />
 <meta property="og:description" content="Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong  Durability - committed means data will not be lost  there is no perfect guarantee   Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another  identify multi-object transaction  tie to client&rsquo;s TCP connection - bad separate transaction id   Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set    Multi-object transactions  when do you need them?" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/kleppmann-ch07-transactions/" />
 <meta property="article:published_time" content="2019-10-25T17:50:20-07:00" />
-<meta property="article:modified_time" content="2019-10-26T07:52:14-07:00" />
+<meta property="article:modified_time" content="2019-10-26T19:54:53-07:00" />
 <meta itemprop="name" content="Kleppmann Chapter 07 - Transactions">
 <meta itemprop="description" content="Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong  Durability - committed means data will not be lost  there is no perfect guarantee   Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another  identify multi-object transaction  tie to client&rsquo;s TCP connection - bad separate transaction id   Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set    Multi-object transactions  when do you need them?">
 
 
 <meta itemprop="datePublished" content="2019-10-25T17:50:20-07:00" />
-<meta itemprop="dateModified" content="2019-10-26T07:52:14-07:00" />
-<meta itemprop="wordCount" content="487">
+<meta itemprop="dateModified" content="2019-10-26T19:54:53-07:00" />
+<meta itemprop="wordCount" content="1083">
 
 
 
-<meta itemprop="keywords" content="" />
+<meta itemprop="keywords" content="db,transactions,scalable,kleppmann," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Kleppmann Chapter 07 - Transactions"/>
 <meta name="twitter:description" content="Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong  Durability - committed means data will not be lost  there is no perfect guarantee   Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another  identify multi-object transaction  tie to client&rsquo;s TCP connection - bad separate transaction id   Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set    Multi-object transactions  when do you need them?"/>
@@ -64,52 +64,6 @@
     <div class="flex-l items-center">
       
 
-      
-        <ul class="pl0 mr3">
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/rlang/" title="R lang page">
-              R lang
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/vector-clocks/" title="Vector clocks page">
-              Vector clocks
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/731-my-calendar-ii-segment-tree/" title="731 My Calendar II page">
-              731 My Calendar II
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/920-number-of-music-playlists/" title="920 Number of music playlists page">
-              920 Number of music playlists
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/kmp/" title="KMP and Aho-Corasick page">
-              KMP and Aho-Corasick
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/mathjax-hugo/" title="Setting up mathjax for hugo page">
-              Setting up mathjax for hugo
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/dynamo/" title="DynamoDB page">
-              DynamoDB
-            </a>
-          </li>
-          
-        </ul>
       
       
 
@@ -144,6 +98,15 @@
         POSTS
       </p>
       <h1 class="f1 athelas mb1">Kleppmann Chapter 07 - Transactions</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              adam
+          
+          </strong>
+      </p>
+      
       
       <time class="f6 mv4 dib tracked" datetime="2019-10-25T17:50:20-07:00">October 25, 2019</time>
       
@@ -288,9 +251,44 @@
 
 <ul>
 <li>A and B try to buy same car, listing and sales DB, invoice ovrwrt</li>
-<li>read committed does not prevent race condition btw counter increment</li>
+<li>read committed does not prevent race condition btw counter increment
+-</li>
 </ul></li>
 </ul></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>T1</th>
+<th>T2</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>SA</td>
+<td></td>
+</tr>
+
+<tr>
+<td></td>
+<td>SB</td>
+</tr>
+
+<tr>
+<td></td>
+<td>IB</td>
+</tr>
+
+<tr>
+<td>IA</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<ul>
 <li>Implementation
 
 <ul>
@@ -344,41 +342,334 @@
 <li>Implementation
 
 <ul>
-<li>wite locks to prevent dirty writes</li>
+<li>write locks to prevent dirty writes</li>
 <li>no locks on reads
 
 <ul>
 <li>DB keeps different committed versions of an object
 
 <ul>
-<li>multi-version concurrency control (MVCC)</li>
-</ul></li>
-</ul></li>
-<li>for read committed
+<li>multi-version concurrency control (MVCC)
 
 <ul>
-<li>use a separate snapshot for each query</li>
+<li>for read committed, snapshot per query</li>
+<li>for snapshot isolation, snapshot per transaction</li>
 </ul></li>
-<li>for snapshot isolation
+<li>each transaction - increasing transaction ID (txid)
 
 <ul>
-<li>us a single snapshot for the whole transactoin</li>
-</ul></li>
-<li>each transaction is given an always increasing transaction ID (txid)
+<li>each row has a created_by field w txid</li>
+<li>each row has a deleted_by field w txid
 
 <ul>
-<li>each row has a created_by field, the txid</li>
-<li>each row has a deleted_by field, the txid
-
-<ul>
-<li>when no transactions access deleted data can GC</li>
+<li>GC when no transactions access</li>
 </ul></li>
 </ul></li>
-<li>on read use txid to decide which objects it can see and which are
-invisible</li>
+</ul></li>
+<li>txid decides read visibility</li>
+</ul></li>
 </ul></li>
 </ul>
+
+<h3 id="indexes">Indexes</h3>
+
+<ul>
+<li>keep all the versions
+
+<ul>
+<li>let query filter visible ones</li>
+<li>GC when no longer visible to any transactions</li>
+</ul></li>
+<li>B-tree with append-only/copy-on-write
+
+<ul>
+<li>parent pages are copied and updated to point to new versions</li>
+<li>each root is a consistent snapshot of the DB</li>
+<li>GC</li>
+</ul></li>
+</ul>
+
+<h2 id="preventing-lost-updates">Preventing lost updates</h2>
+
+<ul>
+<li>two reads on same and modify data - clobber
+
+<ul>
+<li>scenario: inc counter, json object, wiki page</li>
+</ul></li>
+<li>atomic writes
+
+<ul>
+<li>atomic update counter</li>
+<li>atomic write json</li>
+<li>exclusive read/write lock on object - cursor stability</li>
+</ul></li>
+<li>explicit locking
+
+<ul>
+<li>FOR UPDATE: lock all selected rows</li>
+</ul></li>
+<li>alternative detect lost update</li>
+<li>compare-and-set
+
+<ul>
+<li>send previous read and new value, only set if previous matches</li>
+</ul></li>
+</ul>
+
+<h3 id="conflict-resolution-in-multi-leader-and-leaderless">conflict resolution in multi-leader and leaderless</h3>
+
+<ul>
+<li>replicas take writes</li>
+<li>maintain different versions</li>
+<li>commutative operations such as inc are ok</li>
+<li>last write wins (LWW) prone to lost updates</li>
+</ul>
+
+<h2 id="write-skew">Write skew</h2>
+
+<h3 id="doctor-call-list">doctor call list</h3>
+
+<ul>
+<li>crux writing to different rows on on-call table
+
+<ul>
+<li>previously writing to same data</li>
+</ul></li>
+</ul>
+
+<h3 id="non-working-solutions">non-working solutions</h3>
+
+<ul>
+<li>atomic single-object don&rsquo;t help</li>
+<li>automatic detection of lost updates not detectable</li>
+</ul>
+
+<h3 id="partial-solutions">partial solutions</h3>
+
+<ul>
+<li>constraints, uniqueness or foreign key restrictions, but contraints over
+multiple object is hard</li>
+<li>explicitly lock all rows with FOR UPDATE</li>
+</ul>
+
+<h3 id="other-examples">other examples</h3>
+
+<ul>
+<li>Meeting room booking</li>
+<li>Multiplayer game - lock to prevent two players from moving same figure,
+but does not prevent two users to move simultaneously while avoiding
+some constraint, going to same bathroom</li>
+<li>Claiming a username - uniqueness constraint</li>
+<li>Double spending - inserting two items below threshold</li>
+</ul>
+
+<h3 id="phantom-pattern">phantom pattern</h3>
+
+<ul>
+<li>read/modify/write</li>
+<li>doctor example can lock rows</li>
+<li>other examples can&rsquo;t attach lock</li>
+<li>write affect the query in another - phantom</li>
+</ul>
+
+<h3 id="materializing-phantoms">materializing phantoms</h3>
+
+<ul>
+<li>meeting room
+
+<ul>
+<li>create room-time-period rows</li>
+</ul></li>
+</ul>
+
+<h2 id="serializability">Serializability</h2>
+
+<h3 id="single-thread-execution">single-thread execution</h3>
+
+<h4 id="stored-procedure">stored procedure</h4>
+
+<ul>
+<li>send application code to make decisions, remove network hop</li>
+<li>hard to debug and can hog DB</li>
+</ul>
+
+<h4 id="partitioning">partitioning</h4>
+
+<ul>
+<li>multi-partition transactions - hard</li>
+</ul>
+
+<h4 id="limitations">limitations</h4>
+
+<ul>
+<li>transactions must be small and fast, no long tail</li>
+<li>active dataset must fit into memory
+
+<ul>
+<li>use anti-caching, abort transaction, fetch data to memory</li>
+</ul></li>
+<li>write throught could slow things down require partitioning</li>
+<li>limit cross-partition transactions</li>
+</ul>
+
+<h2 id="two-phase-locking--2pl">two-phase locking (2PL)</h2>
+
+<ul>
+<li>read lock in shared more</li>
+<li>write exclusive lock</li>
+<li>upgrade from shared to exclusive if r/w same object</li>
+<li>hold lock until end of transaction</li>
+</ul>
+
+<h3 id="limitations-1">Limitations</h3>
+
+<ul>
+<li>several transactions (even simple ones) will form queue</li>
+<li>unstable latencies
+
+<ul>
+<li>very slow at high percentiles</li>
+</ul></li>
+<li>deadlocks</li>
+</ul>
+
+<h3 id="predicate-locks">predicate locks</h3>
+
+<ul>
+<li>cannot have phantoms
+
+<ul>
+<li>select * from table where room=123 and start_time &gt; &amp; end_time &lt;</li>
+<li>predicates lock on phantom rows which don&rsquo;t exist yet</li>
+</ul></li>
+</ul>
+
+<h3 id="index-range-locks">index-range locks</h3>
+
+<ul>
+<li>have index on room_id and index on start_time and end_time
+
+<ul>
+<li>shared lock on room_id index</li>
+<li>or shared lock on time range index</li>
+</ul></li>
+<li>inserting update or deletion will have to update a locakable index</li>
+</ul>
+
+<h2 id="serializable-snapshot-isolation--ssi">Serializable Snapshot Isolation (SSI)</h2>
+
+<ul>
+<li>optimistic concurrency control</li>
+<li>detect isolation violation - abort and retry</li>
+</ul>
+
+<h3 id="implementaion">implementaion</h3>
+
+<ul>
+<li>detect reads of a stale MVCC object</li>
+<li>detect writes that affect prior reads</li>
+</ul>
+
+<h3 id="detecting-stale-mvcc-reads">detecting stale MVCC reads</h3>
+
+<ul>
+<li>doctor example:
+
+<ul>
+<li>A&rsquo;s update doctors on_call affects B&rsquo;s reading of it</li>
+<li>B&rsquo;s reading on an ealier MVCC vs A&rsquo;s later txid</li>
+</ul></li>
+</ul>
+
+<h3 id="detecting-writes-that-affect-prior-reads">detecting writes that affect prior reads</h3>
+
+<ul>
+<li>doctor example:
+
+<ul>
+<li>A and B both read, but at different transactions, track this</li>
+<li>on a write, see affected reads</li>
+</ul></li>
+</ul>
+
+<h3 id="performance">performance</h3>
+
+<ul>
+<li>trade-off in granularity of r/w tracking</li>
+</ul>
+
+<h2 id="summary">Summary</h2>
+
+<p>Treatment of different isolation levels</p>
+
+<ul>
+<li>read committed (no dirty reads and no dirty writes)
+
+<ul>
+<li>only read what has been committed</li>
+<li>only overwrite what has been committed
+
+<ul>
+<li>don&rsquo;t overwrite partial transactions</li>
+</ul></li>
+</ul></li>
+<li>snapshot isolation
+
+<ul>
+<li>prevent read skews</li>
+<li>read a consistent state of the DB</li>
+<li>good when have to read a bunch of things</li>
+<li>implemented with MVCC</li>
+</ul></li>
+<li>write concurrency issues
+
+<ul>
+<li>lost updates on read-modify-write cycle
+
+<ul>
+<li>lock all relevant rows</li>
+</ul></li>
+<li>write skew also a read-modify-write but acting on different rows</li>
+<li>phantom reads
+
+<ul>
+<li>cannot lock on non-existing rows</li>
+<li>materialize or index-range lock</li>
+</ul></li>
+</ul></li>
+
+<li><p>serializable isolation (strongest)</p>
+
+<ul>
+<li>single thread execution</li>
+<li>two phase locking</li>
+<li>serializable snapshot isolation
+
+<ul>
+<li>also use MVCC to detect isolation violations</li>
+</ul></li>
+</ul></li>
+
+<li><p>serializable</p></li>
+</ul>
 <ul class="pa0">
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/db" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">db</a>
+   </li>
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/transactions" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">transactions</a>
+   </li>
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/scalable" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">scalable</a>
+   </li>
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/kleppmann" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">kleppmann</a>
+   </li>
   
 </ul>
 <div class="mt6">
@@ -391,6 +682,25 @@ invisible</li>
 
 
 
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="https://www.frankliu.org/hugo/posts/dynamo/">DynamoDB</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://www.frankliu.org/hugo/posts/vector-clocks/">Vector clocks</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://www.frankliu.org/hugo/posts/spanner/">Spanner</a>
+        </li>
+	    
+    </ul>
+</div>
 
 </aside>
 

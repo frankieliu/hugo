@@ -24,27 +24,30 @@
     
 
     
-
+    
     <meta property="og:title" content="KMP and Aho-Corasick" />
-<meta property="og:description" content="Main concept of KMP Consider the following string: \(\underbrace{a_1 a_2 a_3}_\text{text1}\)" />
+<meta property="og:description" content="Main concept of KMP Consider the following string:
+\(\underbrace{a_1 a_2 a_3 a_4}_\text{text1}\)" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/kmp/" />
 <meta property="article:published_time" content="2019-10-23T22:43:03-07:00" />
-<meta property="article:modified_time" content="2019-10-23T22:45:38-07:00" />
+<meta property="article:modified_time" content="2019-10-26T08:16:20-07:00" />
 <meta itemprop="name" content="KMP and Aho-Corasick">
-<meta itemprop="description" content="Main concept of KMP Consider the following string: \(\underbrace{a_1 a_2 a_3}_\text{text1}\)">
+<meta itemprop="description" content="Main concept of KMP Consider the following string:
+\(\underbrace{a_1 a_2 a_3 a_4}_\text{text1}\)">
 
 
 <meta itemprop="datePublished" content="2019-10-23T22:43:03-07:00" />
-<meta itemprop="dateModified" content="2019-10-23T22:45:38-07:00" />
-<meta itemprop="wordCount" content="11">
+<meta itemprop="dateModified" content="2019-10-26T08:16:20-07:00" />
+<meta itemprop="wordCount" content="12">
 
 
 
 <meta itemprop="keywords" content="algorithms,strings," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="KMP and Aho-Corasick"/>
-<meta name="twitter:description" content="Main concept of KMP Consider the following string: \(\underbrace{a_1 a_2 a_3}_\text{text1}\)"/>
+<meta name="twitter:description" content="Main concept of KMP Consider the following string:
+\(\underbrace{a_1 a_2 a_3 a_4}_\text{text1}\)"/>
 
   </head>
 
@@ -64,52 +67,6 @@
     <div class="flex-l items-center">
       
 
-      
-        <ul class="pl0 mr3">
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/rlang/" title="R lang page">
-              R lang
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/vector-clocks/" title="Vector clocks page">
-              Vector clocks
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/731-my-calendar-ii-segment-tree/" title="731 My Calendar II page">
-              731 My Calendar II
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/920-number-of-music-playlists/" title="920 Number of music playlists page">
-              920 Number of music playlists
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/kmp/" title="KMP and Aho-Corasick page">
-              KMP and Aho-Corasick
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/mathjax-hugo/" title="Setting up mathjax for hugo page">
-              Setting up mathjax for hugo
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/dynamo/" title="DynamoDB page">
-              DynamoDB
-            </a>
-          </li>
-          
-        </ul>
       
       
 
@@ -161,6 +118,15 @@ MathJax.Hub.Config({
       </p>
       <h1 class="f1 athelas mb1">KMP and Aho-Corasick</h1>
       
+      <p class="tracked">
+          By <strong>
+          
+              adam
+          
+          </strong>
+      </p>
+      
+      
       <time class="f6 mv4 dib tracked" datetime="2019-10-23T22:43:03-07:00">October 23, 2019</time>
       
       
@@ -170,8 +136,9 @@ MathJax.Hub.Config({
 
 <h2 id="main-concept-of-kmp">Main concept of KMP</h2>
 
-<p>Consider the following string:
-\(\underbrace{a_1 a_2 a_3}_\text{text1}\)</p>
+<p>Consider the following string:</p>
+
+<p>\(\underbrace{a_1 a_2 a_3 a_4}_\text{text1}\)</p>
 <ul class="pa0">
   
    <li class="list">

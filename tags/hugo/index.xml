@@ -18,7 +18,7 @@
       
       <guid>https://www.frankliu.org/hugo/posts/mathjax-hugo/</guid>
       <description> Problem Adding mathjax support for posts
-Solution  Modify the current theme Add a partial template Add a parameter called mathjax: true in the frontmatter  Details Modifying the current theme  Note that the current theme is set in config.tolm   theme = &amp;#34;ananke&amp;#34; def add: return 1+1</description>
+Solution  Modify the current theme Add a partial template Add a parameter called mathjax: true in the frontmatter  Details Modifying the current theme  Note that the current theme is set in config.tolm   theme = &amp;#34;ananke&amp;#34;</description>
     </item>
     
   </channel>

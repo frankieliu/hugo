@@ -4,177 +4,196 @@
   
   <url>
     <loc>https://www.frankliu.org/hugo/posts/kleppmann-ch07-transactions/</loc>
-    <lastmod>2019-10-26T07:52:14-07:00</lastmod>
+    <lastmod>2019-10-26T19:54:53-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/posts/vector-clocks/</loc>
-    <lastmod>2019-10-12T15:32:26-07:00</lastmod>
+    <lastmod>2019-10-26T08:15:32-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/posts/rlang/</loc>
-    <lastmod>2019-10-05T04:12:33-07:00</lastmod>
+    <lastmod>2019-10-26T08:12:32-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/posts/spanner/</loc>
-    <lastmod>2019-09-18T11:53:18-07:00</lastmod>
+    <lastmod>2019-10-26T08:16:47-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/posts/kmp/</loc>
-    <lastmod>2019-10-23T22:45:38-07:00</lastmod>
+    <lastmod>2019-10-26T08:16:20-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/posts/731-my-calendar-ii-segment-tree/</loc>
-    <lastmod>2019-10-04T18:33:02-07:00</lastmod>
+    <lastmod>2019-10-26T19:00:29-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/posts/920-number-of-music-playlists/</loc>
-    <lastmod>2019-10-04T18:17:56-07:00</lastmod>
+    <lastmod>2019-10-26T08:16:35-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/posts/mathjax-hugo/</loc>
-    <lastmod>2019-09-14T19:30:04-07:00</lastmod>
+    <lastmod>2019-10-26T08:16:07-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/posts/dynamo/</loc>
-    <lastmod>2019-09-19T08:05:45-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/</loc>
-    <lastmod>2019-10-26T07:52:14-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/posts/</loc>
-    <lastmod>2019-10-26T07:52:14-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/tags/algorithms/</loc>
-    <lastmod>2019-10-23T22:45:38-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/categories/algorithms/</loc>
-    <lastmod>2019-10-23T22:45:38-07:00</lastmod>
+    <lastmod>2019-10-26T08:17:57-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/categories/</loc>
-    <lastmod>2019-10-23T22:45:38-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/tags/strings/</loc>
-    <lastmod>2019-10-23T22:45:38-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/tags/</loc>
-    <lastmod>2019-10-23T22:45:38-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/tags/concurrent-writes/</loc>
-    <lastmod>2019-10-12T15:32:26-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/categories/scalable/</loc>
-    <lastmod>2019-10-12T15:32:26-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/tags/scalable/</loc>
-    <lastmod>2019-10-12T15:32:26-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/tags/vector-clocks/</loc>
-    <lastmod>2019-10-12T15:32:26-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/categories/languages/</loc>
-    <lastmod>2019-10-05T04:12:33-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/tags/r/</loc>
-    <lastmod>2019-10-05T04:12:33-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/tags/leetcode/</loc>
-    <lastmod>2019-10-04T18:33:02-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/categories/leetcode/</loc>
-    <lastmod>2019-10-04T18:33:02-07:00</lastmod>
+    <lastmod>2019-10-26T19:54:53-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/tags/db/</loc>
-    <lastmod>2019-09-19T08:05:45-07:00</lastmod>
+    <lastmod>2019-10-26T19:54:53-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/kleppmann/</loc>
+    <lastmod>2019-10-26T19:54:53-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/categories/kleppmann/</loc>
+    <lastmod>2019-10-26T19:54:53-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/</loc>
+    <lastmod>2019-10-26T19:54:53-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/posts/</loc>
+    <lastmod>2019-10-26T19:54:53-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/scalable/</loc>
+    <lastmod>2019-10-26T19:54:53-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/</loc>
+    <lastmod>2019-10-26T19:54:53-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/transactions/</loc>
+    <lastmod>2019-10-26T19:54:53-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/algorithms/</loc>
+    <lastmod>2019-10-26T08:16:20-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/categories/algorithms/</loc>
+    <lastmod>2019-10-26T08:16:20-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/strings/</loc>
+    <lastmod>2019-10-26T08:16:20-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/concurrent-writes/</loc>
+    <lastmod>2019-10-26T08:15:32-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/categories/scalable/</loc>
+    <lastmod>2019-10-26T08:17:57-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/vector-clocks/</loc>
+    <lastmod>2019-10-26T08:15:32-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/categories/languages/</loc>
+    <lastmod>2019-10-26T08:12:32-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/r/</loc>
+    <lastmod>2019-10-26T08:12:32-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/leetcode/</loc>
+    <lastmod>2019-10-26T19:00:29-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/categories/leetcode/</loc>
+    <lastmod>2019-10-26T19:00:29-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/tags/google/</loc>
-    <lastmod>2019-09-18T11:53:18-07:00</lastmod>
+    <lastmod>2019-10-26T08:16:47-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/tags/spanner/</loc>
-    <lastmod>2019-09-18T11:53:18-07:00</lastmod>
+    <lastmod>2019-10-26T08:16:47-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/categories/spanner/</loc>
-    <lastmod>2019-09-18T11:53:18-07:00</lastmod>
+    <lastmod>2019-10-26T08:16:47-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/tags/timestamp/</loc>
-    <lastmod>2019-09-18T11:53:18-07:00</lastmod>
+    <lastmod>2019-10-26T08:16:47-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/tags/amazon/</loc>
-    <lastmod>2019-09-19T08:05:45-07:00</lastmod>
+    <lastmod>2019-10-26T08:17:57-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/tags/dynamo/</loc>
-    <lastmod>2019-09-19T08:05:45-07:00</lastmod>
+    <lastmod>2019-10-26T08:17:57-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/categories/hugo/</loc>
-    <lastmod>2019-09-14T19:30:04-07:00</lastmod>
+    <lastmod>2019-10-26T08:16:07-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/tags/hugo/</loc>
-    <lastmod>2019-09-14T19:30:04-07:00</lastmod>
+    <lastmod>2019-10-26T08:16:07-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/tags/mathjax/</loc>
-    <lastmod>2019-09-14T19:30:04-07:00</lastmod>
+    <lastmod>2019-10-26T08:16:07-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/posts/fb-distributed-data-store-tao/</loc>
     <lastmod>2019-08-30T19:13:32-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/about/</loc>
   </url>
   
 </urlset>
