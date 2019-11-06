@@ -1,3 +1,5 @@
+.PHONY: server deploy
+
 server:
 	xdg-open "http://localhost:1313/hugo/"
 	hugo server -D
