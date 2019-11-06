@@ -2,7 +2,7 @@
 title = "Starting hugo from scratch"
 author = ["adam"]
 date = 2019-11-05T19:03:13-08:00
-lastmod = 2019-11-05T19:48:51-08:00
+lastmod = 2019-11-05T19:54:53-08:00
 tags = ["hugo", "deeplearningbook", "github.io"]
 categories = ["hugo"]
 draft = false
@@ -107,7 +107,7 @@ hugo
 .PHONY: server deploy
 
 server:
-  xdg-open "http://localhost:1313/hugo/"
+  xdg-open "http://localhost:1313/dlbook-ig/"
   hugo server -D
 
 deploy:

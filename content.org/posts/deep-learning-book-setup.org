@@ -102,7 +102,7 @@ requires going to the public folder for staging and committing.
   .PHONY: server deploy
 
   server:
-    xdg-open "http://localhost:1313/hugo/"
+    xdg-open "http://localhost:1313/dlbook-ig/"
     hugo server -D
 
   deploy:
@@ -120,5 +120,20 @@ requires going to the public folder for staging and committing.
     ignore = dirty
 #+end_src
 
+* some more speciallized additions to config.toml
+#+begin_src conf
+  baseURL = "https://www.frankliu.org/dlbook-ig/"
+  # relativeURLs = true
+  # uglyURLs = true
+  languageCode = "en-us"
+  title = "My New Hugo Site"
+  theme = "ananke"
+  pygmentsCodeFences = true
+  # pygmentsUseClasses = true
+  # pygmentsUseClassic = false
+  canonifyURLs = true
+  SectionPagesMenu = "main"
+
+#+end_src
 
 
