@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>My New Hugo Site  | Starting hugo from scratch</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.1" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="https://www.frankliu.org/hugo/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Starting hugo from scratch" />
+<meta property="og:description" content="deploying hugo to github.io There are a number of ways of doing this. Since I like to keep a separate branch for the deployment, I opted for the option below. Another option would be use a docs directory and add to config.toml a line with publishDir = &ldquo;docs&rdquo;. This would also work, and you then just need to work on master branch.
+This method of maintaining a separate branch is made easier with a worktree that directly writes to a public folder in gh-pages from the master branch." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.frankliu.org/hugo/posts/deep-learning-book-setup/" />
+<meta property="article:published_time" content="2019-11-05T19:03:13-08:00" />
+<meta property="article:modified_time" content="2019-11-05T19:42:01-08:00" />
+<meta itemprop="name" content="Starting hugo from scratch">
+<meta itemprop="description" content="deploying hugo to github.io There are a number of ways of doing this. Since I like to keep a separate branch for the deployment, I opted for the option below. Another option would be use a docs directory and add to config.toml a line with publishDir = &ldquo;docs&rdquo;. This would also work, and you then just need to work on master branch.
+This method of maintaining a separate branch is made easier with a worktree that directly writes to a public folder in gh-pages from the master branch.">
+
+
+<meta itemprop="datePublished" content="2019-11-05T19:03:13-08:00" />
+<meta itemprop="dateModified" content="2019-11-05T19:42:01-08:00" />
+<meta itemprop="wordCount" content="457">
+
+
+
+<meta itemprop="keywords" content="hugo,deeplearningbook,github.io," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Starting hugo from scratch"/>
+<meta name="twitter:description" content="deploying hugo to github.io There are a number of ways of doing this. Since I like to keep a separate branch for the deployment, I opted for the option below. Another option would be use a docs directory and add to config.toml a line with publishDir = &ldquo;docs&rdquo;. This would also work, and you then just need to work on master branch.
+This method of maintaining a separate branch is made easier with a worktree that directly writes to a public folder in gh-pages from the master branch."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://www.frankliu.org/hugo/" class="f3 fw2 hover-white no-underline white-90 dib">
+      My New Hugo Site
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/" title="Articles page">
+              Articles
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+    extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+    });
+</script>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        ARTICLES
+      </p>
+      <h1 class="f1 athelas mb1">Starting hugo from scratch</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              adam
+          
+          </strong>
+      </p>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-11-05T19:03:13-08:00">November 5, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<h2 id="deploying-hugo-to-github-dot-io">deploying hugo to github.io</h2>
+
+<p>There are a number of ways of doing this. Since I like to keep a separate branch
+for the deployment, I opted for the option below. Another option would be use a
+docs directory and add to config.toml a line with publishDir = &ldquo;docs&rdquo;. This
+would also work, and you then just need to work on master branch.</p>
+
+<p>This method of maintaining a separate branch is made easier with a worktree that
+directly writes to a public folder in gh-pages from the master branch.  But it
+requires going to the public folder for staging and committing.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># initializing a repository</span>
+rm -rf dlbook-ig/                    <span style="color:#75715e"># starting from scratch</span>
+hugo new site dlbook-ig              <span style="color:#75715e"># hugo needs an empty directory, so do hugo first then git init</span>
+cd dlbook-ig/
+git init                             <span style="color:#75715e"># starting a local repo</span>
+git add .                            <span style="color:#75715e"># add all files (only arch.. and config.toml)</span>
+git commit -m<span style="color:#e6db74">&#34;Init&#34;</span>
+hub create -d <span style="color:#e6db74">&#34;Reading of Deep Learning book&#34;</span>     <span style="color:#75715e"># use hub to create a repo in github</span>
+git push origin master
+
+<span style="color:#75715e"># Setting up gh-pages branch</span>
+git checkout --orphan gh-pages       <span style="color:#75715e"># begin a new branch</span>
+git reset --hard                     <span style="color:#75715e"># remove everything</span>
+:                                    <span style="color:#75715e"># adding themes/ananke in master makes this difficult</span>
+:                                    <span style="color:#75715e"># therefore create gh-pages branch</span>
+git commit --allow-empty -m<span style="color:#e6db74">&#34;Init&#34;</span>    <span style="color:#75715e"># commit it</span>
+git push origin gh-pages             <span style="color:#75715e"># note hugo says push upstream but since this is your</span>
+:                                    <span style="color:#75715e"># own remote repo, seems like origin should be used</span>
+
+<span style="color:#75715e"># Setting up the public directory to point to gh-pages</span>
+git checkout master
+git worktree add -B gh-pages public origin/gh-pages
+echo <span style="color:#e6db74">&#34;public&#34;</span> &gt;&gt; .gitignore          <span style="color:#75715e"># static pages will be part of a git worktree</span>
+git add .gitignore
+git commit -m<span style="color:#e6db74">&#34;ignore public&#34;</span>
+
+<span style="color:#75715e"># adding some content</span>
+git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
+echo <span style="color:#e6db74">&#39;theme = &#34;ananke&#34;&#39;</span> &gt;&gt; config.toml
+hugo new posts/my-first-post.md
+vim content/posts/my-first-post.md   <span style="color:#75715e"># change draft = false</span>
+hugo server -D                       <span style="color:#75715e"># check w local server</span>
+vim config.toml                      <span style="color:#75715e"># here add baseURL = &#34;http://frankliu.org/dlbook-ig&#34;</span>
+hugo -D                              <span style="color:#75715e"># generate the public directory</span>
+git status
+git add .
+git commit -m<span style="color:#e6db74">&#34;config and first&#34;</span>
+git push origin master
+
+<span style="color:#75715e"># deploy to gh-pages</span>
+cd public/
+git status
+git add .
+git commit -m<span style="color:#e6db74">&#34;test&#34;</span>
+git push</code></pre></div>
+<h2 id="some-helpers">some helpers</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;`git status -s`&#34;</span> <span style="color:#f92672">]</span>
+<span style="color:#66d9ef">then</span>
+    echo <span style="color:#e6db74">&#34;The working directory is dirty. Please commit any pending changes.&#34;</span>
+    exit <span style="color:#ae81ff">1</span>;
+<span style="color:#66d9ef">fi</span>
+
+echo <span style="color:#e6db74">&#34;Deleting old publication&#34;</span>
+rm -rf public
+mkdir public
+git worktree prune
+rm -rf .git/worktrees/public/
+
+echo <span style="color:#e6db74">&#34;Checking out gh-pages branch into public&#34;</span>
+git worktree add -B gh-pages public origin/gh-pages
+
+echo <span style="color:#e6db74">&#34;Removing existing files&#34;</span>
+rm -rf public/*
+
+echo <span style="color:#e6db74">&#34;Generating site&#34;</span>
+hugo</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-makefile" data-lang="makefile"><span style="color:#a6e22e">.PHONY</span><span style="color:#f92672">:</span> server deploy
+
+<span style="color:#a6e22e">server</span><span style="color:#f92672">:</span>
+  xdg-open <span style="color:#e6db74">&#34;http://localhost:1313/hugo/&#34;</span>
+  hugo server -D
+
+<span style="color:#a6e22e">deploy</span><span style="color:#f92672">:</span>
+  git add -A
+  git commit -m<span style="color:#e6db74">&#34;Adding content&#34;</span>
+  git push
+  ./publish-to-ghpages.sh
+</code></pre></div>
+<h2 id="ignore-modifications-to-theme">ignore modifications to theme</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-conf" data-lang="conf">[submodule &#34;themes/ananke&#34;]
+  path = themes/ananke
+  url = https://github.com/budparr/gohugo-theme-ananke.git
+  ignore = dirty</code></pre></div><ul class="pa0">
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/hugo" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">hugo</a>
+   </li>
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/deeplearningbook" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">deeplearningbook</a>
+   </li>
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/github.io" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">github.io</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="https://www.frankliu.org/hugo/posts/mathjax-hugo/">Setting up mathjax for hugo</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://www.frankliu.org/hugo/" >
+    &copy; 2019 My New Hugo Site
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="https://www.frankliu.org/hugo/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

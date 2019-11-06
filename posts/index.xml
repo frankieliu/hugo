@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>Starting hugo from scratch</title>
+      <link>https://www.frankliu.org/hugo/posts/deep-learning-book-setup/</link>
+      <pubDate>Tue, 05 Nov 2019 19:03:13 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/deep-learning-book-setup/</guid>
+      <description>deploying hugo to github.io There are a number of ways of doing this. Since I like to keep a separate branch for the deployment, I opted for the option below. Another option would be use a docs directory and add to config.toml a line with publishDir = &amp;ldquo;docs&amp;rdquo;. This would also work, and you then just need to work on master branch.
+This method of maintaining a separate branch is made easier with a worktree that directly writes to a public folder in gh-pages from the master branch.</description>
+    </item>
+    
+    <item>
       <title>Kleppmann Chapter 07 - Transactions</title>
       <link>https://www.frankliu.org/hugo/posts/kleppmann-ch07-transactions/</link>
       <pubDate>Fri, 25 Oct 2019 17:50:20 -0700</pubDate>

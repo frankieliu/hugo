@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>My New Hugo Site  | timestamp</title>
+    <title>My New Hugo Site  | github.io</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="generator" content="Hugo 0.59.1" />
     
@@ -25,22 +25,22 @@
 
     
     
-      <link href="https://www.frankliu.org/hugo/tags/timestamp/index.xml" rel="alternate" type="application/rss+xml" title="My New Hugo Site" />
-      <link href="https://www.frankliu.org/hugo/tags/timestamp/index.xml" rel="feed" type="application/rss+xml" title="My New Hugo Site" />
+      <link href="https://www.frankliu.org/hugo/tags/github.io/index.xml" rel="alternate" type="application/rss+xml" title="My New Hugo Site" />
+      <link href="https://www.frankliu.org/hugo/tags/github.io/index.xml" rel="feed" type="application/rss+xml" title="My New Hugo Site" />
       
     
     
-    <meta property="og:title" content="timestamp" />
+    <meta property="og:title" content="github.io" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.frankliu.org/hugo/tags/timestamp/" />
+<meta property="og:url" content="https://www.frankliu.org/hugo/tags/github.io/" />
 
-<meta property="og:updated_time" content="2019-09-17T18:45:19-07:00" />
-<meta itemprop="name" content="timestamp">
+<meta property="og:updated_time" content="2019-11-05T19:03:13-08:00" />
+<meta itemprop="name" content="github.io">
 <meta itemprop="description" content="">
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="timestamp"/>
+<meta name="twitter:title" content="github.io"/>
 <meta name="twitter:description" content=""/>
 
   </head>
@@ -94,7 +94,7 @@
 
       <div class="tc-l pv3 ph3 ph4-ns">
         <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
-          timestamp
+          github.io
         </h1>
         
       </div>
@@ -106,7 +106,7 @@
       
   <article class="cf pa3 pa4-m pa4-l">
     <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links nested-img mid-gray">
-      <p>Below you will find pages that utilize the taxonomy term “timestamp”</p>
+      <p>Below you will find pages that utilize the taxonomy term “github.io”</p>
     </div>
   </article>
   <div class="mw8 center">    
@@ -117,13 +117,13 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/spanner/" class="link black dim">
-        Spanner
+      <a href="https://www.frankliu.org/hugo/posts/deep-learning-book-setup/" class="link black dim">
+        Starting hugo from scratch
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Key to paper TrueTime exposes clock uncertainty, if the uncertainty is large, Spanner slows down to wait out the uncertainty. TS reflect serialization order, external consistency, or linearizability.
-Spanner zones Zone  zonemaster assigns data to spanservers (1000) location proxies used by clients to locate spanservers  Spanserver  responsible for 1000 tablets  Tablet  (key: string, timestamp: int64) -&gt; string more like multiversion kv store state store in a set of B-tree-like files and a write ahead log  in DFS called colossus  one Paxos state machine per tablet  Paxos  long time leader leases (10 sec) implements a consistently replicated bag of mappings writes initiates paxos protocol at leader reads access state directly from any replica set of replicas called Paxos group  Logs:  every &lsquo;Paxos write&rsquo; goes to tablet log and to Paxos logic  Replica leader  every leader replica implements a lock table contains the state for 2-phase locking  maps ranges of keys to lock states  leaders are long lived to maintain this lock table  performs poorly under optimistic concurrency control  replicas in paxos group called participant slaves implements a transaction manager  implements a participant leader used between other paxos groups for 2-phase commit   Participant/Coordinator  one participant leader (leader to a paxos group) is chosen as coordinator leader, other replica leader called coordinator slaves state of transaction manager store in underlying paxos group    Directory and placement directory  set of contiguous keys with common prefix unit of data placement -&gt; same replica config unit of data movement between paxos groups  paxos group/tablet  contains multiple directories not necessarily lex.
+      deploying hugo to github.io There are a number of ways of doing this. Since I like to keep a separate branch for the deployment, I opted for the option below. Another option would be use a docs directory and add to config.toml a line with publishDir = &ldquo;docs&rdquo;. This would also work, and you then just need to work on master branch.
+This method of maintaining a separate branch is made easier with a worktree that directly writes to a public folder in gh-pages from the master branch.
     </div>
   </div>
 </div>

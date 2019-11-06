@@ -6,10 +6,37 @@
     <description>Recent content in Tags on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 25 Oct 2019 17:50:20 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 05 Nov 2019 19:03:13 -0800</lastBuildDate>
     
 	<atom:link href="https://www.frankliu.org/hugo/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>deeplearningbook</title>
+      <link>https://www.frankliu.org/hugo/tags/deeplearningbook/</link>
+      <pubDate>Tue, 05 Nov 2019 19:03:13 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/deeplearningbook/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github.io</title>
+      <link>https://www.frankliu.org/hugo/tags/github.io/</link>
+      <pubDate>Tue, 05 Nov 2019 19:03:13 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/github.io/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://www.frankliu.org/hugo/tags/hugo/</link>
+      <pubDate>Tue, 05 Nov 2019 19:03:13 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/hugo/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>db</title>
@@ -143,15 +170,6 @@
       <pubDate>Sun, 15 Sep 2019 15:25:05 -0700</pubDate>
       
       <guid>https://www.frankliu.org/hugo/tags/dynamo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>hugo</title>
-      <link>https://www.frankliu.org/hugo/tags/hugo/</link>
-      <pubDate>Sat, 14 Sep 2019 19:10:31 -0700</pubDate>
-      
-      <guid>https://www.frankliu.org/hugo/tags/hugo/</guid>
       <description></description>
     </item>
     
