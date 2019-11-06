@@ -2,7 +2,7 @@
 title = "Starting hugo from scratch"
 author = ["adam"]
 date = 2019-11-05T19:03:13-08:00
-lastmod = 2019-11-05T19:42:01-08:00
+lastmod = 2019-11-05T19:48:51-08:00
 tags = ["hugo", "deeplearningbook", "github.io"]
 categories = ["hugo"]
 draft = false
@@ -125,4 +125,22 @@ deploy:
   path = themes/ananke
   url = https://github.com/budparr/gohugo-theme-ananke.git
   ignore = dirty
+```
+
+
+## some more speciallized additions to config.toml {#some-more-speciallized-additions-to-config-dot-toml}
+
+```conf
+baseURL = "https://www.frankliu.org/dlbook-ig/"
+# relativeURLs = true
+# uglyURLs = true
+languageCode = "en-us"
+title = "My New Hugo Site"
+theme = "ananke"
+pygmentsCodeFences = true
+# pygmentsUseClasses = true
+# pygmentsUseClassic = false
+canonifyURLs = true
+SectionPagesMenu = "main"
+
 ```
