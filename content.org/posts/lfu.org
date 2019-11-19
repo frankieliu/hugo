@@ -1,0 +1,15 @@
+# -*- mode: org -*-
+#+HUGO_BASE_DIR: ../..
+#+HUGO_SECTION: posts
+#+HUGO_WEIGHT: 2000
+#+HUGO_AUTO_SET_LASTMOD: t
+#+TITLE: "Leetcode"
+#+DATE: 2019-11-18T14:40:38-08:00
+#+HUGO_TAGS: 
+#+HUGO_CATEGORIES: 
+#+HUGO_MENU_off: :menu "main" :weight 2000
+#+HUGO_CUSTOM_FRONT_MATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true
+#+HUGO_DRAFT: false
+
+#+STARTUP: indent hidestars showall
+
