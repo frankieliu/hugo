@@ -6,10 +6,28 @@
     <description>Recent content in Tags on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 05 Nov 2019 19:03:13 -0800</lastBuildDate>
+    <lastBuildDate>Mon, 18 Nov 2019 14:40:38 -0800</lastBuildDate>
     
 	<atom:link href="https://www.frankliu.org/hugo/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>cache</title>
+      <link>https://www.frankliu.org/hugo/tags/cache/</link>
+      <pubDate>Mon, 18 Nov 2019 14:40:38 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/cache/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>leetcode</title>
+      <link>https://www.frankliu.org/hugo/tags/leetcode/</link>
+      <pubDate>Mon, 18 Nov 2019 14:40:38 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/leetcode/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>deeplearningbook</title>
@@ -116,15 +134,6 @@
       <pubDate>Fri, 04 Oct 2019 22:35:02 -0700</pubDate>
       
       <guid>https://www.frankliu.org/hugo/tags/r/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>leetcode</title>
-      <link>https://www.frankliu.org/hugo/tags/leetcode/</link>
-      <pubDate>Thu, 03 Oct 2019 20:56:27 -0700</pubDate>
-      
-      <guid>https://www.frankliu.org/hugo/tags/leetcode/</guid>
       <description></description>
     </item>
     
