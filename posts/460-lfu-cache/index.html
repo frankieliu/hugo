@@ -26,25 +26,25 @@
     
     
     <meta property="og:title" content="Leetcode 460. LFU Cache" />
-<meta property="og:description" content="Requirements  O(1) insertion  requires O(1) getting the least frequently used   Suggested data structures  f: a map from frequency to a tuple containing the head and tail of a portion of a double linked list kv: a map from key to a node in the double linked list dll: a double linked list where the least frequent item is at the head of the list node: element of dll, containing frequency info, as well a prev, next, value, the usual stuff    put(a,v)  find corresponding node via kv[a] delete node from its current position and insert it at the head of the next frequency, i." />
+<meta property="og:description" content="Requirements  O(1) insertion  requires O(1) getting the least frequently used   Suggested data structures  f: a map from frequency to a tuple containing the head and tail of a portion of a double linked list kv: a map from key to a node in the double linked list dll: a double linked list where the least frequent item is at the head of the list node: element of dll, containing frequency info, as well a prev, next, value, the usual stuff    put(a,v)  find corresponding node via kv[a] delete head of double linked list and update f accordingly delete node from its current position and insert it at the head of the next frequency, i." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/460-lfu-cache/" />
 <meta property="article:published_time" content="2019-11-18T14:40:38-08:00" />
-<meta property="article:modified_time" content="2019-11-18T17:22:48-08:00" />
+<meta property="article:modified_time" content="2019-11-18T17:25:55-08:00" />
 <meta itemprop="name" content="Leetcode 460. LFU Cache">
-<meta itemprop="description" content="Requirements  O(1) insertion  requires O(1) getting the least frequently used   Suggested data structures  f: a map from frequency to a tuple containing the head and tail of a portion of a double linked list kv: a map from key to a node in the double linked list dll: a double linked list where the least frequent item is at the head of the list node: element of dll, containing frequency info, as well a prev, next, value, the usual stuff    put(a,v)  find corresponding node via kv[a] delete node from its current position and insert it at the head of the next frequency, i.">
+<meta itemprop="description" content="Requirements  O(1) insertion  requires O(1) getting the least frequently used   Suggested data structures  f: a map from frequency to a tuple containing the head and tail of a portion of a double linked list kv: a map from key to a node in the double linked list dll: a double linked list where the least frequent item is at the head of the list node: element of dll, containing frequency info, as well a prev, next, value, the usual stuff    put(a,v)  find corresponding node via kv[a] delete head of double linked list and update f accordingly delete node from its current position and insert it at the head of the next frequency, i.">
 
 
 <meta itemprop="datePublished" content="2019-11-18T14:40:38-08:00" />
-<meta itemprop="dateModified" content="2019-11-18T17:22:48-08:00" />
-<meta itemprop="wordCount" content="167">
+<meta itemprop="dateModified" content="2019-11-18T17:25:55-08:00" />
+<meta itemprop="wordCount" content="171">
 
 
 
 <meta itemprop="keywords" content="cache,leetcode," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Leetcode 460. LFU Cache"/>
-<meta name="twitter:description" content="Requirements  O(1) insertion  requires O(1) getting the least frequently used   Suggested data structures  f: a map from frequency to a tuple containing the head and tail of a portion of a double linked list kv: a map from key to a node in the double linked list dll: a double linked list where the least frequent item is at the head of the list node: element of dll, containing frequency info, as well a prev, next, value, the usual stuff    put(a,v)  find corresponding node via kv[a] delete node from its current position and insert it at the head of the next frequency, i."/>
+<meta name="twitter:description" content="Requirements  O(1) insertion  requires O(1) getting the least frequently used   Suggested data structures  f: a map from frequency to a tuple containing the head and tail of a portion of a double linked list kv: a map from key to a node in the double linked list dll: a double linked list where the least frequent item is at the head of the list node: element of dll, containing frequency info, as well a prev, next, value, the usual stuff    put(a,v)  find corresponding node via kv[a] delete head of double linked list and update f accordingly delete node from its current position and insert it at the head of the next frequency, i."/>
 
   </head>
 
@@ -175,15 +175,15 @@ MathJax.Hub.Config({
 
 <ol>
 <li>find corresponding node via kv[a]</li>
+<li>delete head of double linked list and update f accordingly</li>
 <li>delete node from its current position and insert it at
 the head of the next frequency, i.e. f[freq+1].head</li>
 <li>update its value</li>
-<li>delete head of double linked list and update f accordingly</li>
 </ol>
 
 <h2 id="get--a">get(a)</h2>
 
-<p>same as put(a,v), but don&rsquo;t update the value, just return it</p>
+<p>same as put(a,v), but don&rsquo;t delete LFU node, or update its value, just return it</p>
 
 <h2 id="some-things-to-take-care-of">some things to take care of</h2>
 

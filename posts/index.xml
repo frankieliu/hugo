@@ -17,7 +17,7 @@
       <pubDate>Mon, 18 Nov 2019 14:40:38 -0800</pubDate>
       
       <guid>https://www.frankliu.org/hugo/posts/460-lfu-cache/</guid>
-      <description>Requirements  O(1) insertion  requires O(1) getting the least frequently used   Suggested data structures  f: a map from frequency to a tuple containing the head and tail of a portion of a double linked list kv: a map from key to a node in the double linked list dll: a double linked list where the least frequent item is at the head of the list node: element of dll, containing frequency info, as well a prev, next, value, the usual stuff    put(a,v)  find corresponding node via kv[a] delete node from its current position and insert it at the head of the next frequency, i.</description>
+      <description>Requirements  O(1) insertion  requires O(1) getting the least frequently used   Suggested data structures  f: a map from frequency to a tuple containing the head and tail of a portion of a double linked list kv: a map from key to a node in the double linked list dll: a double linked list where the least frequent item is at the head of the list node: element of dll, containing frequency info, as well a prev, next, value, the usual stuff    put(a,v)  find corresponding node via kv[a] delete head of double linked list and update f accordingly delete node from its current position and insert it at the head of the next frequency, i.</description>
     </item>
     
     <item>
