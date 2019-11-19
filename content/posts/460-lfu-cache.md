@@ -2,7 +2,7 @@
 title = "Leetcode 460. LFU Cache"
 author = ["adam"]
 date = 2019-11-18T14:40:38-08:00
-lastmod = 2019-11-18T17:22:48-08:00
+lastmod = 2019-11-18T17:25:55-08:00
 tags = ["cache", "leetcode"]
 categories = ["cache", "leetcode"]
 draft = false
@@ -34,15 +34,15 @@ mathjax = true
 ## put(a,v) {#put--a-v}
 
 1.  find corresponding node via kv[a]
-2.  delete node from its current position and insert it at
+2.  delete head of double linked list and update f accordingly
+3.  delete node from its current position and insert it at
     the head of the next frequency, i.e. f[freq+1].head
-3.  update its value
-4.  delete head of double linked list and update f accordingly
+4.  update its value
 
 
 ## get(a) {#get--a}
 
-same as put(a,v), but don't update the value, just return it
+same as put(a,v), but don't delete LFU node, or update its value, just return it
 
 
 ## some things to take care of {#some-things-to-take-care-of}

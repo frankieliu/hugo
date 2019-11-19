@@ -26,13 +26,13 @@ file:/images/460-lfu/460-lfu.png
 
 * put(a,v)
 1. find corresponding node via kv[a]
-2. delete node from its current position and insert it at
+2. delete head of double linked list and update f accordingly
+3. delete node from its current position and insert it at
    the head of the next frequency, i.e. f[freq+1].head
-3. update its value
-4. delete head of double linked list and update f accordingly
+4. update its value
 
 * get(a)
-same as put(a,v), but don't update the value, just return it
+same as put(a,v), but don't delete LFU node, or update its value, just return it
 
 * some things to take care of
 1. if a not in kv
