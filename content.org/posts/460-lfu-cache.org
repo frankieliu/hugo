@@ -40,6 +40,6 @@ same as put(a,v), but don't update the value, just return it
 
 * comments
 I tried to make this as simple as possible, if you have some other ideas
-please let me know frankie.y.liu@gmail.comments
+please let me know.
 
   

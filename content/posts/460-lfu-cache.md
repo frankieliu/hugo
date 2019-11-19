@@ -2,7 +2,7 @@
 title = "Leetcode 460. LFU Cache"
 author = ["adam"]
 date = 2019-11-18T14:40:38-08:00
-lastmod = 2019-11-18T17:18:02-08:00
+lastmod = 2019-11-18T17:22:48-08:00
 tags = ["cache", "leetcode"]
 categories = ["cache", "leetcode"]
 draft = false
@@ -54,4 +54,4 @@ same as put(a,v), but don't update the value, just return it
 ## comments {#comments}
 
 I tried to make this as simple as possible, if you have some other ideas
-please let me know frankie.y.liu@gmail.comments
+please let me know.
