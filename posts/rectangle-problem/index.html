@@ -32,7 +32,7 @@ def num_rect(points): m = defaultdict(lambda: 0) answer = 0 for p in points: for
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/rectangle-problem/" />
 <meta property="article:published_time" content="2019-11-20T23:21:28-08:00" />
-<meta property="article:modified_time" content="2019-11-20T23:37:43-08:00" />
+<meta property="article:modified_time" content="2019-11-20T23:42:48-08:00" />
 <meta itemprop="name" content="Rectangle counting">
 <meta itemprop="description" content="The problem is to count the number of rectangles (aligned to x and y coordinates) that can be formed by a set of points. Answer from competitive programmer Errichto.
 def num_rect(points): m = defaultdict(lambda: 0) answer = 0 for p in points: for p_above in points: if p.y &lt; p_above.y: answer &#43;= m[(p.y,p_above.y)] m[(p.y,p_above.y)] &#43;= 1 return answer Consider the following set of points:
@@ -40,12 +40,12 @@ def num_rect(points): m = defaultdict(lambda: 0) answer = 0 for p in points: for
 
 
 <meta itemprop="datePublished" content="2019-11-20T23:21:28-08:00" />
-<meta itemprop="dateModified" content="2019-11-20T23:37:43-08:00" />
+<meta itemprop="dateModified" content="2019-11-20T23:42:48-08:00" />
 <meta itemprop="wordCount" content="194">
 
 
 
-<meta itemprop="keywords" content="computational__geometry,rectangle," />
+<meta itemprop="keywords" content="computational geometry,rectangle," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Rectangle counting"/>
 <meta name="twitter:description" content="The problem is to count the number of rectangles (aligned to x and y coordinates) that can be formed by a set of points. Answer from competitive programmer Errichto.
@@ -200,7 +200,7 @@ this connection, that is why this is solution is kind of beautiful to me.</p>
 <ul class="pa0">
   
    <li class="list">
-     <a href="https://www.frankliu.org/hugo/tags/computational__geometry" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">computational__geometry</a>
+     <a href="https://www.frankliu.org/hugo/tags/computational-geometry" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">computational geometry</a>
    </li>
   
    <li class="list">

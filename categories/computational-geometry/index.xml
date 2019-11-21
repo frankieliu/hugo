@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>computational__geometry on My New Hugo Site</title>
-    <link>https://www.frankliu.org/hugo/tags/computational__geometry/</link>
-    <description>Recent content in computational__geometry on My New Hugo Site</description>
+    <title>computational geometry on My New Hugo Site</title>
+    <link>https://www.frankliu.org/hugo/categories/computational-geometry/</link>
+    <description>Recent content in computational geometry on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 20 Nov 2019 23:21:28 -0800</lastBuildDate>
     
-	<atom:link href="https://www.frankliu.org/hugo/tags/computational__geometry/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.frankliu.org/hugo/categories/computational-geometry/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
