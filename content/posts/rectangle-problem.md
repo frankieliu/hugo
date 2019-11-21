@@ -2,9 +2,9 @@
 title = "Rectangle counting"
 author = ["adam"]
 date = 2019-11-20T23:21:28-08:00
-lastmod = 2019-11-20T23:37:43-08:00
-tags = ["computational__geometry", "rectangle"]
-categories = ["computational__geometry"]
+lastmod = 2019-11-20T23:42:48-08:00
+tags = ["computational geometry", "rectangle"]
+categories = ["computational geometry"]
 draft = false
 weight = 2000
 foo = "bar"

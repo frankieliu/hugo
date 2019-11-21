@@ -5,8 +5,8 @@
 #+HUGO_AUTO_SET_LASTMOD: t
 #+TITLE: "Rectangle counting"
 #+DATE: 2019-11-20T23:21:28-08:00
-#+HUGO_TAGS: computational__geometry rectangle
-#+HUGO_CATEGORIES: computational__geometry 
+#+HUGO_TAGS: "computational geometry" rectangle
+#+HUGO_CATEGORIES: "computational geometry"
 #+HUGO_MENU_off: :menu "main" :weight 2000
 #+HUGO_CUSTOM_FRONT_MATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true
 #+HUGO_DRAFT: false
