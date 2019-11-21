@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>My New Hugo Site  | Rectangle counting</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.1" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="https://www.frankliu.org/hugo/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Rectangle counting" />
+<meta property="og:description" content="The problem is to count the number of rectangles (aligned to x and y coordinates) that can be formed by a set of points. Answer from competitive programmer Errichto.
+def num_rect(points): m = defaultdict(lambda: 0) answer = 0 for p in points: for p_above in points: if p.y &lt; p_above.y: answer &#43;= m[(p.y,p_above.y)] m[(p.y,p_above.y)] &#43;= 1 return answer Consider the following set of points:
+   x x x     1 2 3    This is for k = 3, there are 3 possible rectangles." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.frankliu.org/hugo/posts/rectangle-problem/" />
+<meta property="article:published_time" content="2019-11-20T23:21:28-08:00" />
+<meta property="article:modified_time" content="2019-11-20T23:37:43-08:00" />
+<meta itemprop="name" content="Rectangle counting">
+<meta itemprop="description" content="The problem is to count the number of rectangles (aligned to x and y coordinates) that can be formed by a set of points. Answer from competitive programmer Errichto.
+def num_rect(points): m = defaultdict(lambda: 0) answer = 0 for p in points: for p_above in points: if p.y &lt; p_above.y: answer &#43;= m[(p.y,p_above.y)] m[(p.y,p_above.y)] &#43;= 1 return answer Consider the following set of points:
+   x x x     1 2 3    This is for k = 3, there are 3 possible rectangles.">
+
+
+<meta itemprop="datePublished" content="2019-11-20T23:21:28-08:00" />
+<meta itemprop="dateModified" content="2019-11-20T23:37:43-08:00" />
+<meta itemprop="wordCount" content="194">
+
+
+
+<meta itemprop="keywords" content="computational__geometry,rectangle," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Rectangle counting"/>
+<meta name="twitter:description" content="The problem is to count the number of rectangles (aligned to x and y coordinates) that can be formed by a set of points. Answer from competitive programmer Errichto.
+def num_rect(points): m = defaultdict(lambda: 0) answer = 0 for p in points: for p_above in points: if p.y &lt; p_above.y: answer &#43;= m[(p.y,p_above.y)] m[(p.y,p_above.y)] &#43;= 1 return answer Consider the following set of points:
+   x x x     1 2 3    This is for k = 3, there are 3 possible rectangles."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://www.frankliu.org/hugo/" class="f3 fw2 hover-white no-underline white-90 dib">
+      My New Hugo Site
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/" title="Articles page">
+              Articles
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+    extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+    });
+</script>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        ARTICLES
+      </p>
+      <h1 class="f1 athelas mb1">Rectangle counting</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              adam
+          
+          </strong>
+      </p>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-11-20T23:21:28-08:00">November 20, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>The problem is to count the number of rectangles (aligned to x and y
+coordinates) that can be formed by a set of points. Answer from competitive
+programmer Errichto.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">num_rect</span>(points):
+    m <span style="color:#f92672">=</span> defaultdict(<span style="color:#66d9ef">lambda</span>: <span style="color:#ae81ff">0</span>)
+    answer <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+    <span style="color:#66d9ef">for</span> p <span style="color:#f92672">in</span> points:
+        <span style="color:#66d9ef">for</span> p_above <span style="color:#f92672">in</span> points:
+            <span style="color:#66d9ef">if</span> p<span style="color:#f92672">.</span>y <span style="color:#f92672">&lt;</span> p_above<span style="color:#f92672">.</span>y:
+                answer <span style="color:#f92672">+=</span> m[(p<span style="color:#f92672">.</span>y,p_above<span style="color:#f92672">.</span>y)]
+                m[(p<span style="color:#f92672">.</span>y,p_above<span style="color:#f92672">.</span>y)] <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">return</span> answer</code></pre></div>
+<p>Consider the following set of points:</p>
+
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th>x</th>
+<th>x</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+
+<p>This is for k = 3, there are 3 possible rectangles.
+This can be gotten from (3 choose 2) = 3*<sup>2</sup>&frasl;<sub>2</sub> = 3
+Or from the above process as 1 + 2 = 3</p>
+
+<p>When you encounter the first point you don&rsquo;t have a
+rectangle, when you encounter the second point, you
+have exactly one rectangle, and when you encounter
+the third point you can make two rectangles, and so
+on.</p>
+
+<p>There is an obvious algebraic connection between (k choose 2) = k(k-1)/2 and the
+sum 1+2+3+&hellip;+k-1. Of course you can see that mathematically they are
+equivalent, but this is the first time I have seen a non-algebraic reasoning to
+this connection, that is why this is solution is kind of beautiful to me.</p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/computational__geometry" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">computational__geometry</a>
+   </li>
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/rectangle" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">rectangle</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://www.frankliu.org/hugo/" >
+    &copy; 2019 My New Hugo Site
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="https://www.frankliu.org/hugo/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

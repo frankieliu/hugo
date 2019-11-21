@@ -35,7 +35,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/" />
 
-<meta property="og:updated_time" content="2019-11-18T14:40:38-08:00" />
+<meta property="og:updated_time" content="2019-11-20T23:21:28-08:00" />
 <meta itemprop="name" content="My Hugo Site">
 <meta itemprop="description" content="A blog for programming and scalable systems">
 
@@ -143,6 +143,32 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="https://www.frankliu.org/hugo/posts/rectangle-problem/" class="color-inherit dim link">
+            Rectangle counting
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          The problem is to count the number of rectangles (aligned to x and y coordinates) that can be formed by a set of points. Answer from competitive programmer Errichto.
+def num_rect(points): m = defaultdict(lambda: 0) answer = 0 for p in points: for p_above in points: if p.y &lt; p_above.y: answer += m[(p.y,p_above.y)] m[(p.y,p_above.y)] += 1 return answer Consider the following set of points:
+   x x x     1 2 3    This is for k = 3, there are 3 possible rectangles.
+        </div>
+          <a href="https://www.frankliu.org/hugo/posts/rectangle-problem/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="https://www.frankliu.org/hugo/posts/460-lfu-cache/" class="color-inherit dim link">
             Leetcode 460. LFU Cache
             </a>
@@ -184,36 +210,18 @@ This method of maintaining a separate branch is made easier with a worktree that
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://www.frankliu.org/hugo/posts/kleppmann-ch07-transactions/" class="color-inherit dim link">
-            Kleppmann Chapter 07 - Transactions
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong  Durability - committed means data will not be lost  there is no perfect guarantee   Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another  identify multi-object transaction  tie to client&rsquo;s TCP connection - bad separate transaction id   Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set    Multi-object transactions  when do you need them?
-        </div>
-          <a href="https://www.frankliu.org/hugo/posts/kleppmann-ch07-transactions/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="https://www.frankliu.org/hugo/posts/kleppmann-ch07-transactions/" class="link black dim">
+              Kleppmann Chapter 07 - Transactions
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="https://www.frankliu.org/hugo/posts/vector-clocks/" class="link black dim">
@@ -230,12 +238,6 @@ This method of maintaining a separate branch is made easier with a worktree that
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="https://www.frankliu.org/hugo/posts/spanner/" class="link black dim">
               Spanner
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://www.frankliu.org/hugo/posts/kmp/" class="link black dim">
-              KMP and Aho-Corasick
             </a>
           </h2>
         

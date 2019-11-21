@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rectangle on My New Hugo Site</title>
+    <link>https://www.frankliu.org/hugo/tags/rectangle/</link>
+    <description>Recent content in rectangle on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 20 Nov 2019 23:21:28 -0800</lastBuildDate>
+    
+	<atom:link href="https://www.frankliu.org/hugo/tags/rectangle/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Rectangle counting</title>
+      <link>https://www.frankliu.org/hugo/posts/rectangle-problem/</link>
+      <pubDate>Wed, 20 Nov 2019 23:21:28 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/rectangle-problem/</guid>
+      <description>The problem is to count the number of rectangles (aligned to x and y coordinates) that can be formed by a set of points. Answer from competitive programmer Errichto.
+def num_rect(points): m = defaultdict(lambda: 0) answer = 0 for p in points: for p_above in points: if p.y &amp;lt; p_above.y: answer += m[(p.y,p_above.y)] m[(p.y,p_above.y)] += 1 return answer Consider the following set of points:
+   x x x     1 2 3    This is for k = 3, there are 3 possible rectangles.</description>
+    </item>
+    
+  </channel>
+</rss>

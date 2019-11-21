@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://www.frankliu.org/hugo/posts/rectangle-problem/</loc>
+    <lastmod>2019-11-20T23:37:43-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.frankliu.org/hugo/posts/460-lfu-cache/</loc>
     <lastmod>2019-11-18T17:25:55-08:00</lastmod>
   </url>
@@ -58,6 +63,36 @@
   </url>
   
   <url>
+    <loc>https://www.frankliu.org/hugo/categories/</loc>
+    <lastmod>2019-11-20T23:37:43-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/categories/computational__geometry/</loc>
+    <lastmod>2019-11-20T23:37:43-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/computational__geometry/</loc>
+    <lastmod>2019-11-20T23:37:43-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/</loc>
+    <lastmod>2019-11-20T23:37:43-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/rectangle/</loc>
+    <lastmod>2019-11-20T23:37:43-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/</loc>
+    <lastmod>2019-11-20T23:37:43-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.frankliu.org/hugo/tags/cache/</loc>
     <lastmod>2019-11-18T17:25:55-08:00</lastmod>
   </url>
@@ -68,27 +103,12 @@
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/categories/</loc>
-    <lastmod>2019-11-18T17:25:55-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/tags/leetcode/</loc>
-    <lastmod>2019-11-18T17:25:55-08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://www.frankliu.org/hugo/categories/leetcode/</loc>
     <lastmod>2019-11-18T17:25:55-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/</loc>
-    <lastmod>2019-11-18T17:25:55-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/tags/</loc>
+    <loc>https://www.frankliu.org/hugo/tags/leetcode/</loc>
     <lastmod>2019-11-18T17:25:55-08:00</lastmod>
   </url>
   
@@ -118,12 +138,12 @@
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/tags/kleppmann/</loc>
+    <loc>https://www.frankliu.org/hugo/categories/kleppmann/</loc>
     <lastmod>2019-10-26T19:54:53-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/categories/kleppmann/</loc>
+    <loc>https://www.frankliu.org/hugo/tags/kleppmann/</loc>
     <lastmod>2019-10-26T19:54:53-07:00</lastmod>
   </url>
   
@@ -138,12 +158,12 @@
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/categories/algorithms/</loc>
+    <loc>https://www.frankliu.org/hugo/tags/algorithms/</loc>
     <lastmod>2019-10-26T08:16:20-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/tags/algorithms/</loc>
+    <loc>https://www.frankliu.org/hugo/categories/algorithms/</loc>
     <lastmod>2019-10-26T08:16:20-07:00</lastmod>
   </url>
   

@@ -35,7 +35,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/categories/" />
 
-<meta property="og:updated_time" content="2019-11-18T14:40:38-08:00" />
+<meta property="og:updated_time" content="2019-11-20T23:21:28-08:00" />
 <meta itemprop="name" content="Categories">
 <meta itemprop="description" content="">
 
@@ -152,6 +152,30 @@
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       Requirements  O(1) insertion  requires O(1) getting the least frequently used   Suggested data structures  f: a map from frequency to a tuple containing the head and tail of a portion of a double linked list kv: a map from key to a node in the double linked list dll: a double linked list where the least frequent item is at the head of the list node: element of dll, containing frequency info, as well a prev, next, value, the usual stuff    put(a,v)  find corresponding node via kv[a] delete head of double linked list and update f accordingly delete node from its current position and insert it at the head of the next frequency, i.
+    </div>
+  </div>
+</div>
+
+        
+      
+        <h2 class="f1">
+          <a href="https://www.frankliu.org/hugo/categories/computational__geometry" class="link blue hover-black">
+            Category: computational__geometry
+          </a>
+        </h2>
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/rectangle-problem/" class="link black dim">
+        Rectangle counting
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      The problem is to count the number of rectangles (aligned to x and y coordinates) that can be formed by a set of points. Answer from competitive programmer Errichto.
+def num_rect(points): m = defaultdict(lambda: 0) answer = 0 for p in points: for p_above in points: if p.y &lt; p_above.y: answer += m[(p.y,p_above.y)] m[(p.y,p_above.y)] += 1 return answer Consider the following set of points:
+   x x x     1 2 3    This is for k = 3, there are 3 possible rectangles.
     </div>
   </div>
 </div>
