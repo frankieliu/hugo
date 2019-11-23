@@ -156,17 +156,39 @@ Think: simple copy of the data, and atomic operations.
     causal dependencies between transactions
 - cross channel timing, bob hear alice football or image file server
 - causality imposes an ordering on events
-
 - causally consistent means that system obeys causality order
 ** causal vs total order
 - linearizability
   - total order of operations, single copy, every operation is atomic,
     any two operations have an order
+  - there are no concurrent operations in a linearizable datastore
 - causality
   - two events may be concurrent, if two events are ordered if they are
     causally related, and they are incomparable if they are concurrent
-
-   
-
-
+- linearizability implies causal order
+- causal consistency is the strongest possible consistency model that
+  does not slow down due to network delay, and remain available in face
+  of network failures (342)
+** causal consistency
+- need to know what happened before relationships
+- used some generalized vector versioning
+  - impractical can't keep track of everything that is read
+* Lamport timestamps
+- (counter, nodeID)
+- every node
+  - keeps track of the maximum counter it has seen so far and
+    includes that maximum on every request
+  - increases its own counter to the max
+- does not solve things when they are needed
+  - username example:
+    - if two users ask for a username
+    - they both will have a unique Lamport timestamp
+      - but you can't resolve it until all other nodes are checked
+      - you need to know that the order is finalized
+* Total order broadcast
+- requires to safety guarantees
+  - reliable delivery - no message is lost
+  - total order delivery - all messages are delivered in the same order to all
+    nodes
+- zookeeper and etcd implement total order broadcast
 
