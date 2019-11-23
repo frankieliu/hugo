@@ -82,13 +82,14 @@ Think: simple copy of the data, and atomic operations.
 - strict quorum seems to solve the problem
 - weak quorum (lww) not good
   - read A : 1(new) ReplicaA, 0(old) ReplicaB  -> got new value
-  - read B : 0(old) ReplicaB, 0(old) ReplicaCi -> got old value
+  - read B : 0(old) ReplicaB, 0(old) ReplicaC  -> got old value
 - make it stronger:
-  - reader must perform read repair synchronously
-  - writer must read the latest state before sending its writes
-  - pg 335 - lots of information
-  - note if you have linearizability doesn't that mean you also
-    can have consensus?
+  - possible for Dynamo-style quorums to be linearizable
+    - reader must perform read repair synchronously
+    - writer must read the latest state before sending its writes
+- only linearizble read and write operations can be implemented
+  this way, a CAS operation cannot require consensus, read 
+  wait-free-sync paper  
 ** cost of linearizability
 - network outage
   - replicas cannot connect therefore they must become unavailable (C)
@@ -102,19 +103,60 @@ Think: simple copy of the data, and atomic operations.
 * Ordering guarantees
 ** ideas of order
 - order of writes in a replication log
-- serializability - appearange that transactions executed in some
-  sequential order, allow concurrent operation prevent conflicts
-  with either locks or aborts
+- serializability 
+  - appearance that transactions executed in some sequential order
+  - allow concurrent operation prevent conflicts with either locks or aborts
 - timestamp in distributed systems
+- what is the connection between ordering, linearizability and consensus?
 ** order and causality
-*** why important
+*** why important (340)
 - consistent prefix (snapshot isolation)
-- causality multiple writes to replicas
-  - network delay reorder the writes
-  - causality: row must be created before being updated
+- causality multiple writes to replicas (multileader replication)
+  - network delay may reorder the writes
+  - in some replicas, a row may be updated before being created
+- two operations A,B
+  - either A happened before B
+  - B happened before A
+  - A and B are concurrent (no causal link)
 - read skew in bank account
-- write skew and phatoms, on-call example
+  - transaction must read from a consistent snapshot, ie
+    - must be consistent with causality, i.e. if you read an answer there
+      must have been question
+    - read skew means you are not reading from one snapshot in time
+- write skew and phantoms, on-call example
+  - recap dirty writes and lost updates
+    - overwriting uncommitted data
+      example car sale:
+      - writing to listing db alice/bob order, bob overwrites alice, bob gets
+        the car
+      - writing to invoice db bob/alice order, alice overwrites bob, alice pays
+        for the car
+    - read committed (no dirty reads, no dirty writes)
+      - does not prevent race conditions (also a lost update problem)
+        counter example:
+        - A reads counter @ 42
+        - B reads counter @ 42
+        - A writes counter @ 43
+        - B writes counter @ 43
+  - recap write skew, doctor example
+    - both doctors check number of on-call doctors (count on all rows)
+      - alice updates her row
+      - bob updates his row
+      - generalization of the lost update problem
+      - in this case the update is on different records
+        - if the update is on the same record then it is a dirty write or lost
+          update
+  - phantom is similar to write skew problem
+    - read some condition (room has been booked or not, username)
+    - two people go ahead and book a room
+    - condition has changed
+    - difference here is that the condition is the absence of something
+      (phantom)
+  - serializable snapshot isolation (ssi) detects write skews by detecting
+    causal dependencies between transactions
 - cross channel timing, bob hear alice football or image file server
+- causality imposes an ordering on events
+
 - causally consistent means that system obeys causality order
 ** causal vs total order
 - linearizability
