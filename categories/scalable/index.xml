@@ -6,10 +6,19 @@
     <description>Recent content in scalable on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Oct 2019 12:46:54 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 02 Nov 2019 12:05:45 -0700</lastBuildDate>
     
 	<atom:link href="https://www.frankliu.org/hugo/categories/scalable/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Klepmann Chapter 9 Consistency and Consensus</title>
+      <link>https://www.frankliu.org/hugo/posts/kleppmann-ch09-consistency/</link>
+      <pubDate>Sat, 02 Nov 2019 12:05:45 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/kleppmann-ch09-consistency/</guid>
+      <description>Consistency Guarantees eventual consistency  eventually data converges  different than transaction isolation  isolation - avoid race conditions due to concurrent execution consistency - about coordinating replica state  levels  strongest - linearizability causality and total ordering commit in a distributed system consensus problem  Linearizability  one replica illusion (one copy of the data) guarantee read is most recent - recency guarantee read A / write C / read A ok read A / begin write C / read B / end write C / read A not ok read is concurrent with the write  linearizability, 1 always follows 1 (no flipping)  cas(x, vold, vnew)  vs Serializability  serializability is about transactions guaranteeing a sequential order linearizability is about recency guarantees on read and write  importance locking and leader election  lock must be linearizable all nodes must agree on who holds the lock  zookeeper - used for distributed locking and leader election   constraints and uniqueness guarantees  enforcing uniquess (username, filename)  similar to acquiring a lock similar to cas operation  constraints that bank balance &amp;gt;= 0  two people don&amp;rsquo;t book the same flight requires a single up-to-date value for account balance or seat occupancy  uniquess constraints in DBs are linearizable foreigh key and attribute constraints can be implemented without linearizability  cross-channel timing dependencies File storage service is not linearizable, that is two requests went into it, one to store the image, and the other to resize the image.</description>
+    </item>
     
     <item>
       <title>Vector clocks</title>
