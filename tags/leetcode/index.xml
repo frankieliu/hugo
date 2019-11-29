@@ -17,7 +17,7 @@
       <pubDate>Mon, 18 Nov 2019 14:40:38 -0800</pubDate>
       
       <guid>https://www.frankliu.org/hugo/posts/460-lfu-cache/</guid>
-      <description>Requirements  O(1) insertion  requires O(1) getting the least frequently used   Suggested data structures  f: a map from frequency to a tuple containing the head and tail of a portion of a double linked list kv: a map from key to a node in the double linked list dll: a double linked list where the least frequent item is at the head of the list node: element of dll, containing frequency info, as well a prev, next, value, the usual stuff    put(a,v)  find corresponding node via kv[a] delete head of double linked list and update f accordingly delete node from its current position and insert it at the head of the next frequency, i.</description>
+      <description>Requirements  O(1) insertion  requires O(1) getting the least frequently used    Suggested data structures  f: a map from frequency to a tuple containing the head and tail of a portion of a double linked list kv: a map from key to a node in the double linked list dll: a double linked list where the least frequent item is at the head of the list node: element of dll, containing frequency info, as well a prev, next, value, the usual stuff    put(a,v)  find corresponding node via kv[a] delete head of double linked list and update f accordingly delete node from its current position and insert it at the head of the next frequency, i.</description>
     </item>
     
     <item>
@@ -26,7 +26,7 @@
       <pubDate>Thu, 03 Oct 2019 20:56:27 -0700</pubDate>
       
       <guid>https://www.frankliu.org/hugo/posts/731-my-calendar-ii-segment-tree/</guid>
-      <description>Acknowledgement Taken from fun4leet&amp;rsquo;s My Calendar II wonderful article
+      <description>Acknowledgement Taken from fun4leet&#39;s My Calendar II wonderful article
 tl;dr A max segment tree, with an incremental update function is sufficient for this problem. Max is used because such tree allows quick query of the max number of bookings given a range. Incremental update is useful because each time book is called, one needs to increment the bookings in a particular range.
 Data structure 4 things: a range \([l,r]\), data, lazy flag</description>
     </item>
@@ -37,11 +37,12 @@ Data structure 4 things: a range \([l,r]\), data, lazy flag</description>
       <pubDate>Fri, 30 Aug 2019 19:13:32 -0700</pubDate>
       
       <guid>https://www.frankliu.org/hugo/posts/920-number-of-music-playlists/</guid>
-      <description>Notes on solution to Leetcode 920 Let&amp;rsquo;s take the example from the article, songs: \(\left\{abcde\right\}\), playlist: \(abacabdcbaeacbd\),
+      <description>Notes on solution to Leetcode 920 Let&#39;s take the example from the article, songs: \(\left\{abcde\right\}\), playlist: \(abacabdcbaeacbd\),
 \(\bar{x} = (1,2,4,7,11)\)
 For \(\bar{x}\), each number in the n-tuple indicates a position in the playlist for the first occurrence of a particular unique song. The article uses 1-indexing so I will use the same to be consistent.
 As an example for the \(\bar{x}\) above, consider the playlist family:
-\(p_l = (1_1,2_2,c_3,3_4,c_5,c_6,4_7,c_8,c_9,c_{10},5_{11},c_{12},c_{13},c_{14})\)</description>
+\(p_l = (1_1,2_2,c_3,3_4,c_5,c_6,4_7,c_8,c_9,c_{10},5_{11},c_{12},c_{13},c_{14})\)
+Here I have used the numbers (characters) \(1-5\), to indicate a song number, instead of the \(a-e\) in the article.</description>
     </item>
     
   </channel>

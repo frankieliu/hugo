@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site </title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.60.0" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -34,12 +34,9 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/categories/" />
-
-<meta property="og:updated_time" content="2019-11-20T23:21:28-08:00" />
+<meta property="og:updated_time" content="2019-11-28T18:10:58-08:00" />
 <meta itemprop="name" content="Categories">
-<meta itemprop="description" content="">
-
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Categories"/>
 <meta name="twitter:description" content=""/>
 
@@ -151,7 +148,7 @@
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Requirements  O(1) insertion  requires O(1) getting the least frequently used   Suggested data structures  f: a map from frequency to a tuple containing the head and tail of a portion of a double linked list kv: a map from key to a node in the double linked list dll: a double linked list where the least frequent item is at the head of the list node: element of dll, containing frequency info, as well a prev, next, value, the usual stuff    put(a,v)  find corresponding node via kv[a] delete head of double linked list and update f accordingly delete node from its current position and insert it at the head of the next frequency, i.
+      Requirements  O(1) insertion  requires O(1) getting the least frequently used    Suggested data structures  f: a map from frequency to a tuple containing the head and tail of a portion of a double linked list kv: a map from key to a node in the double linked list dll: a double linked list where the least frequent item is at the head of the list node: element of dll, containing frequency info, as well a prev, next, value, the usual stuff    put(a,v)  find corresponding node via kv[a] delete head of double linked list and update f accordingly delete node from its current position and insert it at the head of the next frequency, i.
     </div>
   </div>
 </div>
@@ -213,8 +210,8 @@ This method of maintaining a separate branch is made easier with a worktree that
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-       Problem Adding mathjax support for posts
-Solution  Modify the current theme Add a partial template Add a parameter called mathjax: true in the frontmatter  Details Modifying the current theme  Note that the current theme is set in config.tolm   theme = &#34;ananke&#34;
+      Problem Adding mathjax support for posts
+Solution  Modify the current theme Add a partial template Add a parameter called mathjax: true in the frontmatter  Details Modifying the current theme  Note that the current theme is set in config.tolm  theme = &#34;ananke&#34; 
     </div>
   </div>
 </div>
@@ -236,7 +233,7 @@ Solution  Modify the current theme Add a partial template Add a parameter called
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong  Durability - committed means data will not be lost  there is no perfect guarantee   Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another  identify multi-object transaction  tie to client&rsquo;s TCP connection - bad separate transaction id   Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set    Multi-object transactions  when do you need them?
+      Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong   Durability - committed means data will not be lost  there is no perfect guarantee    Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another   identify multi-object transaction  tie to client's TCP connection - bad separate transaction id    Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set      Multi-object transactions  when do you need them?
     </div>
   </div>
 </div>
@@ -282,7 +279,7 @@ vectors (range)  everything is a vector 1:9, 1:2:9, c(1,3,2,-8.1) c() for concat
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Requirements  O(1) insertion  requires O(1) getting the least frequently used   Suggested data structures  f: a map from frequency to a tuple containing the head and tail of a portion of a double linked list kv: a map from key to a node in the double linked list dll: a double linked list where the least frequent item is at the head of the list node: element of dll, containing frequency info, as well a prev, next, value, the usual stuff    put(a,v)  find corresponding node via kv[a] delete head of double linked list and update f accordingly delete node from its current position and insert it at the head of the next frequency, i.
+      Requirements  O(1) insertion  requires O(1) getting the least frequently used    Suggested data structures  f: a map from frequency to a tuple containing the head and tail of a portion of a double linked list kv: a map from key to a node in the double linked list dll: a double linked list where the least frequent item is at the head of the list node: element of dll, containing frequency info, as well a prev, next, value, the usual stuff    put(a,v)  find corresponding node via kv[a] delete head of double linked list and update f accordingly delete node from its current position and insert it at the head of the next frequency, i.
     </div>
   </div>
 </div>
@@ -297,7 +294,7 @@ vectors (range)  everything is a vector 1:9, 1:2:9, c(1,3,2,-8.1) c() for concat
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Acknowledgement Taken from fun4leet&rsquo;s My Calendar II wonderful article
+      Acknowledgement Taken from fun4leet's My Calendar II wonderful article
 tl;dr A max segment tree, with an incremental update function is sufficient for this problem. Max is used because such tree allows quick query of the max number of bookings given a range. Incremental update is useful because each time book is called, one needs to increment the bookings in a particular range.
 Data structure 4 things: a range \([l,r]\), data, lazy flag
     </div>
@@ -314,11 +311,12 @@ Data structure 4 things: a range \([l,r]\), data, lazy flag
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Notes on solution to Leetcode 920 Let&rsquo;s take the example from the article, songs: \(\left\{abcde\right\}\), playlist: \(abacabdcbaeacbd\),
+      Notes on solution to Leetcode 920 Let's take the example from the article, songs: \(\left\{abcde\right\}\), playlist: \(abacabdcbaeacbd\),
 \(\bar{x} = (1,2,4,7,11)\)
 For \(\bar{x}\), each number in the n-tuple indicates a position in the playlist for the first occurrence of a particular unique song. The article uses 1-indexing so I will use the same to be consistent.
 As an example for the \(\bar{x}\) above, consider the playlist family:
 \(p_l = (1_1,2_2,c_3,3_4,c_5,c_6,4_7,c_8,c_9,c_{10},5_{11},c_{12},c_{13},c_{14})\)
+Here I have used the numbers (characters) \(1-5\), to indicate a song number, instead of the \(a-e\) in the article.
     </div>
   </div>
 </div>
@@ -340,7 +338,7 @@ As an example for the \(\bar{x}\) above, consider the playlist family:
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Consistency Guarantees eventual consistency  eventually data converges  different than transaction isolation  isolation - avoid race conditions due to concurrent execution consistency - about coordinating replica state  levels  strongest - linearizability causality and total ordering commit in a distributed system consensus problem  Linearizability  one replica illusion (one copy of the data) guarantee read is most recent - recency guarantee read A / write C / read A ok read A / begin write C / read B / end write C / read A not ok read is concurrent with the write  linearizability, 1 always follows 1 (no flipping)  cas(x, vold, vnew)  vs Serializability  serializability is about transactions guaranteeing a sequential order linearizability is about recency guarantees on read and write  importance locking and leader election  lock must be linearizable all nodes must agree on who holds the lock  zookeeper - used for distributed locking and leader election   constraints and uniqueness guarantees  enforcing uniquess (username, filename)  similar to acquiring a lock similar to cas operation  constraints that bank balance &gt;= 0  two people don&rsquo;t book the same flight requires a single up-to-date value for account balance or seat occupancy  uniquess constraints in DBs are linearizable foreigh key and attribute constraints can be implemented without linearizability  cross-channel timing dependencies File storage service is not linearizable, that is two requests went into it, one to store the image, and the other to resize the image.
+      Consistency Guarantees eventual consistency  eventually data converges  different than transaction isolation  isolation - avoid race conditions due to concurrent execution consistency - about coordinating replica state  levels  strongest - linearizability causality and total ordering commit in a distributed system consensus problem  Linearizability  one replica illusion (one copy of the data) guarantee read is most recent - recency guarantee read A / write C / read A ok read A / begin write C / read B / end write C / read A not ok read is concurrent with the write  linearizability, 1 always follows 1 (no flipping)   cas(x, vold, vnew)  vs Serializability  serializability is about transactions guaranteeing a sequential order linearizability is about recency guarantees on read and write  importance locking and leader election  lock must be linearizable all nodes must agree on who holds the lock  zookeeper - used for distributed locking and leader election    constraints and uniqueness guarantees  enforcing uniquess (username, filename)  similar to acquiring a lock similar to cas operation   constraints that bank balance &gt;= 0  two people don't book the same flight requires a single up-to-date value for account balance or seat occupancy   uniquess constraints in DBs are linearizable foreigh key and attribute constraints can be implemented without linearizability  cross-channel timing dependencies File storage service is not linearizable, that is two requests went into it, one to store the image, and the other to resize the image.
     </div>
   </div>
 </div>
@@ -375,7 +373,30 @@ problems width of vector clock grows with number of actors, or clients.
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Highlights  kv store data partitioning and replication by consistent hashing consistency facilitated by object versioning consistency among replicas during update by quorum decentralized replica synchronization gossip based distributed failure detection and membership  Background  Authors confuse &lsquo;C&rsquo; in ACID with &lsquo;C&rsquo; in CAP  2.3  optimistic replication - conflict resolution when you need item allow writes/updates - &ldquo;always writable&rdquo; pushes complex conflict resolution on the reader  at data store means &ldquo;last write wins&rdquo; too simple, allow client to do the conflict resolution   Related work  &ldquo;always writable&rdquo; requirement trusted nodes simple k-v latency ~ 100-200ms  zero-hop DHT, each node can route request to appropriate node     System architecture  components:  data persistence component load balancing membership failure detection failure recovery replica synchronization overload handling state transfer concurrency job scheduling request marshalling request routing system monitoring system alarming configuration management  cover:  partitioning replication versioning membership failure handling scaling   system interface  api get and put get(key)  locates object replicas returns with conflicting versions returns with a context  put(key, context, object)  determines which replica context : metadata such as version  key and object are opaque array of bytes  use MD5 hash to generate a 128-bit id   partitioning  consistent hashing each node assigned a random position in the ring each data item hashed to ring and served by first node larger position each node serves data between it and its predecessor each node actually mapped to multiple points in the ring (tokens) virtual node advantages  if node goes down, load gets handled more evenly by other nodes   replication  data item is replicated at \(N\) hosts each key assigned to a coordinator node coordinator is in charge of replication of the data items that fall in its range coordinator replicates key at N-1 clockwise successor nodes in the ring  each node is responsible for between it and its \(N\) th predecessor  preference list is the list of nodes responsible for a key every node in the system can determine which nodes for a key the pref list skips positions in the ring to ensure that it contains only distinct physical nodes  data versioning  eventual consistency, data propagates asynchronously guarantees that writes cannot be forgotten or rejected  each modificaiton is a new and immutable version of the data  version branching can happen in the presence of failures resulting in conflicting versions, client must perform reconciliation vector clocks used to capture causality  (node, counter) if the counters of an object are less-than-or-equal to all the nodes in a second clock, the first is an ancestor  on update, client must specify which version is being updated  pass the context from earlier read      timestamp is used to truncate the clock which may be growing  get and put operations  route request through LB use partition aware client library that routes to coordinator requests received through a LB routed to any random node in ring  node will forward to the first among top \(N\) in preference list  quorum protocol \(R+W &gt; N\) put(), coordinator generates vector clock for new version  sends to \(N\) highest-ranked reachable nodes if \(W-1\) nodes respond then the write is considered successful  get(), coordinator requests all existing versions of data forward for that key, wiates for \(R\) responses before returning value to client  handling failure  hinted handoff
+      Highlights  kv store data partitioning and replication by consistent hashing consistency facilitated by object versioning consistency among replicas during update by quorum decentralized replica synchronization gossip based distributed failure detection and membership  Background  Authors confuse &lsquo;C&rsquo; in ACID with &lsquo;C&rsquo; in CAP  2.3  optimistic replication - conflict resolution when you need item allow writes/updates - &ldquo;always writable&rdquo; pushes complex conflict resolution on the reader  at data store means &ldquo;last write wins&rdquo; too simple, allow client to do the conflict resolution    Related work  &ldquo;always writable&rdquo; requirement trusted nodes simple k-v latency ~ 100-200ms  zero-hop DHT, each node can route request to appropriate node      System architecture  components:  data persistence component load balancing membership failure detection failure recovery replica synchronization overload handling state transfer concurrency job scheduling request marshalling request routing system monitoring system alarming configuration management   cover:  partitioning replication versioning membership failure handling scaling    system interface  api get and put get(key)  locates object replicas returns with conflicting versions returns with a context   put(key, context, object)  determines which replica context : metadata such as version   key and object are opaque array of bytes  use MD5 hash to generate a 128-bit id    partitioning  consistent hashing each node assigned a random position in the ring each data item hashed to ring and served by first node larger position each node serves data between it and its predecessor each node actually mapped to multiple points in the ring (tokens) virtual node advantages  if node goes down, load gets handled more evenly by other nodes    replication  data item is replicated at \(N\) hosts each key assigned to a coordinator node coordinator is in charge of replication of the data items that fall in its range coordinator replicates key at N-1 clockwise successor nodes in the ring  each node is responsible for between it and its \(N\) th predecessor   preference list is the list of nodes responsible for a key every node in the system can determine which nodes for a key the pref list skips positions in the ring to ensure that it contains only distinct physical nodes  data versioning  eventual consistency, data propagates asynchronously guarantees that writes cannot be forgotten or rejected  each modificaiton is a new and immutable version of the data   version branching can happen in the presence of failures resulting in conflicting versions, client must perform reconciliation vector clocks used to capture causality  (node, counter) if the counters of an object are less-than-or-equal to all the nodes in a second clock, the first is an ancestor   on update, client must specify which version is being updated  pass the context from earlier read       timestamp is used to truncate the clock which may be growing  get and put operations  route request through LB use partition aware client library that routes to coordinator requests received through a LB routed to any random node in ring  node will forward to the first among top \(N\) in preference list   quorum protocol \(R+W &gt; N\) put(), coordinator generates vector clock for new version  sends to \(N\) highest-ranked reachable nodes if \(W-1\) nodes respond then the write is considered successful   get(), coordinator requests all existing versions of data forward for that key, wiates for \(R\) responses before returning value to client  handling failure   hinted handoff
+    </div>
+  </div>
+</div>
+
+        
+      
+        <h2 class="f1">
+          <a href="https://www.frankliu.org/hugo/categories/sound" class="link blue hover-black">
+            Category: sound
+          </a>
+        </h2>
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/blackhole/" class="link black dim">
+        Blackhole - Recording Sound Output in Macbook
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      blackhole installation https://github.com/ExistentialAudio/BlackHole
+mix output  command space - midi audio midi setup click on the plus sign at bottom left add a multi-output device should contain built in output and add blackhole you can adjust the volume (I can't seem to be able to do that)  setting the input  there are two options  all input  command space - sound change the input to default to blackhole  specific input  quicktime start screen recording next to the record button there is a settings button arrow (small) set the device to blackhole  
     </div>
   </div>
 </div>
@@ -398,7 +419,7 @@ problems width of vector clock grows with number of actors, or clients.
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       Key to paper TrueTime exposes clock uncertainty, if the uncertainty is large, Spanner slows down to wait out the uncertainty. TS reflect serialization order, external consistency, or linearizability.
-Spanner zones Zone  zonemaster assigns data to spanservers (1000) location proxies used by clients to locate spanservers  Spanserver  responsible for 1000 tablets  Tablet  (key: string, timestamp: int64) -&gt; string more like multiversion kv store state store in a set of B-tree-like files and a write ahead log  in DFS called colossus  one Paxos state machine per tablet  Paxos  long time leader leases (10 sec) implements a consistently replicated bag of mappings writes initiates paxos protocol at leader reads access state directly from any replica set of replicas called Paxos group  Logs:  every &lsquo;Paxos write&rsquo; goes to tablet log and to Paxos logic  Replica leader  every leader replica implements a lock table contains the state for 2-phase locking  maps ranges of keys to lock states  leaders are long lived to maintain this lock table  performs poorly under optimistic concurrency control  replicas in paxos group called participant slaves implements a transaction manager  implements a participant leader used between other paxos groups for 2-phase commit   Participant/Coordinator  one participant leader (leader to a paxos group) is chosen as coordinator leader, other replica leader called coordinator slaves state of transaction manager store in underlying paxos group    Directory and placement directory  set of contiguous keys with common prefix unit of data placement -&gt; same replica config unit of data movement between paxos groups  paxos group/tablet  contains multiple directories not necessarily lex.
+Spanner zones Zone  zonemaster assigns data to spanservers (1000) location proxies used by clients to locate spanservers  Spanserver  responsible for 1000 tablets  Tablet  (key: string, timestamp: int64) -&gt; string more like multiversion kv store state store in a set of B-tree-like files and a write ahead log  in DFS called colossus   one Paxos state machine per tablet  Paxos  long time leader leases (10 sec) implements a consistently replicated bag of mappings writes initiates paxos protocol at leader reads access state directly from any replica set of replicas called Paxos group  Logs:  every &lsquo;Paxos write&rsquo; goes to tablet log and to Paxos logic  Replica leader  every leader replica implements a lock table contains the state for 2-phase locking  maps ranges of keys to lock states   leaders are long lived to maintain this lock table  performs poorly under optimistic concurrency control   replicas in paxos group called participant slaves implements a transaction manager  implements a participant leader used between other paxos groups for 2-phase commit    Participant/Coordinator  one participant leader (leader to a paxos group) is chosen as coordinator leader, other replica leader called coordinator slaves state of transaction manager store in underlying paxos group    Directory and placement directory  set of contiguous keys with common prefix unit of data placement -&gt; same replica config unit of data movement between paxos groups  paxos group/tablet  contains multiple directories not necessarily lex.
     </div>
   </div>
 </div>

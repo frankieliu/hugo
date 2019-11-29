@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | Kleppmann Chapter 07 - Transactions</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.60.0" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -26,25 +26,22 @@
     
     
     <meta property="og:title" content="Kleppmann Chapter 07 - Transactions" />
-<meta property="og:description" content="Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong  Durability - committed means data will not be lost  there is no perfect guarantee   Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another  identify multi-object transaction  tie to client&rsquo;s TCP connection - bad separate transaction id   Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set    Multi-object transactions  when do you need them?" />
+<meta property="og:description" content="Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong   Durability - committed means data will not be lost  there is no perfect guarantee    Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another   identify multi-object transaction  tie to client&#39;s TCP connection - bad separate transaction id    Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set      Multi-object transactions  when do you need them?" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/kleppmann-ch07-transactions/" />
 <meta property="article:published_time" content="2019-10-25T17:50:20-07:00" />
 <meta property="article:modified_time" content="2019-10-26T19:54:53-07:00" />
 <meta itemprop="name" content="Kleppmann Chapter 07 - Transactions">
-<meta itemprop="description" content="Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong  Durability - committed means data will not be lost  there is no perfect guarantee   Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another  identify multi-object transaction  tie to client&rsquo;s TCP connection - bad separate transaction id   Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set    Multi-object transactions  when do you need them?">
-
-
+<meta itemprop="description" content="Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong   Durability - committed means data will not be lost  there is no perfect guarantee    Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another   identify multi-object transaction  tie to client&#39;s TCP connection - bad separate transaction id    Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set      Multi-object transactions  when do you need them?">
 <meta itemprop="datePublished" content="2019-10-25T17:50:20-07:00" />
 <meta itemprop="dateModified" content="2019-10-26T19:54:53-07:00" />
-<meta itemprop="wordCount" content="1083">
+<meta itemprop="wordCount" content="1082">
 
 
 
-<meta itemprop="keywords" content="db,transactions,scalable,kleppmann," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="db,transactions,scalable,kleppmann," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Kleppmann Chapter 07 - Transactions"/>
-<meta name="twitter:description" content="Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong  Durability - committed means data will not be lost  there is no perfect guarantee   Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another  identify multi-object transaction  tie to client&rsquo;s TCP connection - bad separate transaction id   Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set    Multi-object transactions  when do you need them?"/>
+<meta name="twitter:description" content="Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong   Durability - committed means data will not be lost  there is no perfect guarantee    Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another   identify multi-object transaction  tie to client&#39;s TCP connection - bad separate transaction id    Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set      Multi-object transactions  when do you need them?"/>
 
   </head>
 
@@ -129,150 +126,128 @@
       
     </header>
 
-    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
-
-<h2 id="definition-of-transaction">Definition of transaction</h2>
-
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h2 id="definition-of-transaction">Definition of transaction</h2>
 <ul>
 <li>a group of several reads and writes</li>
 <li>logical unit - looks like one operation</li>
 <li>all or nothing (commit or abort/rollback)</li>
 </ul>
-
 <h2 id="who-needs-transactions">Who needs transactions</h2>
-
 <ul>
 <li>when you need certain guarantees</li>
 </ul>
-
 <h2 id="acid">Acid</h2>
-
 <ul>
 <li>Atomicity - abortability (resiliant to faults)</li>
 <li>Consistency - some invariants about the data must be true</li>
 <li>Isolation - concurrent transactions are isolated
-
 <ul>
 <li>serializability - too strong</li>
-</ul></li>
+</ul>
+</li>
 <li>Durability - committed means data will not be lost
-
 <ul>
 <li>there is no perfect guarantee</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="base">Base</h2>
-
 <ul>
 <li>Basically Available, Soft state, and Eventual consistency</li>
 </ul>
-
 <h2 id="single-object-vs-multi-object-operations">Single-Object vs Multi-Object Operations</h2>
-
 <ul>
 <li>many writes
-
 <ul>
 <li>atomicity : all written or none</li>
 <li>isolation : one transaction cannot see a partial write of another</li>
-</ul></li>
-<li>identify multi-object transaction
-
-<ul>
-<li>tie to client&rsquo;s TCP connection - bad</li>
-<li>separate transaction id</li>
-</ul></li>
 </ul>
-
+</li>
+<li>identify multi-object transaction
+<ul>
+<li>tie to client's TCP connection - bad</li>
+<li>separate transaction id</li>
+</ul>
+</li>
+</ul>
 <h3 id="single-object-writes">Single object writes</h3>
-
 <ul>
 <li>Storage engine
-
 <ul>
 <li>atomicity : log for crash recovery</li>
 <li>isolation : using a lock</li>
 <li>atomic operations
-
 <ul>
 <li>increment</li>
 <li>compare-and-set</li>
-</ul></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
+</li>
+</ul>
 <h3 id="multi-object-transactions">Multi-object transactions</h3>
-
 <ul>
 <li>when do you need them?
-
 <ul>
 <li>hard because of partitioning</li>
 <li>foreign key in another table - make sure references are valid</li>
 <li>document data model - require denormalization
-
 <ul>
 <li>when update happens several documents changed</li>
-</ul></li>
-<li>secondary indexes</li>
-</ul></li>
 </ul>
-
+</li>
+<li>secondary indexes</li>
+</ul>
+</li>
+</ul>
 <h3 id="handling-errors-and-aborts">Handling errors and aborts</h3>
-
 <ul>
 <li>abort and retry failures
-
 <ul>
 <li>network failures
-
 <ul>
-<li>app doesn&rsquo;t get ACK</li>
-</ul></li>
+<li>app doesn't get ACK</li>
+</ul>
+</li>
 <li>overload
-
 <ul>
 <li>exponential backoff - limit number of retries</li>
-</ul></li>
+</ul>
+</li>
 <li>permanent errors</li>
 <li>side effects of transactions : emails</li>
 <li>client fails in retry</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="weak-isolation-levels">Weak Isolation Levels</h2>
-
 <ul>
 <li>serializable isolation too costly</li>
 </ul>
-
 <h3 id="read-committed">Read committed</h3>
-
 <ul>
 <li>When reading from DB, only read committed data
-
 <ul>
 <li>no dirty reads, why
-
 <ul>
-<li>don&rsquo;t want to read several modifications in a transaction</li>
-<li>don&rsquo;t want to read something that gets rollback</li>
-</ul></li>
-</ul></li>
+<li>don't want to read several modifications in a transaction</li>
+<li>don't want to read something that gets rollback</li>
+</ul>
+</li>
+</ul>
+</li>
 <li>Where writing to DB, only overwrite data that has been committed
-
 <ul>
 <li>no dirty writes, why
-
 <ul>
 <li>A and B try to buy same car, listing and sales DB, invoice ovrwrt</li>
-<li>read committed does not prevent race condition btw counter increment
--</li>
-</ul></li>
-</ul></li>
+<li>read committed does not prevent race condition btw counter increment</li>
+<li></li>
 </ul>
-
+</li>
+</ul>
+</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -280,197 +255,173 @@
 <th>T2</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>SA</td>
 <td></td>
 </tr>
-
 <tr>
 <td></td>
 <td>SB</td>
 </tr>
-
 <tr>
 <td></td>
 <td>IB</td>
 </tr>
-
 <tr>
 <td>IA</td>
 <td></td>
 </tr>
 </tbody>
 </table>
-
 <ul>
 <li>Implementation
-
 <ul>
 <li>row-level locks for duration of transaction</li>
 <li>lock for reads slows down the system
-
 <ul>
 <li>instead DB returns only returns committed reads</li>
-</ul></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
+</li>
+</ul>
 <h3 id="snapshot-isolation-repeatable-read">Snapshot isolation / repeatable read</h3>
-
 <ul>
 <li>read committed failures
-
 <ul>
 <li>read skew or nonrepeatable read
-
 <ul>
 <li>Reading from two accounts where transfer happens in between reading
-
 <ul>
 <li>read $500 in one account</li>
 <li>transfer happened in between, moving $100 from one account to another</li>
 <li>read $400 in another account</li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li>Backups
-
 <ul>
 <li>backing up while updates are happening
-
 <ul>
 <li>parts of the backup with have older data &ndash; inconsistent</li>
-</ul></li>
-</ul></li>
-<li>Analytic queries and integrity checks</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
+</li>
+<li>Analytic queries and integrity checks</li>
+</ul>
+</li>
+</ul>
 <h2 id="snapshot-isolation">Snapshot isolation</h2>
-
 <ul>
 <li>Transaction reads from a consistent snapshot of the database
-
 <ul>
 <li>sees all the data that was committed at the start of the transactoin</li>
-</ul></li>
+</ul>
+</li>
 <li>Implementation
-
 <ul>
 <li>write locks to prevent dirty writes</li>
 <li>no locks on reads
-
 <ul>
 <li>DB keeps different committed versions of an object
-
 <ul>
 <li>multi-version concurrency control (MVCC)
-
 <ul>
 <li>for read committed, snapshot per query</li>
 <li>for snapshot isolation, snapshot per transaction</li>
-</ul></li>
+</ul>
+</li>
 <li>each transaction - increasing transaction ID (txid)
-
 <ul>
 <li>each row has a created_by field w txid</li>
 <li>each row has a deleted_by field w txid
-
 <ul>
 <li>GC when no transactions access</li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li>txid decides read visibility</li>
-</ul></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>txid decides read visibility</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h3 id="indexes">Indexes</h3>
-
 <ul>
 <li>keep all the versions
-
 <ul>
 <li>let query filter visible ones</li>
 <li>GC when no longer visible to any transactions</li>
-</ul></li>
+</ul>
+</li>
 <li>B-tree with append-only/copy-on-write
-
 <ul>
 <li>parent pages are copied and updated to point to new versions</li>
 <li>each root is a consistent snapshot of the DB</li>
 <li>GC</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="preventing-lost-updates">Preventing lost updates</h2>
-
 <ul>
 <li>two reads on same and modify data - clobber
-
 <ul>
 <li>scenario: inc counter, json object, wiki page</li>
-</ul></li>
+</ul>
+</li>
 <li>atomic writes
-
 <ul>
 <li>atomic update counter</li>
 <li>atomic write json</li>
 <li>exclusive read/write lock on object - cursor stability</li>
-</ul></li>
+</ul>
+</li>
 <li>explicit locking
-
 <ul>
 <li>FOR UPDATE: lock all selected rows</li>
-</ul></li>
+</ul>
+</li>
 <li>alternative detect lost update</li>
 <li>compare-and-set
-
 <ul>
 <li>send previous read and new value, only set if previous matches</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h3 id="conflict-resolution-in-multi-leader-and-leaderless">conflict resolution in multi-leader and leaderless</h3>
-
 <ul>
 <li>replicas take writes</li>
 <li>maintain different versions</li>
 <li>commutative operations such as inc are ok</li>
 <li>last write wins (LWW) prone to lost updates</li>
 </ul>
-
 <h2 id="write-skew">Write skew</h2>
-
 <h3 id="doctor-call-list">doctor call list</h3>
-
 <ul>
 <li>crux writing to different rows on on-call table
-
 <ul>
 <li>previously writing to same data</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h3 id="non-working-solutions">non-working solutions</h3>
-
 <ul>
-<li>atomic single-object don&rsquo;t help</li>
+<li>atomic single-object don't help</li>
 <li>automatic detection of lost updates not detectable</li>
 </ul>
-
 <h3 id="partial-solutions">partial solutions</h3>
-
 <ul>
 <li>constraints, uniqueness or foreign key restrictions, but contraints over
 multiple object is hard</li>
 <li>explicitly lock all rows with FOR UPDATE</li>
 </ul>
-
 <h3 id="other-examples">other examples</h3>
-
 <ul>
 <li>Meeting room booking</li>
 <li>Multiplayer game - lock to prevent two players from moving same figure,
@@ -479,195 +430,166 @@ some constraint, going to same bathroom</li>
 <li>Claiming a username - uniqueness constraint</li>
 <li>Double spending - inserting two items below threshold</li>
 </ul>
-
 <h3 id="phantom-pattern">phantom pattern</h3>
-
 <ul>
 <li>read/modify/write</li>
 <li>doctor example can lock rows</li>
-<li>other examples can&rsquo;t attach lock</li>
+<li>other examples can't attach lock</li>
 <li>write affect the query in another - phantom</li>
 </ul>
-
 <h3 id="materializing-phantoms">materializing phantoms</h3>
-
 <ul>
 <li>meeting room
-
 <ul>
 <li>create room-time-period rows</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="serializability">Serializability</h2>
-
 <h3 id="single-thread-execution">single-thread execution</h3>
-
 <h4 id="stored-procedure">stored procedure</h4>
-
 <ul>
 <li>send application code to make decisions, remove network hop</li>
 <li>hard to debug and can hog DB</li>
 </ul>
-
 <h4 id="partitioning">partitioning</h4>
-
 <ul>
 <li>multi-partition transactions - hard</li>
 </ul>
-
 <h4 id="limitations">limitations</h4>
-
 <ul>
 <li>transactions must be small and fast, no long tail</li>
 <li>active dataset must fit into memory
-
 <ul>
 <li>use anti-caching, abort transaction, fetch data to memory</li>
-</ul></li>
+</ul>
+</li>
 <li>write throught could slow things down require partitioning</li>
 <li>limit cross-partition transactions</li>
 </ul>
-
 <h2 id="two-phase-locking--2pl">two-phase locking (2PL)</h2>
-
 <ul>
 <li>read lock in shared more</li>
 <li>write exclusive lock</li>
 <li>upgrade from shared to exclusive if r/w same object</li>
 <li>hold lock until end of transaction</li>
 </ul>
-
-<h3 id="limitations-1">Limitations</h3>
-
+<h3 id="limitations">Limitations</h3>
 <ul>
 <li>several transactions (even simple ones) will form queue</li>
 <li>unstable latencies
-
 <ul>
 <li>very slow at high percentiles</li>
-</ul></li>
+</ul>
+</li>
 <li>deadlocks</li>
 </ul>
-
 <h3 id="predicate-locks">predicate locks</h3>
-
 <ul>
 <li>cannot have phantoms
-
 <ul>
 <li>select * from table where room=123 and start_time &gt; &amp; end_time &lt;</li>
-<li>predicates lock on phantom rows which don&rsquo;t exist yet</li>
-</ul></li>
+<li>predicates lock on phantom rows which don't exist yet</li>
 </ul>
-
+</li>
+</ul>
 <h3 id="index-range-locks">index-range locks</h3>
-
 <ul>
 <li>have index on room_id and index on start_time and end_time
-
 <ul>
 <li>shared lock on room_id index</li>
 <li>or shared lock on time range index</li>
-</ul></li>
+</ul>
+</li>
 <li>inserting update or deletion will have to update a locakable index</li>
 </ul>
-
 <h2 id="serializable-snapshot-isolation--ssi">Serializable Snapshot Isolation (SSI)</h2>
-
 <ul>
 <li>optimistic concurrency control</li>
 <li>detect isolation violation - abort and retry</li>
 </ul>
-
 <h3 id="implementaion">implementaion</h3>
-
 <ul>
 <li>detect reads of a stale MVCC object</li>
 <li>detect writes that affect prior reads</li>
 </ul>
-
 <h3 id="detecting-stale-mvcc-reads">detecting stale MVCC reads</h3>
-
 <ul>
 <li>doctor example:
-
 <ul>
-<li>A&rsquo;s update doctors on_call affects B&rsquo;s reading of it</li>
-<li>B&rsquo;s reading on an ealier MVCC vs A&rsquo;s later txid</li>
-</ul></li>
+<li>A's update doctors on_call affects B's reading of it</li>
+<li>B's reading on an ealier MVCC vs A's later txid</li>
 </ul>
-
+</li>
+</ul>
 <h3 id="detecting-writes-that-affect-prior-reads">detecting writes that affect prior reads</h3>
-
 <ul>
 <li>doctor example:
-
 <ul>
 <li>A and B both read, but at different transactions, track this</li>
 <li>on a write, see affected reads</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h3 id="performance">performance</h3>
-
 <ul>
 <li>trade-off in granularity of r/w tracking</li>
 </ul>
-
 <h2 id="summary">Summary</h2>
-
 <p>Treatment of different isolation levels</p>
-
 <ul>
-<li>read committed (no dirty reads and no dirty writes)
-
+<li>
+<p>read committed (no dirty reads and no dirty writes)</p>
 <ul>
 <li>only read what has been committed</li>
 <li>only overwrite what has been committed
-
 <ul>
-<li>don&rsquo;t overwrite partial transactions</li>
-</ul></li>
-</ul></li>
-<li>snapshot isolation
-
+<li>don't overwrite partial transactions</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>snapshot isolation</p>
 <ul>
 <li>prevent read skews</li>
 <li>read a consistent state of the DB</li>
 <li>good when have to read a bunch of things</li>
 <li>implemented with MVCC</li>
-</ul></li>
-<li>write concurrency issues
-
+</ul>
+</li>
+<li>
+<p>write concurrency issues</p>
 <ul>
 <li>lost updates on read-modify-write cycle
-
 <ul>
 <li>lock all relevant rows</li>
-</ul></li>
+</ul>
+</li>
 <li>write skew also a read-modify-write but acting on different rows</li>
 <li>phantom reads
-
 <ul>
 <li>cannot lock on non-existing rows</li>
 <li>materialize or index-range lock</li>
-</ul></li>
-</ul></li>
-
-<li><p>serializable isolation (strongest)</p>
-
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>serializable isolation (strongest)</p>
 <ul>
 <li>single thread execution</li>
 <li>two phase locking</li>
 <li>serializable snapshot isolation
-
 <ul>
 <li>also use MVCC to detect isolation violations</li>
-</ul></li>
-</ul></li>
-
-<li><p>serializable</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>serializable</p>
+</li>
 </ul>
 <ul class="pa0">
   

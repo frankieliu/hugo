@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | Vector clocks</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.60.0" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -43,16 +43,13 @@ Descend Each marker in vclk2 must have corresponding or greater marker than in v
 Resolve (Thu, (A:1, B:1, C:1, D:2))
 problems width of vector clock grows with number of actors, or clients.
  keep growth under control with timestamp to prune old clocks  revisited Actor Some entity in the system that makes an update to an object">
-
-
 <meta itemprop="datePublished" content="2019-10-12T12:46:54-07:00" />
 <meta itemprop="dateModified" content="2019-10-26T08:15:32-07:00" />
 <meta itemprop="wordCount" content="495">
 
 
 
-<meta itemprop="keywords" content="scalable,vector-clocks,concurrent-writes," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="scalable,vector-clocks,concurrent-writes," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Vector clocks"/>
 <meta name="twitter:description" content="vector clocks A, B, C, D are trying to set a date.
  Alice starts off (Wed, (A:1)) (Tue, (A:1,B:1)) (Tue, (A:1,B:1,D:1)) (Thu, (A:1,C:1)) -&gt; Conflict  (A:1,C:1) did not descencd from (A:1,B:1,D:1)
@@ -144,12 +141,8 @@ problems width of vector clock grows with number of actors, or clients.
       
     </header>
 
-    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
-
-<h2 id="vector-clocks">vector clocks</h2>
-
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h2 id="vector-clocks">vector clocks</h2>
 <p>A, B, C, D are trying to set a date.</p>
-
 <ul>
 <li>Alice starts off
 (Wed, (A:1))</li>
@@ -157,134 +150,89 @@ problems width of vector clock grows with number of actors, or clients.
 <li>(Tue, (A:1,B:1,D:1))</li>
 <li>(Thu, (A:1,C:1))   -&gt; Conflict</li>
 </ul>
-
 <p>(A:1,C:1) did not descencd from (A:1,B:1,D:1)</p>
-
 <h3 id="descend">Descend</h3>
-
 <p>Each marker in vclk2 must have corresponding or greater marker than in vclk1</p>
-
 <h3 id="resolve">Resolve</h3>
-
 <p>(Thu, (A:1, B:1, C:1, D:2))</p>
-
 <h2 id="problems">problems</h2>
-
 <p>width of vector clock grows with number of actors, or clients.</p>
-
 <ul>
 <li>keep growth under control with timestamp to prune old clocks</li>
 </ul>
-
 <h2 id="revisited">revisited</h2>
-
 <h3 id="actor">Actor</h3>
-
 <p>Some entity in the system that makes an update to an object</p>
-
 <ul>
 <li>unit of concurrency</li>
 <li>examples: server, client, virtual node, process, thread</li>
 </ul>
-
 <h3 id="updates">Updates</h3>
-
 <p>When an actor updates a key it will increment its own entry in the vector.</p>
-
 <h3 id="example">Example</h3>
-
 <p>VersionVectorA = [(a,3),(b,2),(c,1)]</p>
-
 <ul>
 <li>Actor a has issued 3 updates, b 2 updates, etc</li>
 </ul>
-
 <h3 id="history">History</h3>
-
 <p>A = [(a,2),(b,2),(c,1)]
 B = [(a,3),(b,2),(c,1)]
 B &gt; A   : B dominates A
 B &gt;= A  : B descends A</p>
-
 <p>A = [(a,1)]
 B = [(b,1)]
 A and B are concurrent</p>
-
 <h3 id="merging">Merging</h3>
-
 <p>AB = [(a,1),(b,1)]</p>
-
-<h2 id="problems-1">problems</h2>
-
+<h2 id="problems">problems</h2>
 <ul>
 <li>actor explosion (as explained before)</li>
 <li>client enforcing DB invariants</li>
 </ul>
-
 <h2 id="read-your-own-writes">Read your own writes</h2>
-
 <p>For a client to issue a strictly increasing order of events, it must
 know the last event it issued.  To guarantee that a client will read its last
 write, it must issue writes to W primary relicas and read from R primary
 replicas such that W+R &gt; N (N: number of replicas)</p>
-
 <h3 id="history-repeating">History repeating</h3>
-
 <p>C: Client</p>
-
 <p>c gets value and version vector for key
 c sends put with value and clientID and vv
 at each of N V Nodes:</p>
-
 <ul>
 <li>read local value from disk</li>
 <li>if local vv &gt; incoming vv ignore write</li>
 <li>if incoming vv &gt; local, overwrite</li>
 <li>if incoming vv ~ local, add new value as sibling</li>
 </ul>
-
-<p>if c doesn&rsquo;t get a correct value, then update doesn&rsquo;t go through
+<p>if c doesn't get a correct value, then update doesn't go through
 Example:
 local vv has [(x,1)]
-c doesn&rsquo;t get a correct read assumes [(x,0)]
+c doesn't get a correct read assumes [(x,0)]
 incoming vv has [(x,1)]</p>
-
-<p>since local vv &gt; incoming vv don&rsquo;t do anything -&gt; data is lost</p>
-
+<p>since local vv &gt; incoming vv don't do anything -&gt; data is lost</p>
 <h2 id="vnode-version-vectors">Vnode Version Vectors</h2>
-
 <p>let vnodes be actors in the system, since a vnode is a unit of concurrency
 Cx and Cy read &ldquo;Rita&rdquo; [(a,1)] from Vnode a
 Cx puts &ldquo;Bob&rdquo;
 Cy puts &ldquo;Sue&rdquo;
 vnode can update to &ldquo;Bob&rdquo; [(a,2)]
 what should it do to &ldquo;Sue&rdquo;?</p>
-
 <p>If you update to &ldquo;Sue&rdquo; [(a,2)] then it will overwrite the fact that
 both are concurrent, so the Version Vector algo:</p>
-
 <p>if local vv descends incoming vv, add new value as sibling:</p>
-
 <p>&ldquo;Bob&rdquo;, &ldquo;Sue&rdquo; [(a,2)]</p>
-
 <h2 id="downside">Downside</h2>
-
 <p>Vnode Version Vectors love idempotent PUTs</p>
-
 <p>With original vv:</p>
-
 <p>Cx puts with vv [(x,2),(y,2)], db fails to answer,
 but store the write, reissuing the same write will be idempotent.</p>
-
 <p>With Vnode Version Vectors
 re-issuing write generates a sibling with identical value (use set)</p>
-
 <h3 id="coordinating-vnode">coordinating vnode</h3>
-
 <p>there must be a coordinating vode (from preference list) that coordinates the
 PUT.  If a node receiving the request is not on the pref list, the request must
 be forward to a node that is, adds latency to a PUTs</p>
-
 <h3 id="sibling-explosing">sibling explosing</h3>
 <ul class="pa0">
   

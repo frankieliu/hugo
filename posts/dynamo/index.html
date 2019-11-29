@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | DynamoDB</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.60.0" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -26,25 +26,22 @@
     
     
     <meta property="og:title" content="DynamoDB" />
-<meta property="og:description" content="Highlights  kv store data partitioning and replication by consistent hashing consistency facilitated by object versioning consistency among replicas during update by quorum decentralized replica synchronization gossip based distributed failure detection and membership  Background  Authors confuse &lsquo;C&rsquo; in ACID with &lsquo;C&rsquo; in CAP  2.3  optimistic replication - conflict resolution when you need item allow writes/updates - &ldquo;always writable&rdquo; pushes complex conflict resolution on the reader  at data store means &ldquo;last write wins&rdquo; too simple, allow client to do the conflict resolution   Related work  &ldquo;always writable&rdquo; requirement trusted nodes simple k-v latency ~ 100-200ms  zero-hop DHT, each node can route request to appropriate node     System architecture  components:  data persistence component load balancing membership failure detection failure recovery replica synchronization overload handling state transfer concurrency job scheduling request marshalling request routing system monitoring system alarming configuration management  cover:  partitioning replication versioning membership failure handling scaling   system interface  api get and put get(key)  locates object replicas returns with conflicting versions returns with a context  put(key, context, object)  determines which replica context : metadata such as version  key and object are opaque array of bytes  use MD5 hash to generate a 128-bit id   partitioning  consistent hashing each node assigned a random position in the ring each data item hashed to ring and served by first node larger position each node serves data between it and its predecessor each node actually mapped to multiple points in the ring (tokens) virtual node advantages  if node goes down, load gets handled more evenly by other nodes   replication  data item is replicated at \(N\) hosts each key assigned to a coordinator node coordinator is in charge of replication of the data items that fall in its range coordinator replicates key at N-1 clockwise successor nodes in the ring  each node is responsible for between it and its \(N\) th predecessor  preference list is the list of nodes responsible for a key every node in the system can determine which nodes for a key the pref list skips positions in the ring to ensure that it contains only distinct physical nodes  data versioning  eventual consistency, data propagates asynchronously guarantees that writes cannot be forgotten or rejected  each modificaiton is a new and immutable version of the data  version branching can happen in the presence of failures resulting in conflicting versions, client must perform reconciliation vector clocks used to capture causality  (node, counter) if the counters of an object are less-than-or-equal to all the nodes in a second clock, the first is an ancestor  on update, client must specify which version is being updated  pass the context from earlier read      timestamp is used to truncate the clock which may be growing  get and put operations  route request through LB use partition aware client library that routes to coordinator requests received through a LB routed to any random node in ring  node will forward to the first among top \(N\) in preference list  quorum protocol \(R&#43;W &gt; N\) put(), coordinator generates vector clock for new version  sends to \(N\) highest-ranked reachable nodes if \(W-1\) nodes respond then the write is considered successful  get(), coordinator requests all existing versions of data forward for that key, wiates for \(R\) responses before returning value to client  handling failure  hinted handoff" />
+<meta property="og:description" content="Highlights  kv store data partitioning and replication by consistent hashing consistency facilitated by object versioning consistency among replicas during update by quorum decentralized replica synchronization gossip based distributed failure detection and membership  Background  Authors confuse &lsquo;C&rsquo; in ACID with &lsquo;C&rsquo; in CAP  2.3  optimistic replication - conflict resolution when you need item allow writes/updates - &ldquo;always writable&rdquo; pushes complex conflict resolution on the reader  at data store means &ldquo;last write wins&rdquo; too simple, allow client to do the conflict resolution    Related work  &ldquo;always writable&rdquo; requirement trusted nodes simple k-v latency ~ 100-200ms  zero-hop DHT, each node can route request to appropriate node      System architecture  components:  data persistence component load balancing membership failure detection failure recovery replica synchronization overload handling state transfer concurrency job scheduling request marshalling request routing system monitoring system alarming configuration management   cover:  partitioning replication versioning membership failure handling scaling    system interface  api get and put get(key)  locates object replicas returns with conflicting versions returns with a context   put(key, context, object)  determines which replica context : metadata such as version   key and object are opaque array of bytes  use MD5 hash to generate a 128-bit id    partitioning  consistent hashing each node assigned a random position in the ring each data item hashed to ring and served by first node larger position each node serves data between it and its predecessor each node actually mapped to multiple points in the ring (tokens) virtual node advantages  if node goes down, load gets handled more evenly by other nodes    replication  data item is replicated at \(N\) hosts each key assigned to a coordinator node coordinator is in charge of replication of the data items that fall in its range coordinator replicates key at N-1 clockwise successor nodes in the ring  each node is responsible for between it and its \(N\) th predecessor   preference list is the list of nodes responsible for a key every node in the system can determine which nodes for a key the pref list skips positions in the ring to ensure that it contains only distinct physical nodes  data versioning  eventual consistency, data propagates asynchronously guarantees that writes cannot be forgotten or rejected  each modificaiton is a new and immutable version of the data   version branching can happen in the presence of failures resulting in conflicting versions, client must perform reconciliation vector clocks used to capture causality  (node, counter) if the counters of an object are less-than-or-equal to all the nodes in a second clock, the first is an ancestor   on update, client must specify which version is being updated  pass the context from earlier read       timestamp is used to truncate the clock which may be growing  get and put operations  route request through LB use partition aware client library that routes to coordinator requests received through a LB routed to any random node in ring  node will forward to the first among top \(N\) in preference list   quorum protocol \(R&#43;W &gt; N\) put(), coordinator generates vector clock for new version  sends to \(N\) highest-ranked reachable nodes if \(W-1\) nodes respond then the write is considered successful   get(), coordinator requests all existing versions of data forward for that key, wiates for \(R\) responses before returning value to client  handling failure   hinted handoff" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/dynamo/" />
 <meta property="article:published_time" content="2019-09-15T15:25:05-07:00" />
 <meta property="article:modified_time" content="2019-10-26T08:17:57-07:00" />
 <meta itemprop="name" content="DynamoDB">
-<meta itemprop="description" content="Highlights  kv store data partitioning and replication by consistent hashing consistency facilitated by object versioning consistency among replicas during update by quorum decentralized replica synchronization gossip based distributed failure detection and membership  Background  Authors confuse &lsquo;C&rsquo; in ACID with &lsquo;C&rsquo; in CAP  2.3  optimistic replication - conflict resolution when you need item allow writes/updates - &ldquo;always writable&rdquo; pushes complex conflict resolution on the reader  at data store means &ldquo;last write wins&rdquo; too simple, allow client to do the conflict resolution   Related work  &ldquo;always writable&rdquo; requirement trusted nodes simple k-v latency ~ 100-200ms  zero-hop DHT, each node can route request to appropriate node     System architecture  components:  data persistence component load balancing membership failure detection failure recovery replica synchronization overload handling state transfer concurrency job scheduling request marshalling request routing system monitoring system alarming configuration management  cover:  partitioning replication versioning membership failure handling scaling   system interface  api get and put get(key)  locates object replicas returns with conflicting versions returns with a context  put(key, context, object)  determines which replica context : metadata such as version  key and object are opaque array of bytes  use MD5 hash to generate a 128-bit id   partitioning  consistent hashing each node assigned a random position in the ring each data item hashed to ring and served by first node larger position each node serves data between it and its predecessor each node actually mapped to multiple points in the ring (tokens) virtual node advantages  if node goes down, load gets handled more evenly by other nodes   replication  data item is replicated at \(N\) hosts each key assigned to a coordinator node coordinator is in charge of replication of the data items that fall in its range coordinator replicates key at N-1 clockwise successor nodes in the ring  each node is responsible for between it and its \(N\) th predecessor  preference list is the list of nodes responsible for a key every node in the system can determine which nodes for a key the pref list skips positions in the ring to ensure that it contains only distinct physical nodes  data versioning  eventual consistency, data propagates asynchronously guarantees that writes cannot be forgotten or rejected  each modificaiton is a new and immutable version of the data  version branching can happen in the presence of failures resulting in conflicting versions, client must perform reconciliation vector clocks used to capture causality  (node, counter) if the counters of an object are less-than-or-equal to all the nodes in a second clock, the first is an ancestor  on update, client must specify which version is being updated  pass the context from earlier read      timestamp is used to truncate the clock which may be growing  get and put operations  route request through LB use partition aware client library that routes to coordinator requests received through a LB routed to any random node in ring  node will forward to the first among top \(N\) in preference list  quorum protocol \(R&#43;W &gt; N\) put(), coordinator generates vector clock for new version  sends to \(N\) highest-ranked reachable nodes if \(W-1\) nodes respond then the write is considered successful  get(), coordinator requests all existing versions of data forward for that key, wiates for \(R\) responses before returning value to client  handling failure  hinted handoff">
-
-
+<meta itemprop="description" content="Highlights  kv store data partitioning and replication by consistent hashing consistency facilitated by object versioning consistency among replicas during update by quorum decentralized replica synchronization gossip based distributed failure detection and membership  Background  Authors confuse &lsquo;C&rsquo; in ACID with &lsquo;C&rsquo; in CAP  2.3  optimistic replication - conflict resolution when you need item allow writes/updates - &ldquo;always writable&rdquo; pushes complex conflict resolution on the reader  at data store means &ldquo;last write wins&rdquo; too simple, allow client to do the conflict resolution    Related work  &ldquo;always writable&rdquo; requirement trusted nodes simple k-v latency ~ 100-200ms  zero-hop DHT, each node can route request to appropriate node      System architecture  components:  data persistence component load balancing membership failure detection failure recovery replica synchronization overload handling state transfer concurrency job scheduling request marshalling request routing system monitoring system alarming configuration management   cover:  partitioning replication versioning membership failure handling scaling    system interface  api get and put get(key)  locates object replicas returns with conflicting versions returns with a context   put(key, context, object)  determines which replica context : metadata such as version   key and object are opaque array of bytes  use MD5 hash to generate a 128-bit id    partitioning  consistent hashing each node assigned a random position in the ring each data item hashed to ring and served by first node larger position each node serves data between it and its predecessor each node actually mapped to multiple points in the ring (tokens) virtual node advantages  if node goes down, load gets handled more evenly by other nodes    replication  data item is replicated at \(N\) hosts each key assigned to a coordinator node coordinator is in charge of replication of the data items that fall in its range coordinator replicates key at N-1 clockwise successor nodes in the ring  each node is responsible for between it and its \(N\) th predecessor   preference list is the list of nodes responsible for a key every node in the system can determine which nodes for a key the pref list skips positions in the ring to ensure that it contains only distinct physical nodes  data versioning  eventual consistency, data propagates asynchronously guarantees that writes cannot be forgotten or rejected  each modificaiton is a new and immutable version of the data   version branching can happen in the presence of failures resulting in conflicting versions, client must perform reconciliation vector clocks used to capture causality  (node, counter) if the counters of an object are less-than-or-equal to all the nodes in a second clock, the first is an ancestor   on update, client must specify which version is being updated  pass the context from earlier read       timestamp is used to truncate the clock which may be growing  get and put operations  route request through LB use partition aware client library that routes to coordinator requests received through a LB routed to any random node in ring  node will forward to the first among top \(N\) in preference list   quorum protocol \(R&#43;W &gt; N\) put(), coordinator generates vector clock for new version  sends to \(N\) highest-ranked reachable nodes if \(W-1\) nodes respond then the write is considered successful   get(), coordinator requests all existing versions of data forward for that key, wiates for \(R\) responses before returning value to client  handling failure   hinted handoff">
 <meta itemprop="datePublished" content="2019-09-15T15:25:05-07:00" />
 <meta itemprop="dateModified" content="2019-10-26T08:17:57-07:00" />
 <meta itemprop="wordCount" content="816">
 
 
 
-<meta itemprop="keywords" content="dynamo,db,amazon,scalable," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="dynamo,db,amazon,scalable," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="DynamoDB"/>
-<meta name="twitter:description" content="Highlights  kv store data partitioning and replication by consistent hashing consistency facilitated by object versioning consistency among replicas during update by quorum decentralized replica synchronization gossip based distributed failure detection and membership  Background  Authors confuse &lsquo;C&rsquo; in ACID with &lsquo;C&rsquo; in CAP  2.3  optimistic replication - conflict resolution when you need item allow writes/updates - &ldquo;always writable&rdquo; pushes complex conflict resolution on the reader  at data store means &ldquo;last write wins&rdquo; too simple, allow client to do the conflict resolution   Related work  &ldquo;always writable&rdquo; requirement trusted nodes simple k-v latency ~ 100-200ms  zero-hop DHT, each node can route request to appropriate node     System architecture  components:  data persistence component load balancing membership failure detection failure recovery replica synchronization overload handling state transfer concurrency job scheduling request marshalling request routing system monitoring system alarming configuration management  cover:  partitioning replication versioning membership failure handling scaling   system interface  api get and put get(key)  locates object replicas returns with conflicting versions returns with a context  put(key, context, object)  determines which replica context : metadata such as version  key and object are opaque array of bytes  use MD5 hash to generate a 128-bit id   partitioning  consistent hashing each node assigned a random position in the ring each data item hashed to ring and served by first node larger position each node serves data between it and its predecessor each node actually mapped to multiple points in the ring (tokens) virtual node advantages  if node goes down, load gets handled more evenly by other nodes   replication  data item is replicated at \(N\) hosts each key assigned to a coordinator node coordinator is in charge of replication of the data items that fall in its range coordinator replicates key at N-1 clockwise successor nodes in the ring  each node is responsible for between it and its \(N\) th predecessor  preference list is the list of nodes responsible for a key every node in the system can determine which nodes for a key the pref list skips positions in the ring to ensure that it contains only distinct physical nodes  data versioning  eventual consistency, data propagates asynchronously guarantees that writes cannot be forgotten or rejected  each modificaiton is a new and immutable version of the data  version branching can happen in the presence of failures resulting in conflicting versions, client must perform reconciliation vector clocks used to capture causality  (node, counter) if the counters of an object are less-than-or-equal to all the nodes in a second clock, the first is an ancestor  on update, client must specify which version is being updated  pass the context from earlier read      timestamp is used to truncate the clock which may be growing  get and put operations  route request through LB use partition aware client library that routes to coordinator requests received through a LB routed to any random node in ring  node will forward to the first among top \(N\) in preference list  quorum protocol \(R&#43;W &gt; N\) put(), coordinator generates vector clock for new version  sends to \(N\) highest-ranked reachable nodes if \(W-1\) nodes respond then the write is considered successful  get(), coordinator requests all existing versions of data forward for that key, wiates for \(R\) responses before returning value to client  handling failure  hinted handoff"/>
+<meta name="twitter:description" content="Highlights  kv store data partitioning and replication by consistent hashing consistency facilitated by object versioning consistency among replicas during update by quorum decentralized replica synchronization gossip based distributed failure detection and membership  Background  Authors confuse &lsquo;C&rsquo; in ACID with &lsquo;C&rsquo; in CAP  2.3  optimistic replication - conflict resolution when you need item allow writes/updates - &ldquo;always writable&rdquo; pushes complex conflict resolution on the reader  at data store means &ldquo;last write wins&rdquo; too simple, allow client to do the conflict resolution    Related work  &ldquo;always writable&rdquo; requirement trusted nodes simple k-v latency ~ 100-200ms  zero-hop DHT, each node can route request to appropriate node      System architecture  components:  data persistence component load balancing membership failure detection failure recovery replica synchronization overload handling state transfer concurrency job scheduling request marshalling request routing system monitoring system alarming configuration management   cover:  partitioning replication versioning membership failure handling scaling    system interface  api get and put get(key)  locates object replicas returns with conflicting versions returns with a context   put(key, context, object)  determines which replica context : metadata such as version   key and object are opaque array of bytes  use MD5 hash to generate a 128-bit id    partitioning  consistent hashing each node assigned a random position in the ring each data item hashed to ring and served by first node larger position each node serves data between it and its predecessor each node actually mapped to multiple points in the ring (tokens) virtual node advantages  if node goes down, load gets handled more evenly by other nodes    replication  data item is replicated at \(N\) hosts each key assigned to a coordinator node coordinator is in charge of replication of the data items that fall in its range coordinator replicates key at N-1 clockwise successor nodes in the ring  each node is responsible for between it and its \(N\) th predecessor   preference list is the list of nodes responsible for a key every node in the system can determine which nodes for a key the pref list skips positions in the ring to ensure that it contains only distinct physical nodes  data versioning  eventual consistency, data propagates asynchronously guarantees that writes cannot be forgotten or rejected  each modificaiton is a new and immutable version of the data   version branching can happen in the presence of failures resulting in conflicting versions, client must perform reconciliation vector clocks used to capture causality  (node, counter) if the counters of an object are less-than-or-equal to all the nodes in a second clock, the first is an ancestor   on update, client must specify which version is being updated  pass the context from earlier read       timestamp is used to truncate the clock which may be growing  get and put operations  route request through LB use partition aware client library that routes to coordinator requests received through a LB routed to any random node in ring  node will forward to the first among top \(N\) in preference list   quorum protocol \(R&#43;W &gt; N\) put(), coordinator generates vector clock for new version  sends to \(N\) highest-ranked reachable nodes if \(W-1\) nodes respond then the write is considered successful   get(), coordinator requests all existing versions of data forward for that key, wiates for \(R\) responses before returning value to client  handling failure   hinted handoff"/>
 
   </head>
 
@@ -145,10 +142,7 @@ MathJax.Hub.Config({
       
     </header>
 
-    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
-
-<h2 id="highlights">Highlights</h2>
-
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h2 id="highlights">Highlights</h2>
 <ol>
 <li>kv store</li>
 <li>data partitioning and replication by consistent hashing</li>
@@ -157,49 +151,39 @@ MathJax.Hub.Config({
 <li>decentralized replica synchronization</li>
 <li>gossip based distributed failure detection and membership</li>
 </ol>
-
 <h2 id="background">Background</h2>
-
 <ul>
 <li>Authors confuse &lsquo;C&rsquo; in ACID with &lsquo;C&rsquo; in CAP</li>
 </ul>
-
 <h3 id="2-dot-3">2.3</h3>
-
 <ul>
 <li>optimistic replication - conflict resolution when you need item</li>
 <li>allow writes/updates - &ldquo;always writable&rdquo;</li>
 <li>pushes complex conflict resolution on the reader
-
 <ul>
 <li>at data store means &ldquo;last write wins&rdquo;</li>
 <li>too simple, allow client to do the conflict resolution</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="related-work">Related work</h2>
-
 <ol>
 <li>&ldquo;always writable&rdquo; requirement</li>
 <li>trusted nodes</li>
 <li>simple k-v</li>
 <li>latency ~ 100-200ms
-
 <ul>
 <li>zero-hop DHT, each node can route request to appropriate node</li>
-</ul></li>
+</ul>
+</li>
 </ol>
-
 <figure>
     <img src="https://www.frankliu.org/hugo/images/dynamo/dynamo-table-1.png"/> 
 </figure>
 
-
 <h2 id="system-architecture">System architecture</h2>
-
 <ul>
 <li>components:
-
 <ul>
 <li>data persistence component</li>
 <li>load balancing</li>
@@ -216,9 +200,9 @@ MathJax.Hub.Config({
 <li>system monitoring</li>
 <li>system alarming</li>
 <li>configuration management</li>
-</ul></li>
+</ul>
+</li>
 <li>cover:
-
 <ul>
 <li>partitioning</li>
 <li>replication</li>
@@ -226,35 +210,32 @@ MathJax.Hub.Config({
 <li>membership</li>
 <li>failure handling</li>
 <li>scaling</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h3 id="system-interface">system interface</h3>
-
 <ol>
 <li>api get and put</li>
 <li>get(key)
-
 <ol>
 <li>locates object replicas</li>
 <li>returns with conflicting versions</li>
 <li>returns with a context</li>
-</ol></li>
+</ol>
+</li>
 <li>put(key, context, object)
-
 <ol>
 <li>determines which replica</li>
 <li>context : metadata such as version</li>
-</ol></li>
+</ol>
+</li>
 <li>key and object are opaque array of bytes
-
 <ol>
 <li>use MD5 hash to generate a 128-bit id</li>
-</ol></li>
 </ol>
-
+</li>
+</ol>
 <h3 id="partitioning">partitioning</h3>
-
 <ol>
 <li>consistent hashing</li>
 <li>each node assigned a random position in the ring</li>
@@ -262,156 +243,137 @@ MathJax.Hub.Config({
 <li>each node serves data between it and its predecessor</li>
 <li>each node actually mapped to multiple points in the ring (tokens)</li>
 <li>virtual node advantages
-
 <ol>
 <li>if node goes down, load gets handled more evenly by other nodes</li>
-</ol></li>
 </ol>
-
+</li>
+</ol>
 <h3 id="replication">replication</h3>
-
 <ol>
 <li>data item is replicated at \(N\) hosts</li>
 <li>each key assigned to a coordinator node</li>
 <li>coordinator is in charge of replication of the data items that fall in its
 range</li>
 <li>coordinator replicates key at N-1 clockwise successor nodes in the ring
-
 <ol>
 <li>each node is responsible for between it and its \(N\) th predecessor</li>
-</ol></li>
+</ol>
+</li>
 <li>preference list is the list of nodes responsible for a key</li>
 <li>every node in the system can determine which nodes for a key</li>
 <li>the pref list skips positions in the ring to ensure that it contains only
 distinct physical nodes</li>
 </ol>
-
 <h3 id="data-versioning">data versioning</h3>
-
 <ol>
 <li>eventual consistency, data propagates asynchronously</li>
 <li>guarantees that writes cannot be forgotten or rejected
-
 <ol>
 <li>each modificaiton is a new and immutable version of the data</li>
-</ol></li>
+</ol>
+</li>
 <li>version branching can happen in the presence of failures
 resulting in conflicting versions, client must perform
 reconciliation</li>
 <li>vector clocks used to capture causality
-
 <ol>
 <li>(node, counter)</li>
 <li>if the counters of an object are less-than-or-equal to all the
 nodes in a second clock, the first is an ancestor</li>
-</ol></li>
+</ol>
+</li>
 <li>on update, client must specify which version is being updated
-
 <ol>
 <li>pass the context from earlier read</li>
-</ol></li>
 </ol>
-
+</li>
+</ol>
 <figure>
     <img src="https://www.frankliu.org/hugo/images/dynamo/vector-clock.png"/> 
 </figure>
 
-
 <ol>
 <li>timestamp is used to truncate the clock which may be growing</li>
 </ol>
-
 <h3 id="get-and-put-operations">get and put operations</h3>
-
 <ol>
 <li>route request through LB</li>
 <li>use partition aware client library that routes to coordinator</li>
 <li>requests received through a LB routed to any random node in ring
-
 <ol>
 <li>node will forward to the first among top \(N\) in preference list</li>
-</ol></li>
+</ol>
+</li>
 <li>quorum protocol \(R+W &gt; N\)</li>
 <li>put(), coordinator generates vector clock for new version
-
 <ol>
 <li>sends to \(N\) highest-ranked reachable nodes</li>
 <li>if \(W-1\) nodes respond then the write is considered successful</li>
-</ol></li>
+</ol>
+</li>
 <li>get(), coordinator requests all existing versions of data forward
 for that key, wiates for \(R\) responses before returning value to
 client</li>
 </ol>
-
 <h3 id="handling-failure">handling failure</h3>
-
 <ul>
-<li><p>hinted handoff</p>
-
+<li>
+<p>hinted handoff</p>
 <ul>
 <li>loose quorum membership &ldquo;sloppy quorum&rdquo; : first \(N\) healthy
 nodes from preference list</li>
 </ul>
-
 <figure>
     <img src="https://www.frankliu.org/hugo/images/dynamo/consistent-hashing.svg"/> 
 </figure>
+
 </li>
-
-<li><p>anti-entropy, replica synchronization protocol</p></li>
-
-<li><p>merkle tree</p>
-
+<li>
+<p>anti-entropy, replica synchronization protocol</p>
+</li>
+<li>
+<p>merkle tree</p>
 <ul>
 <li>each branch can be checked independently without checking entire
 tree</li>
 <li>each node maintains a separate merkle tree for each key range</li>
 <li>two nodes exchange the root of the merkle tree for key range</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h3 id="membership-and-failure-detection">membership and failure detection</h3>
-
 <ul>
 <li>gossip based protocol propagates membership changes</li>
 <li>maintains an eventually consistent view of membership</li>
 <li>each node contacts a peer chosen at random every second
-
 <ul>
 <li>two nodes reconcile their persisteted membership change
 histories</li>
-</ul></li>
+</ul>
+</li>
 <li>nodes choose set of tokens (virtual nodes in the consistent
 hash space) and maps nodes to their respective token sets</li>
 <li>mapping persisted on disk, contains local node and token set</li>
 <li>mappings reconciled via gossip</li>
 </ul>
-
 <h4 id="seeds">seeds</h4>
-
 <ul>
 <li>special nodes known to all nodes</li>
 <li>seeds obtained through static config or config service</li>
 <li>all nodes must reconcile at seeds, logical partitions unlikely</li>
 </ul>
-
 <h4 id="failure-detection">failure detection</h4>
-
 <ul>
-<li>local notion of failure, if node A can&rsquo;t communicate with B, then
+<li>local notion of failure, if node A can't communicate with B, then
 uses alternate nodes</li>
 <li>decentralized failure detection use simple gossip-style protocol</li>
 </ul>
-
 <h3 id="adding-and-removing-storage-nodes">adding and removing storage nodes</h3>
-
 <ul>
 <li>transfer keys to new node</li>
 <li>reallocation of keys upon removal</li>
 </ul>
-
 <h2 id="uneven-partitioning">Uneven partitioning</h2>
-
 <ul>
 <li>assigning to a data range between virtual nodes skews the distribution
 of data among the virtual nodes</li>
@@ -419,7 +381,6 @@ of data among the virtual nodes</li>
 <li>assign to each node \(\sum Q/S\) where \(S\) is the number of nodes</li>
 <li>membership mapping then will look like</li>
 </ul>
-
 <table>
 <thead>
 <tr>
@@ -427,33 +388,27 @@ of data among the virtual nodes</li>
 <th>Node</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>1</td>
 <td>a,c,d</td>
 </tr>
-
 <tr>
 <td>2</td>
 <td>a,f,k</td>
 </tr>
-
 <tr>
 <td>3</td>
 <td>a,p,m</td>
 </tr>
 </tbody>
 </table>
-
 <ul>
 <li>when you delete node a, replacements are added from the other remaining
 nodes, since a was taking care of a fixed number of Q sections, then the
 redistribution among other nodes will also be of fixed size</li>
 </ul>
-
 <h2 id="conclusions">Conclusions</h2>
-
 <ul>
 <li>not very useful</li>
 </ul>

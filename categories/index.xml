@@ -6,10 +6,19 @@
     <description>Recent content in Categories on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 20 Nov 2019 23:21:28 -0800</lastBuildDate>
+    <lastBuildDate>Thu, 28 Nov 2019 18:10:58 -0800</lastBuildDate>
     
 	<atom:link href="https://www.frankliu.org/hugo/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>sound</title>
+      <link>https://www.frankliu.org/hugo/categories/sound/</link>
+      <pubDate>Thu, 28 Nov 2019 18:10:58 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/categories/sound/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>computational geometry</title>

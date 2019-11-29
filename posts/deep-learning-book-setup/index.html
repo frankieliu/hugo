@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | Starting hugo from scratch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.60.0" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -35,16 +35,13 @@ This method of maintaining a separate branch is made easier with a worktree that
 <meta itemprop="name" content="Starting hugo from scratch">
 <meta itemprop="description" content="deploying hugo to github.io There are a number of ways of doing this. Since I like to keep a separate branch for the deployment, I opted for the option below. Another option would be use a docs directory and add to config.toml a line with publishDir = &ldquo;docs&rdquo;. This would also work, and you then just need to work on master branch.
 This method of maintaining a separate branch is made easier with a worktree that directly writes to a public folder in gh-pages from the master branch.">
-
-
 <meta itemprop="datePublished" content="2019-11-05T19:03:13-08:00" />
 <meta itemprop="dateModified" content="2019-11-05T19:54:53-08:00" />
-<meta itemprop="wordCount" content="503">
+<meta itemprop="wordCount" content="504">
 
 
 
-<meta itemprop="keywords" content="hugo,deeplearningbook,github.io," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="hugo,deeplearningbook,github.io," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Starting hugo from scratch"/>
 <meta name="twitter:description" content="deploying hugo to github.io There are a number of ways of doing this. Since I like to keep a separate branch for the deployment, I opted for the option below. Another option would be use a docs directory and add to config.toml a line with publishDir = &ldquo;docs&rdquo;. This would also work, and you then just need to work on master branch.
 This method of maintaining a separate branch is made easier with a worktree that directly writes to a public folder in gh-pages from the master branch."/>
@@ -148,15 +145,11 @@ MathJax.Hub.Config({
       
     </header>
 
-    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
-
-<h2 id="deploying-hugo-to-github-dot-io">deploying hugo to github.io</h2>
-
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h2 id="deploying-hugo-to-github-dot-io">deploying hugo to github.io</h2>
 <p>There are a number of ways of doing this. Since I like to keep a separate branch
 for the deployment, I opted for the option below. Another option would be use a
 docs directory and add to config.toml a line with publishDir = &ldquo;docs&rdquo;. This
 would also work, and you then just need to work on master branch.</p>
-
 <p>This method of maintaining a separate branch is made easier with a worktree that
 directly writes to a public folder in gh-pages from the master branch.  But it
 requires going to the public folder for staging and committing.</p>
@@ -204,14 +197,15 @@ cd public/
 git status
 git add .
 git commit -m<span style="color:#e6db74">&#34;test&#34;</span>
-git push</code></pre></div>
-<h2 id="some-helpers">some helpers</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/sh
-</span><span style="color:#75715e"></span>
+git push
+</code></pre></div><h2 id="some-helpers">some helpers</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+<span style="color:#75715e">#!/bin/sh</span>
+
 <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;`git status -s`&#34;</span> <span style="color:#f92672">]</span>
 <span style="color:#66d9ef">then</span>
     echo <span style="color:#e6db74">&#34;The working directory is dirty. Please commit any pending changes.&#34;</span>
-    exit <span style="color:#ae81ff">1</span>;
+    exit 1;
 <span style="color:#66d9ef">fi</span>
 
 echo <span style="color:#e6db74">&#34;Deleting old publication&#34;</span>
@@ -227,7 +221,8 @@ echo <span style="color:#e6db74">&#34;Removing existing files&#34;</span>
 rm -rf public/*
 
 echo <span style="color:#e6db74">&#34;Generating site&#34;</span>
-hugo</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-makefile" data-lang="makefile"><span style="color:#a6e22e">.PHONY</span><span style="color:#f92672">:</span> server deploy
+hugo
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-makefile" data-lang="makefile"><span style="color:#a6e22e">.PHONY</span><span style="color:#f92672">:</span> server deploy
 
 <span style="color:#a6e22e">server</span><span style="color:#f92672">:</span>
   xdg-open <span style="color:#e6db74">&#34;http://localhost:1313/dlbook-ig/&#34;</span>
@@ -238,24 +233,25 @@ hugo</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;backgrou
   git commit -m<span style="color:#e6db74">&#34;Adding content&#34;</span>
   git push
   ./publish-to-ghpages.sh
-</code></pre></div>
-<h2 id="ignore-modifications-to-theme">ignore modifications to theme</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-conf" data-lang="conf">[submodule &#34;themes/ananke&#34;]
+</code></pre></div><h2 id="ignore-modifications-to-theme">ignore modifications to theme</h2>
+<pre><code class="language-conf" data-lang="conf">[submodule &quot;themes/ananke&quot;]
   path = themes/ananke
   url = https://github.com/budparr/gohugo-theme-ananke.git
-  ignore = dirty</code></pre></div>
-<h2 id="some-more-speciallized-additions-to-config-dot-toml">some more speciallized additions to config.toml</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-conf" data-lang="conf">baseURL = &#34;https://www.frankliu.org/dlbook-ig/&#34;
+  ignore = dirty
+</code></pre><h2 id="some-more-speciallized-additions-to-config-dot-toml">some more speciallized additions to config.toml</h2>
+<pre><code class="language-conf" data-lang="conf">baseURL = &quot;https://www.frankliu.org/dlbook-ig/&quot;
 # relativeURLs = true
 # uglyURLs = true
-languageCode = &#34;en-us&#34;
-title = &#34;My New Hugo Site&#34;
-theme = &#34;ananke&#34;
+languageCode = &quot;en-us&quot;
+title = &quot;My New Hugo Site&quot;
+theme = &quot;ananke&quot;
 pygmentsCodeFences = true
 # pygmentsUseClasses = true
 # pygmentsUseClassic = false
 canonifyURLs = true
-SectionPagesMenu = &#34;main&#34;</code></pre></div><ul class="pa0">
+SectionPagesMenu = &quot;main&quot;
+
+</code></pre><ul class="pa0">
   
    <li class="list">
      <a href="https://www.frankliu.org/hugo/tags/hugo" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">hugo</a>

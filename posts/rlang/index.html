@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | R lang</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.60.0" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -37,16 +37,13 @@ vectors (range)  everything is a vector 1:9, 1:2:9, c(1,3,2,-8.1) c() for concat
 <meta itemprop="description" content="operators Exponent: ^ Bit: &amp; | Conditional: &amp;&amp; ||
 difference between = and &lt;- operators Just use =
 vectors (range)  everything is a vector 1:9, 1:2:9, c(1,3,2,-8.1) c() for concat  vector addition  v1 &#43; v2 : element wise  matrices  matrix(c(1,2,3,4,5,6,7,8,9), nrow=3) nrow is the number of rows or ncol for number of columns fills in column order, i.e. [[1,4,7],[2,5,8],[3,6,9]] matrix(1:9, nrow=3, byrow=T) : fills in row order  matrix multiplication  m1 %*% m2  transpose  t(m1)  slicing  m1[1,3] m1[,3] : all elements on third column m1[1,] : all elements on first rows m1[,-2] : all but the second column m1[1,1] = 15 m1[,2:3] = 1 : set columns 2 and 3 to 2 m1[,2:3] = 4:9 : set columns 2 and 3 to col2:4,5,6, col3:7,8,9 m1[m1&gt;5] : filter elements in m1 that are greater than 5 m1[m1&gt;5] = 3 : set all elements greater than 5 to 3  loops for(i in 1:3) { print(i) } while(sum(v1)&gt;=5) {}">
-
-
 <meta itemprop="datePublished" content="2019-10-04T22:35:02-07:00" />
 <meta itemprop="dateModified" content="2019-10-26T08:12:32-07:00" />
 <meta itemprop="wordCount" content="526">
 
 
 
-<meta itemprop="keywords" content="R," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="R," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="R lang"/>
 <meta name="twitter:description" content="operators Exponent: ^ Bit: &amp; | Conditional: &amp;&amp; ||
 difference between = and &lt;- operators Just use =
@@ -151,34 +148,23 @@ MathJax.Hub.Config({
       
     </header>
 
-    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
-
-<h2 id="operators">operators</h2>
-
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h2 id="operators">operators</h2>
 <p>Exponent: ^
 Bit: &amp; |
 Conditional: &amp;&amp; ||</p>
-
 <h2 id="difference-between-and-operators">difference between = and &lt;- operators</h2>
-
 <p>Just use =</p>
-
 <h2 id="vectors--range">vectors (range)</h2>
-
 <ul>
 <li>everything is a vector</li>
 <li>1:9, 1:2:9, c(1,3,2,-8.1)</li>
 <li>c() for concat</li>
 </ul>
-
 <h2 id="vector-addition">vector addition</h2>
-
 <ul>
 <li>v1 + v2 : element wise</li>
 </ul>
-
 <h2 id="matrices">matrices</h2>
-
 <ul>
 <li>matrix(c(1,2,3,4,5,6,7,8,9), nrow=3)</li>
 <li>nrow is the number of rows or ncol for number of columns</li>
@@ -186,21 +172,15 @@ Conditional: &amp;&amp; ||</p>
 [[1,4,7],[2,5,8],[3,6,9]]</li>
 <li>matrix(1:9, nrow=3, byrow=T) : fills in row order</li>
 </ul>
-
 <h3 id="matrix-multiplication">matrix multiplication</h3>
-
 <ul>
 <li>m1 %*% m2</li>
 </ul>
-
 <h3 id="transpose">transpose</h3>
-
 <ul>
 <li>t(m1)</li>
 </ul>
-
 <h3 id="slicing">slicing</h3>
-
 <ul>
 <li>m1[1,3]</li>
 <li>m1[,3]  : all elements on third column</li>
@@ -212,22 +192,14 @@ Conditional: &amp;&amp; ||</p>
 <li>m1[m1&gt;5]        : filter elements in m1 that are greater than 5</li>
 <li>m1[m1&gt;5] = 3    : set all elements greater than 5 to 3</li>
 </ul>
-
 <h2 id="loops">loops</h2>
-
 <p>for(i in 1:3) { print(i) }
 while(sum(v1)&gt;=5) {}</p>
-
 <h2 id="control">control</h2>
-
 <p>if(m1[i,1]&gt;=2){}</p>
-
 <h2 id="ternary-if">ternary if</h2>
-
 <p>ifelse(a==1,1,0)</p>
-
 <h2 id="types">types</h2>
-
 <p>class(1)
 class(c(1,2))  : numeric
 class(1:3)     : integer : more specific, and saves footprint
@@ -236,118 +208,83 @@ class(&ldquo;hello&rdquo;) : character
 class(c(&ldquo;r&rdquo;,&ldquo;g&rdquo;)) : character
 class(c(1,&ldquo;r&rdquo;))   : character
 class(c(T,F))     : logical</p>
-
 <h3 id="na-not-available--null">NA : Not available (null)</h3>
-
 <p>class(NaN) : numeric
 class(NA)  : logical</p>
-
 <h2 id="vector">vector</h2>
-
-<p>vector(mode=&ldquo;logical&rdquo;,3)</p>
-
+<p>vector(mode=&quot;logical&rdquo;,3)</p>
 <ul>
 <li>this class can only contain one type, &lsquo;numeric&rsquo;, &lsquo;character&rsquo;, or &lsquo;logical&rsquo;</li>
 </ul>
-
 <h3 id="matrix">matrix</h3>
-
 <p>is a 2-D &lsquo;vector&rsquo;
 class(m1)  : matrix</p>
-
 <h2 id="array">array</h2>
-
 <ul>
 <li>can only have one data type like vector and matrix</li>
 <li>arrays can also store matrices, data frames and lists</li>
 <li>can be multidimensional</li>
 </ul>
-
 <p>array(1:16, dim=c(4,2,2))</p>
-
 <h2 id="dataframe">dataframe</h2>
-
 <p>df = data.frame(c(1,2,3),c(T,F,F),row.names=c(&ldquo;r&rdquo;,&ldquo;g&rdquo;,&ldquo;b&rdquo;))
 names(df)[1] = &ldquo;col1&rdquo;
 names(df)[2] = &ldquo;col2&rdquo;</p>
-
 <h2 id="list">list</h2>
-
 <p>a = list(&ldquo;a&rdquo;,1&rdquo;,F)
 use double [] to access element
 a = list(category1=c(1), category2=c(T), category3=c(&ldquo;r&rdquo;))
 a$category1</p>
-
 <h2 id="hierarchy">hierarchy</h2>
-
 <figure>
     <img src="https://www.frankliu.org/hugo/images/rlang/ds-hierarchy.png"/> 
 </figure>
 
-
 <h2 id="conversion">conversion</h2>
-
 <p>as.vector(), as.logical(), as.character</p>
-
 <h2 id="file-system">file system</h2>
-
 <p>getwd() : pwd
 setwd() : cd
 p = read.csv(&ldquo;some.csv&rdquo;, header=TRUE)
 row.names(p) = p[,1]
 p = p[,-1]
-read.delim(&ldquo;filename.xxx&rdquo;, header=TRUE, sep=&ldquo;;&lsquo;, dec=&rdquo;.&ldquo;)</p>
-
-<p>write.csv(var1, file=&ldquo;some.csv&rdquo;)
-write.table(df, file=&ldquo;some.csv&rdquo;, sep=&rdquo; &ldquo;)
-save(var1, var2, file=&ldquo;some.rdata&rdquo;)</p>
-
+read.delim(&ldquo;filename.xxx&rdquo;, header=TRUE, sep=&rdquo;;', dec=&rdquo;.&quot;)</p>
+<p>write.csv(var1, file=&quot;some.csv&rdquo;)
+write.table(df, file=&quot;some.csv&rdquo;, sep=&rdquo; &ldquo;)
+save(var1, var2, file=&quot;some.rdata&rdquo;)</p>
 <h2 id="rdata">rdata</h2>
-
 <ul>
 <li>extension: .rdata</li>
 <li>load(&ldquo;some.rdata&rdquo;)</li>
 </ul>
-
 <h2 id="plotting">plotting</h2>
-
 <p>plot(x,y)
 x11()    : new window
-par(mfrow=c(1,2), bg=&ldquo;grey&rdquo;, bty=&ldquo;n&rdquo;, cex=.75)</p>
-
+par(mfrow=c(1,2), bg=&quot;grey&rdquo;, bty=&quot;n&rdquo;, cex=.75)</p>
 <ul>
 <li>mfrow : subplot</li>
 <li>bty : boundary box</li>
 <li>cex : text ratio</li>
 </ul>
-
-<p>plot(x,y,xlab=&ldquo;1:9&rdquo;, ylab=&ldquo;9:1&rdquo;, main=&ldquo;title&rdquo;, col=&ldquo;red&rdquo;, pch=3)</p>
-
+<p>plot(x,y,xlab=&quot;1:9&rdquo;, ylab=&quot;9:1&rdquo;, main=&quot;title&rdquo;, col=&quot;red&rdquo;, pch=3)</p>
 <ul>
 <li>pch : shape of the points</li>
 </ul>
-
-<p>hist(p[,1], main=colnames(p)[1], xlab=&ldquo;xlabel&rdquo;, breaks=c(0,.5,.7,.8,.9,1)
+<p>hist(p[,1], main=colnames(p)[1], xlab=&quot;xlabel&rdquo;, breaks=c(0,.5,.7,.8,.9,1)
 boxplot(p)
 lines(x,y)
 abline(coef=c(intercept, slope), v=vertical_x, h=horizontal_y)
 points(1:5,c(4,4,4,4,4), pch=1:5, col=1:5)
 par(new=T)
-legend(x=&ldquo;topright&rdquo;, legend=c(&ldquo;r&rdquo;,&ldquo;g&rdquo;,&ldquo;b&rdquo;), lwd=2, col=1:2, bg=&ldquo;grey&rdquo;)</p>
-
+legend(x=&quot;topright&rdquo;, legend=c(&ldquo;r&rdquo;,&ldquo;g&rdquo;,&ldquo;b&rdquo;), lwd=2, col=1:2, bg=&quot;grey&rdquo;)</p>
 <ul>
 <li>lwd : linewidth</li>
 </ul>
-
 <p>pdf(&ldquo;some.pdf&rdquo;)
 dev.off()</p>
-
 <h2 id="help">help</h2>
-
 <p>?plot</p>
-
 <h2 id="functions">functions</h2>
-
 <p>abs(), sqrt()
 seq(0,8,2)
 rep(c(0,2), 5)
@@ -362,59 +299,40 @@ runif(5, min=0, max=1)  : random sampling of 5 numbers, unif([0,1])
 ls() : what objects are in workspace
 rm(var) : remove a variable
 q() : quit</p>
-
 <h3 id="custom-functions">custom functions</h3>
-
 <p>doublex &lt;- function(x,y=10) { return(2) }dx</p>
-
 <h2 id="running-script-from-file">running script from file</h2>
-
 <p>source(&ldquo;some.r&rdquo;)</p>
-
 <h2 id="installing-packages">Installing packages</h2>
-
 <p>install.packages(&ldquo;install.load&rdquo;)
 library(install.load)
 install_load(&ldquo;somepackage&rdquo;)
 library(somepackage)
 detach(&ldquo;package:somepackge, unload=TRUE)</p>
-
 <h2 id="jsonlite">jsonlite</h2>
-
 <p>install_load(&lsquo;jsonlite&rsquo;)
 a = jsonlite::read_json(&lsquo;jobj.json&rsquo;)
 a$Diameter$mean</p>
-
 <h2 id="dict-package">dict package</h2>
-
 <p>if (!require(&ldquo;devtools&rdquo;)) install.packages(&ldquo;devtools&rdquo;)
 devtools::install_github(&ldquo;mkuhn/dict&rdquo;)</p>
-
 <h2 id="tidyverse">tidyverse</h2>
-
 <p>Warning messages:
 1: In install.packages(&ldquo;tidyverse&rdquo;) :
-  installation of package ‘curl’ had non-zero exit status
+installation of package ‘curl’ had non-zero exit status
 2: In install.packages(&ldquo;tidyverse&rdquo;) :
-  installation of package ‘httr’ had non-zero exit status
+installation of package ‘httr’ had non-zero exit status
 3: In install.packages(&ldquo;tidyverse&rdquo;) :
-  installation of package ‘rvest’ had non-zero exit status
+installation of package ‘rvest’ had non-zero exit status
 4: In install.packages(&ldquo;tidyverse&rdquo;) :
-  installation of package ‘tidyverse’ had non-zero exit status</p>
-
+installation of package ‘tidyverse’ had non-zero exit status</p>
 <p>sudo aptitude install libcurl4-openssl-dev libxml2-dev
 <a href="https://stackoverflow.com/questions/31008877/unable-to-install-rvest-package">https://stackoverflow.com/questions/31008877/unable-to-install-rvest-package</a></p>
-
 <h2 id="rss-autocomplete">rss autocomplete</h2>
-
 <p><a href="https://ess.r-project.org/Manual/ess.html#Installation">https://ess.r-project.org/Manual/ess.html#Installation</a></p>
-
-<h2 id="tidyverse-1">tidyverse</h2>
-
+<h2 id="tidyverse">tidyverse</h2>
 <p><a href="https://github.com/tidyverse/stringr">https://github.com/tidyverse/stringr</a></p>
-
 <h2 id="r-for-dummies">r for dummies</h2>
-
 <p><a href="https://www.dummies.com/programming/r/how-to-combine-logical-statements-in-r/">https://www.dummies.com/programming/r/how-to-combine-logical-statements-in-r/</a></p>
 <ul class="pa0">
   

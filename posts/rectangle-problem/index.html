@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | Rectangle counting</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.60.0" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -37,16 +37,13 @@ def num_rect(points): m = defaultdict(lambda: 0) answer = 0 for p in points: for
 <meta itemprop="description" content="The problem is to count the number of rectangles (aligned to x and y coordinates) that can be formed by a set of points. Answer from competitive programmer Errichto.
 def num_rect(points): m = defaultdict(lambda: 0) answer = 0 for p in points: for p_above in points: if p.y &lt; p_above.y: answer &#43;= m[(p.y,p_above.y)] m[(p.y,p_above.y)] &#43;= 1 return answer Consider the following set of points:
    x x x     1 2 3    This is for k = 3, there are 3 possible rectangles.">
-
-
 <meta itemprop="datePublished" content="2019-11-20T23:21:28-08:00" />
 <meta itemprop="dateModified" content="2019-11-20T23:42:48-08:00" />
 <meta itemprop="wordCount" content="194">
 
 
 
-<meta itemprop="keywords" content="computational geometry,rectangle," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="computational geometry,rectangle," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Rectangle counting"/>
 <meta name="twitter:description" content="The problem is to count the number of rectangles (aligned to x and y coordinates) that can be formed by a set of points. Answer from competitive programmer Errichto.
 def num_rect(points): m = defaultdict(lambda: 0) answer = 0 for p in points: for p_above in points: if p.y &lt; p_above.y: answer &#43;= m[(p.y,p_above.y)] m[(p.y,p_above.y)] &#43;= 1 return answer Consider the following set of points:
@@ -160,11 +157,10 @@ programmer Errichto.</p>
     <span style="color:#66d9ef">for</span> p <span style="color:#f92672">in</span> points:
         <span style="color:#66d9ef">for</span> p_above <span style="color:#f92672">in</span> points:
             <span style="color:#66d9ef">if</span> p<span style="color:#f92672">.</span>y <span style="color:#f92672">&lt;</span> p_above<span style="color:#f92672">.</span>y:
-                answer <span style="color:#f92672">+=</span> m[(p<span style="color:#f92672">.</span>y,p_above<span style="color:#f92672">.</span>y)]
-                m[(p<span style="color:#f92672">.</span>y,p_above<span style="color:#f92672">.</span>y)] <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-    <span style="color:#66d9ef">return</span> answer</code></pre></div>
-<p>Consider the following set of points:</p>
-
+                answer <span style="color:#f92672">+</span><span style="color:#f92672">=</span> m[(p<span style="color:#f92672">.</span>y,p_above<span style="color:#f92672">.</span>y)]
+                m[(p<span style="color:#f92672">.</span>y,p_above<span style="color:#f92672">.</span>y)] <span style="color:#f92672">+</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">return</span> answer
+</code></pre></div><p>Consider the following set of points:</p>
 <table>
 <thead>
 <tr>
@@ -173,7 +169,6 @@ programmer Errichto.</p>
 <th>x</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>1</td>
@@ -182,17 +177,14 @@ programmer Errichto.</p>
 </tr>
 </tbody>
 </table>
-
 <p>This is for k = 3, there are 3 possible rectangles.
-This can be gotten from (3 choose 2) = 3*<sup>2</sup>&frasl;<sub>2</sub> = 3
+This can be gotten from (3 choose 2) = 3*2/2 = 3
 Or from the above process as 1 + 2 = 3</p>
-
-<p>When you encounter the first point you don&rsquo;t have a
+<p>When you encounter the first point you don't have a
 rectangle, when you encounter the second point, you
 have exactly one rectangle, and when you encounter
 the third point you can make two rectangles, and so
 on.</p>
-
 <p>There is an obvious algebraic connection between (k choose 2) = k(k-1)/2 and the
 sum 1+2+3+&hellip;+k-1. Of course you can see that mathematically they are
 equivalent, but this is the first time I have seen a non-algebraic reasoning to
