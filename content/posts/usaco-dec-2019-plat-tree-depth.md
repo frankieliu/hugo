@@ -2,7 +2,7 @@
 title = "Tree Depth - USACO Platimum Dec19"
 author = ["adam"]
 date = 2020-01-15T18:21:28-08:00
-lastmod = 2020-01-16T23:02:29-08:00
+lastmod = 2020-01-16T23:02:59-08:00
 tags = ["generating functions", "trees", "permutations"]
 categories = ["usaco"]
 draft = false
@@ -145,7 +145,7 @@ the \\(j\\) term, \\(j\\) inversions or \\(x^j\\).  For the \\(j+1\\) term, it i
 have any number of inversions, since there is no restriction on its value.  If
 \\(a[j+1]\\) is smaller than \\(a[j]\\) then this scenario will be counted when
 setting \\(j\\) to this number, and as we mentioned before the permutations of this
-"outer" ancestor does not precude the counting of "inner" ancestors.  This
+"outer" ancestor does not preclude the counting of "inner" ancestors.  This
 continues until \\(a[j + (n-j)]\\) for which there are \\(0\\) to \\(n-i+1\\) inversions
 possible.
 
