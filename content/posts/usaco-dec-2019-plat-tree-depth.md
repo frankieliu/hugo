@@ -2,7 +2,7 @@
 title = "Tree Depth - USACO Platimum Dec19"
 author = ["adam"]
 date = 2020-01-15T18:21:28-08:00
-lastmod = 2020-01-16T23:10:33-08:00
+lastmod = 2020-01-16T23:11:06-08:00
 tags = ["generating functions", "trees", "permutations"]
 categories = ["usaco"]
 draft = false
@@ -28,7 +28,7 @@ time in which node \\(i\\) is inserted to the tree. We'll use the following
 \\(a=42315\\) for illustration. Assume \\(1\\) indexing to refer to both the index in
 \\(a\\) and also the node number.
 
-Then since \\(a[4] = 1\\) then node \\(4\\) be inserted first, becoming the root. This
+Then since \\(a[4] = 1\\) then node \\(4\\) is inserted first, becoming the root. This
 divides the tree into two parts (it is a BST). Since there is only one more node
 to the right of node \\(4\\) we will just add node \\(5\\) as a right child of node \\(4\\).
 
