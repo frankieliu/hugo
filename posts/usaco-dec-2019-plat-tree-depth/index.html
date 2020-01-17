@@ -32,14 +32,14 @@ First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as t
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/usaco-dec-2019-plat-tree-depth/" />
 <meta property="article:published_time" content="2020-01-15T18:21:28-08:00" />
-<meta property="article:modified_time" content="2020-01-16T22:48:54-08:00" />
+<meta property="article:modified_time" content="2020-01-16T22:55:02-08:00" />
 <meta itemprop="name" content="Tree Depth - USACO Platimum Dec19">
 <meta itemprop="description" content="This is a commentary on the solution from Benjamin Qi.
 from permutation to tree generation Before we go into the solution of this problem it is good to be able to understand how to create trees using a permutation.
 First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as the time in which node \(i\) is inserted to the tree. We&#39;ll use the following \(a=42315\) for illustration.">
 <meta itemprop="datePublished" content="2020-01-15T18:21:28-08:00" />
-<meta itemprop="dateModified" content="2020-01-16T22:48:54-08:00" />
-<meta itemprop="wordCount" content="1817">
+<meta itemprop="dateModified" content="2020-01-16T22:55:02-08:00" />
+<meta itemprop="wordCount" content="1862">
 
 
 
@@ -229,8 +229,11 @@ a[j]\) then those permutations would have been counted when considering \(a[j&rs
 and they count separately from the contributions of node \(j\). If \(a[j&rsquo;] &gt; a[j]\)
 then node \(j&rsquo;\) would not been a potential ancestor. Thus one can see that
 &ldquo;outer&rdquo; ancestors must exclude the possibility of smaller &ldquo;inner&rdquo; ancestors,
-since by definition they the &ldquo;outer&rdquo; ancestor comes earlier than any other
-&ldquo;inner&rdquo; ancestor.</p>
+since by definition the &ldquo;outer&rdquo; ancestor comes earlier than any other
+&ldquo;inner&rdquo; ancestor.  By exclusion I only mean that we cannot count permutations
+at allow \(a[j]&lt;a[j&rsquo;]\) when considering node \(j&rsquo;\) as a possible ancestor of node
+\(i\).  Of course when considering node \(j\) as a possible ancestor we are free
+to include permutations unconstrained on the value of \(a[j&rsquo;]\).</p>
 <h2 id="generating-functions-to-count-inversions">generating functions to count inversions</h2>
 <p>With the independence property, we can now independently consider contributions
 of depth to a particular node, say node \(i\).  For a particular node \(i\) we will
