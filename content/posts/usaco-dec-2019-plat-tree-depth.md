@@ -2,7 +2,7 @@
 title = "Tree Depth - USACO Platimum Dec19"
 author = ["adam"]
 date = 2020-01-15T18:21:28-08:00
-lastmod = 2020-01-16T22:57:28-08:00
+lastmod = 2020-01-16T22:58:34-08:00
 tags = ["generating functions", "trees", "permutations"]
 categories = ["usaco"]
 draft = false
@@ -140,7 +140,7 @@ there are three possible inversions, and so on.  Each of these possibilities can
 be captured by a generating function, and the combined convolution of these
 possibilities captured as the product of the individual sums as
 \\((x\_0)(x\_0+x\_1)(x\_0+x\_1+x\_2)\cdots(x\_0+x\_1+\ldots+x\_{j-1})\\).  At \\(j\\), we know
-that the \\(a[j] == min(a[i\ldots j]\\) therefore there is only one possibility for
+that the \\(a[j] == min(a[i\ldots j])\\) therefore there is only one possibility for
 the \\(j\\) term, \\(j\\) inversions or \\(x\_j\\).  for the \\(j+1\\) term, it is allowed to
 have any number of inversions, since there is no restriction on its value.  If
 \\(a[j+1]\\) is smaller than \\(a[j]\\) then this scenario will be counted when
