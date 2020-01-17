@@ -2,7 +2,7 @@
 title = "Tree Depth - USACO Platimum Dec19"
 author = ["adam"]
 date = 2020-01-15T18:21:28-08:00
-lastmod = 2020-01-16T23:08:28-08:00
+lastmod = 2020-01-16T23:10:33-08:00
 tags = ["generating functions", "trees", "permutations"]
 categories = ["usaco"]
 draft = false
@@ -21,7 +21,7 @@ This is a commentary on the solution from Benjamin Qi.
 ## from permutation to tree generation {#from-permutation-to-tree-generation}
 
 Before we go into the solution of this problem it is good to be able to
-understand how to create trees using a permutation.
+understand how to create a tree using a permutation.
 
 First how does a permutation \\(a\\) translate into a tree? Think of \\(a[i]\\) as the
 time in which node \\(i\\) is inserted to the tree. We'll use the following
