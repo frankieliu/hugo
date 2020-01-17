@@ -2,7 +2,7 @@
 title = "Tree Depth - USACO Platimum Dec19"
 author = ["adam"]
 date = 2020-01-15T18:21:28-08:00
-lastmod = 2020-01-16T23:30:13-08:00
+lastmod = 2020-01-16T23:31:09-08:00
 tags = ["generating functions", "trees", "permutations"]
 categories = ["usaco"]
 draft = false
@@ -190,8 +190,8 @@ void ad(vmi& a, int b) { // multiply by (x^0+x^1+...+x^{b-1})
 The easiest way to to think about this convolution is as a sliding window of
 length \\(b\\).  As in a sliding window, it is easier to keep a running sum, and
 when sliding the window remove one item from the back and insert a new element at
-the front.  The only thing that this does differently is removing the
-prior to computing the running sum.
+the front.  The only thing that this does differently is removing
+elements prior to computing the running sum.
 
 Another way to think about a convolution with a rectangle is a convolution with
 a superposition of step functions.
