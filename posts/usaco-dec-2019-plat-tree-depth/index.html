@@ -32,14 +32,14 @@ First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as t
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/usaco-dec-2019-plat-tree-depth/" />
 <meta property="article:published_time" content="2020-01-15T18:21:28-08:00" />
-<meta property="article:modified_time" content="2020-01-16T23:04:20-08:00" />
+<meta property="article:modified_time" content="2020-01-16T23:06:07-08:00" />
 <meta itemprop="name" content="Tree Depth - USACO Platimum Dec19">
 <meta itemprop="description" content="This is a commentary on the solution from Benjamin Qi.
 from permutation to tree generation Before we go into the solution of this problem it is good to be able to understand how to create trees using a permutation.
 First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as the time in which node \(i\) is inserted to the tree. We&#39;ll use the following \(a=42315\) for illustration.">
 <meta itemprop="datePublished" content="2020-01-15T18:21:28-08:00" />
-<meta itemprop="dateModified" content="2020-01-16T23:04:20-08:00" />
-<meta itemprop="wordCount" content="1861">
+<meta itemprop="dateModified" content="2020-01-16T23:06:07-08:00" />
+<meta itemprop="wordCount" content="1877">
 
 
 
@@ -276,6 +276,8 @@ The effect of the \(j\) th term can be separated by multiplying by</p>
 \frac{1}{\sum_{u=0}^{j-i}x^u}\cdot x^{j-i}.
 \]</p>
 <h2 id="convolution-with-rectangles">convolution with rectangles</h2>
+<p>The multiplication of polynomials is accomplished by successively convolving
+the coefficients of each polynomial in turn.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">ad</span>(vmi<span style="color:#f92672">&amp;</span> a, <span style="color:#66d9ef">int</span> b) { <span style="color:#75715e">// multiply by (x^0+x^1+...+x^{b-1})
 </span><span style="color:#75715e"></span>  a.rsz(sz(a)<span style="color:#f92672">+</span>b<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
   R0F(i,sz(a)<span style="color:#f92672">-</span>b) a[i<span style="color:#f92672">+</span>b] <span style="color:#f92672">-</span><span style="color:#f92672">=</span> a[i];
