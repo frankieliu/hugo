@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | My Hugo Site</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.60.0" />
+    <meta name="generator" content="Hugo 0.62.2" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -14,7 +14,7 @@
 
     
     
-      <link href="https://www.frankliu.org/hugo/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+      <link href="https://www.frankliu.org/hugo/dist/css/app.3f5912c237ddd38c8e76debe081c7ca7.css" rel="stylesheet">
     
 
     
@@ -34,7 +34,7 @@
 <meta property="og:description" content="A blog for programming and scalable systems" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/" />
-<meta property="og:updated_time" content="2019-11-28T18:10:58-08:00" />
+<meta property="og:updated_time" content="2020-01-15T18:21:28-08:00" />
 <meta itemprop="name" content="My Hugo Site">
 <meta itemprop="description" content="A blog for programming and scalable systems"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="My Hugo Site"/>
@@ -74,6 +74,8 @@
         </ul>
       
       
+
+
 
 
 
@@ -140,6 +142,32 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="https://www.frankliu.org/hugo/posts/usaco-dec-2019-plat-tree-depth/" class="color-inherit dim link">
+            Tree Depth - USACO Platimum Dec19
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          This is a commentary on the solution from Benjamin Qi.
+from permutation to tree generation Before we go into the solution of this problem it is good to be able to understand how to create trees using a permutation.
+First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as the time in which node \(i\) is inserted to the tree. We'll use the following $a=\(42315\) for illustration.
+        </div>
+          <a href="https://www.frankliu.org/hugo/posts/usaco-dec-2019-plat-tree-depth/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="https://www.frankliu.org/hugo/posts/blackhole/" class="color-inherit dim link">
             Blackhole - Recording Sound Output in Macbook
             </a>
@@ -183,36 +211,18 @@ def num_rect(points): m = defaultdict(lambda: 0) answer = 0 for p in points: for
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://www.frankliu.org/hugo/posts/460-lfu-cache/" class="color-inherit dim link">
-            Leetcode 460. LFU Cache
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          Requirements  O(1) insertion  requires O(1) getting the least frequently used    Suggested data structures  f: a map from frequency to a tuple containing the head and tail of a portion of a double linked list kv: a map from key to a node in the double linked list dll: a double linked list where the least frequent item is at the head of the list node: element of dll, containing frequency info, as well a prev, next, value, the usual stuff    put(a,v)  find corresponding node via kv[a] delete head of double linked list and update f accordingly delete node from its current position and insert it at the head of the next frequency, i.
-        </div>
-          <a href="https://www.frankliu.org/hugo/posts/460-lfu-cache/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="https://www.frankliu.org/hugo/posts/460-lfu-cache/" class="link black dim">
+              Leetcode 460. LFU Cache
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="https://www.frankliu.org/hugo/posts/deep-learning-book-setup/" class="link black dim">
@@ -232,12 +242,6 @@ def num_rect(points): m = defaultdict(lambda: 0) answer = 0 for p in points: for
             </a>
           </h2>
         
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://www.frankliu.org/hugo/posts/vector-clocks/" class="link black dim">
-              Vector clocks
-            </a>
-          </h2>
-        
 
         
         
@@ -253,9 +257,11 @@ def num_rect(points): m = defaultdict(lambda: 0) answer = 0 for p in points: for
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://www.frankliu.org/hugo/" >
-    &copy; 2019 My New Hugo Site
+    &copy;  My New Hugo Site 2020 
   </a>
     <div>
+
+
 
 
 

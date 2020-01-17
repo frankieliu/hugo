@@ -6,10 +6,37 @@
     <description>Recent content in Tags on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 Nov 2019 18:10:58 -0800</lastBuildDate>
+    <lastBuildDate>Wed, 15 Jan 2020 18:21:28 -0800</lastBuildDate>
     
 	<atom:link href="https://www.frankliu.org/hugo/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>generating functions</title>
+      <link>https://www.frankliu.org/hugo/tags/generating-functions/</link>
+      <pubDate>Wed, 15 Jan 2020 18:21:28 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/generating-functions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>permutations</title>
+      <link>https://www.frankliu.org/hugo/tags/permutations/</link>
+      <pubDate>Wed, 15 Jan 2020 18:21:28 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/permutations/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>trees</title>
+      <link>https://www.frankliu.org/hugo/tags/trees/</link>
+      <pubDate>Wed, 15 Jan 2020 18:21:28 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/trees/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>blackhole</title>

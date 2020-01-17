@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://www.frankliu.org/hugo/posts/usaco-dec-2019-plat-tree-depth/</loc>
+    <lastmod>2020-01-16T19:27:50-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.frankliu.org/hugo/posts/blackhole/</loc>
     <lastmod>2019-11-28T20:03:38-08:00</lastmod>
   </url>
@@ -24,7 +29,7 @@
   
   <url>
     <loc>https://www.frankliu.org/hugo/posts/kleppmann-ch09-consistency/</loc>
-    <lastmod>2019-11-23T09:47:47-08:00</lastmod>
+    <lastmod>2019-11-30T10:28:49-08:00</lastmod>
   </url>
   
   <url>
@@ -73,22 +78,47 @@
   </url>
   
   <url>
+    <loc>https://www.frankliu.org/hugo/categories/</loc>
+    <lastmod>2020-01-16T19:27:50-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/generating-functions/</loc>
+    <lastmod>2020-01-16T19:27:50-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/</loc>
+    <lastmod>2020-01-16T19:27:50-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/permutations/</loc>
+    <lastmod>2020-01-16T19:27:50-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/</loc>
+    <lastmod>2020-01-16T19:27:50-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/trees/</loc>
+    <lastmod>2020-01-16T19:27:50-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/categories/usaco/</loc>
+    <lastmod>2020-01-16T19:27:50-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.frankliu.org/hugo/tags/blackhole/</loc>
     <lastmod>2019-11-28T20:03:38-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/categories/</loc>
-    <lastmod>2019-11-28T20:03:38-08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://www.frankliu.org/hugo/tags/mac/</loc>
-    <lastmod>2019-11-28T20:03:38-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/</loc>
     <lastmod>2019-11-28T20:03:38-08:00</lastmod>
   </url>
   
@@ -103,17 +133,12 @@
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/tags/</loc>
-    <lastmod>2019-11-28T20:03:38-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/categories/computational-geometry/</loc>
+    <loc>https://www.frankliu.org/hugo/tags/computational-geometry/</loc>
     <lastmod>2019-11-20T23:42:48-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/tags/computational-geometry/</loc>
+    <loc>https://www.frankliu.org/hugo/categories/computational-geometry/</loc>
     <lastmod>2019-11-20T23:42:48-08:00</lastmod>
   </url>
   
@@ -133,12 +158,12 @@
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/tags/leetcode/</loc>
+    <loc>https://www.frankliu.org/hugo/categories/leetcode/</loc>
     <lastmod>2019-11-18T17:25:55-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/categories/leetcode/</loc>
+    <loc>https://www.frankliu.org/hugo/tags/leetcode/</loc>
     <lastmod>2019-11-18T17:25:55-08:00</lastmod>
   </url>
   
@@ -153,38 +178,38 @@
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/tags/hugo/</loc>
-    <lastmod>2019-11-05T19:54:53-08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://www.frankliu.org/hugo/categories/hugo/</loc>
     <lastmod>2019-11-05T19:54:53-08:00</lastmod>
   </url>
   
   <url>
+    <loc>https://www.frankliu.org/hugo/tags/hugo/</loc>
+    <lastmod>2019-11-05T19:54:53-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.frankliu.org/hugo/tags/consensus/</loc>
-    <lastmod>2019-11-23T09:47:47-08:00</lastmod>
+    <lastmod>2019-11-30T10:28:49-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/tags/consistency/</loc>
-    <lastmod>2019-11-23T09:47:47-08:00</lastmod>
+    <lastmod>2019-11-30T10:28:49-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/tags/klepmann/</loc>
-    <lastmod>2019-11-23T09:47:47-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/categories/scalable/</loc>
-    <lastmod>2019-11-23T09:47:47-08:00</lastmod>
+    <lastmod>2019-11-30T10:28:49-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/tags/scalable/</loc>
-    <lastmod>2019-11-23T09:47:47-08:00</lastmod>
+    <lastmod>2019-11-30T10:28:49-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/categories/scalable/</loc>
+    <lastmod>2019-11-30T10:28:49-08:00</lastmod>
   </url>
   
   <url>
@@ -208,12 +233,12 @@
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/categories/algorithms/</loc>
+    <loc>https://www.frankliu.org/hugo/tags/algorithms/</loc>
     <lastmod>2019-10-26T08:16:20-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/tags/algorithms/</loc>
+    <loc>https://www.frankliu.org/hugo/categories/algorithms/</loc>
     <lastmod>2019-10-26T08:16:20-07:00</lastmod>
   </url>
   
@@ -289,6 +314,10 @@
   
   <url>
     <loc>https://www.frankliu.org/hugo/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/posts/sample2/</loc>
   </url>
   
 </urlset>
