@@ -151,7 +151,7 @@ ensures that no inversion is missed, or overcounted.  We continue in this
 fashion until $a[i-(i-1)]$ which can have $0$ to $n-1$ inversions.
 
 Thus the accounting of all possible number of permutations for each number of
-inversion is capture in the coefficient of the $x_k$ term of the polynomial.
+inversions is captured in the coefficient of the $x_k$ term of the polynomial.
 The effect of the $j$ th term can be separated by multiplying by
 
 $$
