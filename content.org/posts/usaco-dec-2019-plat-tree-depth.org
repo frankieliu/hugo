@@ -166,6 +166,10 @@ $$
 $$
 
 * convolution with rectangles
+
+The multiplication of polynomials is accomplished by successively convolving
+the coefficients of each polynomial in turn.
+
 #+begin_src c++
   void ad(vmi& a, int b) { // multiply by (x^0+x^1+...+x^{b-1})
     a.rsz(sz(a)+b-1);
@@ -173,6 +177,7 @@ $$
     FOR(i,1,sz(a)) a[i] += a[i-1];
   }
 #+end_src
+
 The easiest way to to think about this convolution is as a sliding window of
 length $b$.  As in a sliding window, it is easier keep a running sum, and
 sliding the window remove one item from the back and insert a new element at

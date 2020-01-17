@@ -2,7 +2,7 @@
 title = "Tree Depth - USACO Platimum Dec19"
 author = ["adam"]
 date = 2020-01-15T18:21:28-08:00
-lastmod = 2020-01-16T23:04:20-08:00
+lastmod = 2020-01-16T23:06:07-08:00
 tags = ["generating functions", "trees", "permutations"]
 categories = ["usaco"]
 draft = false
@@ -173,6 +173,9 @@ Thus arriving at
 
 
 ## convolution with rectangles {#convolution-with-rectangles}
+
+The multiplication of polynomials is accomplished by successively convolving
+the coefficients of each polynomial in turn.
 
 ```c++
 void ad(vmi& a, int b) { // multiply by (x^0+x^1+...+x^{b-1})
