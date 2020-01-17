@@ -32,13 +32,13 @@ First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as t
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/usaco-dec-2019-plat-tree-depth/" />
 <meta property="article:published_time" content="2020-01-15T18:21:28-08:00" />
-<meta property="article:modified_time" content="2020-01-16T22:40:32-08:00" />
+<meta property="article:modified_time" content="2020-01-16T22:42:38-08:00" />
 <meta itemprop="name" content="Tree Depth - USACO Platimum Dec19">
 <meta itemprop="description" content="This is a commentary on the solution from Benjamin Qi.
 from permutation to tree generation Before we go into the solution of this problem it is good to be able to understand how to create trees using a permutation.
 First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as the time in which node \(i\) is inserted to the tree. We&#39;ll use the following \(a=42315\) for illustration.">
 <meta itemprop="datePublished" content="2020-01-15T18:21:28-08:00" />
-<meta itemprop="dateModified" content="2020-01-16T22:40:32-08:00" />
+<meta itemprop="dateModified" content="2020-01-16T22:42:38-08:00" />
 <meta itemprop="wordCount" content="1813">
 
 
@@ -171,7 +171,7 @@ the depth of root is \(1\) according to the problem). Looking to the left of nod
 \(3\), only node \(2\) can be a possible ancestor of node \(3\), since node \(2\) comes
 before node \(3\) (\(a[2] &lt; a[3]\)). One can make a similar argument to the right of
 \(3\), node \(4\) can be an ancestor of \(3\), since \(a[4] &lt; a[3]\). Since node \(3\) is
-an ancestor of two nodes \(2\) and \(4\) its depth must be 3. One might argue that
+a descendant of two nodes \(2\) and \(4\) its depth must be 3. One might argue that
 it is possible that node \(2\) lies on one branch of node \(4\) and node \(3\) lies in
 another branch of node \(4\). This is not possible because both nodes \(2\) and \(3\)
 lie on the same subtree since they both come after node \(4\) and lie to the same
