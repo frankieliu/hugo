@@ -2,7 +2,7 @@
 title = "Tree Depth - USACO Platimum Dec19"
 author = ["adam"]
 date = 2020-01-15T18:21:28-08:00
-lastmod = 2020-01-16T19:04:39-08:00
+lastmod = 2020-01-16T19:27:50-08:00
 tags = ["generating functions", "trees", "permutations"]
 categories = ["usaco"]
 draft = false
@@ -252,3 +252,5 @@ correponds \\(j<i\\) for which there are no inversions caused by element \\(j\\)
 This two steps can be thought as adding the right most two terms in \\(d\_i(a)\\).
 However, for a particular \\(i\\) this is not done at the same time, but eventually
 all \\(|j-i|\\) are considered in the innermost for loop.
+
+Credits, thanks Benjamin, Anup, and Santosh.

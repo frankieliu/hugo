@@ -242,3 +242,5 @@ correponds $j<i$ for which there are no inversions caused by element $j$.
 This two steps can be thought as adding the right most two terms in $d_i(a)$.
 However, for a particular $i$ this is not done at the same time, but eventually
 all $|j-i|$ are considered in the innermost for loop.
+
+Credits, thanks Benjamin, Anup, and Santosh.
