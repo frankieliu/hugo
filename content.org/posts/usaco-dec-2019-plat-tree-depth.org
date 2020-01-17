@@ -34,7 +34,7 @@ this means that node $2$ will be the left child of node $4$. Since there are
 only two remaining nodes on the either side of node $2$, nodes $1$ and $3$ will
 be on both left and right braches from node $2$ respectively.
 
-[[tree-depth/tree-depth.svg]]
+[[file:/images/tree-depth/tree-depth.svg]]
 
 * from permutation $a$ to depth of nodes
 
@@ -94,12 +94,12 @@ $$
 * independence property
 
 We have already alluded that $\min(a[j\ldots i])$ and $\min(a[i\ldots j])$ count
-independently from one another.  This means that there might be an single
-permutation that contains both a left and right ancestor for node $i$.  These
-two need to be counted twice, even though they come from the same permutation.
-In other words, we are free to sum up allowable permutations for left
-independently from the allowable permutations for the right, even if they
-are the same permutation (i.e. because of independence there is no overcounting).
+independently from one another. This means that there might be an single
+permutation that contains both a left and right ancestor for node $i$. These two
+need to be counted twice, even though they come from the same permutation. In
+other words, we are free to sum up allowable permutations for left independently
+from the allowable permutations for the right, even if they originate from the
+same permutation (i.e. because of independence there is no overcounting).
 
 On the other hand we have to be careful about counting $\min(a[j\dots i])$ (and
 by symmetry on the other side) points that lie on the same side. Suppose there

@@ -2,7 +2,7 @@
 title = "Tree Depth - USACO Platimum Dec19"
 author = ["adam"]
 date = 2020-01-15T18:21:28-08:00
-lastmod = 2020-01-16T23:18:42-08:00
+lastmod = 2020-01-16T23:23:12-08:00
 tags = ["generating functions", "trees", "permutations"]
 categories = ["usaco"]
 draft = false
@@ -99,12 +99,12 @@ d\_i(a)=1+\sum\_{1\le j<i}\mathbf{1}(a[j] == \min(a[j\ldots i]))+\sum\_{i<j\le n
 ## independence property {#independence-property}
 
 We have already alluded that \\(\min(a[j\ldots i])\\) and \\(\min(a[i\ldots j])\\) count
-independently from one another.  This means that there might be an single
-permutation that contains both a left and right ancestor for node \\(i\\).  These
-two need to be counted twice, even though they come from the same permutation.
-In other words, we are free to sum up allowable permutations for left
-independently from the allowable permutations for the right, even if they
-are the same permutation (i.e. because of independence there is no overcounting).
+independently from one another. This means that there might be an single
+permutation that contains both a left and right ancestor for node \\(i\\). These two
+need to be counted twice, even though they come from the same permutation. In
+other words, we are free to sum up allowable permutations for left independently
+from the allowable permutations for the right, even if they originate from the
+same permutation (i.e. because of independence there is no overcounting).
 
 On the other hand we have to be careful about counting \\(\min(a[j\dots i])\\) (and
 by symmetry on the other side) points that lie on the same side. Suppose there
