@@ -1,0 +1,204 @@
+# -*- mode: org -*-
+#+HUGO_BASE_DIR: ../..
+#+HUGO_SECTION: posts
+#+HUGO_WEIGHT: 2000
+#+HUGO_AUTO_SET_LASTMOD: t
+#+TITLE: "Eugene segment tree session 2"
+#+DATE: 2019-12-14T18:21:10-08:00
+#+HUGO_TAGS: "segment tree" "eugene"
+#+HUGO_CATEGORIES: "segment tree"
+#+HUGO_MENU_off: :menu "main" :weight 2000
+#+HUGO_CUSTOM_FRONT_MATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true
+#+HUGO_DRAFT: false
+
+#+STARTUP: indent hidestars showall
+
+* balanced parenthese problem
+
+Solve the left and right chunk.
+top.sum = left.sum + right.sum
+top.sum = min(left.low_point, right.low_point + left.sum)
+
+()((()))
+
+At the leaves
+1 -1 1 1 1 -1 -1 -1  - sum
+0 -1 0 0 0 -1 -1 -1  - low point
+
+   0   2    0    -2
+   0   0    0    -2
+
+       2         -2
+       0         -2
+
+                  0
+                  0
+
+* Binary index trees
+
+Fenwick trees
+
+20 written as a sum of binary numbers:
+16 + 4
+
+5 7 10 5
+ 12   15
+      27
+
+h(j) | h(j)+1
+
+(g(j) & (g(j)+1)) - 1
+
+Can only work if you have a reversible operation.
+
+Easier to think of
+
+x += x & (-x)  This is the last bit that is set
+x -= x & (-x)
+
+
+1
+10
+100
+1000
+
+21
+
+10101
+1 + 4 + 16
+subtract a 1
+subtract a 4
+subtract a 16
+
+ 16 8 4 2 1
+ 10101 - 21
+ 10110 - 22
+ 11000 - 24
+100000 - 32
+
+The best way to think of Fenwick trees is to consider a prefix sum
+from 0 to n.  In order to get this sum, 
+
+
+5 7 10 5 6 3 3 2
+5 12 10 15 6 9 3 5   - First update two cells (visit every 2nd element)
+        27       14  - 2nd update every fourth cell
+                 41  - 3rd update every eight cell
+
+Once you reach the highest power 
+prefix_sum(6) = t(6) + t(4)
+110 - binary representation
+ ^  - the first 10 represents the sum of two elements 5-6 t(6)
+100 - corresponds to the sum from 1-4 of t(4)
+
+n &= n-1  - getting smaller  (automatically removes the LSB)
+
+get the largest power or two that it is divisible by
+
+n += n & -n
+
+n & n-1
+n + n & -n
+       &  ~n + 1
+
+Take 40
+ 32 + 8
+ so you should populate
+
+* range tree
+how many (x,y) points within a box
+you can preprocess the points
+want to do better than linear time
+sub linear time algorithm
+
+counting problem how many problems there are
+
+1-d version
+
+store them in a binary tree
+order statistic tree
+
+store the points as an array
+query from 75
+
+binary search to find successor and predecessor
+
+find element in the set that is larger than the given on
+van emde boas tree (finds faster than binary search)
+
+store points sorted by x
+then you will narrow down to a region in x
+
+x1 = 8 , x2 = 35
+y1 = 5 , y2 = 10
+
+after log time search then you have a subarray
+
+then you ask what property in subarray
+
+query on the subarray
+
+asking a property of a subarray
+
+keep a histogram 
+
+(5,6,7,9,10,12)
+(5,6,9,10)                   (7,12)
+(6,10)         (5,9)         (7,12)           -> RANGE IN y
+(5,6) (10,10)  (20,9) (30,5) (40,12) (70, 7)  -> POINTS
+
+2 log N cells visited
+2 log N * log N = O(log^2 N)
+
+Touch log N things and does log N every time
+
+Cascade some pointers from each value in the final array
+
+With augmented pointers then can get O(logN)
+
+Only two pointers move down to the left and right branches
+
+Yelp
+
+Map restaurants, find the closest restaurants closer to the user
+
+Will you use a range tree?
+
+Range tree is an in memory data structure.
+
+Precompute tiles
+
+Tiles into a mesh
+
+Store the x, y tiles with elements
+
+Merge all the cells
+
+Query your own block, then query your surrounding blocks then
+expand.
+
+Do exponential search, precomputing the tiles.  Then you can do the
+query very fast.
+
+* 2d segment tree
+
+2 3 4
+6 8 10
+10 2 3
+
+do a segment gree for each row
+
+24
+14 10
+6 8 10
+
+15
+12 3
+10 2 3
+
+(works when you have a dense matrix)
+39
+26 13
+16 10 13
+
+Combine segment trees

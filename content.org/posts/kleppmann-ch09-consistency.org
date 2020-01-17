@@ -54,7 +54,7 @@
   linearizability
 ** cross-channel timing dependencies
 File storage service is not linearizable, that is two requests went into it,
-one to store the image, and the other to resize the image.  What happened was
+one to store the image, and the other to resize the image. What happened was
 a race condition, resizer went first, and storage finished later.
 
 If there is only one copy of the image, linearizability solves this problem,
@@ -313,5 +313,116 @@ Think: simple copy of the data, and atomic operations.
 - limitations
   - coordinator if single-node is a point of failure
   - coordinator becomes stateful, application servers are no longer stateless
-
+  - coordinator library cannot detect deadlocks in systems
+  - coordinator 
 * Consensus
+- informally getting several nodes to agree on something
+  - trying to book last seat on an airplane
+  - booking in a theater
+  - register account with same username
+  - declare a winner
+- formally
+  - one or more nodes propose values
+  - consensus decides on one of the values
+- properties
+  - uniform agreement
+  - integrity
+  - validity
+  - termination
+  - which one is about fault tolerance
+  - which one is a liveliness property
+    - if some nodes fail, other nodes must reach a decision
+    - 2PC does not meet requirement
+    - majority of nodes must still be alive
+    - consensus still works as long as < 1/3 nodes are Byzantine-faulty
+* Consensus vs total order broadcast
+- most algos don't use formal model
+- they decide on a sequence of values
+  - total order broadcast algorithms
+    - message delivered exactly once in the same order to all nodes
+    - same a repeated rounds of consensus
+    - Uniform agreement, all agree on msg order
+    - Integrity, no message duplicated
+    - Validity, no corrupted or fabricated msgs
+    - Termination, msgs not lost
+
+* Single leader replication and consensus
+- isn't this total order broadcast?
+  - problem is how is leader chosen
+  - does not satisfy termination property
+- in order to have total order broadcast it seems we need a leader
+  - but if we need total order broadcast (consensus) to have a leader
+  - chicken and egg
+* Epoch numbering and quorums
+Weaker guarantee
+- guarantee that within each epoch the leader is unique
+** Election
+Each election is given an incremented epoch number
+Thus epoch numbers are totally ordered and monotonically increasing
+- making voting totally ordered
+- leader with higher epoch wins
+  - before leaader is allowed to decide anything, must check if there
+    is not some other leader with a higher epoch numbers
+    - collect votes from a quorum of nodes
+    - nodes will vote in favor of a proposal only if it is not
+      aware of any other leader with a higher epoch
+- two rounds of voting
+  - one to chose a leader
+  - one to vote on the leader's proposal
+  - key: quorums for these two votes must overlap
+    - a +vote on proposal, at least one of the nodes that voted
+      must also have participated in a leader election
+    - if the leader does not reveal any higher-numbered epoch,
+      on received proposals, it can assume that it still holds
+      leadership and decide on the proposed value
+- difference from 2PC
+  - coordinator is not voted
+  - requires yes vote from every participants
+  - recovery process after new leaader is elected.
+* Cost of consensus
+- pros
+  - agreement, integrity, validity, termination
+  - total order broadcast
+  - linearizable atomic operation
+- cons
+  - proposal voting process is kind of like synchronous replication
+    - dbs often use asynchronous replication
+      - some data can be lost on failover
+      - accept the risk for better performance
+  - blocked if no majority
+    - dynamic membership - not so well understood
+  - rely on timeouts to detected failed nodes
+    - false positives when network delay is large
+      - use time in choosing a leader
+* Membership and cooridnation services
+- Zookeepr and etcd 
+  - distributed key-value stores
+  - coordination and configuration services
+- api looks like a db
+- hold small amounts of data that can fit in memory
+  - data is replicated across all nodes in a fault-tolerant total order
+    broadcast algorithms
+- implements
+  - total order broadcast
+  - linearizable atomic operatoins
+    - atomic cas operatoin -> implement a lock concurrently
+    - distributed lock is implemented as a lease with an expiry time
+  - total ordering of opereation
+    - when resource is protected by a lock or lease
+      - need a fencing token to prevent client from conflicting with
+        each other, fencing token is some number that monotonically increases
+        when a lock is acquired (303)
+  - failure detection
+    - heartbeats for session timeouts
+  - change notification
+    - subscribe for notifications, avoid frequent pools for changes
+* partitioning example
+- when new nodes need to be assigned to partitions during failure
+- atomic operations, ephemeral nodes and notification in ZooKeeper
+  - allows applications to automatically recover from faults
+* service discovery
+- find out which ip address to connect to reach a particular service
+- reads from DNS are not linearizable
+- consensus support read-only caching replicas (?)
+- replicas async receive log of all decisions but do not active participate in
+  voting

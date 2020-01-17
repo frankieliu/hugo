@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-01-16 Thu 18:49 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>"Tree Depth - USACO Platimum Dec19"</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="adam" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">"Tree Depth - USACO Platimum Dec19"</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org73c1a08">1. from permutation to tree generation</a></li>
+<li><a href="#org00d1730">2. from permutation \(a\) to depth of nodes</a></li>
+<li><a href="#org54861ab">3. independence property</a></li>
+<li><a href="#orgdd3e911">4. generating functions to count inversions</a></li>
+<li><a href="#orgcfdddbb">5. convolution with rectangles</a></li>
+</ul>
+</div>
+</div>
+<p>
+This is a commentary on the solution from Benjamin Qi.
+</p>
+
+<div id="outline-container-org73c1a08" class="outline-2">
+<h2 id="org73c1a08"><span class="section-number-2">1</span> from permutation to tree generation</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Before we go into the solution of this problem it is good to be able to
+understand how to create trees using a permutation.
+</p>
+
+<p>
+First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as the
+time in which node \(i\) is inserted to the tree. We'll use the following
+$a=\(42315\) for illustration. Assume \(1\) indexing to refer to both the index in
+\(a\) and also the node number.
+</p>
+
+<p>
+Then since \(a[4] = 1\) then node \(4\) be inserted first, becoming the root. This
+divides the tree into two parts (it is a BST). Since there is only one more node
+to the right of node \(4\) we will just add node \(5\) as a right child of node \(4\).
+</p>
+
+<p>
+For the left subtree, again we find the next smaller index, in this case \(a[2]\),
+this means that node \(2\) will be the left child of node \(4\). Since there are
+only two remaining nodes on the either side of node \(2\), nodes \(1\) and \(3\) will
+be on both left and right braches from node \(2\) respectively.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org00d1730" class="outline-2">
+<h2 id="org00d1730"><span class="section-number-2">2</span> from permutation \(a\) to depth of nodes</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Let's take node \(3\) in the example above. Node \(3\) is at a depth of \(3\) (note
+the depth of root is \(1\) according to the problem). Looking to the left of node
+\(3\), only node \(2\) can be a possible ancestor of node \(3\), since node \(2\) comes
+before node \(3\) (\(a[2] < a[3]\)). One can make a similar argument to the right of
+\(3\), node \(4\) can be an ancestor of \(3\), since \(a[4] < a[3]\). Since node \(3\) is
+an ancestor of two nodes \(2\) and \(4\) its depth must be 3. One might argue that
+it is possible that node \(2\) lies on one branch of node \(4\) and node \(3\) lies in
+another branch of node \(4\). This is not possible because both nodes \(2\) and \(3\)
+lie on the same subtree since they both come after node \(4\) and lie to the same
+side of node \(4\).
+</p>
+
+<p>
+Note the independence of left and right sides from the previous statement, it
+doesn't matter whether node \(2\) is below or above node \(4\) from \(3\)'s
+perspective, it only needs to know how many ancestors are above it. This will
+come in handy later.
+</p>
+
+<p>
+Node \(3\) was kind of obvious, we look to the left and right and found two nodes
+that were ancestors to it. If we examine node \(1\) it is a little bit more
+tricky. If you apply the same logic as before, nodes \(2,3,4\) all have \(a[2 .. 4]
+< a[1]\) they all could be potential ancestors for \(1\). If you think of them in
+order, however, you will note the following. For \(a[4]\), it is clear that it is
+the root, everything to its right is irrelevant to \(1\). For \(3\) it is not clear
+whether it is an ancestor of \(1\). Node \(1\) could potentially lie on \(3\)'s left
+branch from its positioning, unless there is a node between \(3\) and \(1\) that
+separates them into separate branches. Indeed there is such a node: \(2\). Node
+\(2\) comes before \(3\) and therefore separates \(1\) from \(3\) into different
+subtrees. In fact when examining node \(3\) we just have to find a node \(j\)
+between \(1\) and \(3\) such that \(a[j] < a[3]\). To simplify further, we need to
+look for the minimum node \(j\) between \(1\) and \(2\) to separate the two sides,
+potentially discarding further possibilities.
+</p>
+
+<p>
+So in general when we look for the possible ancestors of a particular node \(i\),
+when considering a node \(j \ne i\) as a potential candidate, we only need to find
+the some minimum between \(a[i .. j]\) to determine if node \(j\) could be a
+potential ancestor. This is the symmetric for a point \(j\) to the left of \(i\).
+</p>
+
+<p>
+Thus one comes to the following formula in the solution:
+</p>
+
+<p>
+\[
+d_i(a)=1+\sum_{1\le j<i}(a[j] == \min(a[j\ldots i]))+\sum_{i<j\le n}(a[j] ==
+\min(a[i\ldots j])).
+\]
+</p>
+
+<p>
+The first \(1\) on the RHS, denotes the default depth of the root, then 
+the first sum denotes the elements to the left of node \(i\) and the second sum
+denotes the elements to the right of node \(i\).   It would have been a little bit
+clearer to add an indicator function in front of the condition.
+</p>
+
+<p>
+\[
+d_i(a)=1+\sum_{1\le j<i}\mathbf{1}(a[j] == \min(a[j\ldots i]))+\sum_{i<j\le n}\mathbf{1}(a[j] ==
+\min(a[i\ldots j])).
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org54861ab" class="outline-2">
+<h2 id="org54861ab"><span class="section-number-2">3</span> independence property</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+We have already alluded that \(\min(a[j\ldots i])\) and \(\min(a[i\ldots j])\) count
+independently from one another.  This means that there might be an single
+permutation that contains both a left and right ancestor for node \(i\).  These
+two need to be counted twice, even though they come from the same permutation.
+In other words, we are free to sum up allowable permutations for left
+independently from the allowable permutations for the right, even if they
+are the same permutation (i.e. no overcounting).
+</p>
+
+<p>
+On the other hand we have to be careful about counting \(\min(a[j\dots i])\) (and
+by symmetry on the other side) points that lie on the same side. Suppose there
+are two points \(j'\) and \(j\) where \(j' < j\), that is, \(j'\) is to the left of \(j\).
+Since \(a[j']\) is a minimum from \(j'\) to \(i\), we cannot count permutations that
+include \(j\) as the mininum. On the other hand if \(a[j]\) is the minimum from \(j\)
+to \(i\), then it does not matter whether \(j'\) is a minimum, why? If \(a[j'] <
+a[j]\) then those permutations would have been counted when considering \(a[j']\)
+and they count separately from the contributions of node \(j\). If \(a[j'] > a[j]\)
+then node \(j'\) would not been a potential ancestor. Thus one can see that
+"outer" ancestors must exclude the possibility of smaller "inner" ancestors,
+since by definition they the "outer" ancestor comes earlier than any other
+"inner" ancestor.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdd3e911" class="outline-2">
+<h2 id="orgdd3e911"><span class="section-number-2">4</span> generating functions to count inversions</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+With the independence property, we can now independently consider contributions
+of depth to a particular node, say node \(i\).  For a particular node \(i\) we will
+also consider a particular node \(j\) that is a potential ancestor and tabulate
+how many permutations have node \(j\) as \(i\)'s ancestor.  We are free to tabulate
+all these permutations as long as they follow two rules.
+</p>
+
+<p>
+One, the total number of inversions has to be \(k\) and two, for these
+permutations there are no node \(j\) is smaller than nodes \(i\ldots j\).
+</p>
+
+<p>
+We can count the number of permutations available by counting the possible
+inversions at each index.  For example at index \(i\) there is only one possible
+inversion, namely \(0\), since this is a reference point.  For \(i+1\), there are two
+possible inversions, \(a[i]\) and \(a[i+1]\) are either in order or not.  For \(i+2\)
+there are three possible inversions, and so on.  Each of these possibilities can
+be captured by a generating function, and the combined convolution of these
+possibilities can be capture as the product of the individual sums as 
+\((x_0)(x_0+x_1)(x_0+x_1+x_2)\cdots(x_0+x_1+\ldots+x_{j-1})\)  At \(j\), we know
+that the \(a[j] == min(a[i\ldots j]\) therefore there is only one possibility for
+the \(j\) term, \(j\) inversions or \(x_j\).  for the \(j+1\) term, it is allowed to
+have any number of inversions, since there is no restriction on its value.  If 
+\(a[j+1]\) is smaller than \(a[j]\) then this scenario will be counted when
+setting \(j\) to this number, and as we mentioned before the permutations of this
+"outer" ancestor does not precude the counting of "inner" ancestors.  This
+continues until \(a[j + (n-j)]\) for which there are \(0\) to \(n-i+1\) inversions
+possible.
+</p>
+
+<p>
+Next we continue counting on the left side of \(a[i]\), for \(a[i-1]\). This doesn't
+have any restrictions and therefore we can consider inversions fomr \(i-1\) to
+\(n\), with a possibility of \(0\) to \(n-i+2\) inversions.  Note that this way of
+enumerating inversions by looking at only possibilities to the right of number
+ensures that no inversion is missed, or overcounted.  We continue in this
+fashion until \(a[i-(i-1)]\) which can have \(0\) to \(n-1\) inversions.
+</p>
+
+<p>
+Thus the accounting of all possible number of permutations for each number of
+inversion is capture in the coefficient of the \(x_k\) term of the polynomial.
+The effect of the \(j\) th term can be separated by multiplying by
+</p>
+
+<p>
+\[
+\frac{x_0 + x_1 + \ldots + x_{j-i}}{x_0 + x_1 + \ldots + x_{j-i}}
+\]
+</p>
+
+<p>
+Thus arriving at
+</p>
+
+<p>
+\[
+\prod_{t=1}^{n}\left(\sum_{u=0}^{t-1}x^u\right)\cdot
+\frac{1}{\sum_{u=0}^{j-i}x^u}\cdot x^{j-i}.
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcfdddbb" class="outline-2">
+<h2 id="orgcfdddbb"><span class="section-number-2">5</span> convolution with rectangles</h2>
+<div class="outline-text-2" id="text-5">
+<div class="org-src-container">
+<pre class="src src-c++"><span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">ad</span><span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">vmi</span>&amp; <span style="color: #7590db;">a</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">b</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span> <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">multiply by (x^0+x^1+...+x^{b-1})</span>
+  a.rsz<span style="color: #bc6ec5;">(</span>sz<span style="color: #2d9574;">(</span>a<span style="color: #2d9574;">)</span>+b-<span style="color: #a45bad;">1</span><span style="color: #bc6ec5;">)</span>;
+  R0F<span style="color: #bc6ec5;">(</span>i,sz<span style="color: #2d9574;">(</span>a<span style="color: #2d9574;">)</span>-b<span style="color: #bc6ec5;">)</span> a<span style="color: #bc6ec5;">[</span>i+b<span style="color: #bc6ec5;">]</span> -= a<span style="color: #bc6ec5;">[</span>i<span style="color: #bc6ec5;">]</span>;
+  FOR<span style="color: #bc6ec5;">(</span>i,<span style="color: #a45bad;">1</span>,sz<span style="color: #2d9574;">(</span>a<span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span> a<span style="color: #bc6ec5;">[</span>i<span style="color: #bc6ec5;">]</span> += a<span style="color: #bc6ec5;">[</span>i-<span style="color: #a45bad;">1</span><span style="color: #bc6ec5;">]</span>;
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+<p>
+The easiest way to to think about this convolution is as a sliding window of
+length \(b\).  As in a sliding window, it is easier keep a running sum, and
+sliding the window remove one item from the back and insert a new element at
+the front.  The only thing that this does differently is removing the 
+prior to computing the running sum.
+</p>
+
+<p>
+Another way to think about a convolution with a rectangle is a convolution with
+a superposition of step functions.
+</p>
+
+<p>
+\[
+{\displaystyle \Pi\left({\frac {t-X}{Y}}\right)=u(t-(X-Y/2))-u(t-(X+Y/2))}
+\]
+</p>
+
+<p>
+Further if we recognize the step function as the integral of a delta function:
+</p>
+
+<p>
+\[
+{\displaystyle H(x):=\int _{-\infty }^{x}{\delta (s)}\. ds}
+\]
+</p>
+
+<p>
+Then we can first convolve with the delta function followed by an integral.
+</p>
+
+\begin{aligned}
+f * \Pi((x-b/2)/b) &= f * (H(x) - H(x-b)) \\
+&= \int_{-\infty}^{x} f * (\delta(s) - \delta(s-b))\\, ds\\
+&= \int f(s) - f(s-b)\. ds
+\end{aligned}
+
+<p>
+Thus the function in the code shifts \(a\) by \(b\) adds it to \(a\) and then
+calculates a prefix sum.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2020-01-15T18:21:28-08:00</p>
+<p class="author">Author: adam</p>
+<p class="date">Created: 2020-01-16 Thu 18:49</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
