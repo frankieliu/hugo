@@ -28,17 +28,17 @@
     <meta property="og:title" content="Tree Depth - USACO Platimum Dec19" />
 <meta property="og:description" content="This is a commentary on the solution from Benjamin Qi.
 from permutation to tree generation Before we go into the solution of this problem it is good to be able to understand how to create trees using a permutation.
-First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as the time in which node \(i\) is inserted to the tree. We&#39;ll use the following $a=\(42315\) for illustration." />
+First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as the time in which node \(i\) is inserted to the tree. We&#39;ll use the following \(a=42315\) for illustration." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/usaco-dec-2019-plat-tree-depth/" />
 <meta property="article:published_time" content="2020-01-15T18:21:28-08:00" />
-<meta property="article:modified_time" content="2020-01-16T19:27:50-08:00" />
+<meta property="article:modified_time" content="2020-01-16T22:40:32-08:00" />
 <meta itemprop="name" content="Tree Depth - USACO Platimum Dec19">
 <meta itemprop="description" content="This is a commentary on the solution from Benjamin Qi.
 from permutation to tree generation Before we go into the solution of this problem it is good to be able to understand how to create trees using a permutation.
-First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as the time in which node \(i\) is inserted to the tree. We&#39;ll use the following $a=\(42315\) for illustration.">
+First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as the time in which node \(i\) is inserted to the tree. We&#39;ll use the following \(a=42315\) for illustration.">
 <meta itemprop="datePublished" content="2020-01-15T18:21:28-08:00" />
-<meta itemprop="dateModified" content="2020-01-16T19:27:50-08:00" />
+<meta itemprop="dateModified" content="2020-01-16T22:40:32-08:00" />
 <meta itemprop="wordCount" content="1813">
 
 
@@ -47,7 +47,7 @@ First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as t
 <meta name="twitter:title" content="Tree Depth - USACO Platimum Dec19"/>
 <meta name="twitter:description" content="This is a commentary on the solution from Benjamin Qi.
 from permutation to tree generation Before we go into the solution of this problem it is good to be able to understand how to create trees using a permutation.
-First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as the time in which node \(i\) is inserted to the tree. We&#39;ll use the following $a=\(42315\) for illustration."/>
+First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as the time in which node \(i\) is inserted to the tree. We&#39;ll use the following \(a=42315\) for illustration."/>
 
   </head>
 
@@ -156,7 +156,7 @@ MathJax.Hub.Config({
 understand how to create trees using a permutation.</p>
 <p>First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as the
 time in which node \(i\) is inserted to the tree. We'll use the following
-$a=\(42315\) for illustration. Assume \(1\) indexing to refer to both the index in
+\(a=42315\) for illustration. Assume \(1\) indexing to refer to both the index in
 \(a\) and also the node number.</p>
 <p>Then since \(a[4] = 1\) then node \(4\) be inserted first, becoming the root. This
 divides the tree into two parts (it is a BST). Since there is only one more node
@@ -331,7 +331,7 @@ corresponds to adding the \(1\) in \(d_i(a)\).  Then we remove a set of permutat
 containing \(0\) to \(|j-i|\) inversions.  <code>x</code> corresponds \(j&gt;i\) for which we
 need to take into account the inversions for the \(j\) th element.  And <code>y</code>
 correponds \(j&lt;i\) for which there are no inversions caused by element \(j\).
-This two steps can be thought as adding the right most two terms in \(d_i(a)\).
+These two steps can be thought as adding the right most two terms in \(d_i(a)\).
 However, for a particular \(i\) this is not done at the same time, but eventually
 all \(|j-i|\) are considered in the innermost for loop.</p>
 <p>Credits, thanks Benjamin, Anup, and Santosh.</p>
