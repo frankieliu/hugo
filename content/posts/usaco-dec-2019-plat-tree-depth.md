@@ -2,7 +2,7 @@
 title = "Tree Depth - USACO Platimum Dec19"
 author = ["adam"]
 date = 2020-01-15T18:21:28-08:00
-lastmod = 2020-01-16T22:48:54-08:00
+lastmod = 2020-01-16T22:55:02-08:00
 tags = ["generating functions", "trees", "permutations"]
 categories = ["usaco"]
 draft = false
@@ -114,8 +114,11 @@ a[j]\\) then those permutations would have been counted when considering \\(a[j'
 and they count separately from the contributions of node \\(j\\). If \\(a[j'] > a[j]\\)
 then node \\(j'\\) would not been a potential ancestor. Thus one can see that
 "outer" ancestors must exclude the possibility of smaller "inner" ancestors,
-since by definition they the "outer" ancestor comes earlier than any other
-"inner" ancestor.
+since by definition the "outer" ancestor comes earlier than any other
+"inner" ancestor.  By exclusion I only mean that we cannot count permutations
+at allow \\(a[j]<a[j']\\) when considering node \\(j'\\) as a possible ancestor of node
+\\(i\\).  Of course when considering node \\(j\\) as a possible ancestor we are free
+to include permutations unconstrained on the value of \\(a[j']\\).
 
 
 ## generating functions to count inversions {#generating-functions-to-count-inversions}
