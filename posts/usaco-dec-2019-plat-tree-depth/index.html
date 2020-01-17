@@ -32,14 +32,14 @@ First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as t
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/usaco-dec-2019-plat-tree-depth/" />
 <meta property="article:published_time" content="2020-01-15T18:21:28-08:00" />
-<meta property="article:modified_time" content="2020-01-16T22:47:29-08:00" />
+<meta property="article:modified_time" content="2020-01-16T22:48:54-08:00" />
 <meta itemprop="name" content="Tree Depth - USACO Platimum Dec19">
 <meta itemprop="description" content="This is a commentary on the solution from Benjamin Qi.
 from permutation to tree generation Before we go into the solution of this problem it is good to be able to understand how to create trees using a permutation.
 First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as the time in which node \(i\) is inserted to the tree. We&#39;ll use the following \(a=42315\) for illustration.">
 <meta itemprop="datePublished" content="2020-01-15T18:21:28-08:00" />
-<meta itemprop="dateModified" content="2020-01-16T22:47:29-08:00" />
-<meta itemprop="wordCount" content="1812">
+<meta itemprop="dateModified" content="2020-01-16T22:48:54-08:00" />
+<meta itemprop="wordCount" content="1817">
 
 
 
@@ -218,7 +218,7 @@ permutation that contains both a left and right ancestor for node \(i\).  These
 two need to be counted twice, even though they come from the same permutation.
 In other words, we are free to sum up allowable permutations for left
 independently from the allowable permutations for the right, even if they
-are the same permutation (i.e. no overcounting).</p>
+are the same permutation (i.e. because of independence there is no overcounting).</p>
 <p>On the other hand we have to be careful about counting \(\min(a[j\dots i])\) (and
 by symmetry on the other side) points that lie on the same side. Suppose there
 are two points \(j&rsquo;\) and \(j\) where \(j&rsquo; &lt; j\), that is, \(j&rsquo;\) is to the left of \(j\).
