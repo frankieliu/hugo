@@ -2,7 +2,7 @@
 title = "Tree Depth - USACO Platimum Dec19"
 author = ["adam"]
 date = 2020-01-15T18:21:28-08:00
-lastmod = 2020-01-16T19:27:50-08:00
+lastmod = 2020-01-16T22:40:32-08:00
 tags = ["generating functions", "trees", "permutations"]
 categories = ["usaco"]
 draft = false
@@ -25,7 +25,7 @@ understand how to create trees using a permutation.
 
 First how does a permutation \\(a\\) translate into a tree? Think of \\(a[i]\\) as the
 time in which node \\(i\\) is inserted to the tree. We'll use the following
-$a=\\(42315\\) for illustration. Assume \\(1\\) indexing to refer to both the index in
+\\(a=42315\\) for illustration. Assume \\(1\\) indexing to refer to both the index in
 \\(a\\) and also the node number.
 
 Then since \\(a[4] = 1\\) then node \\(4\\) be inserted first, becoming the root. This
@@ -249,7 +249,7 @@ corresponds to adding the \\(1\\) in \\(d\_i(a)\\).  Then we remove a set of per
 containing \\(0\\) to \\(|j-i|\\) inversions.  `x` corresponds \\(j>i\\) for which we
 need to take into account the inversions for the \\(j\\) th element.  And `y`
 correponds \\(j<i\\) for which there are no inversions caused by element \\(j\\).
-This two steps can be thought as adding the right most two terms in \\(d\_i(a)\\).
+These two steps can be thought as adding the right most two terms in \\(d\_i(a)\\).
 However, for a particular \\(i\\) this is not done at the same time, but eventually
 all \\(|j-i|\\) are considered in the innermost for loop.
 

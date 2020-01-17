@@ -22,7 +22,7 @@ understand how to create trees using a permutation.
 
 First how does a permutation $a$ translate into a tree? Think of $a[i]$ as the
 time in which node $i$ is inserted to the tree. We'll use the following
-$a=$42315$ for illustration. Assume $1$ indexing to refer to both the index in
+$a=42315$ for illustration. Assume $1$ indexing to refer to both the index in
 $a$ and also the node number.
 
 Then since $a[4] = 1$ then node $4$ be inserted first, becoming the root. This
@@ -239,7 +239,7 @@ corresponds to adding the $1$ in $d_i(a)$.  Then we remove a set of permutations
 containing $0$ to $|j-i|$ inversions.  ~x~ corresponds $j>i$ for which we
 need to take into account the inversions for the $j$ th element.  And ~y~
 correponds $j<i$ for which there are no inversions caused by element $j$.
-This two steps can be thought as adding the right most two terms in $d_i(a)$.
+These two steps can be thought as adding the right most two terms in $d_i(a)$.
 However, for a particular $i$ this is not done at the same time, but eventually
 all $|j-i|$ are considered in the innermost for loop.
 
