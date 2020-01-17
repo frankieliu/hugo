@@ -2,7 +2,7 @@
 title = "Tree Depth - USACO Platimum Dec19"
 author = ["adam"]
 date = 2020-01-15T18:21:28-08:00
-lastmod = 2020-01-16T22:40:32-08:00
+lastmod = 2020-01-16T22:42:38-08:00
 tags = ["generating functions", "trees", "permutations"]
 categories = ["usaco"]
 draft = false
@@ -45,7 +45,7 @@ the depth of root is \\(1\\) according to the problem). Looking to the left of n
 \\(3\\), only node \\(2\\) can be a possible ancestor of node \\(3\\), since node \\(2\\) comes
 before node \\(3\\) (\\(a[2] < a[3]\\)). One can make a similar argument to the right of
 \\(3\\), node \\(4\\) can be an ancestor of \\(3\\), since \\(a[4] < a[3]\\). Since node \\(3\\) is
-an ancestor of two nodes \\(2\\) and \\(4\\) its depth must be 3. One might argue that
+a descendant of two nodes \\(2\\) and \\(4\\) its depth must be 3. One might argue that
 it is possible that node \\(2\\) lies on one branch of node \\(4\\) and node \\(3\\) lies in
 another branch of node \\(4\\). This is not possible because both nodes \\(2\\) and \\(3\\)
 lie on the same subtree since they both come after node \\(4\\) and lie to the same
