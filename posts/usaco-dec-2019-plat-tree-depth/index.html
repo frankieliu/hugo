@@ -32,13 +32,13 @@ First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as t
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/usaco-dec-2019-plat-tree-depth/" />
 <meta property="article:published_time" content="2020-01-15T18:21:28-08:00" />
-<meta property="article:modified_time" content="2020-01-16T23:30:13-08:00" />
+<meta property="article:modified_time" content="2020-01-16T23:31:09-08:00" />
 <meta itemprop="name" content="Tree Depth - USACO Platimum Dec19">
 <meta itemprop="description" content="This is a commentary on the solution from Benjamin Qi.
 from permutation to tree generation Before we go into the solution of this problem it is good to be able to understand how to create a tree using a permutation.
 First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as the time in which node \(i\) is inserted to the tree. We&#39;ll use the following \(a=42315\) for illustration.">
 <meta itemprop="datePublished" content="2020-01-15T18:21:28-08:00" />
-<meta itemprop="dateModified" content="2020-01-16T23:30:13-08:00" />
+<meta itemprop="dateModified" content="2020-01-16T23:31:09-08:00" />
 <meta itemprop="wordCount" content="1901">
 
 
@@ -290,8 +290,8 @@ the coefficients of each polynomial in turn.</p>
 </code></pre></div><p>The easiest way to to think about this convolution is as a sliding window of
 length \(b\).  As in a sliding window, it is easier to keep a running sum, and
 when sliding the window remove one item from the back and insert a new element at
-the front.  The only thing that this does differently is removing the
-prior to computing the running sum.</p>
+the front.  The only thing that this does differently is removing
+elements prior to computing the running sum.</p>
 <p>Another way to think about a convolution with a rectangle is a convolution with
 a superposition of step functions.</p>
 <p>\[
