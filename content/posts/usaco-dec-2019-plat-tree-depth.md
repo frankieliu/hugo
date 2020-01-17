@@ -2,7 +2,7 @@
 title = "Tree Depth - USACO Platimum Dec19"
 author = ["adam"]
 date = 2020-01-15T18:21:28-08:00
-lastmod = 2020-01-16T23:06:07-08:00
+lastmod = 2020-01-16T23:08:28-08:00
 tags = ["generating functions", "trees", "permutations"]
 categories = ["usaco"]
 draft = false
@@ -249,7 +249,10 @@ int main() {
 }
 ```
 
-The first \\(~ad\\) basically sets up the generating for all permutations.
+The first \\(~ad\\) basically sets up the generation for all permutations of
+a particular number of inversions, stored as the coefficients of each term
+in the resulting polynomial.
+
 Then we populate the answer with all the permutations with \\(k\\) inversions.  This
 corresponds to adding the \\(1\\) in \\(d\_i(a)\\).  Then we remove a set of permutations
 containing \\(0\\) to \\(|j-i|\\) inversions.  `x` corresponds \\(j>i\\) for which we
