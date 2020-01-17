@@ -32,13 +32,13 @@ First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as t
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/usaco-dec-2019-plat-tree-depth/" />
 <meta property="article:published_time" content="2020-01-15T18:21:28-08:00" />
-<meta property="article:modified_time" content="2020-01-16T23:24:36-08:00" />
+<meta property="article:modified_time" content="2020-01-16T23:25:23-08:00" />
 <meta itemprop="name" content="Tree Depth - USACO Platimum Dec19">
 <meta itemprop="description" content="This is a commentary on the solution from Benjamin Qi.
 from permutation to tree generation Before we go into the solution of this problem it is good to be able to understand how to create a tree using a permutation.
 First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as the time in which node \(i\) is inserted to the tree. We&#39;ll use the following \(a=42315\) for illustration.">
 <meta itemprop="datePublished" content="2020-01-15T18:21:28-08:00" />
-<meta itemprop="dateModified" content="2020-01-16T23:24:36-08:00" />
+<meta itemprop="dateModified" content="2020-01-16T23:25:23-08:00" />
 <meta itemprop="wordCount" content="1896">
 
 
@@ -237,7 +237,7 @@ since by definition the &ldquo;outer&rdquo; ancestor comes earlier than any othe
 &ldquo;inner&rdquo; ancestor.  By exclusion I only mean that we cannot count permutations
 that allow \(a[j]&lt;a[j&rsquo;]\) when considering node \(j&rsquo;\) as a possible ancestor of node
 \(i\).  Of course when considering node \(j\) as a possible ancestor we are free
-to include permutations unconstrained on the value of \(a[j&rsquo;]\).</p>
+to include permutations unconstrained by the value of \(a[j&rsquo;]\).</p>
 <h2 id="generating-functions-to-count-inversions">generating functions to count inversions</h2>
 <p>With the independence property, we can now independently consider contributions
 of depth to a particular node, say node \(i\).  For a particular node \(i\) we will
