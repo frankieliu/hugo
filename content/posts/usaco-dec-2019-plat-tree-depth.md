@@ -2,7 +2,7 @@
 title = "Tree Depth - USACO Platimum Dec19"
 author = ["adam"]
 date = 2020-01-15T18:21:28-08:00
-lastmod = 2020-01-16T23:01:03-08:00
+lastmod = 2020-01-16T23:02:29-08:00
 tags = ["generating functions", "trees", "permutations"]
 categories = ["usaco"]
 draft = false
@@ -141,7 +141,7 @@ be captured by a generating function, and the combined convolution of these
 possibilities captured as the product of the individual sums as
 \\((x^0)(x^0+x^1)(x^0+x^1+x^2)\cdots(x^0+x^1+\ldots+x^{j-1})\\).  At \\(j\\), we know
 that the \\(a[j] == min(a[i\ldots j])\\) therefore there is only one possibility for
-the \\(j\\) term, \\(j\\) inversions or \\(x^j\\).  for the \\(j+1\\) term, it is allowed to
+the \\(j\\) term, \\(j\\) inversions or \\(x^j\\).  For the \\(j+1\\) term, it is allowed to
 have any number of inversions, since there is no restriction on its value.  If
 \\(a[j+1]\\) is smaller than \\(a[j]\\) then this scenario will be counted when
 setting \\(j\\) to this number, and as we mentioned before the permutations of this
