@@ -32,14 +32,14 @@ First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as t
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/usaco-dec-2019-plat-tree-depth/" />
 <meta property="article:published_time" content="2020-01-15T18:21:28-08:00" />
-<meta property="article:modified_time" content="2020-01-16T22:47:02-08:00" />
+<meta property="article:modified_time" content="2020-01-16T22:47:29-08:00" />
 <meta itemprop="name" content="Tree Depth - USACO Platimum Dec19">
 <meta itemprop="description" content="This is a commentary on the solution from Benjamin Qi.
 from permutation to tree generation Before we go into the solution of this problem it is good to be able to understand how to create trees using a permutation.
 First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as the time in which node \(i\) is inserted to the tree. We&#39;ll use the following \(a=42315\) for illustration.">
 <meta itemprop="datePublished" content="2020-01-15T18:21:28-08:00" />
-<meta itemprop="dateModified" content="2020-01-16T22:47:02-08:00" />
-<meta itemprop="wordCount" content="1813">
+<meta itemprop="dateModified" content="2020-01-16T22:47:29-08:00" />
+<meta itemprop="wordCount" content="1812">
 
 
 
@@ -197,7 +197,7 @@ potentially discarding further possibilities.</p>
 <p>So in general when we look for the possible ancestors of a particular node \(i\),
 when considering a node \(j &lt; i\) as a potential candidate, we only need to find
 the some minimum between \(a[j .. i]\) to determine if node \(j\) could be a
-potential ancestor. This is the symmetric for a point \(j\) to the right of \(i\).</p>
+potential ancestor. This is symmetric for a point \(j\) to the right of \(i\).</p>
 <p>Thus one comes to the following formula in the solution:</p>
 <p>\[
 d_i(a)=1+\sum_{1\le j&lt;i}(a[j] == \min(a[j\ldots i]))+\sum_{i&lt;j\le n}(a[j] ==
