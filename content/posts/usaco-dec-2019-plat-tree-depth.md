@@ -2,7 +2,7 @@
 title = "Tree Depth - USACO Platimum Dec19"
 author = ["adam"]
 date = 2020-01-15T18:21:28-08:00
-lastmod = 2020-01-16T23:11:06-08:00
+lastmod = 2020-01-16T23:18:42-08:00
 tags = ["generating functions", "trees", "permutations"]
 categories = ["usaco"]
 draft = false
@@ -36,6 +36,8 @@ For the left subtree, again we find the next smaller index, in this case \\(a[2]
 this means that node \\(2\\) will be the left child of node \\(4\\). Since there are
 only two remaining nodes on the either side of node \\(2\\), nodes \\(1\\) and \\(3\\) will
 be on both left and right braches from node \\(2\\) respectively.
+
+{{< figure src="/images/tree-depth/tree-depth.svg" >}}
 
 
 ## from permutation \\(a\\) to depth of nodes {#from-permutation--a--to-depth-of-nodes}

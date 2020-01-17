@@ -34,6 +34,8 @@ this means that node $2$ will be the left child of node $4$. Since there are
 only two remaining nodes on the either side of node $2$, nodes $1$ and $3$ will
 be on both left and right braches from node $2$ respectively.
 
+[[tree-depth/tree-depth.svg]]
+
 * from permutation $a$ to depth of nodes
 
 Let's take node $3$ in the example above. Node $3$ is at a depth of $3$ (note
