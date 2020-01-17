@@ -2,7 +2,7 @@
 title = "Tree Depth - USACO Platimum Dec19"
 author = ["adam"]
 date = 2020-01-15T18:21:28-08:00
-lastmod = 2020-01-16T22:47:02-08:00
+lastmod = 2020-01-16T22:47:29-08:00
 tags = ["generating functions", "trees", "permutations"]
 categories = ["usaco"]
 draft = false
@@ -74,7 +74,7 @@ potentially discarding further possibilities.
 So in general when we look for the possible ancestors of a particular node \\(i\\),
 when considering a node \\(j < i\\) as a potential candidate, we only need to find
 the some minimum between \\(a[j .. i]\\) to determine if node \\(j\\) could be a
-potential ancestor. This is the symmetric for a point \\(j\\) to the right of \\(i\\).
+potential ancestor. This is symmetric for a point \\(j\\) to the right of \\(i\\).
 
 Thus one comes to the following formula in the solution:
 
