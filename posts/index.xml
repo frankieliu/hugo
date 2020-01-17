@@ -178,14 +178,5 @@ Solution  Modify the current theme Add a partial template Add a parameter called
       <description>intro   read-optimized social graph memcache and look-aside    The distinction between look-aside and look-through caches is not whether data is fetched from the cache and memory in serial or in parallel. The distinction is whether the fetch to memory on a cache miss originates from the caller or the cache. If the fetch to memory originates from the caller on cache miss, then you’re using a look-aside cache.</description>
     </item>
     
-    <item>
-      <title>Tree Depth - USACO Platimum Dec19</title>
-      <link>https://www.frankliu.org/hugo/posts/sample2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.frankliu.org/hugo/posts/sample2/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>
