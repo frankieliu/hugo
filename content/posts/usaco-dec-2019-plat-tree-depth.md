@@ -2,7 +2,7 @@
 title = "Tree Depth - USACO Platimum Dec19"
 author = ["adam"]
 date = 2020-01-15T18:21:28-08:00
-lastmod = 2020-01-16T23:04:00-08:00
+lastmod = 2020-01-16T23:04:20-08:00
 tags = ["generating functions", "trees", "permutations"]
 categories = ["usaco"]
 draft = false
@@ -157,7 +157,7 @@ ensures that no inversion is missed, or overcounted.  We continue in this
 fashion until \\(a[i-(i-1)]\\) which can have \\(0\\) to \\(n-1\\) inversions.
 
 Thus the accounting of all possible number of permutations for each number of
-inversions is captured in the coefficient of the \\(x\_k\\) term of the polynomial.
+inversions is captured in the coefficient of the \\(x^k\\) term of the polynomial.
 The effect of the \\(j\\) th term can be separated by multiplying by
 
 \\[
