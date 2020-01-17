@@ -181,7 +181,7 @@ the coefficients of each polynomial in turn.
 #+end_src
 
 The easiest way to to think about this convolution is as a sliding window of
-length $b$.  As in a sliding window, it is easier keep a running sum, and
+length $b$.  As in a sliding window, it is easier to keep a running sum, and
 sliding the window remove one item from the back and insert a new element at
 the front.  The only thing that this does differently is removing the 
 prior to computing the running sum.
