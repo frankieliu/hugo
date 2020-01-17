@@ -2,7 +2,7 @@
 title = "Tree Depth - USACO Platimum Dec19"
 author = ["adam"]
 date = 2020-01-15T18:21:28-08:00
-lastmod = 2020-01-16T22:47:29-08:00
+lastmod = 2020-01-16T22:48:54-08:00
 tags = ["generating functions", "trees", "permutations"]
 categories = ["usaco"]
 draft = false
@@ -102,7 +102,7 @@ permutation that contains both a left and right ancestor for node \\(i\\).  Thes
 two need to be counted twice, even though they come from the same permutation.
 In other words, we are free to sum up allowable permutations for left
 independently from the allowable permutations for the right, even if they
-are the same permutation (i.e. no overcounting).
+are the same permutation (i.e. because of independence there is no overcounting).
 
 On the other hand we have to be careful about counting \\(\min(a[j\dots i])\\) (and
 by symmetry on the other side) points that lie on the same side. Suppose there
