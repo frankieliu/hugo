@@ -2,7 +2,7 @@
 title = "Tree Depth - USACO Platimum Dec19"
 author = ["adam"]
 date = 2020-01-15T18:21:28-08:00
-lastmod = 2020-01-16T23:31:09-08:00
+lastmod = 2020-01-16T23:31:56-08:00
 tags = ["generating functions", "trees", "permutations"]
 categories = ["usaco"]
 draft = false
@@ -227,7 +227,7 @@ void sub(vmi& a, int b) {
 
 The `sub` function does the exact opposite, it differentiates \\(a[]\\) then adds
 back a shifted amount back.  This corresponds to dividing by the polynomial
-\\((x\_0 + \ldots + x\_{j-i})\\)
+\\((x^0 + \ldots + x^{j-i})\\)
 
 
 ## left and right {#left-and-right}

@@ -220,7 +220,7 @@ calculates a prefix sum.
 
 The ~sub~ function does the exact opposite, it differentiates $a[]$ then adds
 back a shifted amount back.  This corresponds to dividing by the polynomial
-$(x_0 + \ldots + x_{j-i})$
+$(x^0 + \ldots + x^{j-i})$
 
 * left and right
 
