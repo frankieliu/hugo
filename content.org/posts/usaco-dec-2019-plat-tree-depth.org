@@ -132,8 +132,8 @@ inversion, namely $0$, since this is a reference point.  For $i+1$, there are tw
 possible inversions, $a[i]$ and $a[i+1]$ are either in order or not.  For $i+2$
 there are three possible inversions, and so on.  Each of these possibilities can
 be captured by a generating function, and the combined convolution of these
-possibilities can be capture as the product of the individual sums as 
-$(x_0)(x_0+x_1)(x_0+x_1+x_2)\cdots(x_0+x_1+\ldots+x_{j-1})$  At $j$, we know
+possibilities captured as the product of the individual sums as 
+$(x_0)(x_0+x_1)(x_0+x_1+x_2)\cdots(x_0+x_1+\ldots+x_{j-1})$.  At $j$, we know
 that the $a[j] == min(a[i\ldots j]$ therefore there is only one possibility for
 the $j$ term, $j$ inversions or $x_j$.  for the $j+1$ term, it is allowed to
 have any number of inversions, since there is no restriction on its value.  If 
