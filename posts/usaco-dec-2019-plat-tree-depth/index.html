@@ -32,13 +32,13 @@ First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as t
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/usaco-dec-2019-plat-tree-depth/" />
 <meta property="article:published_time" content="2020-01-15T18:21:28-08:00" />
-<meta property="article:modified_time" content="2020-01-16T22:57:28-08:00" />
+<meta property="article:modified_time" content="2020-01-16T22:58:34-08:00" />
 <meta itemprop="name" content="Tree Depth - USACO Platimum Dec19">
 <meta itemprop="description" content="This is a commentary on the solution from Benjamin Qi.
 from permutation to tree generation Before we go into the solution of this problem it is good to be able to understand how to create trees using a permutation.
 First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as the time in which node \(i\) is inserted to the tree. We&#39;ll use the following \(a=42315\) for illustration.">
 <meta itemprop="datePublished" content="2020-01-15T18:21:28-08:00" />
-<meta itemprop="dateModified" content="2020-01-16T22:57:28-08:00" />
+<meta itemprop="dateModified" content="2020-01-16T22:58:34-08:00" />
 <meta itemprop="wordCount" content="1861">
 
 
@@ -250,7 +250,7 @@ there are three possible inversions, and so on.  Each of these possibilities can
 be captured by a generating function, and the combined convolution of these
 possibilities captured as the product of the individual sums as
 \((x_0)(x_0+x_1)(x_0+x_1+x_2)\cdots(x_0+x_1+\ldots+x_{j-1})\).  At \(j\), we know
-that the \(a[j] == min(a[i\ldots j]\) therefore there is only one possibility for
+that the \(a[j] == min(a[i\ldots j])\) therefore there is only one possibility for
 the \(j\) term, \(j\) inversions or \(x_j\).  for the \(j+1\) term, it is allowed to
 have any number of inversions, since there is no restriction on its value.  If
 \(a[j+1]\) is smaller than \(a[j]\) then this scenario will be counted when
