@@ -2,7 +2,7 @@
 title = "Tree Depth - USACO Platimum Dec19"
 author = ["adam"]
 date = 2020-01-15T18:21:28-08:00
-lastmod = 2020-01-16T22:59:56-08:00
+lastmod = 2020-01-16T23:01:03-08:00
 tags = ["generating functions", "trees", "permutations"]
 categories = ["usaco"]
 draft = false
@@ -150,7 +150,7 @@ continues until \\(a[j + (n-j)]\\) for which there are \\(0\\) to \\(n-i+1\\) in
 possible.
 
 Next we continue counting on the left side of \\(a[i]\\), for \\(a[i-1]\\). This doesn't
-have any restrictions and therefore we can consider inversions fomr \\(i-1\\) to
+have any restrictions and therefore we can consider inversions from \\(i-1\\) to
 \\(n\\), with a possibility of \\(0\\) to \\(n-i+2\\) inversions.  Note that this way of
 enumerating inversions by looking at only possibilities to the right of number
 ensures that no inversion is missed, or overcounted.  We continue in this
