@@ -2,7 +2,7 @@
 title = "Tree Depth - USACO Platimum Dec19"
 author = ["adam"]
 date = 2020-01-15T18:21:28-08:00
-lastmod = 2020-01-16T23:25:23-08:00
+lastmod = 2020-01-16T23:27:25-08:00
 tags = ["generating functions", "trees", "permutations"]
 categories = ["usaco"]
 draft = false
@@ -140,7 +140,7 @@ inversion, namely \\(0\\), since this is a reference point.  For \\(i+1\\), ther
 possible inversions, \\(a[i]\\) and \\(a[i+1]\\) are either in order or not.  For \\(i+2\\)
 there are three possible inversions, and so on.  Each of these possibilities can
 be captured by a generating function, and the combined convolution of these
-possibilities captured as the product of the individual sums as
+possibilities can be captured as the product of the individual sums as
 \\((x^0)(x^0+x^1)(x^0+x^1+x^2)\cdots(x^0+x^1+\ldots+x^{j-1})\\).  At \\(j\\), we know
 that the \\(a[j] == min(a[i\ldots j])\\) therefore there is only one possibility for
 the \\(j\\) term, \\(j\\) inversions or \\(x^j\\).  For the \\(j+1\\) term, it is allowed to
