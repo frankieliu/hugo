@@ -2,7 +2,7 @@
 title = "Tree Depth - USACO Platimum Dec19"
 author = ["adam"]
 date = 2020-01-15T18:21:28-08:00
-lastmod = 2020-01-16T22:58:55-08:00
+lastmod = 2020-01-16T22:59:56-08:00
 tags = ["generating functions", "trees", "permutations"]
 categories = ["usaco"]
 draft = false
@@ -139,7 +139,7 @@ possible inversions, \\(a[i]\\) and \\(a[i+1]\\) are either in order or not.  Fo
 there are three possible inversions, and so on.  Each of these possibilities can
 be captured by a generating function, and the combined convolution of these
 possibilities captured as the product of the individual sums as
-\\((x\_0)(x\_0+x\_1)(x\_0+x\_1+x\_2)\cdots(x\_0+x\_1+\ldots+x\_{j-1})\\).  At \\(j\\), we know
+\\((x^0)(x^0+x^1)(x^0+x^1+x^2)\cdots(x^0+x^1+\ldots+x^{j-1})\\).  At \\(j\\), we know
 that the \\(a[j] == min(a[i\ldots j])\\) therefore there is only one possibility for
 the \\(j\\) term, \\(j\\) inversions or \\(x^j\\).  for the \\(j+1\\) term, it is allowed to
 have any number of inversions, since there is no restriction on its value.  If
@@ -161,7 +161,7 @@ inversion is capture in the coefficient of the \\(x\_k\\) term of the polynomial
 The effect of the \\(j\\) th term can be separated by multiplying by
 
 \\[
-\frac{x\_0 + x\_1 + \ldots + x\_{j-i}}{x\_0 + x\_1 + \ldots + x\_{j-i}}
+\frac{x^0 + x^1 + \ldots + x^{j-i}}{x^0 + x^1 + \ldots + x^{j-i}}
 \\]
 
 Thus arriving at
