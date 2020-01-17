@@ -109,8 +109,11 @@ a[j]$ then those permutations would have been counted when considering $a[j']$
 and they count separately from the contributions of node $j$. If $a[j'] > a[j]$
 then node $j'$ would not been a potential ancestor. Thus one can see that
 "outer" ancestors must exclude the possibility of smaller "inner" ancestors,
-since by definition they the "outer" ancestor comes earlier than any other
-"inner" ancestor.
+since by definition the "outer" ancestor comes earlier than any other
+"inner" ancestor.  By exclusion I only mean that we cannot count permutations
+at allow $a[j]<a[j']$ when considering node $j'$ as a possible ancestor of node
+$i$.  Of course when considering node $j$ as a possible ancestor we are free
+to include permutations unconstrained on the value of $a[j']$.
 
 * generating functions to count inversions
 
@@ -121,7 +124,7 @@ how many permutations have node $j$ as $i$'s ancestor.  We are free to tabulate
 all these permutations as long as they follow two rules.
 
 One, the total number of inversions has to be $k$ and two, for these
-permutations there are no node $j$ is smaller than nodes $i\ldots j$.
+permutations there are no node smaller than $a[j]$ for nodes in $i\ldots j$.
 
 We can count the number of permutations available by counting the possible
 inversions at each index.  For example at index $i$ there is only one possible

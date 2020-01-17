@@ -2,7 +2,7 @@
 title = "Tree Depth - USACO Platimum Dec19"
 author = ["adam"]
 date = 2020-01-15T18:21:28-08:00
-lastmod = 2020-01-16T22:55:02-08:00
+lastmod = 2020-01-16T22:56:36-08:00
 tags = ["generating functions", "trees", "permutations"]
 categories = ["usaco"]
 draft = false
@@ -130,7 +130,7 @@ how many permutations have node \\(j\\) as \\(i\\)'s ancestor.  We are free to t
 all these permutations as long as they follow two rules.
 
 One, the total number of inversions has to be \\(k\\) and two, for these
-permutations there are no node \\(j\\) is smaller than nodes \\(i\ldots j\\).
+permutations there are no node smaller than \\(a[j]\\) for nodes in \\(i\ldots j\\).
 
 We can count the number of permutations available by counting the possible
 inversions at each index.  For example at index \\(i\\) there is only one possible
