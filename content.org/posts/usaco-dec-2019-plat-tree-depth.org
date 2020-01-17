@@ -115,7 +115,7 @@ since by definition the "outer" ancestor comes earlier than any other
 "inner" ancestor.  By exclusion I only mean that we cannot count permutations
 that allow $a[j]<a[j']$ when considering node $j'$ as a possible ancestor of node
 $i$.  Of course when considering node $j$ as a possible ancestor we are free
-to include permutations unconstrained on the value of $a[j']$.
+to include permutations unconstrained by the value of $a[j']$.
 
 * generating functions to count inversions
 
