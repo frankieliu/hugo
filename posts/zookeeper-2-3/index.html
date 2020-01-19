@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>My New Hugo Site  | Zookeeper 2.3</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.62.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="https://www.frankliu.org/hugo/dist/css/app.3f5912c237ddd38c8e76debe081c7ca7.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Zookeeper 2.3" />
+<meta property="og:description" content="api  We recapped re the API. Basically try to derive it yourself. Next divide which ones are write vs read related. Note that the read related contain a watch. Note that the write related contain a version.  guarantees or promises  Next we guessed what are zookeeper promises Why have these two promises Why A-linearizable?  async vs sync  what part of the writing is async? example is large configuration file what does it mean to be pipelined and issued asynchronously  when a client issues a change, when does the system respond back with an ack?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.frankliu.org/hugo/posts/zookeeper-2-3/" />
+<meta property="article:published_time" content="2020-01-18T19:24:37-08:00" />
+<meta property="article:modified_time" content="2020-01-18T20:56:55-08:00" />
+<meta itemprop="name" content="Zookeeper 2.3">
+<meta itemprop="description" content="api  We recapped re the API. Basically try to derive it yourself. Next divide which ones are write vs read related. Note that the read related contain a watch. Note that the write related contain a version.  guarantees or promises  Next we guessed what are zookeeper promises Why have these two promises Why A-linearizable?  async vs sync  what part of the writing is async? example is large configuration file what does it mean to be pipelined and issued asynchronously  when a client issues a change, when does the system respond back with an ack?">
+<meta itemprop="datePublished" content="2020-01-18T19:24:37-08:00" />
+<meta itemprop="dateModified" content="2020-01-18T20:56:55-08:00" />
+<meta itemprop="wordCount" content="139">
+
+
+
+<meta itemprop="keywords" content="zookeeper,distributed system," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Zookeeper 2.3"/>
+<meta name="twitter:description" content="api  We recapped re the API. Basically try to derive it yourself. Next divide which ones are write vs read related. Note that the read related contain a watch. Note that the write related contain a version.  guarantees or promises  Next we guessed what are zookeeper promises Why have these two promises Why A-linearizable?  async vs sync  what part of the writing is async? example is large configuration file what does it mean to be pipelined and issued asynchronously  when a client issues a change, when does the system respond back with an ack?"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://www.frankliu.org/hugo/" class="f3 fw2 hover-white no-underline white-90 dib">
+      My New Hugo Site
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/" title="Articles page">
+              Articles
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+    extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+    });
+</script>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        ARTICLES
+      </p>
+      <h1 class="f1 athelas mb1">Zookeeper 2.3</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              adam
+          
+          </strong>
+      </p>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-01-18T19:24:37-08:00">January 18, 2020</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h2 id="api">api</h2>
+<ol>
+<li>We recapped re the API.</li>
+<li>Basically try to derive it yourself.</li>
+<li>Next divide which ones are write vs read related.</li>
+<li>Note that the read related contain a watch.</li>
+<li>Note that the write related contain a version.</li>
+</ol>
+<h2 id="guarantees-or-promises">guarantees or promises</h2>
+<ol>
+<li>Next we guessed what are zookeeper promises</li>
+<li>Why have these two promises</li>
+<li>Why A-linearizable?</li>
+</ol>
+<h2 id="async-vs-sync">async vs sync</h2>
+<ol>
+<li>what part of the writing is async?</li>
+<li>example is large configuration file</li>
+<li>what does it mean to be pipelined and issued asynchronously
+<ol>
+<li>when a client issues a change, when does the system respond back with an
+ack?</li>
+</ol>
+</li>
+</ol>
+<h2 id="sync">sync</h2>
+<ol>
+<li>typical exists(&lsquo;ready&rsquo;, () -&gt; get(&lsquo;conf&rsquo;..)) should work</li>
+<li>back channel communication can cause process to get(&lsquo;conf&rsquo;) prematurely (i.e.
+before it is ready).</li>
+<li>for these cases client can issue a sync</li>
+<li>what happens on a sync?
+<ol>
+<li>maybe enough to bring local server up to commit index</li>
+</ol>
+</li>
+</ol>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/zookeeper" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">zookeeper</a>
+   </li>
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/distributed-system" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">distributed system</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://www.frankliu.org/hugo/" >
+    &copy;  My New Hugo Site 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="https://www.frankliu.org/hugo/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

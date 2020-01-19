@@ -34,7 +34,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/categories/" />
-<meta property="og:updated_time" content="2020-01-15T18:21:28-08:00" />
+<meta property="og:updated_time" content="2020-01-18T19:24:37-08:00" />
 <meta itemprop="name" content="Categories">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Categories"/>
@@ -175,6 +175,28 @@
       The problem is to count the number of rectangles (aligned to x and y coordinates) that can be formed by a set of points. Answer from competitive programmer Errichto.
 def num_rect(points): m = defaultdict(lambda: 0) answer = 0 for p in points: for p_above in points: if p.y &lt; p_above.y: answer += m[(p.y,p_above.y)] m[(p.y,p_above.y)] += 1 return answer Consider the following set of points:
    x x x     1 2 3    This is for k = 3, there are 3 possible rectangles.
+    </div>
+  </div>
+</div>
+
+        
+      
+        <h2 class="f1">
+          <a href="https://www.frankliu.org/hugo/categories/distributed-system" class="link blue hover-black">
+            Category: distributed-system
+          </a>
+        </h2>
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/zookeeper-2-3/" class="link black dim">
+        Zookeeper 2.3
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      api  We recapped re the API. Basically try to derive it yourself. Next divide which ones are write vs read related. Note that the read related contain a watch. Note that the write related contain a version.  guarantees or promises  Next we guessed what are zookeeper promises Why have these two promises Why A-linearizable?  async vs sync  what part of the writing is async? example is large configuration file what does it mean to be pipelined and issued asynchronously  when a client issues a change, when does the system respond back with an ack?
     </div>
   </div>
 </div>
