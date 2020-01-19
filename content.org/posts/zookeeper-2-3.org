@@ -1,0 +1,40 @@
+# -*- mode: org -*-
+#+HUGO_BASE_DIR: ../..
+#+HUGO_SECTION: posts
+#+HUGO_WEIGHT: 2000
+#+HUGO_AUTO_SET_LASTMOD: t
+#+TITLE: "Zookeeper 2.3"
+#+DATE: 2020-01-18T19:24:37-08:00
+#+HUGO_TAGS: zookeeper "distributed system"
+#+HUGO_CATEGORIES: "distributed system"
+#+HUGO_MENU_off: :menu "main" :weight 2000
+#+HUGO_CUSTOM_FRONT_MATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true
+#+HUGO_DRAFT: false
+
+#+STARTUP: indent hidestars showall
+* api
+1. We recapped re the API.
+2. Basically try to derive it yourself.
+3. Next divide which ones are write vs read related.
+4. Note that the read related contain a watch.
+5. Note that the write related contain a version.
+
+* guarantees or promises
+1. Next we guessed what are zookeeper promises
+2. Why have these two promises
+3. Why A-linearizable?
+
+* async vs sync
+1. what part of the writing is async?
+2. example is large configuration file
+3. what does it mean to be pipelined and issued asynchronously
+   1. when a client issues a change, when does the system respond back with an
+      ack?
+
+* sync
+1. typical exists('ready', () -> get('conf'..)) should work
+2. back channel communication can cause process to get('conf') prematurely (i.e.
+   before it is ready).
+3. for these cases client can issue a sync
+4. what happens on a sync?
+   1. maybe enough to bring local server up to commit index
