@@ -1,0 +1,106 @@
+# -*- mode: org -*-
+#+HUGO_BASE_DIR: ../..
+#+HUGO_SECTION: posts
+#+HUGO_WEIGHT: 2000
+#+HUGO_AUTO_SET_LASTMOD: t
+#+TITLE: "1320. Minimum Distance to Type a Word Using Two Fingers"
+#+DATE: 2020-01-20T23:22:01-08:00
+#+HUGO_TAGS: leetcode dp
+#+HUGO_CATEGORIES: leetcode dp
+#+HUGO_MENU_off: :menu "main" :weight 2000
+#+HUGO_CUSTOM_FRONT_MATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true :toc true
+#+HUGO_DRAFT: false
+
+#+STARTUP: indent hidestars showall
+
+* Analysis of lee215's solution
+Lee already explained fairly well how to get the 1D dp. I just want to expound a
+little bit because there is a heavy dose of intuition that I believe is very
+beneficial for other problems.
+
+* Intuition
+One of the first things that one tries when playing with this problem is
+figuring out when the second finger comes into the picture. I applaud the
+earlier posts in assuming a special starting position for both fingers, so that
+there is nothing special about when it transitions from one finger to two
+fingers. This in my mind unifies the problem, so I don't have to think of a one
+finger vs two finger system. With this unification it is always a two finger
+problem.
+
+Then at each decision step, one knows the present state of the system and
+considers the possible transitions.  The state can be represented by the
+location of the two fingers and the transitions correspond to choosing which
+of the fingers will take the next character.  Since we don't know the future
+characters, we have to keep an account of both possibilities.  Let's say
+that $dp[a][b]$ represents the cost so far for ending with fingers at $a$
+and $b$.  Then when a new character comes, $c$, then there are two possibilities
+$dp[a][c]$ or $dp[c][b]$.  Note that we can discard all other $dp[a][b]$'s for
+the next round of computation since one of the fingers has to be at $c$.
+
+Let's just compute one more round for a new character, $d$.  In this case,
+we have $dp[a][d], dp[d][c], dp[c][d], dp[d][b]$.  Here we note that there
+$dp[c][d]$ and the $dp[d][c]$ are different states, but from a standpoint
+of the next character to be considered they are equivalent, so we keep the
+$\min$ of two options.  This is not done in Lee's solution, and considerably
+reduces the space requirement, whereas before there was almost a doubling
+of the dictionary spacing with each new character.
+
+#+begin_src python
+  class Solution:
+      def minimumDistance(self, A):
+          def d(a, b):
+              return a and abs(a / 6 - b / 6) + abs(a % 6 - b % 6)
+
+          dp, dp2 = {(0, 0): 0}, {}
+          for c in (ord(c) + 1 for c in A):
+              print([[chr(x) for x in y] for y in dp.keys()],"\n")
+              for a, b in dp:
+                  dp2[c, b] = min(dp2.get((c, b), 3000), dp[a, b] + d(a, c))
+                  dp2[a, c] = min(dp2.get((a, c), 3000), dp[a, b] + d(b, c))
+              if True:
+                  dp = {}
+                  for (a, b) in dp2.keys():
+                      if (b, a) in dp.keys():
+                          dp[b,a] = min(dp[b,a],dp2[a,b])
+                          continue
+                      dp[a,b] = dp2[a,b]
+                  dp2 = {}
+              else:
+                  dp, dp2 = dp2, {}
+          return min(dp.values())
+
+  s=Solution()
+  print(s.minimumDistance('asdfkjalskjflkweraglksjga'))
+
+#+end_src
+
+* Further simplification
+In the above, one of the fingers must take $c$.  This means that there will
+always be $dp[a,c]$ or $dp[c,b]$ terms irrespective of which finger takes $c$.
+And as we noted all the previous $dp[a,b]$ are irrelevant.  Also we have shown
+that $dp[a,b]$ and $dp[b,a]$ are equivalent.  Therefore we can just throw away
+the $c$ term and just remember that the previous character is $c$.  Thus we
+can further reduce this to a 1D array.  Actually, since we are using a
+dictionary in the previous implementation, the dictionary has a max of $26$
+entries.
+
+#+begin_src python
+  class Solution:
+      def minimumDistance(self, A):
+          def d(a, b):
+              return a and abs(a / 6 - b / 6) + abs(a % 6 - b % 6)
+
+          dp, dp2 = {0: 0}, {}
+          prev = 0
+          for c in (ord(c) + 1 for c in A):
+              for a in dp:
+                  dp2[prev] = min(dp2.get(prev, 3000), dp[a] + d(a, c))  # keeping the previous
+                  dp2[a] = min(dp2.get(a, 3000), dp[a] + d(prev, c))     # taking the previous
+              dp, dp2 = dp2, {}
+              prev = c
+          return min(dp.values())
+
+  s=Solution()
+  print(s.minimumDistance('asdfkjalskjflkweraglksjga'))
+#+end_src
+
