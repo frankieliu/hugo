@@ -2,7 +2,7 @@
 title = "Leetcode 1320. Minimum Distance to Type a Word Using Two Fingers"
 author = ["adam"]
 date = 2020-01-20T23:22:01-08:00
-lastmod = 2020-01-21T13:19:32-08:00
+lastmod = 2020-01-21T14:00:37-08:00
 tags = ["leetcode", "dp"]
 categories = ["leetcode", "dp"]
 draft = false
@@ -111,3 +111,43 @@ class Solution:
 s=Solution()
 print(s.minimumDistance('asdfkjalskjflkweraglksjga'))
 ```
+
+
+## Lee's approach {#lee-s-approach}
+
+Lee's solution for the 1D is intriguing because he assumes a fixed cost, that
+of using just one finger, which can be found from the prefix sum of distances.
+
+Then at each input character consider there is a possibility of using the second
+finger, however the second finger's state may be one of many possible ones from
+previous characters.
+
+Say the current character is \\(c\\), then we need to consider all possible previous
+second finger choices, \\(p\_i\\), where \\(i\\) enumerates possible previous states for
+the second finger. Then the use of the second finger will result in \\(d(p\_i, c)\\)
+cost, and we want to minimize this cost and accrued cost to get to \\(p\_i\\) across
+all such possibilities.
+
+```python
+def minimumDistance(self, A):
+    def d(a, b):
+        return abs(a / 6 - b / 6) + abs(a % 6 - b % 6)
+    A = [ord(c) - 65 for c in A]
+    dp = [0] * 26
+    for b, c in zip(A, A[1:]):
+        dp[b] = max(dp[a] + d(b, c) - d(a, c) for a in xrange(26))
+    return sum(d(b, c) for b, c in zip(A, A[1:])) - max(dp)
+```
+
+Instead of this cost minimization, Lee chooses to maximize the cost savings, or
+\\(dp[p\_i] - d(p\_i,c)\\).  Since \\(d(b,c)\\) is constant it doesn't factor in the
+maximization.  In fact the careful reader will note that the savings will
+include the prefix sum of distances, and in effect Lee adds the prefix sum
+in the savings, and at the end removes the prefix sum at the end.
+
+Why is \\(dp[b]\\) assigned?  It is because in choosing the second finger to take
+character \\(c\\), the other finger is stuck with the previous choice \\(b\\).  Now we
+can freely exchange the second finger with the previous choice and allow the
+first finger to always carry the current character.  Perhaps a better definition
+of the second finger is the finger that may at any point take the current
+character, but upon taking it, exchanges position with the first finger.
