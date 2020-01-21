@@ -1,8 +1,8 @@
 +++
 title = "920 Number of music playlists"
-author = "adam"
+author = ["adam"]
 date = 2019-08-30T19:13:32-07:00
-lastmod = 2019-10-26T08:16:35-07:00
+lastmod = 2020-01-20T23:06:44-08:00
 tags = ["leetcode"]
 categories = ["leetcode"]
 draft = false
@@ -51,7 +51,7 @@ of the \\(K+2\\) th character, or \\(x\_{K+2}-x\_{K+1}-1\\) from \\(\bar{x}\\). 
 \\(c\\) at positions \\(5\\) and \\(6\\), their choice must come from the set
 \\(\left\\{1,2,3\right\\}\\) and in addition it must differ from the previous \\(K\\)
 characters, translating to a choice of two characters for \\(c\_{5,6}\\). We will
-count this possibilities as \\(2^\delta\\), where \\(\delta\\) here denotes the number
+count these possibilities as \\(2^\delta\\), where \\(\delta\\) here denotes the number
 of characters between \\(K+2\\) and \\(K+3\\) characters (first occurrences), or
 \\(x\_{K+3} - x\_{K+2} - 1\\).
 

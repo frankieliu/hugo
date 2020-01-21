@@ -49,7 +49,7 @@ of the $K+2$ th character, or $x_{K+2}-x_{K+1}-1$ from $\bar{x}$. Similarly for
 $c$ at positions $5$ and $6$, their choice must come from the set
 $\left\{1,2,3\right\}$ and in addition it must differ from the previous $K$
 characters, translating to a choice of two characters for $c_{5,6}$. We will
-count this possibilities as $2^\delta$, where $\delta$ here denotes the number
+count these possibilities as $2^\delta$, where $\delta$ here denotes the number
 of characters between $K+2$ and $K+3$ characters (first occurrences), or
 $x_{K+3} - x_{K+2} - 1$.
 
