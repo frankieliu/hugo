@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>1320. Minimum Distance to Type a Word Using Two Fingers</title>
+      <link>https://www.frankliu.org/hugo/posts/1320-mininum-distance-to-type-a-word-using-two-fingers/</link>
+      <pubDate>Mon, 20 Jan 2020 23:22:01 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/1320-mininum-distance-to-type-a-word-using-two-fingers/</guid>
+      <description>Analysis of lee215&#39;s solution Lee already explained fairly well how to get the 1D dp. I just want to expound a little bit because there is a heavy dose of intuition that I believe is very beneficial for other problems.
+Intuition One of the first things that one tries when playing with this problem is figuring out when the second finger comes into the picture. I applaud the earlier posts in assuming a special starting position for both fingers, so that there is nothing special about when it transitions from one finger to two fingers.</description>
+    </item>
+    
+    <item>
       <title>Zookeeper 2.3</title>
       <link>https://www.frankliu.org/hugo/posts/zookeeper-2-3/</link>
       <pubDate>Sat, 18 Jan 2020 19:24:37 -0800</pubDate>
