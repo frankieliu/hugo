@@ -31,13 +31,13 @@ Intuition One of the first things that one tries when playing with this problem 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/1320-mininum-distance-to-type-a-word-using-two-fingers/" />
 <meta property="article:published_time" content="2020-01-20T23:22:01-08:00" />
-<meta property="article:modified_time" content="2020-01-21T13:19:32-08:00" />
+<meta property="article:modified_time" content="2020-01-21T14:00:37-08:00" />
 <meta itemprop="name" content="Leetcode 1320. Minimum Distance to Type a Word Using Two Fingers">
 <meta itemprop="description" content="Analysis of lee215&#39;s solution Lee already explained fairly well how to get the 1D dp. I just want to expound a little bit because there is a heavy dose of intuition that I believe is very beneficial for other problems.
 Intuition One of the first things that one tries when playing with this problem is figuring out when the second finger comes into the picture. I applaud the earlier posts in assuming a special starting position for both fingers, so that there is nothing special about when it transitions from one finger to two fingers.">
 <meta itemprop="datePublished" content="2020-01-20T23:22:01-08:00" />
-<meta itemprop="dateModified" content="2020-01-21T13:19:32-08:00" />
-<meta itemprop="wordCount" content="620">
+<meta itemprop="dateModified" content="2020-01-21T14:00:37-08:00" />
+<meta itemprop="wordCount" content="950">
 
 
 
@@ -227,7 +227,37 @@ entries.</p>
 
 s<span style="color:#f92672">=</span>Solution()
 <span style="color:#66d9ef">print</span>(s<span style="color:#f92672">.</span>minimumDistance(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">asdfkjalskjflkweraglksjga</span><span style="color:#e6db74">&#39;</span>))
-</code></pre></div><ul class="pa0">
+</code></pre></div><h2 id="lee-s-approach">Lee's approach</h2>
+<p>Lee's solution for the 1D is intriguing because he assumes a fixed cost, that
+of using just one finger, which can be found from the prefix sum of distances.</p>
+<p>Then at each input character consider there is a possibility of using the second
+finger, however the second finger's state may be one of many possible ones from
+previous characters.</p>
+<p>Say the current character is \(c\), then we need to consider all possible previous
+second finger choices, \(p_i\), where \(i\) enumerates possible previous states for
+the second finger. Then the use of the second finger will result in \(d(p_i, c)\)
+cost, and we want to minimize this cost and accrued cost to get to \(p_i\) across
+all such possibilities.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">minimumDistance</span>(self, A):
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">d</span>(a, b):
+        <span style="color:#66d9ef">return</span> abs(a <span style="color:#f92672">/</span> <span style="color:#ae81ff">6</span> <span style="color:#f92672">-</span> b <span style="color:#f92672">/</span> <span style="color:#ae81ff">6</span>) <span style="color:#f92672">+</span> abs(a <span style="color:#f92672">%</span> <span style="color:#ae81ff">6</span> <span style="color:#f92672">-</span> b <span style="color:#f92672">%</span> <span style="color:#ae81ff">6</span>)
+    A <span style="color:#f92672">=</span> [ord(c) <span style="color:#f92672">-</span> <span style="color:#ae81ff">65</span> <span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> A]
+    dp <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>] <span style="color:#f92672">*</span> <span style="color:#ae81ff">26</span>
+    <span style="color:#66d9ef">for</span> b, c <span style="color:#f92672">in</span> zip(A, A[<span style="color:#ae81ff">1</span>:]):
+        dp[b] <span style="color:#f92672">=</span> max(dp[a] <span style="color:#f92672">+</span> d(b, c) <span style="color:#f92672">-</span> d(a, c) <span style="color:#66d9ef">for</span> a <span style="color:#f92672">in</span> xrange(<span style="color:#ae81ff">26</span>))
+    <span style="color:#66d9ef">return</span> sum(d(b, c) <span style="color:#66d9ef">for</span> b, c <span style="color:#f92672">in</span> zip(A, A[<span style="color:#ae81ff">1</span>:])) <span style="color:#f92672">-</span> max(dp)
+</code></pre></div><p>Instead of this cost minimization, Lee chooses to maximize the cost savings, or
+\(dp[p_i] - d(p_i,c)\).  Since \(d(b,c)\) is constant it doesn't factor in the
+maximization.  In fact the careful reader will note that the savings will
+include the prefix sum of distances, and in effect Lee adds the prefix sum
+in the savings, and at the end removes the prefix sum at the end.</p>
+<p>Why is \(dp[b]\) assigned?  It is because in choosing the second finger to take
+character \(c\), the other finger is stuck with the previous choice \(b\).  Now we
+can freely exchange the second finger with the previous choice and allow the
+first finger to always carry the current character.  Perhaps a better definition
+of the second finger is the finger that may at any point take the current
+character, but upon taking it, exchanges position with the first finger.</p>
+<ul class="pa0">
   
    <li class="list">
      <a href="https://www.frankliu.org/hugo/tags/leetcode" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">leetcode</a>
@@ -251,6 +281,7 @@ s<span style="color:#f92672">=</span>Solution()
     <li><a href="#analysis-of-lee215-s-solution">Analysis of lee215's solution</a></li>
     <li><a href="#intuition">Intuition</a></li>
     <li><a href="#further-simplification">Further simplification</a></li>
+    <li><a href="#lee-s-approach">Lee's approach</a></li>
   </ul>
 </nav>
   </div>
