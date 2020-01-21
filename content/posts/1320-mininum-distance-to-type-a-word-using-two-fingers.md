@@ -1,8 +1,8 @@
 +++
-title = "1320. Minimum Distance to Type a Word Using Two Fingers"
+title = "Leetcode 1320. Minimum Distance to Type a Word Using Two Fingers"
 author = ["adam"]
 date = 2020-01-20T23:22:01-08:00
-lastmod = 2020-01-21T13:18:32-08:00
+lastmod = 2020-01-21T13:19:32-08:00
 tags = ["leetcode", "dp"]
 categories = ["leetcode", "dp"]
 draft = false
