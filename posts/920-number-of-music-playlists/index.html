@@ -35,7 +35,7 @@ Here I have used the numbers (characters) \(1-5\), to indicate a song number, in
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/920-number-of-music-playlists/" />
 <meta property="article:published_time" content="2019-08-30T19:13:32-07:00" />
-<meta property="article:modified_time" content="2019-10-26T08:16:35-07:00" />
+<meta property="article:modified_time" content="2020-01-20T23:06:44-08:00" />
 <meta itemprop="name" content="920 Number of music playlists">
 <meta itemprop="description" content="Notes on solution to Leetcode 920 Let&#39;s take the example from the article, songs: \(\left\{abcde\right\}\), playlist: \(abacabdcbaeacbd\),
 \(\bar{x} = (1,2,4,7,11)\)
@@ -44,7 +44,7 @@ As an example for the \(\bar{x}\) above, consider the playlist family:
 \(p_l = (1_1,2_2,c_3,3_4,c_5,c_6,4_7,c_8,c_9,c_{10},5_{11},c_{12},c_{13},c_{14})\)
 Here I have used the numbers (characters) \(1-5\), to indicate a song number, instead of the \(a-e\) in the article.">
 <meta itemprop="datePublished" content="2019-08-30T19:13:32-07:00" />
-<meta itemprop="dateModified" content="2019-10-26T08:16:35-07:00" />
+<meta itemprop="dateModified" content="2020-01-20T23:06:44-08:00" />
 <meta itemprop="wordCount" content="817">
 
 
@@ -188,7 +188,7 @@ of the \(K+2\) th character, or \(x_{K+2}-x_{K+1}-1\) from \(\bar{x}\). Similarl
 \(c\) at positions \(5\) and \(6\), their choice must come from the set
 \(\left\{1,2,3\right\}\) and in addition it must differ from the previous \(K\)
 characters, translating to a choice of two characters for \(c_{5,6}\). We will
-count this possibilities as \(2^\delta\), where \(\delta\) here denotes the number
+count these possibilities as \(2^\delta\), where \(\delta\) here denotes the number
 of characters between \(K+2\) and \(K+3\) characters (first occurrences), or
 \(x_{K+3} - x_{K+2} - 1\).</p>
 <p>The careful reader will note that I count the first \(K+1\) characters as being
