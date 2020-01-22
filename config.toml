@@ -10,3 +10,9 @@ pygmentsCodeFences = true
 canonifyURLs = true
 SectionPagesMenu = "main"
 
+[params]
+    facebook = "https://www.facebook.com/frankie.liu.9279"
+    twitter = "https://twitter.com/pi31415629"
+    github = "https://github.com/frankieliu"
+    linkedin = "https://www.linkedin.com/in/frankieyliu/"
+    slack = "https://discordapp.com/users/523372803387293696"
