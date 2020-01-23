@@ -17,5 +17,6 @@ SectionPagesMenu = "main"
     linkedin = "https://www.linkedin.com/in/frankieyliu/"
     discord = "https://discordapp.com/users/523372803387293696"
     medium = "https://medium.com/eins-zwei"
+    # slack = "https://zweigroup.slack.com/team/UT1E2S7GU"
 		custom_css = [ "css/test.css" ]
 		
