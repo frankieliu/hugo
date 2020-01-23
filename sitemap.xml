@@ -93,22 +93,22 @@
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/tags/dp/</loc>
-    <lastmod>2020-01-21T14:00:37-08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://www.frankliu.org/hugo/categories/dp/</loc>
     <lastmod>2020-01-21T14:00:37-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/tags/leetcode/</loc>
+    <loc>https://www.frankliu.org/hugo/tags/dp/</loc>
     <lastmod>2020-01-21T14:00:37-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/categories/leetcode/</loc>
+    <lastmod>2020-01-21T14:00:37-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/leetcode/</loc>
     <lastmod>2020-01-21T14:00:37-08:00</lastmod>
   </url>
   
@@ -123,12 +123,12 @@
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/categories/distributed-system/</loc>
+    <loc>https://www.frankliu.org/hugo/tags/distributed-system/</loc>
     <lastmod>2020-01-18T20:56:55-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/tags/distributed-system/</loc>
+    <loc>https://www.frankliu.org/hugo/categories/distributed-system/</loc>
     <lastmod>2020-01-18T20:56:55-08:00</lastmod>
   </url>
   
