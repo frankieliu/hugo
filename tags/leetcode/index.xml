@@ -17,7 +17,7 @@
       <pubDate>Mon, 20 Jan 2020 23:22:01 -0800</pubDate>
       
       <guid>https://www.frankliu.org/hugo/posts/1320-mininum-distance-to-type-a-word-using-two-fingers/</guid>
-      <description>Analysis of lee215&#39;s solution Lee already explained fairly well how to get the 1D dp. I just want to expound a little bit because there is a heavy dose of intuition that I believe is very beneficial for other problems.
+      <description>Analysis of lee215&amp;rsquo;s solution Lee already explained fairly well how to get the 1D dp. I just want to expound a little bit because there is a heavy dose of intuition that I believe is very beneficial for other problems.
 Intuition One of the first things that one tries when playing with this problem is figuring out when the second finger comes into the picture. I applaud the earlier posts in assuming a special starting position for both fingers, so that there is nothing special about when it transitions from one finger to two fingers.</description>
     </item>
     
@@ -36,7 +36,7 @@ Intuition One of the first things that one tries when playing with this problem 
       <pubDate>Thu, 03 Oct 2019 20:56:27 -0700</pubDate>
       
       <guid>https://www.frankliu.org/hugo/posts/731-my-calendar-ii-segment-tree/</guid>
-      <description>Acknowledgement Taken from fun4leet&#39;s My Calendar II wonderful article
+      <description>Acknowledgement Taken from fun4leet&amp;rsquo;s My Calendar II wonderful article
 tl;dr A max segment tree, with an incremental update function is sufficient for this problem. Max is used because such tree allows quick query of the max number of bookings given a range. Incremental update is useful because each time book is called, one needs to increment the bookings in a particular range.
 Data structure 4 things: a range \([l,r]\), data, lazy flag</description>
     </item>
@@ -47,7 +47,7 @@ Data structure 4 things: a range \([l,r]\), data, lazy flag</description>
       <pubDate>Fri, 30 Aug 2019 19:13:32 -0700</pubDate>
       
       <guid>https://www.frankliu.org/hugo/posts/920-number-of-music-playlists/</guid>
-      <description>Notes on solution to Leetcode 920 Let&#39;s take the example from the article, songs: \(\left\{abcde\right\}\), playlist: \(abacabdcbaeacbd\),
+      <description>Notes on solution to Leetcode 920 Let&amp;rsquo;s take the example from the article, songs: \(\left\{abcde\right\}\), playlist: \(abacabdcbaeacbd\),
 \(\bar{x} = (1,2,4,7,11)\)
 For \(\bar{x}\), each number in the n-tuple indicates a position in the playlist for the first occurrence of a particular unique song. The article uses 1-indexing so I will use the same to be consistent.
 As an example for the \(\bar{x}\) above, consider the playlist family:

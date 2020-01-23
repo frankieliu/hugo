@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site </title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.62.2" />
+    <meta name="generator" content="Hugo 0.63.0" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -243,7 +243,7 @@
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       blackhole installation https://github.com/ExistentialAudio/BlackHole
-mix output  command space - midi audio midi setup click on the plus sign at bottom left add a multi-output device should contain built in output and add blackhole you can adjust the volume (I can't seem to be able to do that)  setting the input  there are two options  all input  command space - sound change the input to default to blackhole  specific input  quicktime start screen recording next to the record button there is a settings button arrow (small) set the device to blackhole  
+mix output  command space - midi audio midi setup click on the plus sign at bottom left add a multi-output device should contain built in output and add blackhole you can adjust the volume (I can&rsquo;t seem to be able to do that)  setting the input  there are two options  all input  command space - sound change the input to default to blackhole  specific input  quicktime start screen recording next to the record button there is a settings button arrow (small) set the device to blackhole  
     </div>
   </div>
 </div>
@@ -338,7 +338,7 @@ problems width of vector clock grows with number of actors, or clients.
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Consistency Guarantees eventual consistency  eventually data converges  different than transaction isolation  isolation - avoid race conditions due to concurrent execution consistency - about coordinating replica state  levels  strongest - linearizability causality and total ordering commit in a distributed system consensus problem  Linearizability  one replica illusion (one copy of the data) guarantee read is most recent - recency guarantee read A / write C / read A ok read A / begin write C / read B / end write C / read A not ok read is concurrent with the write  linearizability, 1 always follows 1 (no flipping)   cas(x, vold, vnew)  vs Serializability  serializability is about transactions guaranteeing a sequential order linearizability is about recency guarantees on read and write  importance locking and leader election  lock must be linearizable all nodes must agree on who holds the lock  zookeeper - used for distributed locking and leader election    constraints and uniqueness guarantees  enforcing uniquess (username, filename)  similar to acquiring a lock similar to cas operation   constraints that bank balance &gt;= 0  two people don't book the same flight requires a single up-to-date value for account balance or seat occupancy   uniquess constraints in DBs are linearizable foreigh key and attribute constraints can be implemented without linearizability  cross-channel timing dependencies File storage service is not linearizable, that is two requests went into it, one to store the image, and the other to resize the image.
+      Consistency Guarantees eventual consistency  eventually data converges  different than transaction isolation  isolation - avoid race conditions due to concurrent execution consistency - about coordinating replica state  levels  strongest - linearizability causality and total ordering commit in a distributed system consensus problem  Linearizability  one replica illusion (one copy of the data) guarantee read is most recent - recency guarantee read A / write C / read A ok read A / begin write C / read B / end write C / read A not ok read is concurrent with the write  linearizability, 1 always follows 1 (no flipping)   cas(x, vold, vnew)  vs Serializability  serializability is about transactions guaranteeing a sequential order linearizability is about recency guarantees on read and write  importance locking and leader election  lock must be linearizable all nodes must agree on who holds the lock  zookeeper - used for distributed locking and leader election    constraints and uniqueness guarantees  enforcing uniquess (username, filename)  similar to acquiring a lock similar to cas operation   constraints that bank balance &gt;= 0  two people don&rsquo;t book the same flight requires a single up-to-date value for account balance or seat occupancy   uniquess constraints in DBs are linearizable foreigh key and attribute constraints can be implemented without linearizability  cross-channel timing dependencies File storage service is not linearizable, that is two requests went into it, one to store the image, and the other to resize the image.
     </div>
   </div>
 </div>
@@ -360,7 +360,7 @@ problems width of vector clock grows with number of actors, or clients.
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Consistency Guarantees eventual consistency  eventually data converges  different than transaction isolation  isolation - avoid race conditions due to concurrent execution consistency - about coordinating replica state  levels  strongest - linearizability causality and total ordering commit in a distributed system consensus problem  Linearizability  one replica illusion (one copy of the data) guarantee read is most recent - recency guarantee read A / write C / read A ok read A / begin write C / read B / end write C / read A not ok read is concurrent with the write  linearizability, 1 always follows 1 (no flipping)   cas(x, vold, vnew)  vs Serializability  serializability is about transactions guaranteeing a sequential order linearizability is about recency guarantees on read and write  importance locking and leader election  lock must be linearizable all nodes must agree on who holds the lock  zookeeper - used for distributed locking and leader election    constraints and uniqueness guarantees  enforcing uniquess (username, filename)  similar to acquiring a lock similar to cas operation   constraints that bank balance &gt;= 0  two people don't book the same flight requires a single up-to-date value for account balance or seat occupancy   uniquess constraints in DBs are linearizable foreigh key and attribute constraints can be implemented without linearizability  cross-channel timing dependencies File storage service is not linearizable, that is two requests went into it, one to store the image, and the other to resize the image.
+      Consistency Guarantees eventual consistency  eventually data converges  different than transaction isolation  isolation - avoid race conditions due to concurrent execution consistency - about coordinating replica state  levels  strongest - linearizability causality and total ordering commit in a distributed system consensus problem  Linearizability  one replica illusion (one copy of the data) guarantee read is most recent - recency guarantee read A / write C / read A ok read A / begin write C / read B / end write C / read A not ok read is concurrent with the write  linearizability, 1 always follows 1 (no flipping)   cas(x, vold, vnew)  vs Serializability  serializability is about transactions guaranteeing a sequential order linearizability is about recency guarantees on read and write  importance locking and leader election  lock must be linearizable all nodes must agree on who holds the lock  zookeeper - used for distributed locking and leader election    constraints and uniqueness guarantees  enforcing uniquess (username, filename)  similar to acquiring a lock similar to cas operation   constraints that bank balance &gt;= 0  two people don&rsquo;t book the same flight requires a single up-to-date value for account balance or seat occupancy   uniquess constraints in DBs are linearizable foreigh key and attribute constraints can be implemented without linearizability  cross-channel timing dependencies File storage service is not linearizable, that is two requests went into it, one to store the image, and the other to resize the image.
     </div>
   </div>
 </div>
@@ -382,7 +382,7 @@ problems width of vector clock grows with number of actors, or clients.
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong   Durability - committed means data will not be lost  there is no perfect guarantee    Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another   identify multi-object transaction  tie to client's TCP connection - bad separate transaction id    Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set      Multi-object transactions  when do you need them?
+      Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong   Durability - committed means data will not be lost  there is no perfect guarantee    Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another   identify multi-object transaction  tie to client&rsquo;s TCP connection - bad separate transaction id    Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set      Multi-object transactions  when do you need them?
     </div>
   </div>
 </div>
@@ -480,7 +480,7 @@ This method of maintaining a separate branch is made easier with a worktree that
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Analysis of lee215's solution Lee already explained fairly well how to get the 1D dp. I just want to expound a little bit because there is a heavy dose of intuition that I believe is very beneficial for other problems.
+      Analysis of lee215&rsquo;s solution Lee already explained fairly well how to get the 1D dp. I just want to expound a little bit because there is a heavy dose of intuition that I believe is very beneficial for other problems.
 Intuition One of the first things that one tries when playing with this problem is figuring out when the second finger comes into the picture. I applaud the earlier posts in assuming a special starting position for both fingers, so that there is nothing special about when it transitions from one finger to two fingers.
     </div>
   </div>
@@ -527,7 +527,7 @@ Intuition One of the first things that one tries when playing with this problem 
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       This is a commentary on the solution from Benjamin Qi.
 from permutation to tree generation Before we go into the solution of this problem it is good to be able to understand how to create a tree using a permutation.
-First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as the time in which node \(i\) is inserted to the tree. We'll use the following \(a=42315\) for illustration.
+First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as the time in which node \(i\) is inserted to the tree. We&rsquo;ll use the following \(a=42315\) for illustration.
     </div>
   </div>
 </div>
@@ -634,7 +634,7 @@ Solution  Modify the current theme Add a partial template Add a parameter called
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Consistency Guarantees eventual consistency  eventually data converges  different than transaction isolation  isolation - avoid race conditions due to concurrent execution consistency - about coordinating replica state  levels  strongest - linearizability causality and total ordering commit in a distributed system consensus problem  Linearizability  one replica illusion (one copy of the data) guarantee read is most recent - recency guarantee read A / write C / read A ok read A / begin write C / read B / end write C / read A not ok read is concurrent with the write  linearizability, 1 always follows 1 (no flipping)   cas(x, vold, vnew)  vs Serializability  serializability is about transactions guaranteeing a sequential order linearizability is about recency guarantees on read and write  importance locking and leader election  lock must be linearizable all nodes must agree on who holds the lock  zookeeper - used for distributed locking and leader election    constraints and uniqueness guarantees  enforcing uniquess (username, filename)  similar to acquiring a lock similar to cas operation   constraints that bank balance &gt;= 0  two people don't book the same flight requires a single up-to-date value for account balance or seat occupancy   uniquess constraints in DBs are linearizable foreigh key and attribute constraints can be implemented without linearizability  cross-channel timing dependencies File storage service is not linearizable, that is two requests went into it, one to store the image, and the other to resize the image.
+      Consistency Guarantees eventual consistency  eventually data converges  different than transaction isolation  isolation - avoid race conditions due to concurrent execution consistency - about coordinating replica state  levels  strongest - linearizability causality and total ordering commit in a distributed system consensus problem  Linearizability  one replica illusion (one copy of the data) guarantee read is most recent - recency guarantee read A / write C / read A ok read A / begin write C / read B / end write C / read A not ok read is concurrent with the write  linearizability, 1 always follows 1 (no flipping)   cas(x, vold, vnew)  vs Serializability  serializability is about transactions guaranteeing a sequential order linearizability is about recency guarantees on read and write  importance locking and leader election  lock must be linearizable all nodes must agree on who holds the lock  zookeeper - used for distributed locking and leader election    constraints and uniqueness guarantees  enforcing uniquess (username, filename)  similar to acquiring a lock similar to cas operation   constraints that bank balance &gt;= 0  two people don&rsquo;t book the same flight requires a single up-to-date value for account balance or seat occupancy   uniquess constraints in DBs are linearizable foreigh key and attribute constraints can be implemented without linearizability  cross-channel timing dependencies File storage service is not linearizable, that is two requests went into it, one to store the image, and the other to resize the image.
     </div>
   </div>
 </div>
@@ -656,7 +656,7 @@ Solution  Modify the current theme Add a partial template Add a parameter called
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong   Durability - committed means data will not be lost  there is no perfect guarantee    Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another   identify multi-object transaction  tie to client's TCP connection - bad separate transaction id    Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set      Multi-object transactions  when do you need them?
+      Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong   Durability - committed means data will not be lost  there is no perfect guarantee    Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another   identify multi-object transaction  tie to client&rsquo;s TCP connection - bad separate transaction id    Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set      Multi-object transactions  when do you need them?
     </div>
   </div>
 </div>
@@ -678,7 +678,7 @@ Solution  Modify the current theme Add a partial template Add a parameter called
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Analysis of lee215's solution Lee already explained fairly well how to get the 1D dp. I just want to expound a little bit because there is a heavy dose of intuition that I believe is very beneficial for other problems.
+      Analysis of lee215&rsquo;s solution Lee already explained fairly well how to get the 1D dp. I just want to expound a little bit because there is a heavy dose of intuition that I believe is very beneficial for other problems.
 Intuition One of the first things that one tries when playing with this problem is figuring out when the second finger comes into the picture. I applaud the earlier posts in assuming a special starting position for both fingers, so that there is nothing special about when it transitions from one finger to two fingers.
     </div>
   </div>
@@ -709,7 +709,7 @@ Intuition One of the first things that one tries when playing with this problem 
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Acknowledgement Taken from fun4leet's My Calendar II wonderful article
+      Acknowledgement Taken from fun4leet&rsquo;s My Calendar II wonderful article
 tl;dr A max segment tree, with an incremental update function is sufficient for this problem. Max is used because such tree allows quick query of the max number of bookings given a range. Incremental update is useful because each time book is called, one needs to increment the bookings in a particular range.
 Data structure 4 things: a range \([l,r]\), data, lazy flag
     </div>
@@ -726,7 +726,7 @@ Data structure 4 things: a range \([l,r]\), data, lazy flag
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Notes on solution to Leetcode 920 Let's take the example from the article, songs: \(\left\{abcde\right\}\), playlist: \(abacabdcbaeacbd\),
+      Notes on solution to Leetcode 920 Let&rsquo;s take the example from the article, songs: \(\left\{abcde\right\}\), playlist: \(abacabdcbaeacbd\),
 \(\bar{x} = (1,2,4,7,11)\)
 For \(\bar{x}\), each number in the n-tuple indicates a position in the playlist for the first occurrence of a particular unique song. The article uses 1-indexing so I will use the same to be consistent.
 As an example for the \(\bar{x}\) above, consider the playlist family:
@@ -754,7 +754,7 @@ Here I have used the numbers (characters) \(1-5\), to indicate a song number, in
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       blackhole installation https://github.com/ExistentialAudio/BlackHole
-mix output  command space - midi audio midi setup click on the plus sign at bottom left add a multi-output device should contain built in output and add blackhole you can adjust the volume (I can't seem to be able to do that)  setting the input  there are two options  all input  command space - sound change the input to default to blackhole  specific input  quicktime start screen recording next to the record button there is a settings button arrow (small) set the device to blackhole  
+mix output  command space - midi audio midi setup click on the plus sign at bottom left add a multi-output device should contain built in output and add blackhole you can adjust the volume (I can&rsquo;t seem to be able to do that)  setting the input  there are two options  all input  command space - sound change the input to default to blackhole  specific input  quicktime start screen recording next to the record button there is a settings button arrow (small) set the device to blackhole  
     </div>
   </div>
 </div>
@@ -801,7 +801,7 @@ Solution  Modify the current theme Add a partial template Add a parameter called
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       This is a commentary on the solution from Benjamin Qi.
 from permutation to tree generation Before we go into the solution of this problem it is good to be able to understand how to create a tree using a permutation.
-First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as the time in which node \(i\) is inserted to the tree. We'll use the following \(a=42315\) for illustration.
+First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as the time in which node \(i\) is inserted to the tree. We&rsquo;ll use the following \(a=42315\) for illustration.
     </div>
   </div>
 </div>
@@ -871,7 +871,7 @@ def num_rect(points): m = defaultdict(lambda: 0) answer = 0 for p in points: for
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Consistency Guarantees eventual consistency  eventually data converges  different than transaction isolation  isolation - avoid race conditions due to concurrent execution consistency - about coordinating replica state  levels  strongest - linearizability causality and total ordering commit in a distributed system consensus problem  Linearizability  one replica illusion (one copy of the data) guarantee read is most recent - recency guarantee read A / write C / read A ok read A / begin write C / read B / end write C / read A not ok read is concurrent with the write  linearizability, 1 always follows 1 (no flipping)   cas(x, vold, vnew)  vs Serializability  serializability is about transactions guaranteeing a sequential order linearizability is about recency guarantees on read and write  importance locking and leader election  lock must be linearizable all nodes must agree on who holds the lock  zookeeper - used for distributed locking and leader election    constraints and uniqueness guarantees  enforcing uniquess (username, filename)  similar to acquiring a lock similar to cas operation   constraints that bank balance &gt;= 0  two people don't book the same flight requires a single up-to-date value for account balance or seat occupancy   uniquess constraints in DBs are linearizable foreigh key and attribute constraints can be implemented without linearizability  cross-channel timing dependencies File storage service is not linearizable, that is two requests went into it, one to store the image, and the other to resize the image.
+      Consistency Guarantees eventual consistency  eventually data converges  different than transaction isolation  isolation - avoid race conditions due to concurrent execution consistency - about coordinating replica state  levels  strongest - linearizability causality and total ordering commit in a distributed system consensus problem  Linearizability  one replica illusion (one copy of the data) guarantee read is most recent - recency guarantee read A / write C / read A ok read A / begin write C / read B / end write C / read A not ok read is concurrent with the write  linearizability, 1 always follows 1 (no flipping)   cas(x, vold, vnew)  vs Serializability  serializability is about transactions guaranteeing a sequential order linearizability is about recency guarantees on read and write  importance locking and leader election  lock must be linearizable all nodes must agree on who holds the lock  zookeeper - used for distributed locking and leader election    constraints and uniqueness guarantees  enforcing uniquess (username, filename)  similar to acquiring a lock similar to cas operation   constraints that bank balance &gt;= 0  two people don&rsquo;t book the same flight requires a single up-to-date value for account balance or seat occupancy   uniquess constraints in DBs are linearizable foreigh key and attribute constraints can be implemented without linearizability  cross-channel timing dependencies File storage service is not linearizable, that is two requests went into it, one to store the image, and the other to resize the image.
     </div>
   </div>
 </div>
@@ -886,7 +886,7 @@ def num_rect(points): m = defaultdict(lambda: 0) answer = 0 for p in points: for
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong   Durability - committed means data will not be lost  there is no perfect guarantee    Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another   identify multi-object transaction  tie to client's TCP connection - bad separate transaction id    Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set      Multi-object transactions  when do you need them?
+      Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong   Durability - committed means data will not be lost  there is no perfect guarantee    Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another   identify multi-object transaction  tie to client&rsquo;s TCP connection - bad separate transaction id    Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set      Multi-object transactions  when do you need them?
     </div>
   </div>
 </div>
@@ -944,7 +944,7 @@ problems width of vector clock grows with number of actors, or clients.
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       blackhole installation https://github.com/ExistentialAudio/BlackHole
-mix output  command space - midi audio midi setup click on the plus sign at bottom left add a multi-output device should contain built in output and add blackhole you can adjust the volume (I can't seem to be able to do that)  setting the input  there are two options  all input  command space - sound change the input to default to blackhole  specific input  quicktime start screen recording next to the record button there is a settings button arrow (small) set the device to blackhole  
+mix output  command space - midi audio midi setup click on the plus sign at bottom left add a multi-output device should contain built in output and add blackhole you can adjust the volume (I can&rsquo;t seem to be able to do that)  setting the input  there are two options  all input  command space - sound change the input to default to blackhole  specific input  quicktime start screen recording next to the record button there is a settings button arrow (small) set the device to blackhole  
     </div>
   </div>
 </div>
@@ -1035,7 +1035,7 @@ Spanner zones Zone  zonemaster assigns data to spanservers (1000) location proxi
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong   Durability - committed means data will not be lost  there is no perfect guarantee    Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another   identify multi-object transaction  tie to client's TCP connection - bad separate transaction id    Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set      Multi-object transactions  when do you need them?
+      Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong   Durability - committed means data will not be lost  there is no perfect guarantee    Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another   identify multi-object transaction  tie to client&rsquo;s TCP connection - bad separate transaction id    Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set      Multi-object transactions  when do you need them?
     </div>
   </div>
 </div>
@@ -1059,7 +1059,7 @@ Spanner zones Zone  zonemaster assigns data to spanservers (1000) location proxi
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       This is a commentary on the solution from Benjamin Qi.
 from permutation to tree generation Before we go into the solution of this problem it is good to be able to understand how to create a tree using a permutation.
-First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as the time in which node \(i\) is inserted to the tree. We'll use the following \(a=42315\) for illustration.
+First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as the time in which node \(i\) is inserted to the tree. We&rsquo;ll use the following \(a=42315\) for illustration.
     </div>
   </div>
 </div>

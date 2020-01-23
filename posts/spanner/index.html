@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | Spanner</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.62.2" />
+    <meta name="generator" content="Hugo 0.63.0" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -341,7 +341,7 @@ metadata for the two paxos groups</li>
 <li>megastore
 <ul>
 <li>easier to use, trumps performance</li>
-<li>supports sync replication across dc's</li>
+<li>supports sync replication across dc&rsquo;s</li>
 <li>gmail, picasa, calendar, market, appengine</li>
 </ul>
 </li>
@@ -403,7 +403,7 @@ tables with key K</li>
 <p>timeslave daemon per machine</p>
 <ul>
 <li>poll from masters</li>
-<li>implement Marzullo's algo to detect and reject liars</li>
+<li>implement Marzullo&rsquo;s algo to detect and reject liars</li>
 <li>sync local clock to non-liars</li>
 <li>between syncs, daemon ad a slowly inc time uncertainty
 <ul>
@@ -463,7 +463,7 @@ it has a lease</li>
 <li>replica extends its lease vote on a succ writes</li>
 <li>lease interval starts when it discovers it has a quorum</li>
 <li>ends when it no longer has a quorum (because of expiration)</li>
-<li>paxos leader lease interval is disjoint from other's</li>
+<li>paxos leader lease interval is disjoint from other&rsquo;s</li>
 <li>abdication is permissible must wait TT.after(smax)</li>
 <li>trans read and writes use two-phase locking
 <ul>
@@ -487,7 +487,7 @@ across leaders</li>
 </ul>
 <h3 id="externally-consistency-invariant">externally consistency invariant</h3>
 <ul>
-<li>if start of T2 is after commit of T1, T2's commit time &gt; T1's commit time
+<li>if start of T2 is after commit of T1, T2&rsquo;s commit time &gt; T1&rsquo;s commit time
 <ul>
 <li>define events for trans Ti: ei.start ei.commit si (commit time)</li>
 <li>t(e1.commit) &lt; t(e2.start) =&gt; s1 &lt; s2</li>
@@ -542,7 +542,7 @@ transactions</p>
 <li>
 <p>coordinator ensures that</p>
 <p>si &gt;= si,g(prepare)</p>
-<p>i.e. transaction's commit TS is greater that all participants
+<p>i.e. transaction&rsquo;s commit TS is greater that all participants
 si,g(prepare) amont all participant groups g</p>
 </li>
 <li>
@@ -602,7 +602,7 @@ external consistency</li>
 </li>
 <li>Spanner
 <ul>
-<li>don't have to manually reshard</li>
+<li>don&rsquo;t have to manually reshard</li>
 <li>provides synchronous replication and failover</li>
 <li>transactional semantics</li>
 <li>consistent global indexes</li>
@@ -661,6 +661,13 @@ commit cost</li>
 <div class="mt6">
       
       
+			<script src="https://utteranc.es/client.js"
+        repo="frankieliu/hugo"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+      </script>
       </div>
     </section>
 

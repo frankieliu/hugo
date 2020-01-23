@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | Klepmann Chapter 9 Consistency and Consensus</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.62.2" />
+    <meta name="generator" content="Hugo 0.63.0" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -28,13 +28,13 @@
     
     
     <meta property="og:title" content="Klepmann Chapter 9 Consistency and Consensus" />
-<meta property="og:description" content="Consistency Guarantees eventual consistency  eventually data converges  different than transaction isolation  isolation - avoid race conditions due to concurrent execution consistency - about coordinating replica state  levels  strongest - linearizability causality and total ordering commit in a distributed system consensus problem  Linearizability  one replica illusion (one copy of the data) guarantee read is most recent - recency guarantee read A / write C / read A ok read A / begin write C / read B / end write C / read A not ok read is concurrent with the write  linearizability, 1 always follows 1 (no flipping)   cas(x, vold, vnew)  vs Serializability  serializability is about transactions guaranteeing a sequential order linearizability is about recency guarantees on read and write  importance locking and leader election  lock must be linearizable all nodes must agree on who holds the lock  zookeeper - used for distributed locking and leader election    constraints and uniqueness guarantees  enforcing uniquess (username, filename)  similar to acquiring a lock similar to cas operation   constraints that bank balance &gt;= 0  two people don&#39;t book the same flight requires a single up-to-date value for account balance or seat occupancy   uniquess constraints in DBs are linearizable foreigh key and attribute constraints can be implemented without linearizability  cross-channel timing dependencies File storage service is not linearizable, that is two requests went into it, one to store the image, and the other to resize the image." />
+<meta property="og:description" content="Consistency Guarantees eventual consistency  eventually data converges  different than transaction isolation  isolation - avoid race conditions due to concurrent execution consistency - about coordinating replica state  levels  strongest - linearizability causality and total ordering commit in a distributed system consensus problem  Linearizability  one replica illusion (one copy of the data) guarantee read is most recent - recency guarantee read A / write C / read A ok read A / begin write C / read B / end write C / read A not ok read is concurrent with the write  linearizability, 1 always follows 1 (no flipping)   cas(x, vold, vnew)  vs Serializability  serializability is about transactions guaranteeing a sequential order linearizability is about recency guarantees on read and write  importance locking and leader election  lock must be linearizable all nodes must agree on who holds the lock  zookeeper - used for distributed locking and leader election    constraints and uniqueness guarantees  enforcing uniquess (username, filename)  similar to acquiring a lock similar to cas operation   constraints that bank balance &gt;= 0  two people don&rsquo;t book the same flight requires a single up-to-date value for account balance or seat occupancy   uniquess constraints in DBs are linearizable foreigh key and attribute constraints can be implemented without linearizability  cross-channel timing dependencies File storage service is not linearizable, that is two requests went into it, one to store the image, and the other to resize the image." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/kleppmann-ch09-consistency/" />
 <meta property="article:published_time" content="2019-11-02T12:05:45-07:00" />
 <meta property="article:modified_time" content="2019-11-30T10:28:49-08:00" />
 <meta itemprop="name" content="Klepmann Chapter 9 Consistency and Consensus">
-<meta itemprop="description" content="Consistency Guarantees eventual consistency  eventually data converges  different than transaction isolation  isolation - avoid race conditions due to concurrent execution consistency - about coordinating replica state  levels  strongest - linearizability causality and total ordering commit in a distributed system consensus problem  Linearizability  one replica illusion (one copy of the data) guarantee read is most recent - recency guarantee read A / write C / read A ok read A / begin write C / read B / end write C / read A not ok read is concurrent with the write  linearizability, 1 always follows 1 (no flipping)   cas(x, vold, vnew)  vs Serializability  serializability is about transactions guaranteeing a sequential order linearizability is about recency guarantees on read and write  importance locking and leader election  lock must be linearizable all nodes must agree on who holds the lock  zookeeper - used for distributed locking and leader election    constraints and uniqueness guarantees  enforcing uniquess (username, filename)  similar to acquiring a lock similar to cas operation   constraints that bank balance &gt;= 0  two people don&#39;t book the same flight requires a single up-to-date value for account balance or seat occupancy   uniquess constraints in DBs are linearizable foreigh key and attribute constraints can be implemented without linearizability  cross-channel timing dependencies File storage service is not linearizable, that is two requests went into it, one to store the image, and the other to resize the image.">
+<meta itemprop="description" content="Consistency Guarantees eventual consistency  eventually data converges  different than transaction isolation  isolation - avoid race conditions due to concurrent execution consistency - about coordinating replica state  levels  strongest - linearizability causality and total ordering commit in a distributed system consensus problem  Linearizability  one replica illusion (one copy of the data) guarantee read is most recent - recency guarantee read A / write C / read A ok read A / begin write C / read B / end write C / read A not ok read is concurrent with the write  linearizability, 1 always follows 1 (no flipping)   cas(x, vold, vnew)  vs Serializability  serializability is about transactions guaranteeing a sequential order linearizability is about recency guarantees on read and write  importance locking and leader election  lock must be linearizable all nodes must agree on who holds the lock  zookeeper - used for distributed locking and leader election    constraints and uniqueness guarantees  enforcing uniquess (username, filename)  similar to acquiring a lock similar to cas operation   constraints that bank balance &gt;= 0  two people don&rsquo;t book the same flight requires a single up-to-date value for account balance or seat occupancy   uniquess constraints in DBs are linearizable foreigh key and attribute constraints can be implemented without linearizability  cross-channel timing dependencies File storage service is not linearizable, that is two requests went into it, one to store the image, and the other to resize the image.">
 <meta itemprop="datePublished" content="2019-11-02T12:05:45-07:00" />
 <meta itemprop="dateModified" content="2019-11-30T10:28:49-08:00" />
 <meta itemprop="wordCount" content="1834">
@@ -43,7 +43,7 @@
 
 <meta itemprop="keywords" content="klepmann,scalable,consistency,consensus," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Klepmann Chapter 9 Consistency and Consensus"/>
-<meta name="twitter:description" content="Consistency Guarantees eventual consistency  eventually data converges  different than transaction isolation  isolation - avoid race conditions due to concurrent execution consistency - about coordinating replica state  levels  strongest - linearizability causality and total ordering commit in a distributed system consensus problem  Linearizability  one replica illusion (one copy of the data) guarantee read is most recent - recency guarantee read A / write C / read A ok read A / begin write C / read B / end write C / read A not ok read is concurrent with the write  linearizability, 1 always follows 1 (no flipping)   cas(x, vold, vnew)  vs Serializability  serializability is about transactions guaranteeing a sequential order linearizability is about recency guarantees on read and write  importance locking and leader election  lock must be linearizable all nodes must agree on who holds the lock  zookeeper - used for distributed locking and leader election    constraints and uniqueness guarantees  enforcing uniquess (username, filename)  similar to acquiring a lock similar to cas operation   constraints that bank balance &gt;= 0  two people don&#39;t book the same flight requires a single up-to-date value for account balance or seat occupancy   uniquess constraints in DBs are linearizable foreigh key and attribute constraints can be implemented without linearizability  cross-channel timing dependencies File storage service is not linearizable, that is two requests went into it, one to store the image, and the other to resize the image."/>
+<meta name="twitter:description" content="Consistency Guarantees eventual consistency  eventually data converges  different than transaction isolation  isolation - avoid race conditions due to concurrent execution consistency - about coordinating replica state  levels  strongest - linearizability causality and total ordering commit in a distributed system consensus problem  Linearizability  one replica illusion (one copy of the data) guarantee read is most recent - recency guarantee read A / write C / read A ok read A / begin write C / read B / end write C / read A not ok read is concurrent with the write  linearizability, 1 always follows 1 (no flipping)   cas(x, vold, vnew)  vs Serializability  serializability is about transactions guaranteeing a sequential order linearizability is about recency guarantees on read and write  importance locking and leader election  lock must be linearizable all nodes must agree on who holds the lock  zookeeper - used for distributed locking and leader election    constraints and uniqueness guarantees  enforcing uniquess (username, filename)  similar to acquiring a lock similar to cas operation   constraints that bank balance &gt;= 0  two people don&rsquo;t book the same flight requires a single up-to-date value for account balance or seat occupancy   uniquess constraints in DBs are linearizable foreigh key and attribute constraints can be implemented without linearizability  cross-channel timing dependencies File storage service is not linearizable, that is two requests went into it, one to store the image, and the other to resize the image."/>
 
   </head>
 
@@ -268,7 +268,7 @@ read is concurrent with the write
 </li>
 <li>constraints that bank balance &gt;= 0
 <ul>
-<li>two people don't book the same flight</li>
+<li>two people don&rsquo;t book the same flight</li>
 <li>requires a single up-to-date value for account balance or seat occupancy</li>
 </ul>
 </li>
@@ -281,7 +281,7 @@ linearizability</li>
 one to store the image, and the other to resize the image.  What happened was
 a race condition, resizer went first, and storage finished later.</p>
 <p>If there is only one copy of the image, linearizability solves this problem,
-why?  Because you can't resize something that hasn't been stored yet.  We
+why?  Because you can&rsquo;t resize something that hasn&rsquo;t been stored yet.  We
 could enforce reading after write guarantees, until the write is committed
 then we can do an image resize.</p>
 <p>Think: simple copy of the data, and atomic operations.</p>
@@ -480,7 +480,7 @@ of network failures (342)</li>
 <li>need to know what happened before relationships</li>
 <li>used some generalized vector versioning
 <ul>
-<li>impractical can't keep track of everything that is read</li>
+<li>impractical can&rsquo;t keep track of everything that is read</li>
 </ul>
 </li>
 </ul>
@@ -501,7 +501,7 @@ includes that maximum on every request</li>
 <li>if two users ask for a username</li>
 <li>they both will have a unique Lamport timestamp
 <ul>
-<li>but you can't resolve it until all other nodes are checked</li>
+<li>but you can&rsquo;t resolve it until all other nodes are checked</li>
 <li>you need to know that the order is finalized</li>
 </ul>
 </li>
@@ -593,7 +593,7 @@ crash and stop model</li>
 <li>this method ensures linearizable write but not <strong>reads</strong>
 <ul>
 <li>the read will have sequential consistency (timeline consistency)
-but it won't have recency guarantee</li>
+but it won&rsquo;t have recency guarantee</li>
 </ul>
 </li>
 <li>alternatives to linearizable reads
@@ -803,6 +803,13 @@ commits or is aborted</li>
 <div class="mt6">
       
       
+			<script src="https://utteranc.es/client.js"
+        repo="frankieliu/hugo"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+      </script>
       </div>
     </section>
 

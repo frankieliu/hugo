@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | Vector clocks</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.62.2" />
+    <meta name="generator" content="Hugo 0.63.0" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -277,12 +277,12 @@ at each of N V Nodes:</p>
 <li>if incoming vv &gt; local, overwrite</li>
 <li>if incoming vv ~ local, add new value as sibling</li>
 </ul>
-<p>if c doesn't get a correct value, then update doesn't go through
+<p>if c doesn&rsquo;t get a correct value, then update doesn&rsquo;t go through
 Example:
 local vv has [(x,1)]
-c doesn't get a correct read assumes [(x,0)]
+c doesn&rsquo;t get a correct read assumes [(x,0)]
 incoming vv has [(x,1)]</p>
-<p>since local vv &gt; incoming vv don't do anything -&gt; data is lost</p>
+<p>since local vv &gt; incoming vv don&rsquo;t do anything -&gt; data is lost</p>
 <h2 id="vnode-version-vectors">Vnode Version Vectors</h2>
 <p>let vnodes be actors in the system, since a vnode is a unit of concurrency
 Cx and Cy read &ldquo;Rita&rdquo; [(a,1)] from Vnode a
@@ -324,6 +324,13 @@ be forward to a node that is, adds latency to a PUTs</p>
 <div class="mt6">
       
       
+			<script src="https://utteranc.es/client.js"
+        repo="frankieliu/hugo"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+      </script>
       </div>
     </section>
 

@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | Kleppmann Chapter 07 - Transactions</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.62.2" />
+    <meta name="generator" content="Hugo 0.63.0" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -28,13 +28,13 @@
     
     
     <meta property="og:title" content="Kleppmann Chapter 07 - Transactions" />
-<meta property="og:description" content="Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong   Durability - committed means data will not be lost  there is no perfect guarantee    Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another   identify multi-object transaction  tie to client&#39;s TCP connection - bad separate transaction id    Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set      Multi-object transactions  when do you need them?" />
+<meta property="og:description" content="Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong   Durability - committed means data will not be lost  there is no perfect guarantee    Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another   identify multi-object transaction  tie to client&rsquo;s TCP connection - bad separate transaction id    Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set      Multi-object transactions  when do you need them?" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/kleppmann-ch07-transactions/" />
 <meta property="article:published_time" content="2019-10-25T17:50:20-07:00" />
 <meta property="article:modified_time" content="2019-10-26T19:54:53-07:00" />
 <meta itemprop="name" content="Kleppmann Chapter 07 - Transactions">
-<meta itemprop="description" content="Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong   Durability - committed means data will not be lost  there is no perfect guarantee    Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another   identify multi-object transaction  tie to client&#39;s TCP connection - bad separate transaction id    Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set      Multi-object transactions  when do you need them?">
+<meta itemprop="description" content="Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong   Durability - committed means data will not be lost  there is no perfect guarantee    Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another   identify multi-object transaction  tie to client&rsquo;s TCP connection - bad separate transaction id    Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set      Multi-object transactions  when do you need them?">
 <meta itemprop="datePublished" content="2019-10-25T17:50:20-07:00" />
 <meta itemprop="dateModified" content="2019-10-26T19:54:53-07:00" />
 <meta itemprop="wordCount" content="1082">
@@ -43,7 +43,7 @@
 
 <meta itemprop="keywords" content="db,transactions,scalable,kleppmann," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Kleppmann Chapter 07 - Transactions"/>
-<meta name="twitter:description" content="Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong   Durability - committed means data will not be lost  there is no perfect guarantee    Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another   identify multi-object transaction  tie to client&#39;s TCP connection - bad separate transaction id    Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set      Multi-object transactions  when do you need them?"/>
+<meta name="twitter:description" content="Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong   Durability - committed means data will not be lost  there is no perfect guarantee    Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another   identify multi-object transaction  tie to client&rsquo;s TCP connection - bad separate transaction id    Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set      Multi-object transactions  when do you need them?"/>
 
   </head>
 
@@ -237,7 +237,7 @@
 </li>
 <li>identify multi-object transaction
 <ul>
-<li>tie to client's TCP connection - bad</li>
+<li>tie to client&rsquo;s TCP connection - bad</li>
 <li>separate transaction id</li>
 </ul>
 </li>
@@ -278,7 +278,7 @@
 <ul>
 <li>network failures
 <ul>
-<li>app doesn't get ACK</li>
+<li>app doesn&rsquo;t get ACK</li>
 </ul>
 </li>
 <li>overload
@@ -302,8 +302,8 @@
 <ul>
 <li>no dirty reads, why
 <ul>
-<li>don't want to read several modifications in a transaction</li>
-<li>don't want to read something that gets rollback</li>
+<li>don&rsquo;t want to read several modifications in a transaction</li>
+<li>don&rsquo;t want to read something that gets rollback</li>
 </ul>
 </li>
 </ul>
@@ -484,7 +484,7 @@
 </ul>
 <h3 id="non-working-solutions">non-working solutions</h3>
 <ul>
-<li>atomic single-object don't help</li>
+<li>atomic single-object don&rsquo;t help</li>
 <li>automatic detection of lost updates not detectable</li>
 </ul>
 <h3 id="partial-solutions">partial solutions</h3>
@@ -506,7 +506,7 @@ some constraint, going to same bathroom</li>
 <ul>
 <li>read/modify/write</li>
 <li>doctor example can lock rows</li>
-<li>other examples can't attach lock</li>
+<li>other examples can&rsquo;t attach lock</li>
 <li>write affect the query in another - phantom</li>
 </ul>
 <h3 id="materializing-phantoms">materializing phantoms</h3>
@@ -561,7 +561,7 @@ some constraint, going to same bathroom</li>
 <li>cannot have phantoms
 <ul>
 <li>select * from table where room=123 and start_time &gt; &amp; end_time &lt;</li>
-<li>predicates lock on phantom rows which don't exist yet</li>
+<li>predicates lock on phantom rows which don&rsquo;t exist yet</li>
 </ul>
 </li>
 </ul>
@@ -589,8 +589,8 @@ some constraint, going to same bathroom</li>
 <ul>
 <li>doctor example:
 <ul>
-<li>A's update doctors on_call affects B's reading of it</li>
-<li>B's reading on an ealier MVCC vs A's later txid</li>
+<li>A&rsquo;s update doctors on_call affects B&rsquo;s reading of it</li>
+<li>B&rsquo;s reading on an ealier MVCC vs A&rsquo;s later txid</li>
 </ul>
 </li>
 </ul>
@@ -616,7 +616,7 @@ some constraint, going to same bathroom</li>
 <li>only read what has been committed</li>
 <li>only overwrite what has been committed
 <ul>
-<li>don't overwrite partial transactions</li>
+<li>don&rsquo;t overwrite partial transactions</li>
 </ul>
 </li>
 </ul>
@@ -685,6 +685,13 @@ some constraint, going to same bathroom</li>
 <div class="mt6">
       
       
+			<script src="https://utteranc.es/client.js"
+        repo="frankieliu/hugo"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+      </script>
       </div>
     </section>
 
