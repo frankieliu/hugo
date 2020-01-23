@@ -17,5 +17,5 @@ SectionPagesMenu = "main"
     linkedin = "https://www.linkedin.com/in/frankieyliu/"
     discord = "https://discordapp.com/users/523372803387293696"
     medium = "https://medium.com/eins-zwei"
-		custom_css = [ "/css/_social-icons.css" ]
+		custom_css = [ "css/test.css" ]
 		
