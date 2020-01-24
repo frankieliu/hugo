@@ -77,7 +77,7 @@ usually make a copy of the hierarchy in the hugo base.  For example for
 social-follow.html and svg one just copies the it into a similar one in
 layouts/partials under hugo and puts the svg in that directory as well, since we
 are working off social-follow.html I also had to copy the whole svg directory
-over with the added discord.svg.   Note that I had to move the discord path a
+over with the added discord.svg.   Note that I had to move the discord.svg path a
 bit because it wasn't centered and was not as small as the one used by ananke.
 
 The problem is how to replace the css files, since they are not used by hugo in
@@ -106,7 +106,7 @@ I forcefully tried many variations in adding a slash in front of the
 none of these seemed to make any difference.
 
 TL;DR story is that the underscore in the css file name indicates that it is
-to be imported by some other css file, therefore the server does not server
+to be imported by some other css file, therefore the server does not serve
 css files with underscores in front of css file names.  I changed to it a
 non-underscore name and voila it worked.
 
