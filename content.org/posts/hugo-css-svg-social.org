@@ -89,7 +89,10 @@ config.toml and pointing it at a file that can accessed by hugo.
 For such files, I usually put them in the static/ directory, keeping simple
 convensions I started a static/css directory and added the _social-icons.css.
 Lo and behold everything looked fine in the local server, but somehow the css
-was not being picked up from github pages.
+was not being picked up from github pages.  Note, another problem was that
+custom_css file was in text format, and stylesheets in hugo cannot be loaded
+as text files unless you add type="text/css" in the <link rel="stylesheet">
+in baseof.html.
 
 Sure enough the directory css/_social-icons.css was created, but wasn't somehow
 being picked up.  I had a similar issue before with images, because I am using
