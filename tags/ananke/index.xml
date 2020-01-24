@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ananke on My New Hugo Site</title>
+    <link>https://www.frankliu.org/hugo/tags/ananke/</link>
+    <description>Recent content in ananke on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 Jan 2020 14:50:02 -0800</lastBuildDate>
+    
+	<atom:link href="https://www.frankliu.org/hugo/tags/ananke/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hugo: custom css, social-follow, svg, baseurl, comments</title>
+      <link>https://www.frankliu.org/hugo/posts/hugo-css-svg-social/</link>
+      <pubDate>Thu, 23 Jan 2020 14:50:02 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/hugo-css-svg-social/</guid>
+      <description>hugo social buttons It stated with wanting to add social buttons on my web page. This was as easy as changing the config.toml file. For Ananke theme, it is looking for some parameters, in the [params] sections. Just add you link to facebook, twitter, etc as facebook = &amp;quot;https://www.facebook.com/ID&amp;quot;.
+case of missing id I was upset that it had a slack link available, but no discord one. One because I don&amp;rsquo;t even know what is one&amp;rsquo;s slack id.</description>
+    </item>
+    
+  </channel>
+</rss>
