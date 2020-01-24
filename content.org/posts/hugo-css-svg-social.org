@@ -45,7 +45,7 @@ the existing ones and add a logo which goes into the svg directory.
 Note that every icon has a class associated with it.  We will return to this in
 a second.
 
-I googled discord blanding and found ready made svg's.  Way to go discord!
+I googled discord branding and found ready made svg's.  Way to go discord!
 
 I put the symbol in the svg directory and updated the social-follow.html
 template with the appropriate svg file and crossed my fingers.
@@ -69,7 +69,7 @@ social follows in src/css.  It was being included by main.css.
 
 _social-follow.css actually contained the css class elements that I was looking
 for.  I added the a discord class definition, and looked up discord's color,
-again thanks to discord blanding website, the 3-tuple was already there for the
+again thanks to discord branding website, the 3-tuple was already there for the
 taking.
 
 Note because I don't change anything in the ananke theme directory you need to
