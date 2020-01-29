@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>db on My New Hugo Site</title>
+    <link>https://www.frankliu.org/hugo/tags/db/</link>
+    <description>Recent content in db on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 25 Oct 2019 17:50:20 -0700</lastBuildDate>
+    
+	<atom:link href="https://www.frankliu.org/hugo/tags/db/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Kleppmann Chapter 07 - Transactions</title>
+      <link>https://www.frankliu.org/hugo/posts/kleppmann-ch07-transactions/</link>
+      <pubDate>Fri, 25 Oct 2019 17:50:20 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/kleppmann-ch07-transactions/</guid>
+      <description>Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong   Durability - committed means data will not be lost  there is no perfect guarantee    Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another   identify multi-object transaction  tie to client&amp;rsquo;s TCP connection - bad separate transaction id    Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set      Multi-object transactions  when do you need them?</description>
+    </item>
+    
+    <item>
+      <title>Spanner</title>
+      <link>https://www.frankliu.org/hugo/posts/spanner/</link>
+      <pubDate>Tue, 17 Sep 2019 18:45:19 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/spanner/</guid>
+      <description>Key to paper TrueTime exposes clock uncertainty, if the uncertainty is large, Spanner slows down to wait out the uncertainty. TS reflect serialization order, external consistency, or linearizability.
+Spanner zones Zone  zonemaster assigns data to spanservers (1000) location proxies used by clients to locate spanservers  Spanserver  responsible for 1000 tablets  Tablet  (key: string, timestamp: int64) -&amp;gt; string more like multiversion kv store state store in a set of B-tree-like files and a write ahead log  in DFS called colossus   one Paxos state machine per tablet  Paxos  long time leader leases (10 sec) implements a consistently replicated bag of mappings writes initiates paxos protocol at leader reads access state directly from any replica set of replicas called Paxos group  Logs:  every &amp;lsquo;Paxos write&amp;rsquo; goes to tablet log and to Paxos logic  Replica leader  every leader replica implements a lock table contains the state for 2-phase locking  maps ranges of keys to lock states   leaders are long lived to maintain this lock table  performs poorly under optimistic concurrency control   replicas in paxos group called participant slaves implements a transaction manager  implements a participant leader used between other paxos groups for 2-phase commit    Participant/Coordinator  one participant leader (leader to a paxos group) is chosen as coordinator leader, other replica leader called coordinator slaves state of transaction manager store in underlying paxos group    Directory and placement directory  set of contiguous keys with common prefix unit of data placement -&amp;gt; same replica config unit of data movement between paxos groups  paxos group/tablet  contains multiple directories not necessarily lex.</description>
+    </item>
+    
+    <item>
+      <title>DynamoDB</title>
+      <link>https://www.frankliu.org/hugo/posts/dynamo/</link>
+      <pubDate>Sun, 15 Sep 2019 15:25:05 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/dynamo/</guid>
+      <description>Highlights  kv store data partitioning and replication by consistent hashing consistency facilitated by object versioning consistency among replicas during update by quorum decentralized replica synchronization gossip based distributed failure detection and membership  Background  Authors confuse &amp;lsquo;C&amp;rsquo; in ACID with &amp;lsquo;C&amp;rsquo; in CAP  2.3  optimistic replication - conflict resolution when you need item allow writes/updates - &amp;ldquo;always writable&amp;rdquo; pushes complex conflict resolution on the reader  at data store means &amp;ldquo;last write wins&amp;rdquo; too simple, allow client to do the conflict resolution    Related work  &amp;ldquo;always writable&amp;rdquo; requirement trusted nodes simple k-v latency ~ 100-200ms  zero-hop DHT, each node can route request to appropriate node      System architecture  components:  data persistence component load balancing membership failure detection failure recovery replica synchronization overload handling state transfer concurrency job scheduling request marshalling request routing system monitoring system alarming configuration management   cover:  partitioning replication versioning membership failure handling scaling    system interface  api get and put get(key)  locates object replicas returns with conflicting versions returns with a context   put(key, context, object)  determines which replica context : metadata such as version   key and object are opaque array of bytes  use MD5 hash to generate a 128-bit id    partitioning  consistent hashing each node assigned a random position in the ring each data item hashed to ring and served by first node larger position each node serves data between it and its predecessor each node actually mapped to multiple points in the ring (tokens) virtual node advantages  if node goes down, load gets handled more evenly by other nodes    replication  data item is replicated at \(N\) hosts each key assigned to a coordinator node coordinator is in charge of replication of the data items that fall in its range coordinator replicates key at N-1 clockwise successor nodes in the ring  each node is responsible for between it and its \(N\) th predecessor   preference list is the list of nodes responsible for a key every node in the system can determine which nodes for a key the pref list skips positions in the ring to ensure that it contains only distinct physical nodes  data versioning  eventual consistency, data propagates asynchronously guarantees that writes cannot be forgotten or rejected  each modificaiton is a new and immutable version of the data   version branching can happen in the presence of failures resulting in conflicting versions, client must perform reconciliation vector clocks used to capture causality  (node, counter) if the counters of an object are less-than-or-equal to all the nodes in a second clock, the first is an ancestor   on update, client must specify which version is being updated  pass the context from earlier read       timestamp is used to truncate the clock which may be growing  get and put operations  route request through LB use partition aware client library that routes to coordinator requests received through a LB routed to any random node in ring  node will forward to the first among top \(N\) in preference list   quorum protocol \(R+W &amp;gt; N\) put(), coordinator generates vector clock for new version  sends to \(N\) highest-ranked reachable nodes if \(W-1\) nodes respond then the write is considered successful   get(), coordinator requests all existing versions of data forward for that key, wiates for \(R\) responses before returning value to client  handling failure   hinted handoff</description>
+    </item>
+    
+  </channel>
+</rss>

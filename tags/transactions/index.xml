@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>transactions on My New Hugo Site</title>
+    <link>https://www.frankliu.org/hugo/tags/transactions/</link>
+    <description>Recent content in transactions on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 25 Oct 2019 17:50:20 -0700</lastBuildDate>
+    
+	<atom:link href="https://www.frankliu.org/hugo/tags/transactions/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Kleppmann Chapter 07 - Transactions</title>
+      <link>https://www.frankliu.org/hugo/posts/kleppmann-ch07-transactions/</link>
+      <pubDate>Fri, 25 Oct 2019 17:50:20 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/kleppmann-ch07-transactions/</guid>
+      <description>Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong   Durability - committed means data will not be lost  there is no perfect guarantee    Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another   identify multi-object transaction  tie to client&amp;rsquo;s TCP connection - bad separate transaction id    Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set      Multi-object transactions  when do you need them?</description>
+    </item>
+    
+  </channel>
+</rss>

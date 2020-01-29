@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on My New Hugo Site</title>
+    <link>https://www.frankliu.org/hugo/tags/</link>
+    <description>Recent content in Tags on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 Jan 2020 22:40:15 -0800</lastBuildDate>
+    
+	<atom:link href="https://www.frankliu.org/hugo/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gosper&#39;s hack</title>
+      <link>https://www.frankliu.org/hugo/tags/gospers-hack/</link>
+      <pubDate>Tue, 28 Jan 2020 22:40:15 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/gospers-hack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hamiltonian path</title>
+      <link>https://www.frankliu.org/hugo/tags/hamiltonian-path/</link>
+      <pubDate>Tue, 28 Jan 2020 22:40:15 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/hamiltonian-path/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>traveling salesman</title>
+      <link>https://www.frankliu.org/hugo/tags/traveling-salesman/</link>
+      <pubDate>Tue, 28 Jan 2020 22:40:15 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/traveling-salesman/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ananke</title>
+      <link>https://www.frankliu.org/hugo/tags/ananke/</link>
+      <pubDate>Thu, 23 Jan 2020 14:50:02 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/ananke/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github-pages</title>
+      <link>https://www.frankliu.org/hugo/tags/github-pages/</link>
+      <pubDate>Thu, 23 Jan 2020 14:50:02 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/github-pages/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://www.frankliu.org/hugo/tags/hugo/</link>
+      <pubDate>Thu, 23 Jan 2020 14:50:02 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dp</title>
+      <link>https://www.frankliu.org/hugo/tags/dp/</link>
+      <pubDate>Mon, 20 Jan 2020 23:22:01 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/dp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>leetcode</title>
+      <link>https://www.frankliu.org/hugo/tags/leetcode/</link>
+      <pubDate>Mon, 20 Jan 2020 23:22:01 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/leetcode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>distributed system</title>
+      <link>https://www.frankliu.org/hugo/tags/distributed-system/</link>
+      <pubDate>Sat, 18 Jan 2020 19:24:37 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/distributed-system/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>zookeeper</title>
+      <link>https://www.frankliu.org/hugo/tags/zookeeper/</link>
+      <pubDate>Sat, 18 Jan 2020 19:24:37 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/zookeeper/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>generating functions</title>
+      <link>https://www.frankliu.org/hugo/tags/generating-functions/</link>
+      <pubDate>Wed, 15 Jan 2020 18:21:28 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/generating-functions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>permutations</title>
+      <link>https://www.frankliu.org/hugo/tags/permutations/</link>
+      <pubDate>Wed, 15 Jan 2020 18:21:28 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/permutations/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>trees</title>
+      <link>https://www.frankliu.org/hugo/tags/trees/</link>
+      <pubDate>Wed, 15 Jan 2020 18:21:28 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/trees/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blackhole</title>
+      <link>https://www.frankliu.org/hugo/tags/blackhole/</link>
+      <pubDate>Thu, 28 Nov 2019 18:10:58 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/blackhole/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mac</title>
+      <link>https://www.frankliu.org/hugo/tags/mac/</link>
+      <pubDate>Thu, 28 Nov 2019 18:10:58 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/mac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sound recording</title>
+      <link>https://www.frankliu.org/hugo/tags/sound-recording/</link>
+      <pubDate>Thu, 28 Nov 2019 18:10:58 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/sound-recording/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>computational geometry</title>
+      <link>https://www.frankliu.org/hugo/tags/computational-geometry/</link>
+      <pubDate>Wed, 20 Nov 2019 23:21:28 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/computational-geometry/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rectangle</title>
+      <link>https://www.frankliu.org/hugo/tags/rectangle/</link>
+      <pubDate>Wed, 20 Nov 2019 23:21:28 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/rectangle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cache</title>
+      <link>https://www.frankliu.org/hugo/tags/cache/</link>
+      <pubDate>Mon, 18 Nov 2019 14:40:38 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/cache/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>deeplearningbook</title>
+      <link>https://www.frankliu.org/hugo/tags/deeplearningbook/</link>
+      <pubDate>Tue, 05 Nov 2019 19:03:13 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/deeplearningbook/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github.io</title>
+      <link>https://www.frankliu.org/hugo/tags/github.io/</link>
+      <pubDate>Tue, 05 Nov 2019 19:03:13 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/github.io/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>consensus</title>
+      <link>https://www.frankliu.org/hugo/tags/consensus/</link>
+      <pubDate>Sat, 02 Nov 2019 12:05:45 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/consensus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>consistency</title>
+      <link>https://www.frankliu.org/hugo/tags/consistency/</link>
+      <pubDate>Sat, 02 Nov 2019 12:05:45 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/consistency/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>klepmann</title>
+      <link>https://www.frankliu.org/hugo/tags/klepmann/</link>
+      <pubDate>Sat, 02 Nov 2019 12:05:45 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/klepmann/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scalable</title>
+      <link>https://www.frankliu.org/hugo/tags/scalable/</link>
+      <pubDate>Sat, 02 Nov 2019 12:05:45 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/scalable/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>db</title>
+      <link>https://www.frankliu.org/hugo/tags/db/</link>
+      <pubDate>Fri, 25 Oct 2019 17:50:20 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/db/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kleppmann</title>
+      <link>https://www.frankliu.org/hugo/tags/kleppmann/</link>
+      <pubDate>Fri, 25 Oct 2019 17:50:20 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/kleppmann/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>transactions</title>
+      <link>https://www.frankliu.org/hugo/tags/transactions/</link>
+      <pubDate>Fri, 25 Oct 2019 17:50:20 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/transactions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>algorithms</title>
+      <link>https://www.frankliu.org/hugo/tags/algorithms/</link>
+      <pubDate>Wed, 23 Oct 2019 22:43:03 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/algorithms/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>strings</title>
+      <link>https://www.frankliu.org/hugo/tags/strings/</link>
+      <pubDate>Wed, 23 Oct 2019 22:43:03 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/strings/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>concurrent-writes</title>
+      <link>https://www.frankliu.org/hugo/tags/concurrent-writes/</link>
+      <pubDate>Sat, 12 Oct 2019 12:46:54 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/concurrent-writes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vector-clocks</title>
+      <link>https://www.frankliu.org/hugo/tags/vector-clocks/</link>
+      <pubDate>Sat, 12 Oct 2019 12:46:54 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/vector-clocks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>https://www.frankliu.org/hugo/tags/r/</link>
+      <pubDate>Fri, 04 Oct 2019 22:35:02 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>google</title>
+      <link>https://www.frankliu.org/hugo/tags/google/</link>
+      <pubDate>Tue, 17 Sep 2019 18:45:19 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/google/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spanner</title>
+      <link>https://www.frankliu.org/hugo/tags/spanner/</link>
+      <pubDate>Tue, 17 Sep 2019 18:45:19 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/spanner/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>timestamp</title>
+      <link>https://www.frankliu.org/hugo/tags/timestamp/</link>
+      <pubDate>Tue, 17 Sep 2019 18:45:19 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/timestamp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>amazon</title>
+      <link>https://www.frankliu.org/hugo/tags/amazon/</link>
+      <pubDate>Sun, 15 Sep 2019 15:25:05 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/amazon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dynamo</title>
+      <link>https://www.frankliu.org/hugo/tags/dynamo/</link>
+      <pubDate>Sun, 15 Sep 2019 15:25:05 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/dynamo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mathjax</title>
+      <link>https://www.frankliu.org/hugo/tags/mathjax/</link>
+      <pubDate>Sat, 14 Sep 2019 19:10:31 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/mathjax/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
