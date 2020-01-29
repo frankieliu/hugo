@@ -12,6 +12,9 @@
 #+HUGO_DRAFT: false
 
 #+STARTUP: indent hidestars showall
+
+* Figure below make with mypaint and a Bamboo table on Ubuntu
+
 [[/images/tsp/bellman-held-karp_b.png]]
 
 * Floyd-Warshall connection
