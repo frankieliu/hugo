@@ -28,28 +28,25 @@
     
     
     <meta property="og:title" content="Bellman-Held-Karp Hamiltonian path and Traveling Salesman" />
-<meta property="og:description" content="Figure below make with mypaint and a Bamboo table on Ubuntu   Floyd-Warshall connection This section can be skipped, because it basically my own brain mapping of this problem, since I feel there are some similarities with Floyd-Warshall.
-For FW, I think of a source and destination pair \(i\) and \(j\) going through some intermediate node \(k\), and relaxing in a reverse triangle inequality kind of way, i.e.
-\[ d[i][j] = min(d[i][j], d[i][k] &#43; d[k][j]) \]" />
+<meta property="og:description" content="Figure below make with mypaint and a Bamboo table on Ubuntu   Floyd-Warshall connection This section can be skipped, because it is basically my own brain mapping of this problem, since I feel there are some similarities with Floyd-Warshall.
+For FW, I think of a source and destination pair \(i\) and \(j\) going through some intermediate node \(k\), and relaxing in a reverse triangle inequality kind of way, i.e." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/bellman-held-karp/" />
 <meta property="article:published_time" content="2020-01-28T22:40:15-08:00" />
-<meta property="article:modified_time" content="2020-01-29T14:53:34-08:00" />
+<meta property="article:modified_time" content="2020-01-29T14:57:29-08:00" />
 <meta itemprop="name" content="Bellman-Held-Karp Hamiltonian path and Traveling Salesman">
-<meta itemprop="description" content="Figure below make with mypaint and a Bamboo table on Ubuntu   Floyd-Warshall connection This section can be skipped, because it basically my own brain mapping of this problem, since I feel there are some similarities with Floyd-Warshall.
-For FW, I think of a source and destination pair \(i\) and \(j\) going through some intermediate node \(k\), and relaxing in a reverse triangle inequality kind of way, i.e.
-\[ d[i][j] = min(d[i][j], d[i][k] &#43; d[k][j]) \]">
+<meta itemprop="description" content="Figure below make with mypaint and a Bamboo table on Ubuntu   Floyd-Warshall connection This section can be skipped, because it is basically my own brain mapping of this problem, since I feel there are some similarities with Floyd-Warshall.
+For FW, I think of a source and destination pair \(i\) and \(j\) going through some intermediate node \(k\), and relaxing in a reverse triangle inequality kind of way, i.e.">
 <meta itemprop="datePublished" content="2020-01-28T22:40:15-08:00" />
-<meta itemprop="dateModified" content="2020-01-29T14:53:34-08:00" />
-<meta itemprop="wordCount" content="1013">
+<meta itemprop="dateModified" content="2020-01-29T14:57:29-08:00" />
+<meta itemprop="wordCount" content="1014">
 
 
 
 <meta itemprop="keywords" content="Hamiltonian path,traveling salesman,Gosper&#39;s hack," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Bellman-Held-Karp Hamiltonian path and Traveling Salesman"/>
-<meta name="twitter:description" content="Figure below make with mypaint and a Bamboo table on Ubuntu   Floyd-Warshall connection This section can be skipped, because it basically my own brain mapping of this problem, since I feel there are some similarities with Floyd-Warshall.
-For FW, I think of a source and destination pair \(i\) and \(j\) going through some intermediate node \(k\), and relaxing in a reverse triangle inequality kind of way, i.e.
-\[ d[i][j] = min(d[i][j], d[i][k] &#43; d[k][j]) \]"/>
+<meta name="twitter:description" content="Figure below make with mypaint and a Bamboo table on Ubuntu   Floyd-Warshall connection This section can be skipped, because it is basically my own brain mapping of this problem, since I feel there are some similarities with Floyd-Warshall.
+For FW, I think of a source and destination pair \(i\) and \(j\) going through some intermediate node \(k\), and relaxing in a reverse triangle inequality kind of way, i.e."/>
 
   </head>
 
@@ -226,7 +223,7 @@ MathJax.Hub.Config({
 </figure>
 
 <h2 id="floyd-warshall-connection">Floyd-Warshall connection</h2>
-<p>This section can be skipped, because it basically my own brain mapping of this
+<p>This section can be skipped, because it is basically my own brain mapping of this
 problem, since I feel there are some similarities with Floyd-Warshall.</p>
 <p>For FW, I think of a source and destination pair \(i\) and \(j\) going through some
 intermediate node \(k\), and relaxing in a reverse triangle inequality kind of
@@ -307,7 +304,7 @@ Hamiltonian path if there exists a TSP solution.</p>
 <p>One way to retain the path, is keeping track of the parent for a particular
 \(S_i\) and \(j\).  That is, when the <code>if</code> statement is taken then keep track of \(k\)
 which corresponds to a \(dp[S_-][k]\), or \(parent[S_i][j] = k\).  Since we have
-\(S_i\) and \(j\) then we know \(S_- = S_i - {j}\), from which we can get its parent
+\(S_i\) and \(j\) then we know \(S_- = S_i - \{j\}\), from which we can get its parent
 via \(parent[S_-][k]\) and so on.</p>
 <h2 id="finding-the-tsp-answer">Finding the TSP answer</h2>
 <p>The end result of BHK iteration is \(dp[S_{n-1}][j]\) array, which is the best
