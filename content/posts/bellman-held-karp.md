@@ -2,7 +2,7 @@
 title = "Bellman-Held-Karp Hamiltonian path and Traveling Salesman"
 author = ["adam"]
 date = 2020-01-28T22:40:15-08:00
-lastmod = 2020-01-29T14:53:34-08:00
+lastmod = 2020-01-29T14:57:29-08:00
 tags = ["Hamiltonian path", "traveling salesman", "Gosper's hack"]
 categories = ["Hamiltonian path", "traveling salesman"]
 draft = false
@@ -22,7 +22,7 @@ mathjax = true
 
 ## Floyd-Warshall connection {#floyd-warshall-connection}
 
-This section can be skipped, because it basically my own brain mapping of this
+This section can be skipped, because it is basically my own brain mapping of this
 problem, since I feel there are some similarities with Floyd-Warshall.
 
 For FW, I think of a source and destination pair \\(i\\) and \\(j\\) going through some
@@ -131,7 +131,7 @@ Hamiltonian path if there exists a TSP solution.
 One way to retain the path, is keeping track of the parent for a particular
 \\(S\_i\\) and \\(j\\).  That is, when the `if` statement is taken then keep track of \\(k\\)
 which corresponds to a \\(dp[S\_-][k]\\), or \\(parent[S\_i][j] = k\\).  Since we have
-\\(S\_i\\) and \\(j\\) then we know \\(S\_- = S\_i - {j}\\), from which we can get its parent
+\\(S\_i\\) and \\(j\\) then we know \\(S\_- = S\_i - \\{j\\}\\), from which we can get its parent
 via \\(parent[S\_-][k]\\) and so on.
 
 

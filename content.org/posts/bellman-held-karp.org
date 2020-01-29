@@ -18,7 +18,7 @@
 [[/images/tsp/bellman-held-karp_b.png]]
 
 * Floyd-Warshall connection
-This section can be skipped, because it basically my own brain mapping of this
+This section can be skipped, because it is basically my own brain mapping of this
 problem, since I feel there are some similarities with Floyd-Warshall.
 
 For FW, I think of a source and destination pair $i$ and $j$ going through some
