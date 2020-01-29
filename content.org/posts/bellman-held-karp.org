@@ -13,7 +13,7 @@
 
 #+STARTUP: indent hidestars showall
 
-* Figure below make with mypaint and a Bamboo table on Ubuntu
+* Figure below with mypaint and a Bamboo table on Ubuntu
 
 [[/images/tsp/bellman-held-karp_b.png]]
 
