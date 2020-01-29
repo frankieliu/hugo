@@ -1,0 +1,102 @@
+# -*- mode: org -*-
+#+HUGO_BASE_DIR: ../..
+#+HUGO_SECTION: posts
+#+HUGO_WEIGHT: 2000
+#+HUGO_AUTO_SET_LASTMOD: t
+#+TITLE: "C++ for competitive programming"
+#+DATE: 2020-01-24T07:31:50-08:00
+#+HUGO_TAGS: c++ "competitive programming" 
+#+HUGO_CATEGORIES: c++ "competitive programming" 
+#+HUGO_MENU_off: :menu "main" :weight 2000
+#+HUGO_CUSTOM_FRONT_MATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true :toc true
+#+HUGO_DRAFT: false
+
+#+STARTUP: indent hidestars showall
+* usaco training
+#+begin_src c++
+  /* Use the slash-star style comments or the system won't see your
+     identification information */
+  /*
+    ID: your_id_here
+    TASK: test
+    LANG: C++                 
+  ,*/
+  /* LANG can be C++11 or C++14 for those more recent releases */
+  #include <iostream>
+  #include <fstream>
+  #include <string>
+
+  using namespace std;
+
+  int main() {
+    ofstream fout ("test.out");
+    ifstream fin ("test.in");
+    int a, b;
+    fin >> a >> b;
+    fout << a+b << endl;
+    return 0;
+  }
+#+end_src
+
+* Benjamin qi's
+
+#+begin_src c++
+  #include <bits/stdc++.h>
+  using namespace std;
+
+  typedef long long ll;
+  typedef vector<int> vi; 
+
+  #define FOR(i,a,b) for (int i = (a); i < (b); ++i)
+  #define F0R(i,a) FOR(i,0,a)
+  #define ROF(i,a,b) for (int i = (b)-1; i >= (a); --i)
+  #define R0F(i,a) ROF(i,0,a)
+  #define trav(a,x) for (auto& a: x)
+
+  #define pb push_back
+  #define rsz resize
+  #define sz(x) int(x.size())
+
+  void setIO(string name) {
+    ios_base::sync_with_stdio(0); cin.tie(0);
+    freopen((name+".in").c_str(),"r",stdin);
+    freopen((name+".out").c_str(),"w",stdout);
+  }
+
+  int MOD;
+  int n,k;
+
+  typedef int T;
+  struct mi {
+    T val; 
+    mi() { val = 0; }
+    mi(const ll& v) { 
+      val = (-MOD <= v && v <= MOD) ? v : v % MOD;
+      if (val < 0) val += MOD;
+    }
+    mi& operator+=(const mi& m) { 
+      if ((val += m.val) >= MOD) val -= MOD; 
+      return *this; }
+    mi& operator-=(const mi& m) { 
+      if ((val -= m.val) < 0) val += MOD; 
+      return *this; }
+  };
+  typedef vector<mi> vmi;
+ 
+  int main() {
+    setIO("filename");
+    cin >> n >> k >> MOD;
+    vmi v = {1}; FOR(i,1,n+1) ad(v,i);
+    vmi ans(n,v[k]);
+    FOR(dif,1,n) {
+      sub(v,dif+1);
+      mi x = get(v,k-dif), y = get(v,k);
+      ad(v,dif+1);
+      F0R(a,n-dif) {
+        ans[a] += x;
+        ans[a+dif] += y;
+      }
+    }
+    F0R(i,n) cout << ans[i].val << ' ';
+  }
+#+end_src

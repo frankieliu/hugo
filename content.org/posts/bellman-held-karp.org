@@ -1,0 +1,76 @@
+# -*- mode: org -*-
+#+HUGO_BASE_DIR: ../..
+#+HUGO_SECTION: posts
+#+HUGO_WEIGHT: 2000
+#+HUGO_AUTO_SET_LASTMOD: t
+#+TITLE: "Bellman-Held-Karp Hamiltonian path and Traveling Salesman"
+#+DATE: 2020-01-28T22:40:15-08:00
+#+HUGO_TAGS: "Hamiltonian path" "traveling salesman" "Gosper's hack"
+#+HUGO_CATEGORIES: "Hamiltonian path" "traveling salesman"
+#+HUGO_MENU_off: :menu "main" :weight 2000
+#+HUGO_CUSTOM_FRONT_MATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true
+#+HUGO_DRAFT: false
+
+#+STARTUP: indent hidestars showall
+[[/images/tsp/bellman-held-karp_b.png]]
+
+* Floyd-Warshall connection
+This section can be skipped, because it basically my own brain mapping of this
+problem, since I feel there are some similarities with Floyd-Warshall.
+
+For FW, I think of a source and destination pair $i$ and $j$ going through some
+intermediate node $k$, and relaxing in a reverse triangle inequality kind of
+way, i.e.
+
+$$
+d[i][j] = min(d[i][j], d[i][k] + d[k][j])
+$$
+
+From here it is not immediate obvious how to iterate, i.e. should the outer
+loop be over all $i$ $j$ pairs, or an outer loop over the intermediate node
+$k$?
+
+This can be resolved by asking the question what do I need to know in order
+to compute $d[i][j]$ at each step of the iteration.  Since I depend on 
+$d[i][k]$ and $d[k][j]$ it seems that I am going in a circle.
+
+Instead think of the dp problem.  What is the decision point, so that one can
+progress forward.  Consider the decision point to be a source at a time, i.e.
+for a given source I will find all the best ways to reach a destination.  This
+is kind of hard to achieve, since for a particular source, you also need to 
+have information about the best source point from point $k$ to $j$, and this
+is not possible until we have reached the source iteration for element $k$.
+By symmetry it should not be the destination point either.
+
+Then let's consider $k$ as the decision point.  In this case we consider all
+the savings going through $k$ on a first pass.  Then the next decision point
+will be $k+1$ node, in which, we add another possible intermediate point, etc.
+
+One way to graphically think about this is the following. When adding a single
+$k$ you are looking at the best one or two segment routes. When adding the next
+$k$ you are looking at the best one, two, three, or four segment paths.  Because
+you can now go through another middle point.
+
+There is a more formulaic expression which expresses this, which is helpful
+in capturing the dp nature of the problem:
+
+$$
+dp[i,j][k] = min(dp[i,j][k-1], dp[i,k][k-1] + dp[k,j][k-1])
+$$
+
+Here $k$ denotes two things in $dp[i,k]$ it is the a source or destination, in
+$dp[,][k]$ it denotes the set of decisions up to and including the $k$ middle
+point.  So it is saying that $k$ is now available, the best shortest path from
+$i$ to $j$ can be without considering $k$ ($dp[i,j][k-1]$) or going through it
+(the RHS of the above).
+
+* Tie in with Bellman-Held-Karp
+
+There is a similar consideration, but it is interesting to note the differences.
+
+In BHK, we take into consideration a subset of the vertices, and compute the
+best possible paths from this subset that end at a particular vertex $j$.  Just
+as in the above, the dp formulation was considering all "$k-1$" solutions that don't
+include the current decision $k$.  For the BHK case, it is considering all the
+$S_i-\{j\}$ solutions that don't include $j$, to come up for the solution of
+$S_i$ where $j \in S_i$.
