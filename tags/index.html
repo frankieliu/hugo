@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site </title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.63.0" />
+    <meta name="generator" content="Hugo 0.63.2" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -36,7 +36,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/tags/" />
-<meta property="og:updated_time" content="2020-01-23T14:50:02-08:00" />
+<meta property="og:updated_time" content="2020-01-28T22:40:15-08:00" />
 <meta itemprop="name" content="Tags">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Tags"/>
@@ -627,6 +627,56 @@ Spanner zones Zone  zonemaster assigns data to spanservers (1000) location proxi
         
       
         <h2 class="f1">
+          <a href="https://www.frankliu.org/hugo/tags/gospers-hack" class="link blue hover-black">
+            Tag: gospers-hack
+          </a>
+        </h2>
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/bellman-held-karp/" class="link black dim">
+        Bellman-Held-Karp Hamiltonian path and Traveling Salesman
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Floyd-Warshall connection This section can be skipped, because it basically my own brain mapping of this problem, since I feel there are some similarities with Floyd-Warshall.
+For FW, I think of a source and destination pair \(i\) and \(j\) going through some intermediate node \(k\), and relaxing in a reverse triangle inequality kind of way, i.e.
+\[ d[i][j] = min(d[i][j], d[i][k] + d[k][j]) \]
+From here it is not immediate obvious how to iterate, i.
+    </div>
+  </div>
+</div>
+
+        
+      
+        <h2 class="f1">
+          <a href="https://www.frankliu.org/hugo/tags/hamiltonian-path" class="link blue hover-black">
+            Tag: hamiltonian-path
+          </a>
+        </h2>
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/bellman-held-karp/" class="link black dim">
+        Bellman-Held-Karp Hamiltonian path and Traveling Salesman
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Floyd-Warshall connection This section can be skipped, because it basically my own brain mapping of this problem, since I feel there are some similarities with Floyd-Warshall.
+For FW, I think of a source and destination pair \(i\) and \(j\) going through some intermediate node \(k\), and relaxing in a reverse triangle inequality kind of way, i.e.
+\[ d[i][j] = min(d[i][j], d[i][k] + d[k][j]) \]
+From here it is not immediate obvious how to iterate, i.
+    </div>
+  </div>
+</div>
+
+        
+      
+        <h2 class="f1">
           <a href="https://www.frankliu.org/hugo/tags/hugo" class="link blue hover-black">
             Tag: hugo
           </a>
@@ -1098,6 +1148,31 @@ Spanner zones Zone  zonemaster assigns data to spanservers (1000) location proxi
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong   Durability - committed means data will not be lost  there is no perfect guarantee    Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another   identify multi-object transaction  tie to client&rsquo;s TCP connection - bad separate transaction id    Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set      Multi-object transactions  when do you need them?
+    </div>
+  </div>
+</div>
+
+        
+      
+        <h2 class="f1">
+          <a href="https://www.frankliu.org/hugo/tags/traveling-salesman" class="link blue hover-black">
+            Tag: traveling-salesman
+          </a>
+        </h2>
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/bellman-held-karp/" class="link black dim">
+        Bellman-Held-Karp Hamiltonian path and Traveling Salesman
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Floyd-Warshall connection This section can be skipped, because it basically my own brain mapping of this problem, since I feel there are some similarities with Floyd-Warshall.
+For FW, I think of a source and destination pair \(i\) and \(j\) going through some intermediate node \(k\), and relaxing in a reverse triangle inequality kind of way, i.e.
+\[ d[i][j] = min(d[i][j], d[i][k] + d[k][j]) \]
+From here it is not immediate obvious how to iterate, i.
     </div>
   </div>
 </div>

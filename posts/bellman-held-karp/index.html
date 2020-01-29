@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>My New Hugo Site  | Bellman-Held-Karp Hamiltonian path and Traveling Salesman</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.63.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="https://www.frankliu.org/hugo/dist/css/app.3f5912c237ddd38c8e76debe081c7ca7.css" rel="stylesheet">
+    
+
+    
+      <link rel="stylesheet" type="text/css" href="https://www.frankliu.org/hugo/css/test.css">
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Bellman-Held-Karp Hamiltonian path and Traveling Salesman" />
+<meta property="og:description" content="Floyd-Warshall connection This section can be skipped, because it basically my own brain mapping of this problem, since I feel there are some similarities with Floyd-Warshall.
+For FW, I think of a source and destination pair \(i\) and \(j\) going through some intermediate node \(k\), and relaxing in a reverse triangle inequality kind of way, i.e.
+\[ d[i][j] = min(d[i][j], d[i][k] &#43; d[k][j]) \]
+From here it is not immediate obvious how to iterate, i." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.frankliu.org/hugo/posts/bellman-held-karp/" />
+<meta property="article:published_time" content="2020-01-28T22:40:15-08:00" />
+<meta property="article:modified_time" content="2020-01-29T13:50:42-08:00" />
+<meta itemprop="name" content="Bellman-Held-Karp Hamiltonian path and Traveling Salesman">
+<meta itemprop="description" content="Floyd-Warshall connection This section can be skipped, because it basically my own brain mapping of this problem, since I feel there are some similarities with Floyd-Warshall.
+For FW, I think of a source and destination pair \(i\) and \(j\) going through some intermediate node \(k\), and relaxing in a reverse triangle inequality kind of way, i.e.
+\[ d[i][j] = min(d[i][j], d[i][k] &#43; d[k][j]) \]
+From here it is not immediate obvious how to iterate, i.">
+<meta itemprop="datePublished" content="2020-01-28T22:40:15-08:00" />
+<meta itemprop="dateModified" content="2020-01-29T13:50:42-08:00" />
+<meta itemprop="wordCount" content="507">
+
+
+
+<meta itemprop="keywords" content="Hamiltonian path,traveling salesman,Gosper&#39;s hack," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Bellman-Held-Karp Hamiltonian path and Traveling Salesman"/>
+<meta name="twitter:description" content="Floyd-Warshall connection This section can be skipped, because it basically my own brain mapping of this problem, since I feel there are some similarities with Floyd-Warshall.
+For FW, I think of a source and destination pair \(i\) and \(j\) going through some intermediate node \(k\), and relaxing in a reverse triangle inequality kind of way, i.e.
+\[ d[i][j] = min(d[i][j], d[i][k] &#43; d[k][j]) \]
+From here it is not immediate obvious how to iterate, i."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://www.frankliu.org/hugo/" class="f3 fw2 hover-white no-underline white-90 dib">
+      My New Hugo Site
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://www.frankliu.org/hugo/posts/" title="Articles page">
+              Articles
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+<a href="https://www.facebook.com/frankie.liu.9279" target="_blank" class="link-transition facebook link dib z-999 pt3 pt0-l mr1" title="Facebook link" rel="noopener" aria-label="follow on Facebook——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://twitter.com/pi31415629" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+<a href="https://www.linkedin.com/in/frankieyliu/" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/frankieliu" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+<a href="https://medium.com/eins-zwei" target="_blank" class="link-transition medium link dib z-999 pt3 pt0-l mr1" title="Medium link" rel="noopener" aria-label="follow on Medium——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 170 170;" version="1.1" viewBox="0 0 170 170" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M46.5340803,65.2157554 C46.6968378,63.6076572 46.0836,62.018231 44.8828198,60.93592 L32.6512605,46.2010582 L32.6512605,44 L70.6302521,44 L99.9859944,108.380952 L125.794585,44 L162,44 L162,46.2010582 L151.542017,56.2281011 C150.640424,56.9153477 150.193188,58.0448862 150.380019,59.1628454 L150.380019,132.837155 C150.193188,133.955114 150.640424,135.084652 151.542017,135.771899 L161.755369,145.798942 L161.755369,148 L110.38282,148 L110.38282,145.798942 L120.963119,135.527337 C122.002801,134.487948 122.002801,134.182246 122.002801,132.592593 L122.002801,73.0417402 L92.585901,147.755438 L88.6106443,147.755438 L54.3622782,73.0417402 L54.3622782,123.115814 C54.0767278,125.221069 54.7759199,127.3406 56.2581699,128.863022 L70.0186741,145.55438 L70.0186741,147.755438 L31,147.755438 L31,145.55438 L44.7605042,128.863022 C46.2319621,127.338076 46.8903838,125.204485 46.5340803,123.115814 L46.5340803,65.2157554 Z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+<a href="https://discordapp.com/users/523372803387293696" target="_blank" class="link-transition discord link dib z-999 pt3 pt0-l mr1" title="Discord link" rel="noopener" aria-label="follow on Discord——Opens in a new window">
+  
+
+<svg  height="32px"  style="enable-background:new 0 0 170 170;" version="1.1" viewBox="0 0 170 170" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<g
+   id="g16"
+   transform="matrix(0.73347458,0,0,0.73347458,-4.35805,2.2690639)"><path
+     id="path2"
+     d="m 104.4,103.9 c -5.7,0 -10.2,5 -10.2,11.1 0,6.1 4.6,11.1 10.2,11.1 5.7,0 10.2,-5 10.2,-11.1 0.1,-6.1 -4.5,-11.1 -10.2,-11.1 z m 36.5,0 c -5.7,0 -10.2,5 -10.2,11.1 0,6.1 4.6,11.1 10.2,11.1 5.7,0 10.2,-5 10.2,-11.1 0,-6.1 -4.5,-11.1 -10.2,-11.1 z"
+     class="st0"
+     inkscape:connector-curvature="0" /><path
+     id="path4"
+     d="M 189.5,20 H 55.5 C 44.2,20 35,29.2 35,40.6 v 135.2 c 0,11.4 9.2,20.6 20.5,20.6 h 113.4 l -5.3,-18.5 12.8,11.9 12.1,11.2 21.5,19 V 40.6 C 210,29.2 200.8,20 189.5,20 Z m -38.6,130.6 c 0,0 -3.6,-4.3 -6.6,-8.1 13.1,-3.7 18.1,-11.9 18.1,-11.9 -4.1,2.7 -8,4.6 -11.5,5.9 -5,2.1 -9.8,3.5 -14.5,4.3 -9.6,1.8 -18.4,1.3 -25.9,-0.1 -5.7,-1.1 -10.6,-2.7 -14.7,-4.3 -2.3,-0.9 -4.8,-2 -7.3,-3.4 -0.3,-0.2 -0.6,-0.3 -0.9,-0.5 -0.2,-0.1 -0.3,-0.2 -0.4,-0.3 -1.8,-1 -2.8,-1.7 -2.8,-1.7 0,0 4.8,8 17.5,11.8 -3,3.8 -6.7,8.3 -6.7,8.3 -22.1,-0.7 -30.5,-15.2 -30.5,-15.2 0,-32.2 14.4,-58.3 14.4,-58.3 14.4,-10.8 28.1,-10.5 28.1,-10.5 l 1,1.2 c -18,5.2 -26.3,13.1 -26.3,13.1 0,0 2.2,-1.2 5.9,-2.9 10.7,-4.7 19.2,-6 22.7,-6.3 0.6,-0.1 1.1,-0.2 1.7,-0.2 6.1,-0.8 13,-1 20.2,-0.2 9.5,1.1 19.7,3.9 30.1,9.6 0,0 -7.9,-7.5 -24.9,-12.7 l 1.4,-1.6 c 0,0 13.7,-0.3 28.1,10.5 0,0 14.4,26.1 14.4,58.3 0,0 -8.5,14.5 -30.6,15.2 z"
+     class="st0"
+     inkscape:connector-curvature="0" /></g></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+    extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+    });
+</script>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        ARTICLES
+      </p>
+      <h1 class="f1 athelas mb1">Bellman-Held-Karp Hamiltonian path and Traveling Salesman</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              adam
+          
+          </strong>
+      </p>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-01-28T22:40:15-08:00">January 28, 2020</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><figure>
+    <img src="https://www.frankliu.org/hugo/images/tsp/bellman-held-karp_b.png"/> 
+</figure>
+
+<h2 id="floyd-warshall-connection">Floyd-Warshall connection</h2>
+<p>This section can be skipped, because it basically my own brain mapping of this
+problem, since I feel there are some similarities with Floyd-Warshall.</p>
+<p>For FW, I think of a source and destination pair \(i\) and \(j\) going through some
+intermediate node \(k\), and relaxing in a reverse triangle inequality kind of
+way, i.e.</p>
+<p>\[
+d[i][j] = min(d[i][j], d[i][k] + d[k][j])
+\]</p>
+<p>From here it is not immediate obvious how to iterate, i.e. should the outer
+loop be over all \(i\) \(j\) pairs, or an outer loop over the intermediate node
+\(k\)?</p>
+<p>This can be resolved by asking the question what do I need to know in order
+to compute \(d[i][j]\) at each step of the iteration.  Since I depend on
+\(d[i][k]\) and \(d[k][j]\) it seems that I am going in a circle.</p>
+<p>Instead think of the dp problem.  What is the decision point, so that one can
+progress forward.  Consider the decision point to be a source at a time, i.e.
+for a given source I will find all the best ways to reach a destination.  This
+is kind of hard to achieve, since for a particular source, you also need to
+have information about the best source point from point \(k\) to \(j\), and this
+is not possible until we have reached the source iteration for element \(k\).
+By symmetry it should not be the destination point either.</p>
+<p>Then let&rsquo;s consider \(k\) as the decision point.  In this case we consider all
+the savings going through \(k\) on a first pass.  Then the next decision point
+will be \(k+1\) node, in which, we add another possible intermediate point, etc.</p>
+<p>One way to graphically think about this is the following. When adding a single
+\(k\) you are looking at the best one or two segment routes. When adding the next
+\(k\) you are looking at the best one, two, three, or four segment paths.  Because
+you can now go through another middle point.</p>
+<p>There is a more formulaic expression which expresses this, which is helpful
+in capturing the dp nature of the problem:</p>
+<p>\[
+dp[i,j][k] = min(dp[i,j][k-1], dp[i,k][k-1] + dp[k,j][k-1])
+\]</p>
+<p>Here \(k\) denotes two things in \(dp[i,k]\) it is the a source or destination, in
+\(dp[,][k]\) it denotes the set of decisions up to and including the \(k\) middle
+point.  So it is saying that \(k\) is now available, the best shortest path from
+\(i\) to \(j\) can be without considering \(k\) (\(dp[i,j][k-1]\)) or going through it
+(the RHS of the above).</p>
+<h2 id="tie-in-with-bellman-held-karp">Tie in with Bellman-Held-Karp</h2>
+<p>There is a similar consideration, but it is interesting to note the differences.</p>
+<p>In BHK, we take into consideration a subset of the vertices, and compute the
+best possible paths from this subset that end at a particular vertex \(j\).  Just
+as in the above, the dp formulation was considering all &ldquo;\(k-1\)&rdquo; solutions that don&rsquo;t
+include the current decision \(k\).  For the BHK case, it is considering all the
+\(S_i-\{j\}\) solutions that don&rsquo;t include \(j\), to come up for the solution of
+\(S_i\) where \(j \in S_i\).</p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/hamiltonian-path" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Hamiltonian path</a>
+   </li>
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/traveling-salesman" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">traveling salesman</a>
+   </li>
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/gospers-hack" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Gosper&#39;s hack</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+      
+      
+			<script src="https://utteranc.es/client.js"
+        repo="frankieliu/hugo"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+      </script>
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://www.frankliu.org/hugo/" >
+    &copy;  My New Hugo Site 2020 
+  </a>
+    <div>
+
+
+
+<a href="https://www.facebook.com/frankie.liu.9279" target="_blank" class="link-transition facebook link dib z-999 pt3 pt0-l mr1" title="Facebook link" rel="noopener" aria-label="follow on Facebook——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://twitter.com/pi31415629" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+<a href="https://www.linkedin.com/in/frankieyliu/" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/frankieliu" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+<a href="https://medium.com/eins-zwei" target="_blank" class="link-transition medium link dib z-999 pt3 pt0-l mr1" title="Medium link" rel="noopener" aria-label="follow on Medium——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 170 170;" version="1.1" viewBox="0 0 170 170" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M46.5340803,65.2157554 C46.6968378,63.6076572 46.0836,62.018231 44.8828198,60.93592 L32.6512605,46.2010582 L32.6512605,44 L70.6302521,44 L99.9859944,108.380952 L125.794585,44 L162,44 L162,46.2010582 L151.542017,56.2281011 C150.640424,56.9153477 150.193188,58.0448862 150.380019,59.1628454 L150.380019,132.837155 C150.193188,133.955114 150.640424,135.084652 151.542017,135.771899 L161.755369,145.798942 L161.755369,148 L110.38282,148 L110.38282,145.798942 L120.963119,135.527337 C122.002801,134.487948 122.002801,134.182246 122.002801,132.592593 L122.002801,73.0417402 L92.585901,147.755438 L88.6106443,147.755438 L54.3622782,73.0417402 L54.3622782,123.115814 C54.0767278,125.221069 54.7759199,127.3406 56.2581699,128.863022 L70.0186741,145.55438 L70.0186741,147.755438 L31,147.755438 L31,145.55438 L44.7605042,128.863022 C46.2319621,127.338076 46.8903838,125.204485 46.5340803,123.115814 L46.5340803,65.2157554 Z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+<a href="https://discordapp.com/users/523372803387293696" target="_blank" class="link-transition discord link dib z-999 pt3 pt0-l mr1" title="Discord link" rel="noopener" aria-label="follow on Discord——Opens in a new window">
+  
+
+<svg  height="32px"  style="enable-background:new 0 0 170 170;" version="1.1" viewBox="0 0 170 170" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<g
+   id="g16"
+   transform="matrix(0.73347458,0,0,0.73347458,-4.35805,2.2690639)"><path
+     id="path2"
+     d="m 104.4,103.9 c -5.7,0 -10.2,5 -10.2,11.1 0,6.1 4.6,11.1 10.2,11.1 5.7,0 10.2,-5 10.2,-11.1 0.1,-6.1 -4.5,-11.1 -10.2,-11.1 z m 36.5,0 c -5.7,0 -10.2,5 -10.2,11.1 0,6.1 4.6,11.1 10.2,11.1 5.7,0 10.2,-5 10.2,-11.1 0,-6.1 -4.5,-11.1 -10.2,-11.1 z"
+     class="st0"
+     inkscape:connector-curvature="0" /><path
+     id="path4"
+     d="M 189.5,20 H 55.5 C 44.2,20 35,29.2 35,40.6 v 135.2 c 0,11.4 9.2,20.6 20.5,20.6 h 113.4 l -5.3,-18.5 12.8,11.9 12.1,11.2 21.5,19 V 40.6 C 210,29.2 200.8,20 189.5,20 Z m -38.6,130.6 c 0,0 -3.6,-4.3 -6.6,-8.1 13.1,-3.7 18.1,-11.9 18.1,-11.9 -4.1,2.7 -8,4.6 -11.5,5.9 -5,2.1 -9.8,3.5 -14.5,4.3 -9.6,1.8 -18.4,1.3 -25.9,-0.1 -5.7,-1.1 -10.6,-2.7 -14.7,-4.3 -2.3,-0.9 -4.8,-2 -7.3,-3.4 -0.3,-0.2 -0.6,-0.3 -0.9,-0.5 -0.2,-0.1 -0.3,-0.2 -0.4,-0.3 -1.8,-1 -2.8,-1.7 -2.8,-1.7 0,0 4.8,8 17.5,11.8 -3,3.8 -6.7,8.3 -6.7,8.3 -22.1,-0.7 -30.5,-15.2 -30.5,-15.2 0,-32.2 14.4,-58.3 14.4,-58.3 14.4,-10.8 28.1,-10.5 28.1,-10.5 l 1,1.2 c -18,5.2 -26.3,13.1 -26.3,13.1 0,0 2.2,-1.2 5.9,-2.9 10.7,-4.7 19.2,-6 22.7,-6.3 0.6,-0.1 1.1,-0.2 1.7,-0.2 6.1,-0.8 13,-1 20.2,-0.2 9.5,1.1 19.7,3.9 30.1,9.6 0,0 -7.9,-7.5 -24.9,-12.7 l 1.4,-1.6 c 0,0 13.7,-0.3 28.1,10.5 0,0 14.4,26.1 14.4,58.3 0,0 -8.5,14.5 -30.6,15.2 z"
+     class="st0"
+     inkscape:connector-curvature="0" /></g></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="https://www.frankliu.org/hugo/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

@@ -6,10 +6,37 @@
     <description>Recent content in Tags on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Jan 2020 14:50:02 -0800</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jan 2020 22:40:15 -0800</lastBuildDate>
     
 	<atom:link href="https://www.frankliu.org/hugo/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Gosper&#39;s hack</title>
+      <link>https://www.frankliu.org/hugo/tags/gospers-hack/</link>
+      <pubDate>Tue, 28 Jan 2020 22:40:15 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/gospers-hack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hamiltonian path</title>
+      <link>https://www.frankliu.org/hugo/tags/hamiltonian-path/</link>
+      <pubDate>Tue, 28 Jan 2020 22:40:15 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/hamiltonian-path/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>traveling salesman</title>
+      <link>https://www.frankliu.org/hugo/tags/traveling-salesman/</link>
+      <pubDate>Tue, 28 Jan 2020 22:40:15 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/traveling-salesman/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>ananke</title>
