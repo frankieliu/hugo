@@ -17,10 +17,9 @@
       <pubDate>Tue, 28 Jan 2020 22:40:15 -0800</pubDate>
       
       <guid>https://www.frankliu.org/hugo/posts/bellman-held-karp/</guid>
-      <description>Floyd-Warshall connection This section can be skipped, because it basically my own brain mapping of this problem, since I feel there are some similarities with Floyd-Warshall.
+      <description>Figure below make with mypaint and a Bamboo table on Ubuntu   Floyd-Warshall connection This section can be skipped, because it basically my own brain mapping of this problem, since I feel there are some similarities with Floyd-Warshall.
 For FW, I think of a source and destination pair \(i\) and \(j\) going through some intermediate node \(k\), and relaxing in a reverse triangle inequality kind of way, i.e.
-\[ d[i][j] = min(d[i][j], d[i][k] + d[k][j]) \]
-From here it is not immediate obvious how to iterate, i.</description>
+\[ d[i][j] = min(d[i][j], d[i][k] + d[k][j]) \]</description>
     </item>
     
     <item>

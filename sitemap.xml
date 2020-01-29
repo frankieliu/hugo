@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://www.frankliu.org/hugo/posts/bellman-held-karp/</loc>
-    <lastmod>2020-01-29T14:51:28-08:00</lastmod>
+    <lastmod>2020-01-29T14:53:34-08:00</lastmod>
   </url>
   
   <url>
@@ -99,51 +99,46 @@
   
   <url>
     <loc>https://www.frankliu.org/hugo/categories/</loc>
-    <lastmod>2020-01-29T14:51:28-08:00</lastmod>
+    <lastmod>2020-01-29T14:53:34-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/tags/gospers-hack/</loc>
-    <lastmod>2020-01-29T14:51:28-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/tags/hamiltonian-path/</loc>
-    <lastmod>2020-01-29T14:51:28-08:00</lastmod>
+    <lastmod>2020-01-29T14:53:34-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/categories/hamiltonian-path/</loc>
-    <lastmod>2020-01-29T14:51:28-08:00</lastmod>
+    <lastmod>2020-01-29T14:53:34-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/hamiltonian-path/</loc>
+    <lastmod>2020-01-29T14:53:34-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/</loc>
-    <lastmod>2020-01-29T14:51:28-08:00</lastmod>
+    <lastmod>2020-01-29T14:53:34-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/tags/</loc>
-    <lastmod>2020-01-29T14:51:28-08:00</lastmod>
+    <lastmod>2020-01-29T14:53:34-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/categories/traveling-salesman/</loc>
-    <lastmod>2020-01-29T14:51:28-08:00</lastmod>
+    <lastmod>2020-01-29T14:53:34-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/tags/traveling-salesman/</loc>
-    <lastmod>2020-01-29T14:51:28-08:00</lastmod>
+    <lastmod>2020-01-29T14:53:34-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/tags/ananke/</loc>
-    <lastmod>2020-01-23T16:30:43-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/tags/github-pages/</loc>
     <lastmod>2020-01-23T16:30:43-08:00</lastmod>
   </url>
   
@@ -153,12 +148,17 @@
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/categories/hugo/</loc>
+    <loc>https://www.frankliu.org/hugo/tags/github-pages/</loc>
     <lastmod>2020-01-23T16:30:43-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/tags/hugo/</loc>
+    <lastmod>2020-01-23T16:30:43-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/categories/hugo/</loc>
     <lastmod>2020-01-23T16:30:43-08:00</lastmod>
   </url>
   
