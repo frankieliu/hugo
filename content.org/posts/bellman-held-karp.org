@@ -123,7 +123,7 @@ Hamiltonian path if there exists a TSP solution.
 One way to retain the path, is keeping track of the parent for a particular
 $S_i$ and $j$.  That is, when the ~if~ statement is taken then keep track of $k$
 which corresponds to a $dp[S_-][k]$, or $parent[S_i][j] = k$.  Since we have
-$S_i$ and $j$ then we know $S_- = S_i - {j}$, from which we can get its parent
+$S_i$ and $j$ then we know $S_- = S_i - \{j\}$, from which we can get its parent
 via $parent[S_-][k]$ and so on.
 
 * Finding the TSP answer
