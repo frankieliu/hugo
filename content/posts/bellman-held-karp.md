@@ -2,7 +2,7 @@
 title = "Bellman-Held-Karp Hamiltonian path and Traveling Salesman"
 author = ["adam"]
 date = 2020-01-28T22:40:15-08:00
-lastmod = 2020-01-29T13:50:42-08:00
+lastmod = 2020-01-29T14:38:24-08:00
 tags = ["Hamiltonian path", "traveling salesman", "Gosper's hack"]
 categories = ["Hamiltonian path", "traveling salesman"]
 draft = false
@@ -80,3 +80,61 @@ as in the above, the dp formulation was considering all "\\(k-1\\)" solutions th
 include the current decision \\(k\\).  For the BHK case, it is considering all the
 \\(S\_i-\\{j\\}\\) solutions that don't include \\(j\\), to come up for the solution of
 \\(S\_i\\) where \\(j \in S\_i\\).
+
+The other major difference is that the order in which \\(k\\) were considered in FW
+doesn't matter, whereas in BHK, the order of \\(S\_i\\) matters, as a matter of fact,
+one has to consider all possible subsets of \\(S\_i\\) in order to solve for \\(S\_i\\).
+
+It is also interesting that the bit set of natural number order is a possible
+ordering of subsets, such that a later or larger number has dependencies that
+have been previously calculated.  For example \\(1001.0000\\) only contains two
+elements, and its computation requires \\(1000.0000\\) and \\(0001.0000\\) both of which
+come earlier in numerical order.  It is a little counter-intuitive that one
+is computing 2 element subsets so late in the game.  I think a more intuitive
+enumeration would be to consider all the 1 element subsets, followed by all
+2 element subsets, etc.  This can be done via Gosper's hack.  A clever bit
+manipulation technique that adds the LSB 1 to the number to get at the next
+subset of the same order.
+
+
+## Gosper's hack sidetrack {#gosper-s-hack-sidetrack}
+
+{{< highlight c++ "linenos=table, linenostart=1" >}}
+c = set & ~set;
+r = set + c;
+set = ((r ^ set) >> 2) / c | r;
+{{< /highlight >}}
+
+The first line gets the LSB that is set, then we add that to set in the second
+line to push the one forward.  The last line takes care of the case where we
+cause a cascade of 1's to flip, for example if we begin with \\(0111.0000\\) line
+two will flip all the ones in a row ending with \\(1000.0000\\).  What we want at
+the end is to put two \\(1\\) at the beginning and end up with \\(1000.0011\\).  This
+is accomplished by the xor and shift.  The xor computes the number of digits
+that changed as a result of line two.  The row of ones that got flipped will
+exactly contain \\(1111\\) changes which is two more than original number of bits.
+This is put at the beginning by shifting it back by the LSB location.
+
+
+## Hamiltonian path and TSP {#hamiltonian-path-and-tsp}
+
+The Hamiltonian path is equivalent to TSP, just think of the edges as being
+\\(1\\) or \\(\infty\\) weighed.  And we all the additions are just capped at \\(1\\).  Then
+we can find a Hamiltonian path if there exists a TSP solution.
+
+
+## Retaining the path {#retaining-the-path}
+
+One way to retain the path, is keeping track of the parent for a particular
+\\(S\_i\\) and \\(j\\).  That is, when the `if` statement is taken then keep track of \\(k\\)
+which corresponds to a \\(dp[S\_-][k]\\), \\(parent[S\_i][j] = k\\).  Since we have
+\\(S\_i\\) and \\(j\\) then we know \\(S\_- = S\_i - {j}\\), from which we can get its parent
+via \\(parent[S\_-][k]\\) and so on.
+
+
+## Finding the TSP answer {#finding-the-tsp-answer}
+
+The end result of BHK iteration is \\(dp[S\_{n-1}][j]\\) array, which is the best
+path ending at \\(j\\).  We need to consider all possible ending positions so the
+solution is the \\(\min\_j dp[S\_{n-1}][j]\\).  Follow \\(parent[S\_{n-1}][j^\*]\\) to
+find the TSP path.
