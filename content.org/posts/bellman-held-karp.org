@@ -58,7 +58,7 @@ There is a more formulaic expression which expresses this, which is helpful
 in capturing the dp nature of the problem:
 
 $$
-dp[i,j][k] = min(dp[i,j][k-1], dp[i,k][k-1] + dp[k,j][k-1])
+dp[i,j][k] = \min(dp[i,j][k-1], dp[i,k][k-1] + dp[k,j][k-1])
 $$
 
 Here $k$ denotes two things in $dp[i,k]$ it is the a source or destination, in

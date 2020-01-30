@@ -2,7 +2,7 @@
 title = "Bellman-Held-Karp Hamiltonian path and Traveling Salesman"
 author = ["adam"]
 date = 2020-01-28T22:40:15-08:00
-lastmod = 2020-01-29T17:39:33-08:00
+lastmod = 2020-01-29T17:39:56-08:00
 tags = ["Hamiltonian path", "traveling salesman", "Gosper's hack"]
 categories = ["Hamiltonian path", "traveling salesman"]
 draft = false
@@ -62,7 +62,7 @@ There is a more formulaic expression which expresses this, which is helpful
 in capturing the dp nature of the problem:
 
 \\[
-dp[i,j][k] = min(dp[i,j][k-1], dp[i,k][k-1] + dp[k,j][k-1])
+dp[i,j][k] = \min(dp[i,j][k-1], dp[i,k][k-1] + dp[k,j][k-1])
 \\]
 
 Here \\(k\\) denotes two things in \\(dp[i,k]\\) it is the a source or destination, in
