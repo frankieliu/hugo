@@ -2,7 +2,7 @@
 title = "Bellman-Held-Karp Hamiltonian path and Traveling Salesman"
 author = ["adam"]
 date = 2020-01-28T22:40:15-08:00
-lastmod = 2020-01-29T15:10:44-08:00
+lastmod = 2020-01-29T17:38:58-08:00
 tags = ["Hamiltonian path", "traveling salesman", "Gosper's hack"]
 categories = ["Hamiltonian path", "traveling salesman"]
 draft = false
@@ -15,7 +15,7 @@ gamma = 10
 mathjax = true
 +++
 
-## Figure below with mypaint and a Bamboo table on Ubuntu {#figure-below-with-mypaint-and-a-bamboo-table-on-ubuntu}
+## Figure below with mypaint and a Bamboo tablet on Ubuntu {#figure-below-with-mypaint-and-a-bamboo-tablet-on-ubuntu}
 
 {{< figure src="/images/tsp/bellman-held-karp_b.png" >}}
 
