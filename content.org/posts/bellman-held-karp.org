@@ -26,7 +26,7 @@ intermediate node $k$, and relaxing in a reverse triangle inequality kind of
 way, i.e.
 
 $$
-d[i][j] = min(d[i][j], d[i][k] + d[k][j])
+d[i][j] := \min(d[i][j], d[i][k] + d[k][j])
 $$
 
 From here it is not immediate obvious how to iterate, i.e. should the outer

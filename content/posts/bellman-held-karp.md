@@ -2,7 +2,7 @@
 title = "Bellman-Held-Karp Hamiltonian path and Traveling Salesman"
 author = ["adam"]
 date = 2020-01-28T22:40:15-08:00
-lastmod = 2020-01-29T17:38:58-08:00
+lastmod = 2020-01-29T17:39:33-08:00
 tags = ["Hamiltonian path", "traveling salesman", "Gosper's hack"]
 categories = ["Hamiltonian path", "traveling salesman"]
 draft = false
@@ -30,7 +30,7 @@ intermediate node \\(k\\), and relaxing in a reverse triangle inequality kind of
 way, i.e.
 
 \\[
-d[i][j] = min(d[i][j], d[i][k] + d[k][j])
+d[i][j] := \min(d[i][j], d[i][k] + d[k][j])
 \\]
 
 From here it is not immediate obvious how to iterate, i.e. should the outer
