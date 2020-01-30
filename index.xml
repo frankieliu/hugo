@@ -19,7 +19,7 @@
       <guid>https://www.frankliu.org/hugo/posts/bellman-held-karp/</guid>
       <description>Figure below with mypaint and a Bamboo tablet on Ubuntu   Floyd-Warshall connection This section can be skipped, because it is basically my own brain mapping of this problem, since I feel there are some similarities with Floyd-Warshall.
 For FW, I think of a source and destination pair \(i\) and \(j\) going through some intermediate node \(k\), and relaxing in a reverse triangle inequality kind of way, i.e.
-\[ d[i][j] = min(d[i][j], d[i][k] + d[k][j]) \]</description>
+\[ d[i][j] := \min(d[i][j], d[i][k] + d[k][j]) \]</description>
     </item>
     
     <item>
