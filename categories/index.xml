@@ -6,10 +6,28 @@
     <description>Recent content in Categories on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 01 Feb 2020 18:50:57 -0800</lastBuildDate>
+    <lastBuildDate>Sun, 02 Feb 2020 09:58:03 -0800</lastBuildDate>
     
 	<atom:link href="https://www.frankliu.org/hugo/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>competitive programming</title>
+      <link>https://www.frankliu.org/hugo/categories/competitive-programming/</link>
+      <pubDate>Sun, 02 Feb 2020 09:58:03 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/categories/competitive-programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>usaco</title>
+      <link>https://www.frankliu.org/hugo/categories/usaco/</link>
+      <pubDate>Sun, 02 Feb 2020 09:58:03 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/categories/usaco/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>minimax</title>
@@ -98,15 +116,6 @@
       <pubDate>Sat, 18 Jan 2020 19:24:37 -0800</pubDate>
       
       <guid>https://www.frankliu.org/hugo/categories/distributed-system/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>usaco</title>
-      <link>https://www.frankliu.org/hugo/categories/usaco/</link>
-      <pubDate>Wed, 15 Jan 2020 18:21:28 -0800</pubDate>
-      
-      <guid>https://www.frankliu.org/hugo/categories/usaco/</guid>
       <description></description>
     </item>
     

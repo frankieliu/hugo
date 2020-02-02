@@ -6,10 +6,21 @@
     <description>Recent content in My Hugo Site on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 01 Feb 2020 18:50:57 -0800</lastBuildDate>
+    <lastBuildDate>Sun, 02 Feb 2020 09:58:03 -0800</lastBuildDate>
     
 	<atom:link href="https://www.frankliu.org/hugo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>USACO Jan 2020 Bronze - Race</title>
+      <link>https://www.frankliu.org/hugo/posts/usaco-jan-2020-bronze-race/</link>
+      <pubDate>Sun, 02 Feb 2020 09:58:03 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/usaco-jan-2020-bronze-race/</guid>
+      <description>\(O(1)\) solution I am surprised that the solution posted is \(O(n)\) since \(n\) can be as large as \(10^9\).
+In coming up with a solution for \(O(1)\) we consider three phases. The first phase accelerates the &amp;lsquo;left hand&amp;rsquo; speed until it reaches the terminal speed. If it can&amp;rsquo;t reach the terminal speed then it just reaches whatever speed it can and terminates.
+The second phase is like a palindrome stage, where I remove similar increasing speeds from both ends, kind of like climbing up a tall peak from both ends.</description>
+    </item>
     
     <item>
       <title>Minimax - alpha beta pruning</title>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>My New Hugo Site  | Articles</title>
+    <title>My New Hugo Site  | USACO Jan 2020 Bronze - Race</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="generator" content="Hugo 0.63.2" />
     
@@ -27,29 +27,40 @@
 
     
     
-      <link href="https://www.frankliu.org/hugo/posts/index.xml" rel="alternate" type="application/rss+xml" title="My New Hugo Site" />
-      <link href="https://www.frankliu.org/hugo/posts/index.xml" rel="feed" type="application/rss+xml" title="My New Hugo Site" />
-      
-    
-    
-    <meta property="og:title" content="Articles" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.frankliu.org/hugo/posts/" />
-<meta property="og:updated_time" content="2017-03-02T12:00:00-05:00" />
-<meta itemprop="name" content="Articles">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Articles"/>
-<meta name="twitter:description" content=""/>
+    <meta property="og:title" content="USACO Jan 2020 Bronze - Race" />
+<meta property="og:description" content="\(O(1)\) solution I am surprised that the solution posted is \(O(n)\) since \(n\) can be as large as \(10^9\).
+In coming up with a solution for \(O(1)\) we consider three phases. The first phase accelerates the &lsquo;left hand&rsquo; speed until it reaches the terminal speed. If it can&rsquo;t reach the terminal speed then it just reaches whatever speed it can and terminates.
+The second phase is like a palindrome stage, where I remove similar increasing speeds from both ends, kind of like climbing up a tall peak from both ends." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.frankliu.org/hugo/posts/usaco-jan-2020-bronze-race/" />
+<meta property="article:published_time" content="2020-02-02T09:58:03-08:00" />
+<meta property="article:modified_time" content="2020-02-02T10:44:25-08:00" />
+<meta itemprop="name" content="USACO Jan 2020 Bronze - Race">
+<meta itemprop="description" content="\(O(1)\) solution I am surprised that the solution posted is \(O(n)\) since \(n\) can be as large as \(10^9\).
+In coming up with a solution for \(O(1)\) we consider three phases. The first phase accelerates the &lsquo;left hand&rsquo; speed until it reaches the terminal speed. If it can&rsquo;t reach the terminal speed then it just reaches whatever speed it can and terminates.
+The second phase is like a palindrome stage, where I remove similar increasing speeds from both ends, kind of like climbing up a tall peak from both ends.">
+<meta itemprop="datePublished" content="2020-02-02T09:58:03-08:00" />
+<meta itemprop="dateModified" content="2020-02-02T10:44:25-08:00" />
+<meta itemprop="wordCount" content="569">
+
+
+
+<meta itemprop="keywords" content="usaco,competitive programming," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="USACO Jan 2020 Bronze - Race"/>
+<meta name="twitter:description" content="\(O(1)\) solution I am surprised that the solution posted is \(O(n)\) since \(n\) can be as large as \(10^9\).
+In coming up with a solution for \(O(1)\) we consider three phases. The first phase accelerates the &lsquo;left hand&rsquo; speed until it reaches the terminal speed. If it can&rsquo;t reach the terminal speed then it just reaches whatever speed it can and terminates.
+The second phase is like a palindrome stage, where I remove similar increasing speeds from both ends, kind of like climbing up a tall peak from both ends."/>
 
   </head>
 
   <body class="ma0 avenir bg-near-white">
 
     
+   
+  
 
   <header>
-    <div class="pb3-m pb6-l bg-black">
+    <div class="bg-black">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
     <a href="https://www.frankliu.org/hugo/" class="f3 fw2 hover-white no-underline white-90 dib">
@@ -161,127 +172,197 @@
   </div>
 </nav>
 
-      <div class="tc-l pv3 ph3 ph4-ns">
-        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
-          Articles
-        </h1>
-        
-      </div>
     </div>
   </header>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+    extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+    });
+</script>
+
 
 
     <main class="pb7" role="main">
       
-  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
-    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"><p>Articles are paginated with only three posts here for example. You can set the number of entries to show on this page with the &ldquo;pagination&rdquo; setting in the config file.</p>
-</section>
-    <section class="flex-ns flex-wrap justify-around mt5">
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        ARTICLES
+      </p>
+      <h1 class="f1 athelas mb1">USACO Jan 2020 Bronze - Race</h1>
       
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/mathjax-hugo/" class="link black dim">
-        Setting up mathjax for hugo
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Problem Adding mathjax support for posts
-Solution  Modify the current theme Add a partial template Add a parameter called mathjax: true in the frontmatter  Details Modifying the current theme  Note that the current theme is set in config.tolm  theme = &#34;ananke&#34; 
-    </div>
-  </div>
-</div>
-</div>
+      <p class="tracked">
+          By <strong>
+          
+              adam
+          
+          </strong>
+      </p>
       
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/dynamo/" class="link black dim">
-        DynamoDB
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Highlights  kv store data partitioning and replication by consistent hashing consistency facilitated by object versioning consistency among replicas during update by quorum decentralized replica synchronization gossip based distributed failure detection and membership  Background  Authors confuse &lsquo;C&rsquo; in ACID with &lsquo;C&rsquo; in CAP  2.3  optimistic replication - conflict resolution when you need item allow writes/updates - &ldquo;always writable&rdquo; pushes complex conflict resolution on the reader  at data store means &ldquo;last write wins&rdquo; too simple, allow client to do the conflict resolution    Related work  &ldquo;always writable&rdquo; requirement trusted nodes simple k-v latency ~ 100-200ms  zero-hop DHT, each node can route request to appropriate node      System architecture  components:  data persistence component load balancing membership failure detection failure recovery replica synchronization overload handling state transfer concurrency job scheduling request marshalling request routing system monitoring system alarming configuration management   cover:  partitioning replication versioning membership failure handling scaling    system interface  api get and put get(key)  locates object replicas returns with conflicting versions returns with a context   put(key, context, object)  determines which replica context : metadata such as version   key and object are opaque array of bytes  use MD5 hash to generate a 128-bit id    partitioning  consistent hashing each node assigned a random position in the ring each data item hashed to ring and served by first node larger position each node serves data between it and its predecessor each node actually mapped to multiple points in the ring (tokens) virtual node advantages  if node goes down, load gets handled more evenly by other nodes    replication  data item is replicated at \(N\) hosts each key assigned to a coordinator node coordinator is in charge of replication of the data items that fall in its range coordinator replicates key at N-1 clockwise successor nodes in the ring  each node is responsible for between it and its \(N\) th predecessor   preference list is the list of nodes responsible for a key every node in the system can determine which nodes for a key the pref list skips positions in the ring to ensure that it contains only distinct physical nodes  data versioning  eventual consistency, data propagates asynchronously guarantees that writes cannot be forgotten or rejected  each modificaiton is a new and immutable version of the data   version branching can happen in the presence of failures resulting in conflicting versions, client must perform reconciliation vector clocks used to capture causality  (node, counter) if the counters of an object are less-than-or-equal to all the nodes in a second clock, the first is an ancestor   on update, client must specify which version is being updated  pass the context from earlier read       timestamp is used to truncate the clock which may be growing  get and put operations  route request through LB use partition aware client library that routes to coordinator requests received through a LB routed to any random node in ring  node will forward to the first among top \(N\) in preference list   quorum protocol \(R+W &gt; N\) put(), coordinator generates vector clock for new version  sends to \(N\) highest-ranked reachable nodes if \(W-1\) nodes respond then the write is considered successful   get(), coordinator requests all existing versions of data forward for that key, wiates for \(R\) responses before returning value to client  handling failure   hinted handoff
-    </div>
-  </div>
-</div>
-</div>
       
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/fb-distributed-data-store-tao/" class="link black dim">
-        Fb Distributed Data Store Tao
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      intro   read-optimized social graph memcache and look-aside    The distinction between look-aside and look-through caches is not whether data is fetched from the cache and memory in serial or in parallel. The distinction is whether the fetch to memory on a cache miss originates from the caller or the cache. If the fetch to memory originates from the caller on cache miss, then you’re using a look-aside cache.
-    </div>
-  </div>
-</div>
-</div>
+      <time class="f6 mv4 dib tracked" datetime="2020-02-02T09:58:03-08:00">February 2, 2020</time>
       
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h2 id="o1---solution">\(O(1)\) solution</h2>
+<p>I am surprised that the solution posted is \(O(n)\) since \(n\) can be as large as
+\(10^9\).</p>
+<p>In coming up with a solution for \(O(1)\) we consider three phases.  The first phase
+accelerates the &lsquo;left hand&rsquo; speed until it reaches the terminal speed.  If it can&rsquo;t
+reach the terminal speed then it just reaches whatever speed it can and
+terminates.</p>
+<p>The second phase is like a palindrome stage, where I remove similar increasing
+speeds from both ends, kind of like climbing up a tall peak from both ends. This
+happens because I would like to accelerate as much as possible but I have to
+leave a similar region for deacceleration into the terminal speed.</p>
+<p>The last phase we take care of any remaining distance that needs to be covered.</p>
+<p>All these three phases occur in \(O(1)\) time, note that there is a binary search
+occuring in the second phase, but because I only look at three numbers, i.e. the
+lower and upper bounds are tight for the binary search.  I could have been done in
+a fixed size loop as well.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">import</span> math
+k, n <span style="color:#f92672">=</span> map(int, input()<span style="color:#f92672">.</span>split())
+debug <span style="color:#f92672">=</span> False
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solve</span>(remainder, terminal_speed):
+    <span style="color:#66d9ef">if</span> remainder <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+        <span style="color:#66d9ef">return</span> terminal_speed <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+
+    <span style="color:#75715e"># (rs+high)(high-rs+1) = remainder</span>
+    <span style="color:#75715e"># high^2 - rs^2 + rs + high = remainder</span>
+    <span style="color:#75715e"># high(high+1) = remainder+rs^2-rs</span>
+    right_speed <span style="color:#f92672">=</span> terminal_speed <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+    close <span style="color:#f92672">=</span> int(math<span style="color:#f92672">.</span>sqrt(remainder <span style="color:#f92672">+</span> right_speed<span style="color:#f92672">*</span>right_speed
+                          <span style="color:#f92672">-</span> right_speed)) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">if</span> debug:
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Upper bound guess</span><span style="color:#e6db74">&#34;</span>, close)
+    left <span style="color:#f92672">=</span> max(right_speed, close<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>)
+    right <span style="color:#f92672">=</span> close
+    <span style="color:#66d9ef">while</span> left <span style="color:#f92672">&lt;</span><span style="color:#f92672">=</span> right:
+        mid <span style="color:#f92672">=</span> (left<span style="color:#f92672">+</span>right)<span style="color:#f92672">/</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>
+        dist <span style="color:#f92672">=</span> (right_speed<span style="color:#f92672">+</span>mid)<span style="color:#f92672">*</span>(mid<span style="color:#f92672">-</span>right_speed<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+        <span style="color:#75715e"># print(&#34;Guessing&#34;, mid, dist, remainder)</span>
+        <span style="color:#66d9ef">if</span> dist <span style="color:#f92672">&gt;</span> remainder:
+            right <span style="color:#f92672">=</span> mid<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">elif</span> dist <span style="color:#f92672">==</span> remainder:
+            right <span style="color:#f92672">=</span> mid
+            <span style="color:#66d9ef">break</span>
+        <span style="color:#66d9ef">else</span>:
+            left <span style="color:#f92672">=</span> mid<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
+
+    time_spent <span style="color:#f92672">=</span> (right<span style="color:#f92672">-</span>right_speed<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> right_speed
+    remainder <span style="color:#f92672">-</span><span style="color:#f92672">=</span> (right_speed<span style="color:#f92672">+</span>right)<span style="color:#f92672">*</span>(right<span style="color:#f92672">-</span>right_speed<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+    <span style="color:#66d9ef">if</span> debug:
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Guess</span><span style="color:#e6db74">&#34;</span>, right, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">remainder</span><span style="color:#e6db74">&#34;</span>, remainder, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">time</span><span style="color:#e6db74">&#34;</span>, time_spent)
+    <span style="color:#66d9ef">if</span> remainder <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">or</span> remainder <span style="color:#f92672">&lt;</span> terminal_speed:
+        <span style="color:#66d9ef">return</span> time_spent
+    <span style="color:#66d9ef">else</span>:
+        <span style="color:#66d9ef">while</span> True:
+            right <span style="color:#f92672">+</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+            remainder <span style="color:#f92672">-</span><span style="color:#f92672">=</span> right
+            time_spent <span style="color:#f92672">+</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+            <span style="color:#75715e"># print(&#34;remainder&#34;, remainder, &#34;time&#34;, time_spent)</span>
+            <span style="color:#66d9ef">if</span> remainder <span style="color:#f92672">&lt;</span> terminal_speed:
+                <span style="color:#66d9ef">return</span> time_spent
+            remainder <span style="color:#f92672">-</span><span style="color:#f92672">=</span> right
+            time_spent <span style="color:#f92672">+</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+            <span style="color:#75715e"># print(&#34;remainder&#34;, remainder, &#34;time&#34;, time_spent)</span>
+            <span style="color:#66d9ef">if</span> remainder <span style="color:#f92672">&lt;</span> terminal_speed:
+                <span style="color:#66d9ef">return</span> time_spent
+
+
+<span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(n):
+    right_speed <span style="color:#f92672">=</span> int(input())
+    <span style="color:#75715e"># time to reach the same speed as the terminal speed</span>
+    <span style="color:#75715e"># (1+k)*k/2</span>
+    <span style="color:#66d9ef">if</span> (<span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>right_speed)<span style="color:#f92672">*</span>right_speed<span style="color:#f92672">/</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">&gt;</span><span style="color:#f92672">=</span> k:
+        close <span style="color:#f92672">=</span> int(math<span style="color:#f92672">.</span>sqrt(k<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span>))<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">while</span> (<span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>close)<span style="color:#f92672">*</span>close<span style="color:#f92672">/</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">&lt;</span> k:
+            close <span style="color:#f92672">+</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">print</span>(close)
+    <span style="color:#66d9ef">else</span>:
+        remainder <span style="color:#f92672">=</span> k <span style="color:#f92672">-</span> (<span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>right_speed)<span style="color:#f92672">*</span>right_speed<span style="color:#f92672">/</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">if</span> debug:
+            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Solving for</span><span style="color:#e6db74">&#34;</span>, right_speed)
+            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Remainder after</span><span style="color:#e6db74">&#34;</span>, right_speed<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">s</span><span style="color:#e6db74">&#34;</span>, remainder)
+        <span style="color:#66d9ef">print</span>(solve(remainder, right_speed))
+</code></pre></div><h2 id="how-to-create-tight-bounds">How to create tight bounds</h2>
+<p>Note that a lot of computation involves summing up an increasing sequence of
+numbers, such as \(1 \cdots k\) or \(k \cdots l\).  These all take the form</p>
+<p>\[
+\frac{(k+l)(l-k+1)}{2}
+\]</p>
+<p>Since we typically want to achieve a certain distance without overshooting we
+can do the following:</p>
+<p>\[
+\frac{l^2+l-k^2+k}{2} = d
+\]</p>
+<p>For the phases above the lower number \(k\) is fixed, so we just need to bound
+\(l\).  Rewriting the above</p>
+<p>\[
+l(l+1) = 2d+k^2-k
+\]</p>
+<p>Then an upper bound for \(l\) and a lower bound for \(l\) is</p>
+<p>\begin{eqnarray}
+l_{\text{upper}} &amp;=&amp; \sqrt{2d+k^2-k}\\\<br>
+l_{\text{lower}} &amp;=&amp; l_{\text{upper}} - 1
+\end{eqnarray}</p>
+<p>This simplifies searching for an \(l\).</p>
+<h2 id="end-conditions">End conditions</h2>
+<p>The only other tricky part is considering the remainder.  Note that right edge
+of remainder must abut some terminal speed.  That means that if the remainder
+itself can be covered within the terminal speed then that is sufficient to cover
+the remaining distance and to cross over into the terminal speed region.</p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/usaco" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">usaco</a>
+   </li>
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/competitive-programming" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">competitive programming</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+      
+      
+			<script src="https://utteranc.es/client.js"
+        repo="frankieliu/hugo"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+      </script>
+      </div>
     </section>
 
-<ul class="pagination">
-    
-    <li class="page-item">
-        <a href="https://www.frankliu.org/hugo/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-    <a href="https://www.frankliu.org/hugo/posts/page/2/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="https://www.frankliu.org/hugo/posts/">1</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="https://www.frankliu.org/hugo/posts/page/2/">2</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item active"><a class="page-link" href="https://www.frankliu.org/hugo/posts/page/3/">3</a></li>
-    
-    
-    <li class="page-item disabled">
-    <a  class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-        <a href="https://www.frankliu.org/hugo/posts/page/3/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-    </li>
-    
-</ul>
+    <aside class="w-30-l mt6-l">
 
-</article>
+
+
+
+</aside>
+
+  </article>
 
     </main>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">

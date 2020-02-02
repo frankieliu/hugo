@@ -36,7 +36,7 @@
 <meta property="og:description" content="A blog for programming and scalable systems" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/" />
-<meta property="og:updated_time" content="2020-02-01T18:50:57-08:00" />
+<meta property="og:updated_time" content="2020-02-02T09:58:03-08:00" />
 <meta itemprop="name" content="My Hugo Site">
 <meta itemprop="description" content="A blog for programming and scalable systems"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="My Hugo Site"/>
@@ -212,6 +212,32 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="https://www.frankliu.org/hugo/posts/usaco-jan-2020-bronze-race/" class="color-inherit dim link">
+            USACO Jan 2020 Bronze - Race
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          \(O(1)\) solution I am surprised that the solution posted is \(O(n)\) since \(n\) can be as large as \(10^9\).
+In coming up with a solution for \(O(1)\) we consider three phases. The first phase accelerates the &lsquo;left hand&rsquo; speed until it reaches the terminal speed. If it can&rsquo;t reach the terminal speed then it just reaches whatever speed it can and terminates.
+The second phase is like a palindrome stage, where I remove similar increasing speeds from both ends, kind of like climbing up a tall peak from both ends.
+        </div>
+          <a href="https://www.frankliu.org/hugo/posts/usaco-jan-2020-bronze-race/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="https://www.frankliu.org/hugo/posts/alpha-beta-pruning/" class="color-inherit dim link">
             Minimax - alpha beta pruning
             </a>
@@ -254,38 +280,18 @@ Pruning alpha is passed from maximizer to minimizer. maximizer says, beat a scor
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://www.frankliu.org/hugo/posts/bellman-held-karp/" class="color-inherit dim link">
-            Bellman-Held-Karp Hamiltonian path and Traveling Salesman
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          Figure below with mypaint and a Bamboo tablet on Ubuntu   Floyd-Warshall connection This section can be skipped, because it is basically my own brain mapping of this problem, since I feel there are some similarities with Floyd-Warshall.
-For FW, I think of a source and destination pair \(i\) and \(j\) going through some intermediate node \(k\), and relaxing in a reverse triangle inequality kind of way, i.e.
-\[ d[i][j] := \min(d[i][j], d[i][k] + d[k][j]) \]
-        </div>
-          <a href="https://www.frankliu.org/hugo/posts/bellman-held-karp/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="https://www.frankliu.org/hugo/posts/bellman-held-karp/" class="link black dim">
+              Bellman-Held-Karp Hamiltonian path and Traveling Salesman
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="https://www.frankliu.org/hugo/posts/hugo-css-svg-social/" class="link black dim">
@@ -302,12 +308,6 @@ For FW, I think of a source and destination pair \(i\) and \(j\) going through s
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="https://www.frankliu.org/hugo/posts/zookeeper-2-3/" class="link black dim">
               Zookeeper 2.3
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://www.frankliu.org/hugo/posts/usaco-dec-2019-plat-tree-depth/" class="link black dim">
-              Tree Depth - USACO Platimum Dec19
             </a>
           </h2>
         

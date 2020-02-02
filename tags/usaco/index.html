@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>My New Hugo Site  | Articles</title>
+    <title>My New Hugo Site  | usaco</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="generator" content="Hugo 0.63.2" />
     
@@ -27,19 +27,19 @@
 
     
     
-      <link href="https://www.frankliu.org/hugo/posts/index.xml" rel="alternate" type="application/rss+xml" title="My New Hugo Site" />
-      <link href="https://www.frankliu.org/hugo/posts/index.xml" rel="feed" type="application/rss+xml" title="My New Hugo Site" />
+      <link href="https://www.frankliu.org/hugo/tags/usaco/index.xml" rel="alternate" type="application/rss+xml" title="My New Hugo Site" />
+      <link href="https://www.frankliu.org/hugo/tags/usaco/index.xml" rel="feed" type="application/rss+xml" title="My New Hugo Site" />
       
     
     
-    <meta property="og:title" content="Articles" />
+    <meta property="og:title" content="usaco" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.frankliu.org/hugo/posts/" />
-<meta property="og:updated_time" content="2017-03-02T12:00:00-05:00" />
-<meta itemprop="name" content="Articles">
+<meta property="og:url" content="https://www.frankliu.org/hugo/tags/usaco/" />
+<meta property="og:updated_time" content="2020-02-02T09:58:03-08:00" />
+<meta itemprop="name" content="usaco">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Articles"/>
+<meta name="twitter:title" content="usaco"/>
 <meta name="twitter:description" content=""/>
 
   </head>
@@ -163,7 +163,7 @@
 
       <div class="tc-l pv3 ph3 ph4-ns">
         <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
-          Articles
+          usaco
         </h1>
         
       </div>
@@ -173,115 +173,35 @@
 
     <main class="pb7" role="main">
       
-  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
-    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"><p>Articles are paginated with only three posts here for example. You can set the number of entries to show on this page with the &ldquo;pagination&rdquo; setting in the config file.</p>
-</section>
+  <article class="cf pa3 pa4-m pa4-l">
+    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links nested-img mid-gray">
+      <p>Below you will find pages that utilize the taxonomy term “usaco”</p>
+    </div>
+  </article>
+  <div class="mw8 center">    
     <section class="flex-ns flex-wrap justify-around mt5">
       
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/mathjax-hugo/" class="link black dim">
-        Setting up mathjax for hugo
+      <a href="https://www.frankliu.org/hugo/posts/usaco-jan-2020-bronze-race/" class="link black dim">
+        USACO Jan 2020 Bronze - Race
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Problem Adding mathjax support for posts
-Solution  Modify the current theme Add a partial template Add a parameter called mathjax: true in the frontmatter  Details Modifying the current theme  Note that the current theme is set in config.tolm  theme = &#34;ananke&#34; 
+      \(O(1)\) solution I am surprised that the solution posted is \(O(n)\) since \(n\) can be as large as \(10^9\).
+In coming up with a solution for \(O(1)\) we consider three phases. The first phase accelerates the &lsquo;left hand&rsquo; speed until it reaches the terminal speed. If it can&rsquo;t reach the terminal speed then it just reaches whatever speed it can and terminates.
+The second phase is like a palindrome stage, where I remove similar increasing speeds from both ends, kind of like climbing up a tall peak from both ends.
     </div>
   </div>
 </div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/dynamo/" class="link black dim">
-        DynamoDB
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Highlights  kv store data partitioning and replication by consistent hashing consistency facilitated by object versioning consistency among replicas during update by quorum decentralized replica synchronization gossip based distributed failure detection and membership  Background  Authors confuse &lsquo;C&rsquo; in ACID with &lsquo;C&rsquo; in CAP  2.3  optimistic replication - conflict resolution when you need item allow writes/updates - &ldquo;always writable&rdquo; pushes complex conflict resolution on the reader  at data store means &ldquo;last write wins&rdquo; too simple, allow client to do the conflict resolution    Related work  &ldquo;always writable&rdquo; requirement trusted nodes simple k-v latency ~ 100-200ms  zero-hop DHT, each node can route request to appropriate node      System architecture  components:  data persistence component load balancing membership failure detection failure recovery replica synchronization overload handling state transfer concurrency job scheduling request marshalling request routing system monitoring system alarming configuration management   cover:  partitioning replication versioning membership failure handling scaling    system interface  api get and put get(key)  locates object replicas returns with conflicting versions returns with a context   put(key, context, object)  determines which replica context : metadata such as version   key and object are opaque array of bytes  use MD5 hash to generate a 128-bit id    partitioning  consistent hashing each node assigned a random position in the ring each data item hashed to ring and served by first node larger position each node serves data between it and its predecessor each node actually mapped to multiple points in the ring (tokens) virtual node advantages  if node goes down, load gets handled more evenly by other nodes    replication  data item is replicated at \(N\) hosts each key assigned to a coordinator node coordinator is in charge of replication of the data items that fall in its range coordinator replicates key at N-1 clockwise successor nodes in the ring  each node is responsible for between it and its \(N\) th predecessor   preference list is the list of nodes responsible for a key every node in the system can determine which nodes for a key the pref list skips positions in the ring to ensure that it contains only distinct physical nodes  data versioning  eventual consistency, data propagates asynchronously guarantees that writes cannot be forgotten or rejected  each modificaiton is a new and immutable version of the data   version branching can happen in the presence of failures resulting in conflicting versions, client must perform reconciliation vector clocks used to capture causality  (node, counter) if the counters of an object are less-than-or-equal to all the nodes in a second clock, the first is an ancestor   on update, client must specify which version is being updated  pass the context from earlier read       timestamp is used to truncate the clock which may be growing  get and put operations  route request through LB use partition aware client library that routes to coordinator requests received through a LB routed to any random node in ring  node will forward to the first among top \(N\) in preference list   quorum protocol \(R+W &gt; N\) put(), coordinator generates vector clock for new version  sends to \(N\) highest-ranked reachable nodes if \(W-1\) nodes respond then the write is considered successful   get(), coordinator requests all existing versions of data forward for that key, wiates for \(R\) responses before returning value to client  handling failure   hinted handoff
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/fb-distributed-data-store-tao/" class="link black dim">
-        Fb Distributed Data Store Tao
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      intro   read-optimized social graph memcache and look-aside    The distinction between look-aside and look-through caches is not whether data is fetched from the cache and memory in serial or in parallel. The distinction is whether the fetch to memory on a cache miss originates from the caller or the cache. If the fetch to memory originates from the caller on cache miss, then you’re using a look-aside cache.
-    </div>
-  </div>
-</div>
-</div>
+
+        </div>
       
     </section>
-
-<ul class="pagination">
-    
-    <li class="page-item">
-        <a href="https://www.frankliu.org/hugo/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-    <a href="https://www.frankliu.org/hugo/posts/page/2/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="https://www.frankliu.org/hugo/posts/">1</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="https://www.frankliu.org/hugo/posts/page/2/">2</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item active"><a class="page-link" href="https://www.frankliu.org/hugo/posts/page/3/">3</a></li>
-    
-    
-    <li class="page-item disabled">
-    <a  class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-        <a href="https://www.frankliu.org/hugo/posts/page/3/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-    </li>
-    
-</ul>
-
-</article>
+  </div>
 
     </main>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
