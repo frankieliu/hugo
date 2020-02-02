@@ -1,0 +1,144 @@
+# -*- mode: org -*-
+#+HUGO_BASE_DIR: ../..
+#+HUGO_SECTION: posts
+#+HUGO_WEIGHT: 2000
+#+HUGO_AUTO_SET_LASTMOD: t
+#+TITLE: "USACO Jan 2020 Bronze - Race"
+#+DATE: 2020-02-02T09:58:03-08:00
+#+HUGO_TAGS: usaco "competitive programming"
+#+HUGO_CATEGORIES: usaco "competitive programming" 
+#+HUGO_MENU_off: :menu "main" :weight 2000
+#+HUGO_CUSTOM_FRONT_MATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true
+#+HUGO_DRAFT: false
+
+#+STARTUP: indent hidestars showall
+
+* $O(1)$ solution
+I am surprised that the solution posted is $O(n)$ since $n$ can be as large as
+$10^9$.
+
+In coming up with a solution for $O(1)$ we consider three phases.  The first phase
+accelerates the 'left hand' speed until it reaches the terminal speed.  If it can't
+reach the terminal speed then it just reaches whatever speed it can and
+terminates.
+
+The second phase is like a palindrome stage, where I remove similar increasing
+speeds from both ends, kind of like climbing up a tall peak from both ends. This
+happens because I would like to accelerate as much as possible but I have to
+leave a similar region for deacceleration into the terminal speed.
+
+The last phase we take care of any remaining distance that needs to be covered.
+
+All these three phases occur in $O(1)$ time, note that there is a binary search
+occuring in the second phase, but because I only look at three numbers, i.e. the
+lower and upper bounds are tight for the binary search.  I could have been done in
+a fixed size loop as well.
+
+#+begin_src python
+
+  import math
+  k, n = map(int, input().split())
+  debug = False
+
+
+  def solve(remainder, terminal_speed):
+      if remainder == 0:
+          return terminal_speed + 1
+
+      # (rs+high)(high-rs+1) = remainder
+      # high^2 - rs^2 + rs + high = remainder
+      # high(high+1) = remainder+rs^2-rs
+      right_speed = terminal_speed + 1
+      close = int(math.sqrt(remainder + right_speed*right_speed
+                            - right_speed)) + 1
+      if debug:
+          print("Upper bound guess", close)
+      left = max(right_speed, close-2)
+      right = close
+      while left <= right:
+          mid = (left+right)//2
+          dist = (right_speed+mid)*(mid-right_speed+1)
+          # print("Guessing", mid, dist, remainder)
+          if dist > remainder:
+              right = mid-1
+          elif dist == remainder:
+              right = mid
+              break
+          else:
+              left = mid+1
+
+      time_spent = (right-right_speed+1)*2 + right_speed
+      remainder -= (right_speed+right)*(right-right_speed+1)
+      if debug:
+          print("Guess", right, "remainder", remainder, "time", time_spent)
+      if remainder == 0 or remainder < terminal_speed:
+          return time_spent
+      else:
+          while True:
+              right += 1
+              remainder -= right
+              time_spent += 1
+              # print("remainder", remainder, "time", time_spent)
+              if remainder < terminal_speed:
+                  return time_spent
+              remainder -= right
+              time_spent += 1
+              # print("remainder", remainder, "time", time_spent)
+              if remainder < terminal_speed:
+                  return time_spent
+
+
+  for _ in range(n):
+      right_speed = int(input())
+      # time to reach the same speed as the terminal speed
+      # (1+k)*k/2
+      if (1+right_speed)*right_speed//2 >= k:
+          close = int(math.sqrt(k*2))-1
+          while (1+close)*close//2 < k:
+              close += 1
+          print(close)
+      else:
+          remainder = k - (1+right_speed)*right_speed//2 - 1
+          if debug:
+              print("Solving for", right_speed)
+              print("Remainder after", right_speed+1, "s", remainder)
+          print(solve(remainder, right_speed))
+#+end_src
+
+* How to create tight bounds
+Note that a lot of computation involves summing up an increasing sequence of
+numbers, such as $1 \cdots k$ or $k \cdots l$.  These all take the form
+
+\[
+\frac{(k+l)(l-k+1)}{2}
+\]
+
+Since we typically want to achieve a certain distance without overshooting we
+can do the following:
+
+\[
+\frac{l^2+l-k^2+k}{2} = d
+\]
+
+For the phases above the lower number $k$ is fixed, so we just need to bound
+$l$.  Rewriting the above
+
+\[
+l(l+1) = 2d+k^2-k
+\]
+
+Then an upper bound for $l$ and a lower bound for $l$ is
+
+\begin{eqnarray}
+l_{\text{upper}} &=& \sqrt{2d+k^2-k}\\
+l_{\text{lower}} &=& l_{\text{upper}} - 1
+\end{eqnarray}
+
+This simplifies searching for an $l$.
+
+* End conditions
+
+The only other tricky part is considering the remainder.  Note that right edge
+of remainder must abut some terminal speed.  That means that if the remainder
+itself can be covered within the terminal speed then that is sufficient to cover
+the remaining distance and to cross over into the terminal speed region.
