@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>My New Hugo Site  | Articles</title>
+    <title>My New Hugo Site  | appscript</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="generator" content="Hugo 0.63.2" />
     
@@ -27,19 +27,19 @@
 
     
     
-      <link href="https://www.frankliu.org/hugo/posts/index.xml" rel="alternate" type="application/rss+xml" title="My New Hugo Site" />
-      <link href="https://www.frankliu.org/hugo/posts/index.xml" rel="feed" type="application/rss+xml" title="My New Hugo Site" />
+      <link href="https://www.frankliu.org/hugo/categories/appscript/index.xml" rel="alternate" type="application/rss+xml" title="My New Hugo Site" />
+      <link href="https://www.frankliu.org/hugo/categories/appscript/index.xml" rel="feed" type="application/rss+xml" title="My New Hugo Site" />
       
     
     
-    <meta property="og:title" content="Articles" />
+    <meta property="og:title" content="appscript" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.frankliu.org/hugo/posts/" />
-<meta property="og:updated_time" content="2017-03-02T12:00:00-05:00" />
-<meta itemprop="name" content="Articles">
+<meta property="og:url" content="https://www.frankliu.org/hugo/categories/appscript/" />
+<meta property="og:updated_time" content="2020-02-01T17:17:12-08:00" />
+<meta itemprop="name" content="appscript">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Articles"/>
+<meta name="twitter:title" content="appscript"/>
 <meta name="twitter:description" content=""/>
 
   </head>
@@ -163,7 +163,7 @@
 
       <div class="tc-l pv3 ph3 ph4-ns">
         <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
-          Articles
+          appscript
         </h1>
         
       </div>
@@ -173,237 +173,34 @@
 
     <main class="pb7" role="main">
       
-  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
-    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"><p>Articles are paginated with only three posts here for example. You can set the number of entries to show on this page with the &ldquo;pagination&rdquo; setting in the config file.</p>
-</section>
+  <article class="cf pa3 pa4-m pa4-l">
+    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links nested-img mid-gray">
+      <p>Below you will find pages that utilize the taxonomy term “appscript”</p>
+    </div>
+  </article>
+  <div class="mw8 center">    
     <section class="flex-ns flex-wrap justify-around mt5">
       
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/deep-learning-book-setup/" class="link black dim">
-        Starting hugo from scratch
+      <a href="https://www.frankliu.org/hugo/posts/appscript-sheets/" class="link black dim">
+        Appscript - Sheets
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      deploying hugo to github.io There are a number of ways of doing this. Since I like to keep a separate branch for the deployment, I opted for the option below. Another option would be use a docs directory and add to config.toml a line with publishDir = &ldquo;docs&rdquo;. This would also work, and you then just need to work on master branch.
-This method of maintaining a separate branch is made easier with a worktree that directly writes to a public folder in gh-pages from the master branch.
+      Getting started Appscript is pretty powerful and free, it is javascript with google api for manipulating things.
+ Begin with a sheets document. Open tools/script editor Write in Code.gs Rename to some  Run with the triangle button Ctrl + Enter to see the Log Save it  Since most of the time I am operating on some selected range, you would first select on some cells before running the script.
     </div>
   </div>
 </div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/kleppmann-ch09-consistency/" class="link black dim">
-        Klepmann Chapter 9 Consistency and Consensus
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Consistency Guarantees eventual consistency  eventually data converges  different than transaction isolation  isolation - avoid race conditions due to concurrent execution consistency - about coordinating replica state  levels  strongest - linearizability causality and total ordering commit in a distributed system consensus problem  Linearizability  one replica illusion (one copy of the data) guarantee read is most recent - recency guarantee read A / write C / read A ok read A / begin write C / read B / end write C / read A not ok read is concurrent with the write  linearizability, 1 always follows 1 (no flipping)   cas(x, vold, vnew)  vs Serializability  serializability is about transactions guaranteeing a sequential order linearizability is about recency guarantees on read and write  importance locking and leader election  lock must be linearizable all nodes must agree on who holds the lock  zookeeper - used for distributed locking and leader election    constraints and uniqueness guarantees  enforcing uniquess (username, filename)  similar to acquiring a lock similar to cas operation   constraints that bank balance &gt;= 0  two people don&rsquo;t book the same flight requires a single up-to-date value for account balance or seat occupancy   uniquess constraints in DBs are linearizable foreigh key and attribute constraints can be implemented without linearizability  cross-channel timing dependencies File storage service is not linearizable, that is two requests went into it, one to store the image, and the other to resize the image.
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/kleppmann-ch07-transactions/" class="link black dim">
-        Kleppmann Chapter 07 - Transactions
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong   Durability - committed means data will not be lost  there is no perfect guarantee    Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another   identify multi-object transaction  tie to client&rsquo;s TCP connection - bad separate transaction id    Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set      Multi-object transactions  when do you need them?
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/vector-clocks/" class="link black dim">
-        Vector clocks
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      vector clocks A, B, C, D are trying to set a date.
- Alice starts off (Wed, (A:1)) (Tue, (A:1,B:1)) (Tue, (A:1,B:1,D:1)) (Thu, (A:1,C:1)) -&gt; Conflict  (A:1,C:1) did not descencd from (A:1,B:1,D:1)
-Descend Each marker in vclk2 must have corresponding or greater marker than in vclk1
-Resolve (Thu, (A:1, B:1, C:1, D:2))
-problems width of vector clock grows with number of actors, or clients.
- keep growth under control with timestamp to prune old clocks  revisited Actor Some entity in the system that makes an update to an object
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/rlang/" class="link black dim">
-        R lang
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      operators Exponent: ^ Bit: &amp; | Conditional: &amp;&amp; ||
-difference between = and &lt;- operators Just use =
-vectors (range)  everything is a vector 1:9, 1:2:9, c(1,3,2,-8.1) c() for concat  vector addition  v1 + v2 : element wise  matrices  matrix(c(1,2,3,4,5,6,7,8,9), nrow=3) nrow is the number of rows or ncol for number of columns fills in column order, i.e. [[1,4,7],[2,5,8],[3,6,9]] matrix(1:9, nrow=3, byrow=T) : fills in row order  matrix multiplication  m1 %*% m2  transpose  t(m1)  slicing  m1[1,3] m1[,3] : all elements on third column m1[1,] : all elements on first rows m1[,-2] : all but the second column m1[1,1] = 15 m1[,2:3] = 1 : set columns 2 and 3 to 2 m1[,2:3] = 4:9 : set columns 2 and 3 to col2:4,5,6, col3:7,8,9 m1[m1&gt;5] : filter elements in m1 that are greater than 5 m1[m1&gt;5] = 3 : set all elements greater than 5 to 3  loops for(i in 1:3) { print(i) } while(sum(v1)&gt;=5) {}
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/spanner/" class="link black dim">
-        Spanner
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Key to paper TrueTime exposes clock uncertainty, if the uncertainty is large, Spanner slows down to wait out the uncertainty. TS reflect serialization order, external consistency, or linearizability.
-Spanner zones Zone  zonemaster assigns data to spanservers (1000) location proxies used by clients to locate spanservers  Spanserver  responsible for 1000 tablets  Tablet  (key: string, timestamp: int64) -&gt; string more like multiversion kv store state store in a set of B-tree-like files and a write ahead log  in DFS called colossus   one Paxos state machine per tablet  Paxos  long time leader leases (10 sec) implements a consistently replicated bag of mappings writes initiates paxos protocol at leader reads access state directly from any replica set of replicas called Paxos group  Logs:  every &lsquo;Paxos write&rsquo; goes to tablet log and to Paxos logic  Replica leader  every leader replica implements a lock table contains the state for 2-phase locking  maps ranges of keys to lock states   leaders are long lived to maintain this lock table  performs poorly under optimistic concurrency control   replicas in paxos group called participant slaves implements a transaction manager  implements a participant leader used between other paxos groups for 2-phase commit    Participant/Coordinator  one participant leader (leader to a paxos group) is chosen as coordinator leader, other replica leader called coordinator slaves state of transaction manager store in underlying paxos group    Directory and placement directory  set of contiguous keys with common prefix unit of data placement -&gt; same replica config unit of data movement between paxos groups  paxos group/tablet  contains multiple directories not necessarily lex.
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/kmp/" class="link black dim">
-        KMP and Aho-Corasick
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Main concept of KMP Consider the following string:
-\(\underbrace{a_1 a_2 a_3 a_4}_\text{text1}\)
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/731-my-calendar-ii-segment-tree/" class="link black dim">
-        731 My Calendar II
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Acknowledgement Taken from fun4leet&rsquo;s My Calendar II wonderful article
-tl;dr A max segment tree, with an incremental update function is sufficient for this problem. Max is used because such tree allows quick query of the max number of bookings given a range. Incremental update is useful because each time book is called, one needs to increment the bookings in a particular range.
-Data structure 4 things: a range \([l,r]\), data, lazy flag
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/920-number-of-music-playlists/" class="link black dim">
-        920 Number of music playlists
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Notes on solution to Leetcode 920 Let&rsquo;s take the example from the article, songs: \(\left\{abcde\right\}\), playlist: \(abacabdcbaeacbd\),
-\(\bar{x} = (1,2,4,7,11)\)
-For \(\bar{x}\), each number in the n-tuple indicates a position in the playlist for the first occurrence of a particular unique song. The article uses 1-indexing so I will use the same to be consistent.
-As an example for the \(\bar{x}\) above, consider the playlist family:
-\(p_l = (1_1,2_2,c_3,3_4,c_5,c_6,4_7,c_8,c_9,c_{10},5_{11},c_{12},c_{13},c_{14})\)
-Here I have used the numbers (characters) \(1-5\), to indicate a song number, instead of the \(a-e\) in the article.
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/mathjax-hugo/" class="link black dim">
-        Setting up mathjax for hugo
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Problem Adding mathjax support for posts
-Solution  Modify the current theme Add a partial template Add a parameter called mathjax: true in the frontmatter  Details Modifying the current theme  Note that the current theme is set in config.tolm  theme = &#34;ananke&#34; 
-    </div>
-  </div>
-</div>
-</div>
+
+        </div>
       
     </section>
-
-<ul class="pagination">
-    
-    <li class="page-item">
-        <a href="https://www.frankliu.org/hugo/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-    <a href="https://www.frankliu.org/hugo/posts/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="https://www.frankliu.org/hugo/posts/">1</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item active"><a class="page-link" href="https://www.frankliu.org/hugo/posts/page/2/">2</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="https://www.frankliu.org/hugo/posts/page/3/">3</a></li>
-    
-    
-    <li class="page-item">
-    <a href="https://www.frankliu.org/hugo/posts/page/3/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-        <a href="https://www.frankliu.org/hugo/posts/page/3/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-    </li>
-    
-</ul>
-
-</article>
+  </div>
 
     </main>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">

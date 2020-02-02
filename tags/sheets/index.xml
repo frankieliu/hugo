@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sheets on My New Hugo Site</title>
+    <link>https://www.frankliu.org/hugo/tags/sheets/</link>
+    <description>Recent content in sheets on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 01 Feb 2020 17:17:12 -0800</lastBuildDate>
+    
+	<atom:link href="https://www.frankliu.org/hugo/tags/sheets/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Appscript - Sheets</title>
+      <link>https://www.frankliu.org/hugo/posts/appscript-sheets/</link>
+      <pubDate>Sat, 01 Feb 2020 17:17:12 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/appscript-sheets/</guid>
+      <description>Getting started Appscript is pretty powerful and free, it is javascript with google api for manipulating things.
+ Begin with a sheets document. Open tools/script editor Write in Code.gs Rename to some  Run with the triangle button Ctrl + Enter to see the Log Save it  Since most of the time I am operating on some selected range, you would first select on some cells before running the script.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -22,6 +22,16 @@ Pruning alpha is passed from maximizer to minimizer. maximizer says, beat a scor
     </item>
     
     <item>
+      <title>Appscript - Sheets</title>
+      <link>https://www.frankliu.org/hugo/posts/appscript-sheets/</link>
+      <pubDate>Sat, 01 Feb 2020 17:17:12 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/appscript-sheets/</guid>
+      <description>Getting started Appscript is pretty powerful and free, it is javascript with google api for manipulating things.
+ Begin with a sheets document. Open tools/script editor Write in Code.gs Rename to some  Run with the triangle button Ctrl + Enter to see the Log Save it  Since most of the time I am operating on some selected range, you would first select on some cells before running the script.</description>
+    </item>
+    
+    <item>
       <title>Bellman-Held-Karp Hamiltonian path and Traveling Salesman</title>
       <link>https://www.frankliu.org/hugo/posts/bellman-held-karp/</link>
       <pubDate>Tue, 28 Jan 2020 22:40:15 -0800</pubDate>
