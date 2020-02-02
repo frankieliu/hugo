@@ -1,0 +1,128 @@
+# -*- mode: org -*-
+#+HUGO_BASE_DIR: ../..
+#+HUGO_SECTION: posts
+#+HUGO_WEIGHT: 2000
+#+HUGO_AUTO_SET_LASTMOD: t
+#+TITLE: "Appscript - Sheets"
+#+DATE: 2020-02-01T17:17:12-08:00
+#+HUGO_TAGS: appscript sheets 
+#+HUGO_CATEGORIES: appscript sheets
+#+HUGO_MENU_off: :menu "main" :weight 2000
+#+HUGO_CUSTOM_FRONT_MATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true
+#+HUGO_DRAFT: false
+
+#+STARTUP: indent hidestars showall
+
+* Getting started
+Appscript is pretty powerful and free, it is javascript with google api for
+manipulating things.
+
+1. Begin with a sheets document.
+1. Open tools/script editor
+1. Write in Code.gs
+1. Rename to some <project>
+1. Run with the triangle button
+1. Ctrl + Enter to see the Log
+1. Save it
+
+Since most of the time I am operating on some selected range, you would
+first select on some cells before running the script.
+
+* Resources
+
+Since most operations involve doing things with ranges, here is the
+range api.
+
+https://developers.google.com/apps-script/reference/spreadsheet/range
+
+* Sample code
+
+#+begin_src javascript
+  function myFunction() {
+    Logger.log("hello");
+    var activeSheet = SpreadsheetApp.getActiveSheet();
+    //var rangeList = activeSheet.getRangeList(['A1:B4', 'D1:E4']);
+    //rangeList.activate();
+
+    var selection = activeSheet.getSelection();
+    // Current Cell: D1
+    Logger.log('Current Cell: ' + selection.getCurrentCell().getA1Notation());
+    // Active Range: D1:E4
+    Logger.log('Active Range: ' + selection.getActiveRange().getA1Notation());
+    // Active Ranges: A1:B4, D1:E4
+    var ranges =  selection.getActiveRangeList().getRanges();
+    for (var i = 0; i < ranges.length; i++) {
+      Logger.log('Active Ranges: ' + ranges[i].getA1Notation());
+    }
+    Logger.log('Active Sheet: ' + selection.getActiveSheet().getName());
+
+    var ss = SpreadsheetApp.getActiveSpreadsheet()
+       source = ss.getActiveSheet(),
+       sheetName = source.getName(),
+       data = source.getDataRange().getValues();
+
+    var range = source.getActiveRange(),
+        startRow = range.getRowIndex(),
+        startCol = range.getColumnIndex(),
+        numRows = range.getNumRows(),
+        numCols = range.getNumColumns()
+
+    var values = range.getValues()
+
+    var sBG = source.getDataRange().getBackgrounds();
+    var sFC = source.getDataRange().getFontColors();
+    var sFF = source.getDataRange().getFontFamilies();
+    var sFL = source.getDataRange().getFontLines();
+    var sFFa = source.getDataRange().getFontFamilies();
+    var sFSz = source.getDataRange().getFontSizes();
+    var sFSt = source.getDataRange().getFontStyles();
+    var sFW = source.getDataRange().getFontWeights();
+    var sHA = source.getDataRange().getHorizontalAlignments();
+    var sVA = source.getDataRange().getVerticalAlignments();
+    var sNF = source.getDataRange().getNumberFormats();
+    var sWR = source.getDataRange().getWraps();
+
+    //var dest = source.getRange(startRow,3,numRows,numCols)
+    //range.copyTo(dest)
+
+    for(var arow=0;arow<numRows;arow++){
+      var offCol = startCol+numCols+1
+      var src = source.getRange(startRow+arow,startCol,1,numCols)
+      var dest = source.getRange(startRow,offCol+numCols*arow,1,numCols)
+      src.copyTo(dest)
+    }
+
+    source.getRange(startRow,startCol+numCols+1,1,numRows*numCols).setHorizontalAlignment("left").activate()
+    //rangeList.activate();
+    //dest.getRange(startRow,3,numRows,numCols).setValues(values)
+    //.setBackgrounds(sBG)
+    //.setFontColors(sFC)
+    //.setFontFamilies(sFF)
+    //.setFontLines(sFL)
+    //.setFontFamilies(sFFa)
+    //.setFontSizes(sFSz)
+    //.setFontStyles(sFSt)
+    //.setFontWeights(sFW)
+    //.setHorizontalAlignments(sHA)
+    //.setVerticalAlignments(sVA)
+    //.setNumberFormats(sNF)
+    //.setWraps(sWR)
+
+    //sheet.deleteRows(startRow,numRows);
+  }
+#+end_src
+
+
+* Code walk through
+The idea is to select a rectangular region and compress it into a single row.
+The logic is very simple.  I don't delete the original region just so that it is
+still something manual that I have to do.
+
+The ~range.copyTo~ function is useful because it also copies the format.  I
+leave the selection on the newly created row because it makes it easier to move
+into its eventual destination.
+
+The use case for this is the myriad of confirmation that I get while paying
+bills I like to keep it all centrallized in a spreadsheet, but while copying and
+pasting from some website, the format usually spans multiple rows and columns
+and I would like to compress all the information into a single column.
