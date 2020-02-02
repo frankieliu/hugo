@@ -6,10 +6,28 @@
     <description>Recent content in Tags on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Jan 2020 22:40:15 -0800</lastBuildDate>
+    <lastBuildDate>Sat, 01 Feb 2020 18:50:57 -0800</lastBuildDate>
     
 	<atom:link href="https://www.frankliu.org/hugo/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>alpha beta pruning</title>
+      <link>https://www.frankliu.org/hugo/tags/alpha-beta-pruning/</link>
+      <pubDate>Sat, 01 Feb 2020 18:50:57 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/alpha-beta-pruning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>minimax</title>
+      <link>https://www.frankliu.org/hugo/tags/minimax/</link>
+      <pubDate>Sat, 01 Feb 2020 18:50:57 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/minimax/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Gosper&#39;s hack</title>

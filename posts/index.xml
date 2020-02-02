@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>Minimax - alpha beta pruning</title>
+      <link>https://www.frankliu.org/hugo/posts/alpha-beta-pruning/</link>
+      <pubDate>Sat, 01 Feb 2020 18:50:57 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/alpha-beta-pruning/</guid>
+      <description>Mnemoic Minimax, alpha beta. Min comes before Max, alpha comes before beta. Minimizer uses alpha, maximizer uses beta.
+Pruning alpha is passed from maximizer to minimizer. maximizer says, beat a score of 10 (it wants something greater). minimizer gets one score of 8. minimizer stops because it can&amp;rsquo;t get above 8, it is a minimizer after all so exploration will only reduce this score, and it will not be useful by the maximizer.</description>
+    </item>
+    
+    <item>
       <title>Bellman-Held-Karp Hamiltonian path and Traveling Salesman</title>
       <link>https://www.frankliu.org/hugo/posts/bellman-held-karp/</link>
       <pubDate>Tue, 28 Jan 2020 22:40:15 -0800</pubDate>

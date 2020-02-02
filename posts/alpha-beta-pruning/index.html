@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>My New Hugo Site  | My Hugo Site</title>
+    <title>My New Hugo Site  | Minimax - alpha beta pruning</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="generator" content="Hugo 0.63.2" />
     
@@ -27,29 +27,37 @@
 
     
     
-      <link href="https://www.frankliu.org/hugo/index.xml" rel="alternate" type="application/rss+xml" title="My New Hugo Site" />
-      <link href="https://www.frankliu.org/hugo/index.xml" rel="feed" type="application/rss+xml" title="My New Hugo Site" />
-      
-    
-    
-    <meta property="og:title" content="My Hugo Site" />
-<meta property="og:description" content="A blog for programming and scalable systems" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.frankliu.org/hugo/" />
-<meta property="og:updated_time" content="2020-02-01T18:50:57-08:00" />
-<meta itemprop="name" content="My Hugo Site">
-<meta itemprop="description" content="A blog for programming and scalable systems"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="My Hugo Site"/>
-<meta name="twitter:description" content="A blog for programming and scalable systems"/>
+    <meta property="og:title" content="Minimax - alpha beta pruning" />
+<meta property="og:description" content="Mnemoic Minimax, alpha beta. Min comes before Max, alpha comes before beta. Minimizer uses alpha, maximizer uses beta.
+Pruning alpha is passed from maximizer to minimizer. maximizer says, beat a score of 10 (it wants something greater). minimizer gets one score of 8. minimizer stops because it can&rsquo;t get above 8, it is a minimizer after all so exploration will only reduce this score, and it will not be useful by the maximizer." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.frankliu.org/hugo/posts/alpha-beta-pruning/" />
+<meta property="article:published_time" content="2020-02-01T18:50:57-08:00" />
+<meta property="article:modified_time" content="2020-02-01T18:59:00-08:00" />
+<meta itemprop="name" content="Minimax - alpha beta pruning">
+<meta itemprop="description" content="Mnemoic Minimax, alpha beta. Min comes before Max, alpha comes before beta. Minimizer uses alpha, maximizer uses beta.
+Pruning alpha is passed from maximizer to minimizer. maximizer says, beat a score of 10 (it wants something greater). minimizer gets one score of 8. minimizer stops because it can&rsquo;t get above 8, it is a minimizer after all so exploration will only reduce this score, and it will not be useful by the maximizer.">
+<meta itemprop="datePublished" content="2020-02-01T18:50:57-08:00" />
+<meta itemprop="dateModified" content="2020-02-01T18:59:00-08:00" />
+<meta itemprop="wordCount" content="168">
+
+
+
+<meta itemprop="keywords" content="minimax,alpha beta pruning," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Minimax - alpha beta pruning"/>
+<meta name="twitter:description" content="Mnemoic Minimax, alpha beta. Min comes before Max, alpha comes before beta. Minimizer uses alpha, maximizer uses beta.
+Pruning alpha is passed from maximizer to minimizer. maximizer says, beat a score of 10 (it wants something greater). minimizer gets one score of 8. minimizer stops because it can&rsquo;t get above 8, it is a minimizer after all so exploration will only reduce this score, and it will not be useful by the maximizer."/>
 
   </head>
 
   <body class="ma0 avenir bg-near-white">
 
     
+   
+  
 
   <header>
-    <div class="pb3-m pb6-l bg-black">
+    <div class="bg-black">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
     <a href="https://www.frankliu.org/hugo/" class="f3 fw2 hover-white no-underline white-90 dib">
@@ -161,166 +169,103 @@
   </div>
 </nav>
 
-      <div class="tc-l pv3 ph3 ph4-ns">
-        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
-          My Hugo Site
-        </h1>
-        
-          <h2 class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">
-            A blog for programming and scalable systems
-          </h2>
-        
-      </div>
     </div>
   </header>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+    extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+    });
+</script>
+
 
 
     <main class="pb7" role="main">
       
-  <article class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray">
-    <p>Welcome to my blog with some of my work in progress.  I&rsquo;ve been working on this book idea.  You can read some of the chapters below.  Not.</p>
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        ARTICLES
+      </p>
+      <h1 class="f1 athelas mb1">Minimax - alpha beta pruning</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              adam
+          
+          </strong>
+      </p>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-02-01T18:50:57-08:00">February 1, 2020</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h2 id="mnemoic">Mnemoic</h2>
+<p>Minimax, alpha beta.  Min comes before Max, alpha comes before beta.
+Minimizer uses alpha, maximizer uses beta.</p>
+<h2 id="pruning">Pruning</h2>
+<p>alpha is passed from maximizer to minimizer. maximizer says, beat a score of 10
+(it wants something greater). minimizer gets one score of 8. minimizer stops
+because it can&rsquo;t get above 8, it is a minimizer after all so exploration will
+only reduce this score, and it will not be useful by the maximizer.</p>
+<p>beta is passed from minimizer to maximizer.  minimizer says, give me something
+smaller than 5.  maximizer gets one score of 6.  it stops because it can&rsquo;t get a
+score less than 6 because it is a maximizer, any further exploration will only
+make the score worse.</p>
+<h2 id="updating">Updating</h2>
+<p>When do alpha and beta get updated?  Obviously alpha is something that maximizer
+uses to inform the minimizer, so it is continuously updating the alpha as it
+explores its options and finds a better score.  Similarly beta is updated by the
+minimizer when it finds a lower score.</p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/minimax" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">minimax</a>
+   </li>
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/alpha-beta-pruning" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">alpha beta pruning</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+      
+      
+			<script src="https://utteranc.es/client.js"
+        repo="frankieliu/hugo"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+      </script>
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
 
   </article>
-  
-  
-  
-  
-  
-  
-  
-    
-    
-
-    <div class="pa3 pa4-ns w-100 w-70-ns center">
-      
-       
-          <h1 class="flex-none">
-            Recent Articles
-          </h1>
-        
-
-      
-
-      <section class="w-100 mw8">
-        
-        
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://www.frankliu.org/hugo/posts/alpha-beta-pruning/" class="color-inherit dim link">
-            Minimax - alpha beta pruning
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          Mnemoic Minimax, alpha beta. Min comes before Max, alpha comes before beta. Minimizer uses alpha, maximizer uses beta.
-Pruning alpha is passed from maximizer to minimizer. maximizer says, beat a score of 10 (it wants something greater). minimizer gets one score of 8. minimizer stops because it can&rsquo;t get above 8, it is a minimizer after all so exploration will only reduce this score, and it will not be useful by the maximizer.
-        </div>
-          <a href="https://www.frankliu.org/hugo/posts/alpha-beta-pruning/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://www.frankliu.org/hugo/posts/bellman-held-karp/" class="color-inherit dim link">
-            Bellman-Held-Karp Hamiltonian path and Traveling Salesman
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          Figure below with mypaint and a Bamboo tablet on Ubuntu   Floyd-Warshall connection This section can be skipped, because it is basically my own brain mapping of this problem, since I feel there are some similarities with Floyd-Warshall.
-For FW, I think of a source and destination pair \(i\) and \(j\) going through some intermediate node \(k\), and relaxing in a reverse triangle inequality kind of way, i.e.
-\[ d[i][j] := \min(d[i][j], d[i][k] + d[k][j]) \]
-        </div>
-          <a href="https://www.frankliu.org/hugo/posts/bellman-held-karp/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://www.frankliu.org/hugo/posts/hugo-css-svg-social/" class="color-inherit dim link">
-            Hugo: custom css, social-follow, svg, baseurl, comments
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          hugo social buttons It stated with wanting to add social buttons on my web page. This was as easy as changing the config.toml file. For Ananke theme, it is looking for some parameters, in the [params] sections. Just add you link to facebook, twitter, etc as facebook = &quot;https://www.facebook.com/ID&quot;.
-case of missing id I was upset that it had a slack link available, but no discord one. One because I don&rsquo;t even know what is one&rsquo;s slack id.
-        </div>
-          <a href="https://www.frankliu.org/hugo/posts/hugo-css-svg-social/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
-      </section>
-
-      
-      <section class="w-100">
-        <h1 class="f3">More</h1>
-        
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://www.frankliu.org/hugo/posts/1320-mininum-distance-to-type-a-word-using-two-fingers/" class="link black dim">
-              Leetcode 1320. Minimum Distance to Type a Word Using Two Fingers
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://www.frankliu.org/hugo/posts/zookeeper-2-3/" class="link black dim">
-              Zookeeper 2.3
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://www.frankliu.org/hugo/posts/usaco-dec-2019-plat-tree-depth/" class="link black dim">
-              Tree Depth - USACO Platimum Dec19
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://www.frankliu.org/hugo/posts/blackhole/" class="link black dim">
-              Blackhole - Recording Sound Output in Macbook
-            </a>
-          </h2>
-        
-
-        
-        
-          <a href="https://www.frankliu.org/hugo/posts/" class="link db f6 pa2 br3 bg-mid-gray white dim w4 tc">All Articles</a>
-        
-        </section>
-      
-
-      </div>
-  
 
     </main>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">

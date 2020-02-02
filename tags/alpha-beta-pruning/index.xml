@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>alpha beta pruning on My New Hugo Site</title>
+    <link>https://www.frankliu.org/hugo/tags/alpha-beta-pruning/</link>
+    <description>Recent content in alpha beta pruning on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 01 Feb 2020 18:50:57 -0800</lastBuildDate>
+    
+	<atom:link href="https://www.frankliu.org/hugo/tags/alpha-beta-pruning/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Minimax - alpha beta pruning</title>
+      <link>https://www.frankliu.org/hugo/posts/alpha-beta-pruning/</link>
+      <pubDate>Sat, 01 Feb 2020 18:50:57 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/alpha-beta-pruning/</guid>
+      <description>Mnemoic Minimax, alpha beta. Min comes before Max, alpha comes before beta. Minimizer uses alpha, maximizer uses beta.
+Pruning alpha is passed from maximizer to minimizer. maximizer says, beat a score of 10 (it wants something greater). minimizer gets one score of 8. minimizer stops because it can&amp;rsquo;t get above 8, it is a minimizer after all so exploration will only reduce this score, and it will not be useful by the maximizer.</description>
+    </item>
+    
+  </channel>
+</rss>
