@@ -1,0 +1,34 @@
+# -*- mode: org -*-
+#+HUGO_BASE_DIR: ../..
+#+HUGO_SECTION: posts
+#+HUGO_WEIGHT: 2000
+#+HUGO_AUTO_SET_LASTMOD: t
+#+TITLE: "Minimax - alpha beta pruning"
+#+DATE: 2020-02-01T18:50:57-08:00
+#+HUGO_TAGS: minimax "alpha beta pruning"
+#+HUGO_CATEGORIES: minimax
+#+HUGO_MENU_off: :menu "main" :weight 2000
+#+HUGO_CUSTOM_FRONT_MATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true
+#+HUGO_DRAFT: false
+
+#+STARTUP: indent hidestars showall
+* Mnemoic
+Minimax, alpha beta.  Min comes before Max, alpha comes before beta.
+Minimizer uses alpha, maximizer uses beta.
+
+* Pruning
+alpha is passed from maximizer to minimizer. maximizer says, beat a score of 10
+(it wants something greater). minimizer gets one score of 8. minimizer stops
+because it can't get above 8, it is a minimizer after all so exploration will
+only reduce this score, and it will not be useful by the maximizer.
+
+beta is passed from minimizer to maximizer.  minimizer says, give me something
+smaller than 5.  maximizer gets one score of 6.  it stops because it can't get a
+score less than 6 because it is a maximizer, any further exploration will only
+make the score worse.
+
+* Updating
+When do alpha and beta get updated?  Obviously alpha is something that maximizer
+uses to inform the minimizer, so it is continuously updating the alpha as it
+explores its options and finds a better score.  Similarly beta is updated by the
+minimizer when it finds a lower score.
