@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | Articles</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.63.2" />
+    <meta name="generator" content="Hugo 0.64.0" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -182,6 +182,23 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/rectangle-problem/" class="link black dim">
+        Rectangle counting
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      The problem is to count the number of rectangles (aligned to x and y coordinates) that can be formed by a set of points. Answer from competitive programmer Errichto.
+def num_rect(points): m = defaultdict(lambda: 0) answer = 0 for p in points: for p_above in points: if p.y &lt; p_above.y: answer += m[(p.y,p_above.y)] m[(p.y,p_above.y)] += 1 return answer Consider the following set of points:
+   x x x     1 2 3    This is for k = 3, there are 3 possible rectangles.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
       <a href="https://www.frankliu.org/hugo/posts/460-lfu-cache/" class="link black dim">
         Leetcode 460. LFU Cache
       </a>
@@ -320,26 +337,6 @@ Spanner zones Zone  zonemaster assigns data to spanservers (1000) location proxi
       Acknowledgement Taken from fun4leet&rsquo;s My Calendar II wonderful article
 tl;dr A max segment tree, with an incremental update function is sufficient for this problem. Max is used because such tree allows quick query of the max number of bookings given a range. Incremental update is useful because each time book is called, one needs to increment the bookings in a particular range.
 Data structure 4 things: a range \([l,r]\), data, lazy flag
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/920-number-of-music-playlists/" class="link black dim">
-        920 Number of music playlists
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Notes on solution to Leetcode 920 Let&rsquo;s take the example from the article, songs: \(\left\{abcde\right\}\), playlist: \(abacabdcbaeacbd\),
-\(\bar{x} = (1,2,4,7,11)\)
-For \(\bar{x}\), each number in the n-tuple indicates a position in the playlist for the first occurrence of a particular unique song. The article uses 1-indexing so I will use the same to be consistent.
-As an example for the \(\bar{x}\) above, consider the playlist family:
-\(p_l = (1_1,2_2,c_3,3_4,c_5,c_6,4_7,c_8,c_9,c_{10},5_{11},c_{12},c_{13},c_{14})\)
-Here I have used the numbers (characters) \(1-5\), to indicate a song number, instead of the \(a-e\) in the article.
     </div>
   </div>
 </div>

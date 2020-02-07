@@ -6,10 +6,37 @@
     <description>Recent content in Tags on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 02 Feb 2020 09:58:03 -0800</lastBuildDate>
+    <lastBuildDate>Fri, 07 Feb 2020 08:23:32 -0800</lastBuildDate>
     
 	<atom:link href="https://www.frankliu.org/hugo/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>chain replication</title>
+      <link>https://www.frankliu.org/hugo/tags/chain-replication/</link>
+      <pubDate>Fri, 07 Feb 2020 08:23:32 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/chain-replication/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>object store</title>
+      <link>https://www.frankliu.org/hugo/tags/object-store/</link>
+      <pubDate>Fri, 07 Feb 2020 08:23:32 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/object-store/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>zookeeper</title>
+      <link>https://www.frankliu.org/hugo/tags/zookeeper/</link>
+      <pubDate>Fri, 07 Feb 2020 08:23:32 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/zookeeper/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>competitive programming</title>
@@ -143,15 +170,6 @@
       <pubDate>Sat, 18 Jan 2020 19:24:37 -0800</pubDate>
       
       <guid>https://www.frankliu.org/hugo/tags/distributed-system/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>zookeeper</title>
-      <link>https://www.frankliu.org/hugo/tags/zookeeper/</link>
-      <pubDate>Sat, 18 Jan 2020 19:24:37 -0800</pubDate>
-      
-      <guid>https://www.frankliu.org/hugo/tags/zookeeper/</guid>
       <description></description>
     </item>
     

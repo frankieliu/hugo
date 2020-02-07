@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://www.frankliu.org/hugo/posts/craq-terrace-freedman/</loc>
+    <lastmod>2020-02-07T08:40:13-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.frankliu.org/hugo/posts/usaco-jan-2020-bronze-race/</loc>
     <lastmod>2020-02-02T10:44:25-08:00</lastmod>
   </url>
@@ -114,7 +119,42 @@
   
   <url>
     <loc>https://www.frankliu.org/hugo/categories/</loc>
-    <lastmod>2020-02-02T10:44:25-08:00</lastmod>
+    <lastmod>2020-02-07T08:40:13-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/chain-replication/</loc>
+    <lastmod>2020-02-07T08:40:13-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/</loc>
+    <lastmod>2020-02-07T08:40:13-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/object-store/</loc>
+    <lastmod>2020-02-07T08:40:13-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/categories/object-store/</loc>
+    <lastmod>2020-02-07T08:40:13-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/</loc>
+    <lastmod>2020-02-07T08:40:13-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/zookeeper/</loc>
+    <lastmod>2020-02-07T08:40:13-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/categories/zookeeper/</loc>
+    <lastmod>2020-02-07T08:40:13-08:00</lastmod>
   </url>
   
   <url>
@@ -124,16 +164,6 @@
   
   <url>
     <loc>https://www.frankliu.org/hugo/tags/competitive-programming/</loc>
-    <lastmod>2020-02-02T10:44:25-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/</loc>
-    <lastmod>2020-02-02T10:44:25-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/tags/</loc>
     <lastmod>2020-02-02T10:44:25-08:00</lastmod>
   </url>
   
@@ -153,12 +183,12 @@
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/tags/minimax/</loc>
+    <loc>https://www.frankliu.org/hugo/categories/minimax/</loc>
     <lastmod>2020-02-01T18:59:00-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/categories/minimax/</loc>
+    <loc>https://www.frankliu.org/hugo/tags/minimax/</loc>
     <lastmod>2020-02-01T18:59:00-08:00</lastmod>
   </url>
   
@@ -173,12 +203,12 @@
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/tags/sheets/</loc>
+    <loc>https://www.frankliu.org/hugo/categories/sheets/</loc>
     <lastmod>2020-02-01T18:59:47-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/categories/sheets/</loc>
+    <loc>https://www.frankliu.org/hugo/tags/sheets/</loc>
     <lastmod>2020-02-01T18:59:47-08:00</lastmod>
   </url>
   
@@ -213,22 +243,22 @@
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/tags/github-pages/</loc>
-    <lastmod>2020-01-23T16:30:43-08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://www.frankliu.org/hugo/categories/github-pages/</loc>
     <lastmod>2020-01-23T16:30:43-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/tags/hugo/</loc>
+    <loc>https://www.frankliu.org/hugo/tags/github-pages/</loc>
     <lastmod>2020-01-23T16:30:43-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/categories/hugo/</loc>
+    <lastmod>2020-01-23T16:30:43-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/hugo/</loc>
     <lastmod>2020-01-23T16:30:43-08:00</lastmod>
   </url>
   
@@ -243,18 +273,13 @@
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/categories/leetcode/</loc>
-    <lastmod>2020-01-21T14:00:37-08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://www.frankliu.org/hugo/tags/leetcode/</loc>
     <lastmod>2020-01-21T14:00:37-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/categories/distributed-system/</loc>
-    <lastmod>2020-01-18T20:56:55-08:00</lastmod>
+    <loc>https://www.frankliu.org/hugo/categories/leetcode/</loc>
+    <lastmod>2020-01-21T14:00:37-08:00</lastmod>
   </url>
   
   <url>
@@ -263,7 +288,7 @@
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/tags/zookeeper/</loc>
+    <loc>https://www.frankliu.org/hugo/categories/distributed-system/</loc>
     <lastmod>2020-01-18T20:56:55-08:00</lastmod>
   </url>
   
@@ -303,12 +328,12 @@
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/tags/computational-geometry/</loc>
+    <loc>https://www.frankliu.org/hugo/categories/computational-geometry/</loc>
     <lastmod>2019-11-20T23:42:48-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/categories/computational-geometry/</loc>
+    <loc>https://www.frankliu.org/hugo/tags/computational-geometry/</loc>
     <lastmod>2019-11-20T23:42:48-08:00</lastmod>
   </url>
   
@@ -353,12 +378,12 @@
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/tags/scalable/</loc>
+    <loc>https://www.frankliu.org/hugo/categories/scalable/</loc>
     <lastmod>2019-11-30T10:28:49-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/categories/scalable/</loc>
+    <loc>https://www.frankliu.org/hugo/tags/scalable/</loc>
     <lastmod>2019-11-30T10:28:49-08:00</lastmod>
   </url>
   
@@ -368,12 +393,12 @@
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/categories/kleppmann/</loc>
+    <loc>https://www.frankliu.org/hugo/tags/kleppmann/</loc>
     <lastmod>2019-10-26T19:54:53-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/tags/kleppmann/</loc>
+    <loc>https://www.frankliu.org/hugo/categories/kleppmann/</loc>
     <lastmod>2019-10-26T19:54:53-07:00</lastmod>
   </url>
   
@@ -423,12 +448,12 @@
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/tags/spanner/</loc>
+    <loc>https://www.frankliu.org/hugo/categories/spanner/</loc>
     <lastmod>2019-10-26T08:16:47-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/categories/spanner/</loc>
+    <loc>https://www.frankliu.org/hugo/tags/spanner/</loc>
     <lastmod>2019-10-26T08:16:47-07:00</lastmod>
   </url>
   
