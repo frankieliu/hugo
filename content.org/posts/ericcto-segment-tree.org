@@ -1,0 +1,145 @@
+# -*- mode: org -*-
+#+HUGO_BASE_DIR: ../..
+#+HUGO_SECTION: posts
+#+HUGO_WEIGHT: 2000
+#+HUGO_AUTO_SET_LASTMOD: t
+#+TITLE: "Errichto - segment tree"
+#+DATE: 2020-02-07T16:03:25-08:00
+#+HUGO_TAGS: errichto "segment tree" 
+#+HUGO_CATEGORIES: "segment tree" "segment tree" "segment tree" "segment tree" "segment tree" "segment tree" "segment tree" "segment tree" "segment tree" "segment tree" "segment tree" "segment tree" "segment tree" "segment tree" "segment tree" "segment tree" 
+#+HUGO_MENU_off: :menu "main" :weight 2000
+#+HUGO_CUSTOM_FRONT_MATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true
+#+HUGO_DRAFT: false
+
+#+STARTUP: indent hidestars showall
+* Segment tree
+[[/images/segment-tree/segment.png]]
+** Preliminaries
+The data structure in this segment tree information according to Antti Laaksonen
+in the Competitive Programmer's Handbook comes from
+
+[62] P. Stańczyk. Algorytmika praktyczna w konkursach Informatycznych, MSc
+thesis, University of Warsaw, 2006.
+
+Basically the original range is stored at some offset that correspond to largest
+power of two that is greater or equal to the size of the range.  For example a
+size 16 array would be stored at an offset of 16 in the array.
+
+From this we can also gather that the parent child relationship is $n$ to $2n$
+and $2n+1$.  And that the root index is at $1$.  In comparison with popular heap
+implementations with root at $0$ index and parent to child relationship as $n$
+and $2n+1$ and $2n+2$.
+
+Another way to look at it, since there are 16 positions, then we would have
+on the upward levels 8, 4, 2, 1 respectively, which adds up to 16-1.
+
+** Query 
+
+In the example below, this is a typical segment tree query.  In this case, we
+want the sum from the $a$th element to the $b$th element.
+
+#+begin_src cpp
+  int sum(int a, int b) {
+    a += n; b += n;
+    int s = 0;
+    while (a <= b) {
+      if (a%2 == 1) s += tree[a++];
+      if (b%2 == 0) s += tree[b--];
+      a /= 2; b /= 2;
+    }
+    return s;
+  }
+#+end_src
+
+First both $a$ and $b$ delimiters are brought to the leaf node level ($+= n$).
+Then depending on whether $a$ is at an odd position then it's node value is
+added to the sum, and if $b$ is at an even position then it's node value is
+added.
+
+This is somewhat intuitive because $a$ odd means that there is no node up in the
+tree that solely contains its value.  If $a$ is in an even position then we know
+that the node $a/2$ contains both $a$ and $a+1$.  A similar argument can be made
+for a right side boundary.  If $b$ is at an odd location then we know that
+$b/2$ contains both $b-1$ and $b$, so we should defer the addition to an upper
+level node.  While if $b$ is at an even position, then there is no upper level
+node that solely contains its value.  If you are confused about the asymmetry,
+note that we are trying to sum from 'index' $a$ to $b$.  $a+1$ and $b-1$ must be
+in this sum.  And so the decision of adding $a$ at the current layer depends
+whether there is a upper layer node that contains both $a$ and $a+1$.  This
+would only hold true if $a$ is at an even position.
+
+The computation continues until $a$ and $b$ abut each other or lie on top of one
+another.  If they abut, then both $a$ and $b$ are added to the sum.  And if $a$
+and $b$ lie on top of one another then one one of the is counted toward the sum.
+
+Note that the inclusion for a left edge node (odd position) necessitates moving
+the boundary to the right of it.  Similarly for a right edge node (even
+position) necessitates moving the right boundary to the left of it.  Thus the
+$a++$ and the $b--$.
+
+* Surprise 
+The above computation is for when the intermediate nodes contain the sum of
+nodes under its branches.  In Errichto's implementation he was considering a
+slightly different problem, but let's differ that till later, I will try to
+rewrite the sum (query) function above:
+
+#+begin_src cpp
+  int sum(int a, int b) {
+    a += n; b += n;
+    int s = 0;
+    s += tree[a];
+    if (a!=b) s += tree[b];
+    while (a + 1 < b) {
+      if (a%2 == 0) s += tree[a+1];
+      if (b%2 == 1) s += tree[b-1];
+      a /= 2; b /= 2;
+    }
+    return s;
+  }
+#+end_src
+
+Despite the some outward similarities, these two pieces of code don't do the
+same things at all.  Disturbing to me is the fact that $a$ and $b$ just go up to
+their parent nodes, i.e. there is no shifting of the left and right edge nodes
+from a parent perspective.  This is very different from the previous
+implementation.  So how does this algorithm work at all?
+
+The first new two lines are interesting.  Basically the end points are added.
+Then at this level if $a$ is even then add $a+1$ and if $b$ is odd add $b-1$.
+This is a clear departure from the previous solution which waited for an
+addition at an upper level node.
+
+The really interesting part of the process is that now we just to the parent
+nodes, without any shifting.  And following the same logic, if the left parent
+node happens to be even then add the odd one at this level.  Similarly if the
+parent node is odd, then add the even node at this level.
+
+To help you understand what is going on I have colored in gray the $a$ and $b$
+nodes and all the nodes on the upper layers that are added together.  In beige,
+I have colored all the parent nodes from these two end of range nodes.
+
+Note that at each level, the decision is the following. Being in an odd left
+boundary nodes means that an upper layer node cannot be included since it will
+contain information of elements to the left of me. However, if I am in an even
+node, I can safely add a node to my right, since it is within the range of
+interest. One may argue why not add the node above you since that contains both
+yourself and the node to the right. This cannot be done because the node
+directly above me may also contain elements to my left. Thus the only safe
+addition is the node to the right on the same level.
+
+Another way to interpret this is that the parent of the node I am coming from
+has already been taken care of by the layers below, so I cannot use any of its
+information in the calculation of the range.
+
+What is the terminating condition?  When both the left and right nodes abut one
+another, because that means that I have taken care of all the elements below
+these two nodes.
+
+* Laziness built in 
+In AtCoder 153 Silver Fox vs Monster. The usage of segment tree is particularly
+interesting because it is not for range query, but range a range update. Whereas
+the queries are for particular elements in the range after range updates.
+Therefore it is useful to just keep information at the intermediate nodes
+without pushing to the children.
+ 
+

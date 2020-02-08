@@ -1,0 +1,72 @@
+# -*- mode: org -*-
+#+HUGO_BASE_DIR: ../..
+#+HUGO_SECTION: posts
+#+HUGO_WEIGHT: 2000
+#+HUGO_AUTO_SET_LASTMOD: t
+#+TITLE: "Craq - Terrace and Freedman"
+#+DATE: 2020-02-07T08:23:32-08:00
+#+HUGO_TAGS: zookeeper "object store" "chain replication" 
+#+HUGO_CATEGORIES: zookeeper "object store" 
+#+HUGO_MENU_off: :menu "main" :weight 2000
+#+HUGO_CUSTOM_FRONT_MATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true
+#+HUGO_DRAFT: false
+
+#+STARTUP: indent hidestars showall
+
+* questions
+- what is the interface provided
+  - simple k,v store
+* what are the guarantees discussed
+- strong and eventual consistency
+* chain replication
+- where are requests handled?
+  - write at head
+  - read at tail
+- what is the dotted line going back from tail to head
+  - reply to the "write" client - committed
+- why is this cheaper than other topologies
+  - because of pipelining of the writes down the chain
+- what consistency does CR achieve?
+  - strong consistency
+- at what cost?
+  - read throughpout
+* apportioned queries
+- explain dirty and clean
+  - after writing before receiving acknowledgement it is dirty
+- what happens to a node on a dirty rad
+  - tail asks the tail's last committed version number, then
+    it returns that version of the object
+- explains why this is still satisfying strong consistency
+  - reads are serialized wrt tail
+  - i.e. only returning a read that has already been committed
+- how does node know if clean or dirty without a flag
+  - if it has two versions of the data it is dirty
+  - deletes old version when received an acknowledgement
+
+[[/images/craq/craq-fig3.png]]
+
+- why not just return the older version and return the newer version after the
+  acknowledgement?
+  - if you do, then nodes away from the tail receive acknowledgement after the
+    write has already been committed by the tail, thus not sending the most
+    recent data
+* workload
+- read heavy workload - how is craq better than cr
+  - for clean reads, increase by factor $C-1$, since all non-tail nodes
+    participate in the read
+- write heavy workload
+  - the tail still experiences heavy workload, but the response is just its
+    commit version number, lighter-weight than full reads
+- eventual consistency with max-bounded inconsistency
+  - limit dirty reads bounded by local time or version number
+* scaling out
+- chain identifier
+  - determine which chain contains the object
+- key identifier
+  - a unique naming per chain
+- configuration specifications
+  - num_dc's, chain_size
+    - consistency hashing to figure out which dc stores the chain
+  - chain_size, dc1, dc2, ..., dcn
+    - all dc's use the same chain size head in dc1 tail dcn
+  -
