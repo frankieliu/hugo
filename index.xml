@@ -6,10 +6,21 @@
     <description>Recent content in My Hugo Site on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 07 Feb 2020 08:23:32 -0800</lastBuildDate>
+    <lastBuildDate>Fri, 07 Feb 2020 16:03:25 -0800</lastBuildDate>
     
 	<atom:link href="https://www.frankliu.org/hugo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Errichto - segment tree</title>
+      <link>https://www.frankliu.org/hugo/posts/ericcto-segment-tree/</link>
+      <pubDate>Fri, 07 Feb 2020 16:03:25 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/ericcto-segment-tree/</guid>
+      <description>Segment tree   Preliminaries The data structure in this segment tree information according to Antti Laaksonen in the Competitive Programmer&amp;rsquo;s Handbook comes from
+[62] P. Stańczyk. Algorytmika praktyczna w konkursach Informatycznych, MSc thesis, University of Warsaw, 2006.
+Basically the original range is stored at some offset that correspond to largest power of two that is greater or equal to the size of the range. For example a size 16 array would be stored at an offset of 16 in the array.</description>
+    </item>
     
     <item>
       <title>Craq - Terrace and Freedman</title>

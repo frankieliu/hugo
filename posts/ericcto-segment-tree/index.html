@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>My New Hugo Site  | Articles</title>
+    <title>My New Hugo Site  | Errichto - segment tree</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="generator" content="Hugo 0.64.0" />
     
@@ -27,29 +27,40 @@
 
     
     
-      <link href="https://www.frankliu.org/hugo/posts/index.xml" rel="alternate" type="application/rss+xml" title="My New Hugo Site" />
-      <link href="https://www.frankliu.org/hugo/posts/index.xml" rel="feed" type="application/rss+xml" title="My New Hugo Site" />
-      
-    
-    
-    <meta property="og:title" content="Articles" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.frankliu.org/hugo/posts/" />
-<meta property="og:updated_time" content="2017-03-02T12:00:00-05:00" />
-<meta itemprop="name" content="Articles">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Articles"/>
-<meta name="twitter:description" content=""/>
+    <meta property="og:title" content="Errichto - segment tree" />
+<meta property="og:description" content="Segment tree   Preliminaries The data structure in this segment tree information according to Antti Laaksonen in the Competitive Programmer&rsquo;s Handbook comes from
+[62] P. Stańczyk. Algorytmika praktyczna w konkursach Informatycznych, MSc thesis, University of Warsaw, 2006.
+Basically the original range is stored at some offset that correspond to largest power of two that is greater or equal to the size of the range. For example a size 16 array would be stored at an offset of 16 in the array." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.frankliu.org/hugo/posts/ericcto-segment-tree/" />
+<meta property="article:published_time" content="2020-02-07T16:03:25-08:00" />
+<meta property="article:modified_time" content="2020-02-07T18:26:50-08:00" />
+<meta itemprop="name" content="Errichto - segment tree">
+<meta itemprop="description" content="Segment tree   Preliminaries The data structure in this segment tree information according to Antti Laaksonen in the Competitive Programmer&rsquo;s Handbook comes from
+[62] P. Stańczyk. Algorytmika praktyczna w konkursach Informatycznych, MSc thesis, University of Warsaw, 2006.
+Basically the original range is stored at some offset that correspond to largest power of two that is greater or equal to the size of the range. For example a size 16 array would be stored at an offset of 16 in the array.">
+<meta itemprop="datePublished" content="2020-02-07T16:03:25-08:00" />
+<meta itemprop="dateModified" content="2020-02-07T18:26:50-08:00" />
+<meta itemprop="wordCount" content="1099">
+
+
+
+<meta itemprop="keywords" content="errichto,segment tree," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Errichto - segment tree"/>
+<meta name="twitter:description" content="Segment tree   Preliminaries The data structure in this segment tree information according to Antti Laaksonen in the Competitive Programmer&rsquo;s Handbook comes from
+[62] P. Stańczyk. Algorytmika praktyczna w konkursach Informatycznych, MSc thesis, University of Warsaw, 2006.
+Basically the original range is stored at some offset that correspond to largest power of two that is greater or equal to the size of the range. For example a size 16 array would be stored at an offset of 16 in the array."/>
 
   </head>
 
   <body class="ma0 avenir bg-near-white">
 
     
+   
+  
 
   <header>
-    <div class="pb3-m pb6-l bg-black">
+    <div class="bg-black">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
     <a href="https://www.frankliu.org/hugo/" class="f3 fw2 hover-white no-underline white-90 dib">
@@ -161,243 +172,193 @@
   </div>
 </nav>
 
-      <div class="tc-l pv3 ph3 ph4-ns">
-        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
-          Articles
-        </h1>
-        
-      </div>
     </div>
   </header>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+    extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+    });
+</script>
+
 
 
     <main class="pb7" role="main">
       
-  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
-    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"><p>Articles are paginated with only three posts here for example. You can set the number of entries to show on this page with the &ldquo;pagination&rdquo; setting in the config file.</p>
-</section>
-    <section class="flex-ns flex-wrap justify-around mt5">
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        ARTICLES
+      </p>
+      <h1 class="f1 athelas mb1">Errichto - segment tree</h1>
       
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/ericcto-segment-tree/" class="link black dim">
-        Errichto - segment tree
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Segment tree   Preliminaries The data structure in this segment tree information according to Antti Laaksonen in the Competitive Programmer&rsquo;s Handbook comes from
-[62] P. Stańczyk. Algorytmika praktyczna w konkursach Informatycznych, MSc thesis, University of Warsaw, 2006.
-Basically the original range is stored at some offset that correspond to largest power of two that is greater or equal to the size of the range. For example a size 16 array would be stored at an offset of 16 in the array.
-    </div>
-  </div>
-</div>
-</div>
+      <p class="tracked">
+          By <strong>
+          
+              adam
+          
+          </strong>
+      </p>
       
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/craq-terrace-freedman/" class="link black dim">
-        Craq - Terrace and Freedman
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      questions  what is the interface provided  simple k,v store    what are the guarantees discussed  strong and eventual consistency  chain replication  where are requests handled?  write at head read at tail   what is the dotted line going back from tail to head  reply to the &ldquo;write&rdquo; client - committed   why is this cheaper than other topologies  because of pipelining of the writes down the chain   what consistency does CR achieve?
-    </div>
-  </div>
-</div>
-</div>
       
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/usaco-jan-2020-bronze-race/" class="link black dim">
-        USACO Jan 2020 Bronze - Race
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      \(O(1)\) solution I am surprised that the solution posted is \(O(n)\) since \(n\) can be as large as \(10^9\).
-In coming up with a solution for \(O(1)\) we consider three phases. The first phase accelerates the &lsquo;left hand&rsquo; speed until it reaches the terminal speed. If it can&rsquo;t reach the terminal speed then it just reaches whatever speed it can and terminates.
-The second phase is like a palindrome stage, where I remove similar increasing speeds from both ends, kind of like climbing up a tall peak from both ends.
-    </div>
-  </div>
-</div>
-</div>
+      <time class="f6 mv4 dib tracked" datetime="2020-02-07T16:03:25-08:00">February 7, 2020</time>
       
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/alpha-beta-pruning/" class="link black dim">
-        Minimax - alpha beta pruning
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Mnemoic Minimax, alpha beta. Min comes before Max, alpha comes before beta. Minimizer uses alpha, maximizer uses beta.
-Pruning alpha is passed from maximizer to minimizer. maximizer says, beat a score of 10 (it wants something greater). minimizer gets one score of 8. minimizer stops because it can&rsquo;t get above 8, it is a minimizer after all so exploration will only reduce this score, and it will not be useful by the maximizer.
-    </div>
-  </div>
-</div>
-</div>
       
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/appscript-sheets/" class="link black dim">
-        Appscript - Sheets
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Getting started Appscript is pretty powerful and free, it is javascript with google api for manipulating things.
- Begin with a sheets document. Open tools/script editor Write in Code.gs Rename to some  Run with the triangle button Ctrl + Enter to see the Log Save it  Since most of the time I am operating on some selected range, you would first select on some cells before running the script.
-    </div>
-  </div>
-</div>
-</div>
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h2 id="segment-tree">Segment tree</h2>
+<figure>
+    <img src="https://www.frankliu.org/hugo/images/segment-tree/segment.png"/> 
+</figure>
+
+<h3 id="preliminaries">Preliminaries</h3>
+<p>The data structure in this segment tree information according to Antti Laaksonen
+in the Competitive Programmer&rsquo;s Handbook comes from</p>
+<p>[62] P. Stańczyk. Algorytmika praktyczna w konkursach Informatycznych, MSc
+thesis, University of Warsaw, 2006.</p>
+<p>Basically the original range is stored at some offset that correspond to largest
+power of two that is greater or equal to the size of the range.  For example a
+size 16 array would be stored at an offset of 16 in the array.</p>
+<p>From this we can also gather that the parent child relationship is \(n\) to \(2n\)
+and \(2n+1\).  And that the root index is at \(1\).  In comparison with popular heap
+implementations with root at \(0\) index and parent to child relationship as \(n\)
+and \(2n+1\) and \(2n+2\).</p>
+<p>Another way to look at it, since there are 16 positions, then we would have
+on the upward levels 8, 4, 2, 1 respectively, which adds up to 16-1.</p>
+<h3 id="query">Query</h3>
+<p>In the example below, this is a typical segment tree query.  In this case, we
+want the sum from the $a$th element to the $b$th element.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">sum</span>(<span style="color:#66d9ef">int</span> a, <span style="color:#66d9ef">int</span> b) {
+  a <span style="color:#f92672">+</span><span style="color:#f92672">=</span> n; b <span style="color:#f92672">+</span><span style="color:#f92672">=</span> n;
+  <span style="color:#66d9ef">int</span> s <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+  <span style="color:#66d9ef">while</span> (a <span style="color:#f92672">&lt;</span><span style="color:#f92672">=</span> b) {
+    <span style="color:#66d9ef">if</span> (a<span style="color:#f92672">%</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>) s <span style="color:#f92672">+</span><span style="color:#f92672">=</span> tree[a<span style="color:#f92672">+</span><span style="color:#f92672">+</span>];
+    <span style="color:#66d9ef">if</span> (b<span style="color:#f92672">%</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>) s <span style="color:#f92672">+</span><span style="color:#f92672">=</span> tree[b<span style="color:#f92672">-</span><span style="color:#f92672">-</span>];
+    a <span style="color:#f92672">/</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>; b <span style="color:#f92672">/</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+  }
+  <span style="color:#66d9ef">return</span> s;
+}
+</code></pre></div><p>First both \(a\) and \(b\) delimiters are brought to the leaf node level (\(+= n\)).
+Then depending on whether \(a\) is at an odd position then it&rsquo;s node value is
+added to the sum, and if \(b\) is at an even position then it&rsquo;s node value is
+added.</p>
+<p>This is somewhat intuitive because \(a\) odd means that there is no node up in the
+tree that solely contains its value.  If \(a\) is in an even position then we know
+that the node \(a/2\) contains both \(a\) and \(a+1\).  A similar argument can be made
+for a right side boundary.  If \(b\) is at an odd location then we know that
+\(b/2\) contains both \(b-1\) and \(b\), so we should defer the addition to an upper
+level node.  While if \(b\) is at an even position, then there is no upper level
+node that solely contains its value.  If you are confused about the asymmetry,
+note that we are trying to sum from &lsquo;index&rsquo; \(a\) to \(b\).  \(a+1\) and \(b-1\) must be
+in this sum.  And so the decision of adding \(a\) at the current layer depends
+whether there is a upper layer node that contains both \(a\) and \(a+1\).  This
+would only hold true if \(a\) is at an even position.</p>
+<p>The computation continues until \(a\) and \(b\) abut each other or lie on top of one
+another.  If they abut, then both \(a\) and \(b\) are added to the sum.  And if \(a\)
+and \(b\) lie on top of one another then one one of the is counted toward the sum.</p>
+<p>Note that the inclusion for a left edge node (odd position) necessitates moving
+the boundary to the right of it.  Similarly for a right edge node (even
+position) necessitates moving the right boundary to the left of it.  Thus the
+\(a++\) and the \(b&ndash;\).</p>
+<h2 id="surprise">Surprise</h2>
+<p>The above computation is for when the intermediate nodes contain the sum of
+nodes under its branches.  In Errichto&rsquo;s implementation he was considering a
+slightly different problem, but let&rsquo;s differ that till later, I will try to
+rewrite the sum (query) function above:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">sum</span>(<span style="color:#66d9ef">int</span> a, <span style="color:#66d9ef">int</span> b) {
+  a <span style="color:#f92672">+</span><span style="color:#f92672">=</span> n; b <span style="color:#f92672">+</span><span style="color:#f92672">=</span> n;
+  <span style="color:#66d9ef">int</span> s <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+  s <span style="color:#f92672">+</span><span style="color:#f92672">=</span> tree[a];
+  <span style="color:#66d9ef">if</span> (a<span style="color:#f92672">!</span><span style="color:#f92672">=</span>b) s <span style="color:#f92672">+</span><span style="color:#f92672">=</span> tree[b];
+  <span style="color:#66d9ef">while</span> (a <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;</span> b) {
+    <span style="color:#66d9ef">if</span> (a<span style="color:#f92672">%</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>) s <span style="color:#f92672">+</span><span style="color:#f92672">=</span> tree[a<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>];
+    <span style="color:#66d9ef">if</span> (b<span style="color:#f92672">%</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>) s <span style="color:#f92672">+</span><span style="color:#f92672">=</span> tree[b<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>];
+    a <span style="color:#f92672">/</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>; b <span style="color:#f92672">/</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+  }
+  <span style="color:#66d9ef">return</span> s;
+}
+</code></pre></div><p>Despite the some outward similarities, these two pieces of code don&rsquo;t do the
+same things at all.  Disturbing to me is the fact that \(a\) and \(b\) just go up to
+their parent nodes, i.e. there is no shifting of the left and right edge nodes
+from a parent perspective.  This is very different from the previous
+implementation.  So how does this algorithm work at all?</p>
+<p>The first new two lines are interesting.  Basically the end points are added.
+Then at this level if \(a\) is even then add \(a+1\) and if \(b\) is odd add \(b-1\).
+This is a clear departure from the previous solution which waited for an
+addition at an upper level node.</p>
+<p>The really interesting part of the process is that now we just to the parent
+nodes, without any shifting.  And following the same logic, if the left parent
+node happens to be even then add the odd one at this level.  Similarly if the
+parent node is odd, then add the even node at this level.</p>
+<p>To help you understand what is going on I have colored in gray the \(a\) and \(b\)
+nodes and all the nodes on the upper layers that are added together.  In beige,
+I have colored all the parent nodes from these two end of range nodes.</p>
+<p>Note that at each level, the decision is the following. Being in an odd left
+boundary nodes means that an upper layer node cannot be included since it will
+contain information of elements to the left of me. However, if I am in an even
+node, I can safely add a node to my right, since it is within the range of
+interest. One may argue why not add the node above you since that contains both
+yourself and the node to the right. This cannot be done because the node
+directly above me may also contain elements to my left. Thus the only safe
+addition is the node to the right on the same level.</p>
+<p>Another way to interpret this is that the parent of the node I am coming from
+has already been taken care of by the layers below, so I cannot use any of its
+information in the calculation of the range.</p>
+<p>What is the terminating condition?  When both the left and right nodes abut one
+another, because that means that I have taken care of all the elements below
+these two nodes.</p>
+<h2 id="laziness-built-in">Laziness built in</h2>
+<p>In AtCoder 153 Silver Fox vs Monster. The usage of segment tree is particularly
+interesting because it is not for range query, but range a range update. Whereas
+the queries are for particular elements in the range after range updates.
+Therefore it is useful to just keep information at the intermediate nodes
+without pushing to the children.</p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/errichto" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">errichto</a>
+   </li>
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/segment-tree" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">segment tree</a>
+   </li>
+  
+</ul>
+<div class="mt6">
       
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/bellman-held-karp/" class="link black dim">
-        Bellman-Held-Karp Hamiltonian path and Traveling Salesman
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Figure below with mypaint and a Bamboo tablet on Ubuntu   Floyd-Warshall connection This section can be skipped, because it is basically my own brain mapping of this problem, since I feel there are some similarities with Floyd-Warshall.
-For FW, I think of a source and destination pair \(i\) and \(j\) going through some intermediate node \(k\), and relaxing in a reverse triangle inequality kind of way, i.e.
-\[ d[i][j] := \min(d[i][j], d[i][k] + d[k][j]) \]
-    </div>
-  </div>
-</div>
-</div>
       
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/hugo-css-svg-social/" class="link black dim">
-        Hugo: custom css, social-follow, svg, baseurl, comments
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      hugo social buttons It stated with wanting to add social buttons on my web page. This was as easy as changing the config.toml file. For Ananke theme, it is looking for some parameters, in the [params] sections. Just add you link to facebook, twitter, etc as facebook = &quot;https://www.facebook.com/ID&quot;.
-case of missing id I was upset that it had a slack link available, but no discord one. One because I don&rsquo;t even know what is one&rsquo;s slack id.
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/1320-mininum-distance-to-type-a-word-using-two-fingers/" class="link black dim">
-        Leetcode 1320. Minimum Distance to Type a Word Using Two Fingers
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Analysis of lee215&rsquo;s solution Lee already explained fairly well how to get the 1D dp. I just want to expound a little bit because there is a heavy dose of intuition that I believe is very beneficial for other problems.
-Intuition One of the first things that one tries when playing with this problem is figuring out when the second finger comes into the picture. I applaud the earlier posts in assuming a special starting position for both fingers, so that there is nothing special about when it transitions from one finger to two fingers.
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/zookeeper-2-3/" class="link black dim">
-        Zookeeper 2.3
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      api  We recapped re the API. Basically try to derive it yourself. Next divide which ones are write vs read related. Note that the read related contain a watch. Note that the write related contain a version.  guarantees or promises  Next we guessed what are zookeeper promises Why have these two promises Why A-linearizable?  async vs sync  what part of the writing is async? example is large configuration file what does it mean to be pipelined and issued asynchronously  when a client issues a change, when does the system respond back with an ack?
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/usaco-dec-2019-plat-tree-depth/" class="link black dim">
-        Tree Depth - USACO Platimum Dec19
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      This is a commentary on the solution from Benjamin Qi.
-from permutation to tree generation Before we go into the solution of this problem it is good to be able to understand how to create a tree using a permutation.
-First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as the time in which node \(i\) is inserted to the tree. We&rsquo;ll use the following \(a=42315\) for illustration.
-    </div>
-  </div>
-</div>
-</div>
-      
+			<script src="https://utteranc.es/client.js"
+        repo="frankieliu/hugo"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+      </script>
+      </div>
     </section>
 
-<ul class="pagination">
-    
-    <li class="page-item">
-        <a href="https://www.frankliu.org/hugo/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-    </li>
-    
-    <li class="page-item disabled">
-    <a  class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item active"><a class="page-link" href="https://www.frankliu.org/hugo/posts/">1</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="https://www.frankliu.org/hugo/posts/page/2/">2</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="https://www.frankliu.org/hugo/posts/page/3/">3</a></li>
-    
-    
-    <li class="page-item">
-    <a href="https://www.frankliu.org/hugo/posts/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-        <a href="https://www.frankliu.org/hugo/posts/page/3/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-    </li>
-    
-</ul>
+    <aside class="w-30-l mt6-l">
 
-</article>
+
+
+
+</aside>
+
+  </article>
 
     </main>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
