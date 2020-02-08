@@ -34,13 +34,13 @@ Basically the original range is stored at some offset that correspond to largest
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/ericcto-segment-tree/" />
 <meta property="article:published_time" content="2020-02-07T16:03:25-08:00" />
-<meta property="article:modified_time" content="2020-02-08T09:45:33-08:00" />
+<meta property="article:modified_time" content="2020-02-08T09:49:45-08:00" />
 <meta itemprop="name" content="Errichto - segment tree">
 <meta itemprop="description" content="Segment tree   Preliminaries The data structure in this segment tree information according to Antti Laaksonen in the Competitive Programmer&rsquo;s Handbook comes from
 [62] P. Stańczyk. Algorytmika praktyczna w konkursach Informatycznych, MSc thesis, University of Warsaw, 2006.
 Basically the original range is stored at some offset that correspond to largest power of two that is greater or equal to the size of the range. For example a size 16 array would be stored at an offset of 16 in the array.">
 <meta itemprop="datePublished" content="2020-02-07T16:03:25-08:00" />
-<meta itemprop="dateModified" content="2020-02-08T09:45:33-08:00" />
+<meta itemprop="dateModified" content="2020-02-08T09:49:45-08:00" />
 <meta itemprop="wordCount" content="1108">
 
 
@@ -325,7 +325,7 @@ another, because that means that I have taken care of all the elements below
 these two nodes.</p>
 <h2 id="laziness-built-in">Laziness built in</h2>
 <p>In AtCoder 153 Silver Fox vs Monster. The usage of segment tree is particularly
-interesting because it is not for range query, but range a range update. Whereas
+interesting because it is not for range query, but for a range update. Whereas
 the queries are for particular elements in the range after range updates.
 Therefore it is useful to just keep information at the intermediate nodes
 without pushing to the children.</p>
