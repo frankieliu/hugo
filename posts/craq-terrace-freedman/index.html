@@ -32,12 +32,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/craq-terrace-freedman/" />
 <meta property="article:published_time" content="2020-02-07T08:23:32-08:00" />
-<meta property="article:modified_time" content="2020-02-07T08:40:13-08:00" />
+<meta property="article:modified_time" content="2020-02-08T09:31:08-08:00" />
 <meta itemprop="name" content="Craq - Terrace and Freedman">
 <meta itemprop="description" content="questions  what is the interface provided  simple k,v store    what are the guarantees discussed  strong and eventual consistency  chain replication  where are requests handled?  write at head read at tail   what is the dotted line going back from tail to head  reply to the &ldquo;write&rdquo; client - committed   why is this cheaper than other topologies  because of pipelining of the writes down the chain   what consistency does CR achieve?">
 <meta itemprop="datePublished" content="2020-02-07T08:23:32-08:00" />
-<meta itemprop="dateModified" content="2020-02-07T08:40:13-08:00" />
-<meta itemprop="wordCount" content="167">
+<meta itemprop="dateModified" content="2020-02-08T09:31:08-08:00" />
+<meta itemprop="wordCount" content="918">
 
 
 
@@ -285,6 +285,257 @@ it returns that version of the object</li>
     <img src="https://www.frankliu.org/hugo/images/craq/craq-fig3.png"/> 
 </figure>
 
+<ul>
+<li>why not just return the older version and return the newer version after the
+acknowledgement?
+<ul>
+<li>if you do, then nodes away from the tail receive acknowledgement after the
+write has already been committed by the tail, thus not sending the most
+recent data</li>
+</ul>
+</li>
+</ul>
+<h2 id="workload">workload</h2>
+<ul>
+<li>read heavy workload - how is craq better than cr
+<ul>
+<li>for clean reads, increase by factor \(C-1\), since all non-tail nodes
+participate in the read</li>
+</ul>
+</li>
+<li>write heavy workload
+<ul>
+<li>the tail still experiences heavy workload, but the response is just its
+commit version number, lighter-weight than full reads</li>
+</ul>
+</li>
+<li>eventual consistency with max-bounded inconsistency
+<ul>
+<li>limit dirty reads bounded by local time or version number</li>
+</ul>
+</li>
+</ul>
+<h2 id="scaling-out">scaling out</h2>
+<ul>
+<li>chain identifier
+<ul>
+<li>determine which chain contains the object</li>
+</ul>
+</li>
+<li>key identifier
+<ul>
+<li>a unique naming per chain</li>
+</ul>
+</li>
+<li>configuration specifications
+<ul>
+<li>num_dc&rsquo;s, chain_size
+<ul>
+<li>consistency hashing to figure out which dc stores the chain</li>
+</ul>
+</li>
+<li>chain_size, dc1, dc2, &hellip;, dcn
+<ul>
+<li>all dc&rsquo;s use the same chain size head in dc1 tail dcn</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>distribution of chains not very well explained</li>
+</ul>
+<h2 id="zookeeper">zookeeper</h2>
+<ul>
+<li>used for node memebership</li>
+<li>zookeeper not optimized to run in multi-datacenter environment
+<ul>
+<li>zookeeper hiearchy</li>
+</ul>
+</li>
+</ul>
+<h2 id="multichain-operations">multichain operations</h2>
+<ul>
+<li>locks in all the rows at involved heads</li>
+</ul>
+<h2 id="multicast">multicast</h2>
+<ul>
+<li>pass writes in multicast mode</li>
+<li>propagate metadata message down the chain to ensure that all replicas have
+received the multicast
+<ul>
+<li>if not received, then commit is hung at the predecessor while node is
+updated</li>
+</ul>
+</li>
+<li>tail may acknowledgement in multicast
+<ul>
+<li>reduce time for commit</li>
+<li>no ordering or reliability guaranteee in multicast acks
+<ul>
+<li>if a node doesn&rsquo;t receive an ack it will enter clean state on next read
+op??</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="zookeeper-implementation">zookeeper implementation</h2>
+<ul>
+<li>client creates ephemeral node /nodes/dc_name/node_id
+<ul>
+<li>content: ip address:port</li>
+</ul>
+</li>
+<li>nodes can query /nodes/dc_name for membership list - use watch</li>
+<li>node receives request to create a new chain
+/chains/chain_id
+<ul>
+<li>the chain&rsquo;s placement strategy</li>
+<li>participating nodes will query for this metadata information and set watch</li>
+</ul>
+</li>
+<li>nodes in chain do not register their membership for each chain they belong
+together
+<ul>
+<li>chain metadata contains all the nodes</li>
+<li>why?
+<ul>
+<li>number of chains &gt; 10x number of nodes</li>
+<li>chain dynamism &gt; than nodes leaving and entering the system</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>for scalability
+<ul>
+<li>each node can track only a subset of datacenter nodes</li>
+<li>partition the /nodes/dc_name according to node_id prefixes</li>
+</ul>
+</li>
+<li>zookeeper api is asynchronous
+<ul>
+<li>wrapper functions to twait (tame-style) wait</li>
+</ul>
+</li>
+</ul>
+<h2 id="chain-node-functionality">chain node functionality</h2>
+<ul>
+<li>one-hop DHT using identifiers</li>
+<li>node&rsquo;s chain predecessor and successor are defined as its predecessor and
+successor in the DHT ring</li>
+<li><a href="https://en.wikipedia.org/wiki/Chord%5F(peer-to-peer)">https://en.wikipedia.org/wiki/Chord%5F(peer-to-peer)</a></li>
+</ul>
+<h2 id="handling-membership-changes">handling membership changes</h2>
+<ul>
+<li>backpropagation
+<ul>
+<li>if new head gets added to the chain
+<ul>
+<li>old head needs to propagate its state backwards</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>needs to be robust to subsequent failures, i.e. head may fail, responsability
+of next node in line to backpropagate</li>
+<li>when new node joins the system
+<ul>
+<li>new node receives prop messages from predecessor and backprop from successor</li>
+</ul>
+</li>
+<li>set reconciliation algorithm
+<ul>
+<li>enusre that only objects needed are propagated</li>
+</ul>
+</li>
+<li>both clean and dirty versions need to be sent
+<ul>
+<li>to respond to future acks</li>
+<li>normal writes only the latest version is sent</li>
+<li>recovery from failure or adding new node, full state is sent</li>
+</ul>
+</li>
+</ul>
+<h2 id="example-for-new-node-a">example for new node A</h2>
+<ul>
+<li>N -&gt; A
+<ul>
+<li>N prop all objects in C to A</li>
+<li>if A was there before use set reconciliation</li>
+</ul>
+</li>
+<li>A -&gt; N
+<ul>
+<li>N back-prop all objects in C to A (for which N is not head?)</li>
+<li>tail is kind of weird (fixed size system)
+<ul>
+<li>A takes over as the tail of C if N was tail</li>
+<li>N becomes tail if N -&gt; tail</li>
+</ul>
+</li>
+<li>A is new head if N was head and C&lt;A&lt;N</li>
+</ul>
+</li>
+</ul>
+<h2 id="example-of-deleting-a">example of deleting A</h2>
+<ul>
+<li>N -&gt; A -&gt; B
+<ul>
+<li>N prop to B
+<ul>
+<li>because A could have been propagating something to B</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>B -&gt; A -&gt; N
+<ul>
+<li>N backprop to B
+<ul>
+<li>because A could have been sending an ack or be in the middle of backprop</li>
+</ul>
+</li>
+<li>N head if A was head</li>
+<li>if N tail, then relinquishes to new tail and props to it</li>
+</ul>
+</li>
+</ul>
+<h2 id="evaluation">evaluation</h2>
+<ul>
+<li>for 3 nodes what is the increase in read throughput
+<ul>
+<li>3x</li>
+</ul>
+</li>
+<li>write throughput vs test-and-set throughput
+<ul>
+<li>write slightly decreases with chain length</li>
+<li>T&amp;S decreases with chain length, because of latency of single operation
+increases</li>
+</ul>
+</li>
+<li>how do write affect reads?
+<ul>
+<li>goes from 3x to 2x
+<ul>
+<li>tail saturation point for combined read and version request is still
+higher than read requests alone</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>as write increases
+<ul>
+<li>number of clean requests drop to 1/4 of its original</li>
+<li>tail cannot maintain 1/3 of total throughput, also handling version queries</li>
+<li>number of dirty requests approaches 2/3 of original clean requests
+<ul>
+<li>dirty requests are slower, dirty requests flattens out at 42.3%</li>
+</ul>
+</li>
+<li>total read rate is 25.4 + 42.3 = 67.7 of read throughput during high write</li>
+</ul>
+</li>
+</ul>
 <ul class="pa0">
   
    <li class="list">
