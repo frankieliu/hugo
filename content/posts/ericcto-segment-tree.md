@@ -2,7 +2,7 @@
 title = "Errichto - segment tree"
 author = ["adam"]
 date = 2020-02-07T16:03:25-08:00
-lastmod = 2020-02-07T18:26:50-08:00
+lastmod = 2020-02-08T09:45:33-08:00
 tags = ["errichto", "segment tree"]
 categories = ["segment tree", "segment tree", "segment tree", "segment tree", "segment tree", "segment tree", "segment tree", "segment tree", "segment tree", "segment tree", "segment tree", "segment tree", "segment tree", "segment tree", "segment tree", "segment tree"]
 draft = false
@@ -33,18 +33,18 @@ power of two that is greater or equal to the size of the range.  For example a
 size 16 array would be stored at an offset of 16 in the array.
 
 From this we can also gather that the parent child relationship is \\(n\\) to \\(2n\\)
-and \\(2n+1\\).  And that the root index is at \\(1\\).  In comparison with popular heap
+and \\(2n+1\\).  And that the root index is at \\(1\\).  In contrast with popular heap
 implementations with root at \\(0\\) index and parent to child relationship as \\(n\\)
-and \\(2n+1\\) and \\(2n+2\\).
+to \\(2n+1\\) and \\(2n+2\\).
 
 Another way to look at it, since there are 16 positions, then we would have
-on the upward levels 8, 4, 2, 1 respectively, which adds up to 16-1.
+on the upward levels 8, 4, 2, 1 nodes respectively, which adds up to 16-1.
 
 
 ### Query {#query}
 
 In the example below, this is a typical segment tree query.  In this case, we
-want the sum from the $a$th element to the $b$th element.
+want the sum from the \\(a\\) th element to the \\(b\\) th element.
 
 ```cpp
 int sum(int a, int b) {
@@ -65,25 +65,28 @@ added to the sum, and if \\(b\\) is at an even position then it's node value is
 added.
 
 This is somewhat intuitive because \\(a\\) odd means that there is no node up in the
-tree that solely contains its value.  If \\(a\\) is in an even position then we know
-that the node \\(a/2\\) contains both \\(a\\) and \\(a+1\\).  A similar argument can be made
-for a right side boundary.  If \\(b\\) is at an odd location then we know that
-\\(b/2\\) contains both \\(b-1\\) and \\(b\\), so we should defer the addition to an upper
-level node.  While if \\(b\\) is at an even position, then there is no upper level
-node that solely contains its value.  If you are confused about the asymmetry,
-note that we are trying to sum from 'index' \\(a\\) to \\(b\\).  \\(a+1\\) and \\(b-1\\) must be
-in this sum.  And so the decision of adding \\(a\\) at the current layer depends
-whether there is a upper layer node that contains both \\(a\\) and \\(a+1\\).  This
-would only hold true if \\(a\\) is at an even position.
+tree that solely contains its value. If \\(a\\) is in an even position then we know
+that the node \\(a/2\\) contains both \\(a\\) and \\(a+1\\). A similar argument can be made
+for a right side boundary. If \\(b\\) is at an odd location then we know that \\(b/2\\)
+contains both \\(b-1\\) and \\(b\\), so we should defer the addition to an upper level
+node.  While if \\(b\\) is at an even position, then there is no upper level node
+that solely contains its value.
+
+If you are confused about the asymmetry, note that we are trying to sum from
+'indices' \\(a\\) to \\(b\\). In particular, \\(a+1\\) and \\(b-1\\) must be in this sum. And so
+the decision of adding \\(a\\) at the current level depends whether there is a upper
+layer node that contains both \\(a\\) and \\(a+1\\). This would only hold true if \\(a\\) is
+at an even position.
 
 The computation continues until \\(a\\) and \\(b\\) abut each other or lie on top of one
-another.  If they abut, then both \\(a\\) and \\(b\\) are added to the sum.  And if \\(a\\)
-and \\(b\\) lie on top of one another then one one of the is counted toward the sum.
+another. If they abut, then both \\(a\\) and \\(b\\) are added to the sum. And if \\(a\\)
+and \\(b\\) lie on top of one another then only one of them is counted toward the
+sum.
 
-Note that the inclusion for a left edge node (odd position) necessitates moving
-the boundary to the right of it.  Similarly for a right edge node (even
-position) necessitates moving the right boundary to the left of it.  Thus the
-\\(a++\\) and the \\(b--\\).
+Note that the inclusion for a left edge node at an odd position necessitates moving
+the boundary to the right of it.  Similarly for a right edge node at an even
+position necessitates moving the right boundary to the left of it.  Thus the
+`a++` and the `b--`.
 
 
 ## Surprise {#surprise}
@@ -108,13 +111,13 @@ int sum(int a, int b) {
 }
 ```
 
-Despite the some outward similarities, these two pieces of code don't do the
-same things at all.  Disturbing to me is the fact that \\(a\\) and \\(b\\) just go up to
-their parent nodes, i.e. there is no shifting of the left and right edge nodes
-from a parent perspective.  This is very different from the previous
-implementation.  So how does this algorithm work at all?
+Despite the outward similarities, these two pieces of code don't do the same
+things at all. Disturbing to me is the fact that \\(a\\) and \\(b\\) just go up to their
+parent nodes, i.e. there is no shifting of the left and right edge nodes from a
+parent's perspective. This is very different from the previous implementation. So
+how does this algorithm work at all?
 
-The first new two lines are interesting.  Basically the end points are added.
+The first new two lines are interesting.  First, the end points are added.
 Then at this level if \\(a\\) is even then add \\(a+1\\) and if \\(b\\) is odd add \\(b-1\\).
 This is a clear departure from the previous solution which waited for an
 addition at an upper level node.
@@ -122,7 +125,7 @@ addition at an upper level node.
 The really interesting part of the process is that now we just to the parent
 nodes, without any shifting.  And following the same logic, if the left parent
 node happens to be even then add the odd one at this level.  Similarly if the
-parent node is odd, then add the even node at this level.
+right parent node is odd, then add the even node at this level.
 
 To help you understand what is going on I have colored in gray the \\(a\\) and \\(b\\)
 nodes and all the nodes on the upper layers that are added together.  In beige,
