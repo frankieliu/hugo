@@ -2,7 +2,7 @@
 title = "Errichto - segment tree"
 author = ["adam"]
 date = 2020-02-07T16:03:25-08:00
-lastmod = 2020-02-08T09:45:33-08:00
+lastmod = 2020-02-08T09:49:45-08:00
 tags = ["errichto", "segment tree"]
 categories = ["segment tree", "segment tree", "segment tree", "segment tree", "segment tree", "segment tree", "segment tree", "segment tree", "segment tree", "segment tree", "segment tree", "segment tree", "segment tree", "segment tree", "segment tree", "segment tree"]
 draft = false
@@ -152,7 +152,7 @@ these two nodes.
 ## Laziness built in {#laziness-built-in}
 
 In AtCoder 153 Silver Fox vs Monster. The usage of segment tree is particularly
-interesting because it is not for range query, but range a range update. Whereas
+interesting because it is not for range query, but for a range update. Whereas
 the queries are for particular elements in the range after range updates.
 Therefore it is useful to just keep information at the intermediate nodes
 without pushing to the children.
