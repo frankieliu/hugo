@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | Articles</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.64.0" />
+    <meta name="generator" content="Hugo 0.65.3" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -182,6 +182,27 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/fft/" class="link black dim">
+        FFT
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      polynomials \[ f(x) = A_0 + A_1 x + A_2 x^2 + \cdots + A_{n-1} x^{n-1} \]
+roots \begin{eqnarray} x^{n} &amp;=&amp; 1 \\\
+x &amp;=&amp; e^{i \frac{2\pi}{n}} \end{eqnarray}
+Call \(e^{i \frac{2\pi}{n}} = w_n\) the fundamental, then there are \(n\) such roots, \(w_n^k\) for \(k = 0,\cdots,n-1\).
+The fourier transform is a vector of the polynomial evaluated at each of the \(k\) roots.
+\[ F(k) = f(w_n^k) \]
+The FFT is a divide and conquer algorithm where instead of doing \(O(n)\) computations for each fourier coefficient \(F(k)\), we break up the problem into 2 subproblems of size \(n/2\) and do a merge which is of order \(n\).
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
       <a href="https://www.frankliu.org/hugo/posts/ericcto-segment-tree/" class="link black dim">
         Errichto - segment tree
       </a>
@@ -318,23 +339,6 @@ Intuition One of the first things that one tries when playing with this problem 
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       api  We recapped re the API. Basically try to derive it yourself. Next divide which ones are write vs read related. Note that the read related contain a watch. Note that the write related contain a version.  guarantees or promises  Next we guessed what are zookeeper promises Why have these two promises Why A-linearizable?  async vs sync  what part of the writing is async? example is large configuration file what does it mean to be pipelined and issued asynchronously  when a client issues a change, when does the system respond back with an ack?
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/usaco-dec-2019-plat-tree-depth/" class="link black dim">
-        Tree Depth - USACO Platimum Dec19
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      This is a commentary on the solution from Benjamin Qi.
-from permutation to tree generation Before we go into the solution of this problem it is good to be able to understand how to create a tree using a permutation.
-First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as the time in which node \(i\) is inserted to the tree. We&rsquo;ll use the following \(a=42315\) for illustration.
     </div>
   </div>
 </div>

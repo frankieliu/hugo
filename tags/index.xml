@@ -6,10 +6,28 @@
     <description>Recent content in Tags on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 07 Feb 2020 16:03:25 -0800</lastBuildDate>
+    <lastBuildDate>Fri, 06 Mar 2020 08:22:35 -0800</lastBuildDate>
     
 	<atom:link href="https://www.frankliu.org/hugo/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>convolution</title>
+      <link>https://www.frankliu.org/hugo/tags/convolution/</link>
+      <pubDate>Fri, 06 Mar 2020 08:22:35 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/convolution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fft</title>
+      <link>https://www.frankliu.org/hugo/tags/fft/</link>
+      <pubDate>Fri, 06 Mar 2020 08:22:35 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/fft/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>errichto</title>
@@ -255,6 +273,15 @@
     </item>
     
     <item>
+      <title>R</title>
+      <link>https://www.frankliu.org/hugo/tags/r/</link>
+      <pubDate>Wed, 20 Nov 2019 23:21:28 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>rectangle</title>
       <link>https://www.frankliu.org/hugo/tags/rectangle/</link>
       <pubDate>Wed, 20 Nov 2019 23:21:28 -0800</pubDate>
@@ -386,15 +413,6 @@
       <pubDate>Sat, 12 Oct 2019 12:46:54 -0700</pubDate>
       
       <guid>https://www.frankliu.org/hugo/tags/vector-clocks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R</title>
-      <link>https://www.frankliu.org/hugo/tags/r/</link>
-      <pubDate>Fri, 04 Oct 2019 22:35:02 -0700</pubDate>
-      
-      <guid>https://www.frankliu.org/hugo/tags/r/</guid>
       <description></description>
     </item>
     

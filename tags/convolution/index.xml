@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>convolution on My New Hugo Site</title>
+    <link>https://www.frankliu.org/hugo/tags/convolution/</link>
+    <description>Recent content in convolution on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 06 Mar 2020 08:22:35 -0800</lastBuildDate>
+    
+	<atom:link href="https://www.frankliu.org/hugo/tags/convolution/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>FFT</title>
+      <link>https://www.frankliu.org/hugo/posts/fft/</link>
+      <pubDate>Fri, 06 Mar 2020 08:22:35 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/fft/</guid>
+      <description>polynomials \[ f(x) = A_0 + A_1 x + A_2 x^2 + \cdots + A_{n-1} x^{n-1} \]
+roots \begin{eqnarray} x^{n} &amp;amp;=&amp;amp; 1 \\\
+x &amp;amp;=&amp;amp; e^{i \frac{2\pi}{n}} \end{eqnarray}
+Call \(e^{i \frac{2\pi}{n}} = w_n\) the fundamental, then there are \(n\) such roots, \(w_n^k\) for \(k = 0,\cdots,n-1\).
+The fourier transform is a vector of the polynomial evaluated at each of the \(k\) roots.
+\[ F(k) = f(w_n^k) \]
+The FFT is a divide and conquer algorithm where instead of doing \(O(n)\) computations for each fourier coefficient \(F(k)\), we break up the problem into 2 subproblems of size \(n/2\) and do a merge which is of order \(n\).</description>
+    </item>
+    
+  </channel>
+</rss>

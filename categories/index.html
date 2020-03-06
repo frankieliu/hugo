@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site </title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.64.0" />
+    <meta name="generator" content="Hugo 0.65.3" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -36,7 +36,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/categories/" />
-<meta property="og:updated_time" content="2020-02-07T16:03:25-08:00" />
+<meta property="og:updated_time" content="2020-03-06T08:22:35-08:00" />
 <meta itemprop="name" content="Categories">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Categories"/>
@@ -299,6 +299,34 @@ def num_rect(points): m = defaultdict(lambda: 0) answer = 0 for p in points: for
         
       
         <h2 class="f1">
+          <a href="https://www.frankliu.org/hugo/categories/convolution" class="link blue hover-black">
+            Category: convolution
+          </a>
+        </h2>
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/fft/" class="link black dim">
+        FFT
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      polynomials \[ f(x) = A_0 + A_1 x + A_2 x^2 + \cdots + A_{n-1} x^{n-1} \]
+roots \begin{eqnarray} x^{n} &amp;=&amp; 1 \\\
+x &amp;=&amp; e^{i \frac{2\pi}{n}} \end{eqnarray}
+Call \(e^{i \frac{2\pi}{n}} = w_n\) the fundamental, then there are \(n\) such roots, \(w_n^k\) for \(k = 0,\cdots,n-1\).
+The fourier transform is a vector of the polynomial evaluated at each of the \(k\) roots.
+\[ F(k) = f(w_n^k) \]
+The FFT is a divide and conquer algorithm where instead of doing \(O(n)\) computations for each fourier coefficient \(F(k)\), we break up the problem into 2 subproblems of size \(n/2\) and do a merge which is of order \(n\).
+    </div>
+  </div>
+</div>
+
+        
+      
+        <h2 class="f1">
           <a href="https://www.frankliu.org/hugo/categories/distributed-system" class="link blue hover-black">
             Category: distributed-system
           </a>
@@ -337,6 +365,34 @@ def num_rect(points): m = defaultdict(lambda: 0) answer = 0 for p in points: for
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       Analysis of lee215&rsquo;s solution Lee already explained fairly well how to get the 1D dp. I just want to expound a little bit because there is a heavy dose of intuition that I believe is very beneficial for other problems.
 Intuition One of the first things that one tries when playing with this problem is figuring out when the second finger comes into the picture. I applaud the earlier posts in assuming a special starting position for both fingers, so that there is nothing special about when it transitions from one finger to two fingers.
+    </div>
+  </div>
+</div>
+
+        
+      
+        <h2 class="f1">
+          <a href="https://www.frankliu.org/hugo/categories/fft" class="link blue hover-black">
+            Category: fft
+          </a>
+        </h2>
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/fft/" class="link black dim">
+        FFT
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      polynomials \[ f(x) = A_0 + A_1 x + A_2 x^2 + \cdots + A_{n-1} x^{n-1} \]
+roots \begin{eqnarray} x^{n} &amp;=&amp; 1 \\\
+x &amp;=&amp; e^{i \frac{2\pi}{n}} \end{eqnarray}
+Call \(e^{i \frac{2\pi}{n}} = w_n\) the fundamental, then there are \(n\) such roots, \(w_n^k\) for \(k = 0,\cdots,n-1\).
+The fourier transform is a vector of the polynomial evaluated at each of the \(k\) roots.
+\[ F(k) = f(w_n^k) \]
+The FFT is a divide and conquer algorithm where instead of doing \(O(n)\) computations for each fourier coefficient \(F(k)\), we break up the problem into 2 subproblems of size \(n/2\) and do a merge which is of order \(n\).
     </div>
   </div>
 </div>
@@ -673,261 +729,6 @@ problems width of vector clock grows with number of actors, or clients.
             Category: segment-tree
           </a>
         </h2>
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/ericcto-segment-tree/" class="link black dim">
-        Errichto - segment tree
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Segment tree   Preliminaries The data structure in this segment tree information according to Antti Laaksonen in the Competitive Programmer&rsquo;s Handbook comes from
-[62] P. Stańczyk. Algorytmika praktyczna w konkursach Informatycznych, MSc thesis, University of Warsaw, 2006.
-Basically the original range is stored at some offset that correspond to largest power of two that is greater or equal to the size of the range. For example a size 16 array would be stored at an offset of 16 in the array.
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/ericcto-segment-tree/" class="link black dim">
-        Errichto - segment tree
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Segment tree   Preliminaries The data structure in this segment tree information according to Antti Laaksonen in the Competitive Programmer&rsquo;s Handbook comes from
-[62] P. Stańczyk. Algorytmika praktyczna w konkursach Informatycznych, MSc thesis, University of Warsaw, 2006.
-Basically the original range is stored at some offset that correspond to largest power of two that is greater or equal to the size of the range. For example a size 16 array would be stored at an offset of 16 in the array.
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/ericcto-segment-tree/" class="link black dim">
-        Errichto - segment tree
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Segment tree   Preliminaries The data structure in this segment tree information according to Antti Laaksonen in the Competitive Programmer&rsquo;s Handbook comes from
-[62] P. Stańczyk. Algorytmika praktyczna w konkursach Informatycznych, MSc thesis, University of Warsaw, 2006.
-Basically the original range is stored at some offset that correspond to largest power of two that is greater or equal to the size of the range. For example a size 16 array would be stored at an offset of 16 in the array.
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/ericcto-segment-tree/" class="link black dim">
-        Errichto - segment tree
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Segment tree   Preliminaries The data structure in this segment tree information according to Antti Laaksonen in the Competitive Programmer&rsquo;s Handbook comes from
-[62] P. Stańczyk. Algorytmika praktyczna w konkursach Informatycznych, MSc thesis, University of Warsaw, 2006.
-Basically the original range is stored at some offset that correspond to largest power of two that is greater or equal to the size of the range. For example a size 16 array would be stored at an offset of 16 in the array.
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/ericcto-segment-tree/" class="link black dim">
-        Errichto - segment tree
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Segment tree   Preliminaries The data structure in this segment tree information according to Antti Laaksonen in the Competitive Programmer&rsquo;s Handbook comes from
-[62] P. Stańczyk. Algorytmika praktyczna w konkursach Informatycznych, MSc thesis, University of Warsaw, 2006.
-Basically the original range is stored at some offset that correspond to largest power of two that is greater or equal to the size of the range. For example a size 16 array would be stored at an offset of 16 in the array.
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/ericcto-segment-tree/" class="link black dim">
-        Errichto - segment tree
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Segment tree   Preliminaries The data structure in this segment tree information according to Antti Laaksonen in the Competitive Programmer&rsquo;s Handbook comes from
-[62] P. Stańczyk. Algorytmika praktyczna w konkursach Informatycznych, MSc thesis, University of Warsaw, 2006.
-Basically the original range is stored at some offset that correspond to largest power of two that is greater or equal to the size of the range. For example a size 16 array would be stored at an offset of 16 in the array.
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/ericcto-segment-tree/" class="link black dim">
-        Errichto - segment tree
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Segment tree   Preliminaries The data structure in this segment tree information according to Antti Laaksonen in the Competitive Programmer&rsquo;s Handbook comes from
-[62] P. Stańczyk. Algorytmika praktyczna w konkursach Informatycznych, MSc thesis, University of Warsaw, 2006.
-Basically the original range is stored at some offset that correspond to largest power of two that is greater or equal to the size of the range. For example a size 16 array would be stored at an offset of 16 in the array.
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/ericcto-segment-tree/" class="link black dim">
-        Errichto - segment tree
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Segment tree   Preliminaries The data structure in this segment tree information according to Antti Laaksonen in the Competitive Programmer&rsquo;s Handbook comes from
-[62] P. Stańczyk. Algorytmika praktyczna w konkursach Informatycznych, MSc thesis, University of Warsaw, 2006.
-Basically the original range is stored at some offset that correspond to largest power of two that is greater or equal to the size of the range. For example a size 16 array would be stored at an offset of 16 in the array.
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/ericcto-segment-tree/" class="link black dim">
-        Errichto - segment tree
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Segment tree   Preliminaries The data structure in this segment tree information according to Antti Laaksonen in the Competitive Programmer&rsquo;s Handbook comes from
-[62] P. Stańczyk. Algorytmika praktyczna w konkursach Informatycznych, MSc thesis, University of Warsaw, 2006.
-Basically the original range is stored at some offset that correspond to largest power of two that is greater or equal to the size of the range. For example a size 16 array would be stored at an offset of 16 in the array.
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/ericcto-segment-tree/" class="link black dim">
-        Errichto - segment tree
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Segment tree   Preliminaries The data structure in this segment tree information according to Antti Laaksonen in the Competitive Programmer&rsquo;s Handbook comes from
-[62] P. Stańczyk. Algorytmika praktyczna w konkursach Informatycznych, MSc thesis, University of Warsaw, 2006.
-Basically the original range is stored at some offset that correspond to largest power of two that is greater or equal to the size of the range. For example a size 16 array would be stored at an offset of 16 in the array.
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/ericcto-segment-tree/" class="link black dim">
-        Errichto - segment tree
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Segment tree   Preliminaries The data structure in this segment tree information according to Antti Laaksonen in the Competitive Programmer&rsquo;s Handbook comes from
-[62] P. Stańczyk. Algorytmika praktyczna w konkursach Informatycznych, MSc thesis, University of Warsaw, 2006.
-Basically the original range is stored at some offset that correspond to largest power of two that is greater or equal to the size of the range. For example a size 16 array would be stored at an offset of 16 in the array.
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/ericcto-segment-tree/" class="link black dim">
-        Errichto - segment tree
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Segment tree   Preliminaries The data structure in this segment tree information according to Antti Laaksonen in the Competitive Programmer&rsquo;s Handbook comes from
-[62] P. Stańczyk. Algorytmika praktyczna w konkursach Informatycznych, MSc thesis, University of Warsaw, 2006.
-Basically the original range is stored at some offset that correspond to largest power of two that is greater or equal to the size of the range. For example a size 16 array would be stored at an offset of 16 in the array.
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/ericcto-segment-tree/" class="link black dim">
-        Errichto - segment tree
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Segment tree   Preliminaries The data structure in this segment tree information according to Antti Laaksonen in the Competitive Programmer&rsquo;s Handbook comes from
-[62] P. Stańczyk. Algorytmika praktyczna w konkursach Informatycznych, MSc thesis, University of Warsaw, 2006.
-Basically the original range is stored at some offset that correspond to largest power of two that is greater or equal to the size of the range. For example a size 16 array would be stored at an offset of 16 in the array.
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/ericcto-segment-tree/" class="link black dim">
-        Errichto - segment tree
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Segment tree   Preliminaries The data structure in this segment tree information according to Antti Laaksonen in the Competitive Programmer&rsquo;s Handbook comes from
-[62] P. Stańczyk. Algorytmika praktyczna w konkursach Informatycznych, MSc thesis, University of Warsaw, 2006.
-Basically the original range is stored at some offset that correspond to largest power of two that is greater or equal to the size of the range. For example a size 16 array would be stored at an offset of 16 in the array.
-    </div>
-  </div>
-</div>
-
-        
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/ericcto-segment-tree/" class="link black dim">
-        Errichto - segment tree
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Segment tree   Preliminaries The data structure in this segment tree information according to Antti Laaksonen in the Competitive Programmer&rsquo;s Handbook comes from
-[62] P. Stańczyk. Algorytmika praktyczna w konkursach Informatycznych, MSc thesis, University of Warsaw, 2006.
-Basically the original range is stored at some offset that correspond to largest power of two that is greater or equal to the size of the range. For example a size 16 array would be stored at an offset of 16 in the array.
-    </div>
-  </div>
-</div>
-
         
           <div class="relative w-100 mb4 bg-white nested-copy-line-height">
   <div class="bg-white mb3 pa4 gray overflow-hidden">

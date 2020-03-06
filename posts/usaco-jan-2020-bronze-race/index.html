@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | USACO Jan 2020 Bronze - Race</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.64.0" />
+    <meta name="generator" content="Hugo 0.65.3" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -253,11 +253,11 @@ debug <span style="color:#f92672">=</span> False
     close <span style="color:#f92672">=</span> int(math<span style="color:#f92672">.</span>sqrt(remainder <span style="color:#f92672">+</span> right_speed<span style="color:#f92672">*</span>right_speed
                           <span style="color:#f92672">-</span> right_speed)) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
     <span style="color:#66d9ef">if</span> debug:
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Upper bound guess</span><span style="color:#e6db74">&#34;</span>, close)
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Upper bound guess&#34;</span>, close)
     left <span style="color:#f92672">=</span> max(right_speed, close<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>)
     right <span style="color:#f92672">=</span> close
-    <span style="color:#66d9ef">while</span> left <span style="color:#f92672">&lt;</span><span style="color:#f92672">=</span> right:
-        mid <span style="color:#f92672">=</span> (left<span style="color:#f92672">+</span>right)<span style="color:#f92672">/</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>
+    <span style="color:#66d9ef">while</span> left <span style="color:#f92672">&lt;=</span> right:
+        mid <span style="color:#f92672">=</span> (left<span style="color:#f92672">+</span>right)<span style="color:#f92672">//</span><span style="color:#ae81ff">2</span>
         dist <span style="color:#f92672">=</span> (right_speed<span style="color:#f92672">+</span>mid)<span style="color:#f92672">*</span>(mid<span style="color:#f92672">-</span>right_speed<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
         <span style="color:#75715e"># print(&#34;Guessing&#34;, mid, dist, remainder)</span>
         <span style="color:#66d9ef">if</span> dist <span style="color:#f92672">&gt;</span> remainder:
@@ -269,21 +269,21 @@ debug <span style="color:#f92672">=</span> False
             left <span style="color:#f92672">=</span> mid<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
 
     time_spent <span style="color:#f92672">=</span> (right<span style="color:#f92672">-</span>right_speed<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> right_speed
-    remainder <span style="color:#f92672">-</span><span style="color:#f92672">=</span> (right_speed<span style="color:#f92672">+</span>right)<span style="color:#f92672">*</span>(right<span style="color:#f92672">-</span>right_speed<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+    remainder <span style="color:#f92672">-=</span> (right_speed<span style="color:#f92672">+</span>right)<span style="color:#f92672">*</span>(right<span style="color:#f92672">-</span>right_speed<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
     <span style="color:#66d9ef">if</span> debug:
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Guess</span><span style="color:#e6db74">&#34;</span>, right, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">remainder</span><span style="color:#e6db74">&#34;</span>, remainder, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">time</span><span style="color:#e6db74">&#34;</span>, time_spent)
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Guess&#34;</span>, right, <span style="color:#e6db74">&#34;remainder&#34;</span>, remainder, <span style="color:#e6db74">&#34;time&#34;</span>, time_spent)
     <span style="color:#66d9ef">if</span> remainder <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">or</span> remainder <span style="color:#f92672">&lt;</span> terminal_speed:
         <span style="color:#66d9ef">return</span> time_spent
     <span style="color:#66d9ef">else</span>:
         <span style="color:#66d9ef">while</span> True:
-            right <span style="color:#f92672">+</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-            remainder <span style="color:#f92672">-</span><span style="color:#f92672">=</span> right
-            time_spent <span style="color:#f92672">+</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+            right <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+            remainder <span style="color:#f92672">-=</span> right
+            time_spent <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
             <span style="color:#75715e"># print(&#34;remainder&#34;, remainder, &#34;time&#34;, time_spent)</span>
             <span style="color:#66d9ef">if</span> remainder <span style="color:#f92672">&lt;</span> terminal_speed:
                 <span style="color:#66d9ef">return</span> time_spent
-            remainder <span style="color:#f92672">-</span><span style="color:#f92672">=</span> right
-            time_spent <span style="color:#f92672">+</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+            remainder <span style="color:#f92672">-=</span> right
+            time_spent <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
             <span style="color:#75715e"># print(&#34;remainder&#34;, remainder, &#34;time&#34;, time_spent)</span>
             <span style="color:#66d9ef">if</span> remainder <span style="color:#f92672">&lt;</span> terminal_speed:
                 <span style="color:#66d9ef">return</span> time_spent
@@ -293,16 +293,16 @@ debug <span style="color:#f92672">=</span> False
     right_speed <span style="color:#f92672">=</span> int(input())
     <span style="color:#75715e"># time to reach the same speed as the terminal speed</span>
     <span style="color:#75715e"># (1+k)*k/2</span>
-    <span style="color:#66d9ef">if</span> (<span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>right_speed)<span style="color:#f92672">*</span>right_speed<span style="color:#f92672">/</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">&gt;</span><span style="color:#f92672">=</span> k:
+    <span style="color:#66d9ef">if</span> (<span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>right_speed)<span style="color:#f92672">*</span>right_speed<span style="color:#f92672">//</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">&gt;=</span> k:
         close <span style="color:#f92672">=</span> int(math<span style="color:#f92672">.</span>sqrt(k<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span>))<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
-        <span style="color:#66d9ef">while</span> (<span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>close)<span style="color:#f92672">*</span>close<span style="color:#f92672">/</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">&lt;</span> k:
-            close <span style="color:#f92672">+</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">while</span> (<span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>close)<span style="color:#f92672">*</span>close<span style="color:#f92672">//</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">&lt;</span> k:
+            close <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
         <span style="color:#66d9ef">print</span>(close)
     <span style="color:#66d9ef">else</span>:
-        remainder <span style="color:#f92672">=</span> k <span style="color:#f92672">-</span> (<span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>right_speed)<span style="color:#f92672">*</span>right_speed<span style="color:#f92672">/</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+        remainder <span style="color:#f92672">=</span> k <span style="color:#f92672">-</span> (<span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>right_speed)<span style="color:#f92672">*</span>right_speed<span style="color:#f92672">//</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
         <span style="color:#66d9ef">if</span> debug:
-            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Solving for</span><span style="color:#e6db74">&#34;</span>, right_speed)
-            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Remainder after</span><span style="color:#e6db74">&#34;</span>, right_speed<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">s</span><span style="color:#e6db74">&#34;</span>, remainder)
+            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Solving for&#34;</span>, right_speed)
+            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Remainder after&#34;</span>, right_speed<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;s&#34;</span>, remainder)
         <span style="color:#66d9ef">print</span>(solve(remainder, right_speed))
 </code></pre></div><h2 id="how-to-create-tight-bounds">How to create tight bounds</h2>
 <p>Note that a lot of computation involves summing up an increasing sequence of

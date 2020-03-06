@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | My Hugo Site</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.64.0" />
+    <meta name="generator" content="Hugo 0.65.3" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -36,7 +36,7 @@
 <meta property="og:description" content="A blog for programming and scalable systems" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/" />
-<meta property="og:updated_time" content="2020-02-07T16:03:25-08:00" />
+<meta property="og:updated_time" content="2020-03-06T08:22:35-08:00" />
 <meta itemprop="name" content="My Hugo Site">
 <meta itemprop="description" content="A blog for programming and scalable systems"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="My Hugo Site"/>
@@ -212,6 +212,36 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="https://www.frankliu.org/hugo/posts/fft/" class="color-inherit dim link">
+            FFT
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          polynomials \[ f(x) = A_0 + A_1 x + A_2 x^2 + \cdots + A_{n-1} x^{n-1} \]
+roots \begin{eqnarray} x^{n} &amp;=&amp; 1 \\\
+x &amp;=&amp; e^{i \frac{2\pi}{n}} \end{eqnarray}
+Call \(e^{i \frac{2\pi}{n}} = w_n\) the fundamental, then there are \(n\) such roots, \(w_n^k\) for \(k = 0,\cdots,n-1\).
+The fourier transform is a vector of the polynomial evaluated at each of the \(k\) roots.
+\[ F(k) = f(w_n^k) \]
+The FFT is a divide and conquer algorithm where instead of doing \(O(n)\) computations for each fourier coefficient \(F(k)\), we break up the problem into 2 subproblems of size \(n/2\) and do a merge which is of order \(n\).
+        </div>
+          <a href="https://www.frankliu.org/hugo/posts/fft/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="https://www.frankliu.org/hugo/posts/ericcto-segment-tree/" class="color-inherit dim link">
             Errichto - segment tree
             </a>
@@ -254,38 +284,18 @@ Basically the original range is stored at some offset that correspond to largest
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://www.frankliu.org/hugo/posts/usaco-jan-2020-bronze-race/" class="color-inherit dim link">
-            USACO Jan 2020 Bronze - Race
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          \(O(1)\) solution I am surprised that the solution posted is \(O(n)\) since \(n\) can be as large as \(10^9\).
-In coming up with a solution for \(O(1)\) we consider three phases. The first phase accelerates the &lsquo;left hand&rsquo; speed until it reaches the terminal speed. If it can&rsquo;t reach the terminal speed then it just reaches whatever speed it can and terminates.
-The second phase is like a palindrome stage, where I remove similar increasing speeds from both ends, kind of like climbing up a tall peak from both ends.
-        </div>
-          <a href="https://www.frankliu.org/hugo/posts/usaco-jan-2020-bronze-race/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="https://www.frankliu.org/hugo/posts/usaco-jan-2020-bronze-race/" class="link black dim">
+              USACO Jan 2020 Bronze - Race
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="https://www.frankliu.org/hugo/posts/alpha-beta-pruning/" class="link black dim">
@@ -302,12 +312,6 @@ The second phase is like a palindrome stage, where I remove similar increasing s
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="https://www.frankliu.org/hugo/posts/bellman-held-karp/" class="link black dim">
               Bellman-Held-Karp Hamiltonian path and Traveling Salesman
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://www.frankliu.org/hugo/posts/hugo-css-svg-social/" class="link black dim">
-              Hugo: custom css, social-follow, svg, baseurl, comments
             </a>
           </h2>
         

@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | Leetcode 1320. Minimum Distance to Type a Word Using Two Fingers</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.64.0" />
+    <meta name="generator" content="Hugo 0.65.3" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -252,7 +252,7 @@ of the dictionary spacing with each new character.</p>
 
         dp, dp2 <span style="color:#f92672">=</span> {(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>): <span style="color:#ae81ff">0</span>}, {}
         <span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> (ord(c) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> A):
-            <span style="color:#66d9ef">print</span>([[chr(x) <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> y] <span style="color:#66d9ef">for</span> y <span style="color:#f92672">in</span> dp<span style="color:#f92672">.</span>keys()],<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+            <span style="color:#66d9ef">print</span>([[chr(x) <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> y] <span style="color:#66d9ef">for</span> y <span style="color:#f92672">in</span> dp<span style="color:#f92672">.</span>keys()],<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
             <span style="color:#66d9ef">for</span> a, b <span style="color:#f92672">in</span> dp:
                 dp2[c, b] <span style="color:#f92672">=</span> min(dp2<span style="color:#f92672">.</span>get((c, b), <span style="color:#ae81ff">3000</span>), dp[a, b] <span style="color:#f92672">+</span> d(a, c))
                 dp2[a, c] <span style="color:#f92672">=</span> min(dp2<span style="color:#f92672">.</span>get((a, c), <span style="color:#ae81ff">3000</span>), dp[a, b] <span style="color:#f92672">+</span> d(b, c))
@@ -269,7 +269,7 @@ of the dictionary spacing with each new character.</p>
         <span style="color:#66d9ef">return</span> min(dp<span style="color:#f92672">.</span>values())
 
 s<span style="color:#f92672">=</span>Solution()
-<span style="color:#66d9ef">print</span>(s<span style="color:#f92672">.</span>minimumDistance(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">asdfkjalskjflkweraglksjga</span><span style="color:#e6db74">&#39;</span>))
+<span style="color:#66d9ef">print</span>(s<span style="color:#f92672">.</span>minimumDistance(<span style="color:#e6db74">&#39;asdfkjalskjflkweraglksjga&#39;</span>))
 
 </code></pre></div><h2 id="further-simplification">Further simplification</h2>
 <p>In the above, one of the fingers must take \(c\).  This means that there will
@@ -296,7 +296,7 @@ entries.</p>
         <span style="color:#66d9ef">return</span> min(dp<span style="color:#f92672">.</span>values())
 
 s<span style="color:#f92672">=</span>Solution()
-<span style="color:#66d9ef">print</span>(s<span style="color:#f92672">.</span>minimumDistance(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">asdfkjalskjflkweraglksjga</span><span style="color:#e6db74">&#39;</span>))
+<span style="color:#66d9ef">print</span>(s<span style="color:#f92672">.</span>minimumDistance(<span style="color:#e6db74">&#39;asdfkjalskjflkweraglksjga&#39;</span>))
 </code></pre></div><h2 id="lee-s-approach">Lee&rsquo;s approach</h2>
 <p>Lee&rsquo;s solution for the 1D is intriguing because he assumes a fixed cost, that
 of using just one finger, which can be found from the prefix sum of distances.</p>

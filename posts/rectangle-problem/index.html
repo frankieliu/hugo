@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | Rectangle counting</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.64.0" />
+    <meta name="generator" content="Hugo 0.65.3" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -229,8 +229,8 @@ programmer Errichto.</p>
     <span style="color:#66d9ef">for</span> p <span style="color:#f92672">in</span> points:
         <span style="color:#66d9ef">for</span> p_above <span style="color:#f92672">in</span> points:
             <span style="color:#66d9ef">if</span> p<span style="color:#f92672">.</span>y <span style="color:#f92672">&lt;</span> p_above<span style="color:#f92672">.</span>y:
-                answer <span style="color:#f92672">+</span><span style="color:#f92672">=</span> m[(p<span style="color:#f92672">.</span>y,p_above<span style="color:#f92672">.</span>y)]
-                m[(p<span style="color:#f92672">.</span>y,p_above<span style="color:#f92672">.</span>y)] <span style="color:#f92672">+</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+                answer <span style="color:#f92672">+=</span> m[(p<span style="color:#f92672">.</span>y,p_above<span style="color:#f92672">.</span>y)]
+                m[(p<span style="color:#f92672">.</span>y,p_above<span style="color:#f92672">.</span>y)] <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
     <span style="color:#66d9ef">return</span> answer
 </code></pre></div><p>Consider the following set of points:</p>
 <table>
