@@ -1,0 +1,93 @@
+# -*- mode: org -*-
+#+HUGO_BASE_DIR: ../..
+#+HUGO_SECTION: posts
+#+HUGO_WEIGHT: 2000
+#+HUGO_AUTO_SET_LASTMOD: t
+#+TITLE: "FFT"
+#+DATE: 2020-03-06T08:22:35-08:00
+#+HUGO_TAGS: fft convolution
+#+HUGO_CATEGORIES: fft convolution 
+#+HUGO_MENU_off: :menu "main" :weight 2000
+#+HUGO_CUSTOM_FRONT_MATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true :toc true
+#+HUGO_DRAFT: false
+
+#+STARTUP: indent hidestars showall
+
+* polynomials
+$$
+f(x) = A_0 + A_1 x + A_2 x^2 + \cdots + A_{n-1} x^{n-1}
+$$
+
+* roots
+\begin{eqnarray}
+x^{n} &=& 1 \\
+x &=& e^{i \frac{2\pi}{n}}
+\end{eqnarray}
+
+Call $e^{i \frac{2\pi}{n}} = w_n$ the fundamental, then there are
+$n$ such roots, $w_n^k$ for $k = 0,\cdots,n-1$.
+
+The fourier transform is a vector of the polynomial evaluated at
+each of the $k$ roots.
+
+$$
+F(k) = f(w_n^k)
+$$
+
+The FFT is a divide and conquer algorithm where instead of doing 
+$O(n)$ computations for each fourier coefficient $F(k)$, we break
+up the problem into 2 subproblems of size $n/2$ and do a merge which
+is of order $n$.  Thus $T(n) = 2T(n/2) + O(n)$
+
+Consider taking the FT of the even powers f(x):
+
+$$
+f_e(x) = A_0 + A_2 x + \cdots
+$$
+
+It's FT will look like
+
+$$
+F_e(k) = f_e(w_{n/2}^k) = f_e(w_n^{2k})
+$$
+
+for $k = 0, \cdots, n/2-1$.
+
+Combining both the odd and even contributions we get
+
+\begin{eqnarray}
+F(k) &=& f(x=w_n^k) \\
+     &=& f_e(x^2) + x f_o(x^2) \\
+     &=& f_e(w_n^{2k}) + w_n^k f_o(w_n^{2k})
+\end{eqnarray}
+
+Note for $k = 0, \cdots, n/2 -1$, this is well defined by $F_e(k)$
+and $F_o(k)$:
+
+\begin{eqnarray*}
+F(k) = F_e(k) + w_n^k F_o(k)\\
+ \text{ for } $k \in [0,n/2-1]
+\end{eqnarray*}
+
+We need to take care of $k = n/2, \cdots, n-1$.
+
+Rewriting $k = n/2, \cdots, n-1$ as $k = n/2 + (0, \cdots, n/2-1)$.
+$k = n/2 + k'$.
+We can rewrite:
+
+$$
+w_n^{n+2k'} = w_n^{2k'}
+$$
+
+and
+
+$$
+w_n^k = w_n^{n/2+k'} = -w_n^{k'}
+$$
+
+Thus we can write
+
+\begin{eqnarray}
+F(n/2+k') &=& f_e(w_n^{2k'} - w_n^{k'} f_o(w_n^{2k'}) \\
+          &=& F_e(k') - w_n^{k'} F_o(k')
+\end{eqnarray}

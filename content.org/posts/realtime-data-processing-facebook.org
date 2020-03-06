@@ -1,0 +1,33 @@
+# -*- mode: org -*-
+#+HUGO_BASE_DIR: ../..
+#+HUGO_SECTION: posts
+#+HUGO_WEIGHT: 2000
+#+HUGO_AUTO_SET_LASTMOD: t
+#+TITLE: "Realtime data processing at Facebook"
+#+DATE: 2020-02-11T15:03:54-08:00
+#+HUGO_TAGS: streaming facebook
+#+HUGO_CATEGORIES: streaming
+#+HUGO_MENU_off: :menu "main" :weight 2000
+#+HUGO_CUSTOM_FRONT_MATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true
+#+HUGO_DRAFT: false
+
+#+STARTUP: indent hidestars showall
+
+* important characteristics
+- ease of use: sql or general purpose
+- performance: how much latency
+- fault-tolerance: number of times data is processed, in-memory state
+- scalabiity: data sharding, adapt to change in volume, reprocess old data
+- correctness: need acid?
+
+- FSPEC - fault, scale, performance, ease, correctness
+* performance
+- 1 second of latency with 100GB/s throughput
+- can connect all components with a PERSISTENT message bus for data transport
+  - decouple data transport from processing
+  - achieve FSpEC - tradeoff was in performance 1s latency
+* sample systems
+- Chorus: get top 5 topics, demographic breakdowns queries
+- Mobile analytics: diagnose performance and correctness issues
+- page insights pipelines : likes reach engagements
+- streaming offload CPU intensive dashboard queries

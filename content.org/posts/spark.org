@@ -1,0 +1,20 @@
+# -*- mode: org -*-
+#+HUGO_BASE_DIR: ../..
+#+HUGO_SECTION: posts
+#+HUGO_WEIGHT: 2000
+#+HUGO_AUTO_SET_LASTMOD: t
+#+TITLE: "Spark"
+#+DATE: 2020-02-29T07:19:14-08:00
+#+HUGO_TAGS: spark 
+#+HUGO_CATEGORIES: spark 
+#+HUGO_MENU_off: :menu "main" :weight 2000
+#+HUGO_CUSTOM_FRONT_MATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true :toc true
+#+HUGO_DRAFT: false
+
+#+STARTUP: indent hidestars showall
+* resource and tasks
+- tasks managed by cluster mamager, yarn or mesos.
+
+- 
+* rdd vs dsm
+

@@ -1,0 +1,32 @@
+# -*- mode: org -*-
+#+STARTUP: indent hidestars showall
+
+* Problems
+- many black friday scenarios
+- need to quickly ramp up and ramp down services 
+* DevOps problems in cloud tech stacks
+- different layers have different degrees of automation
+  - infrastructure automated
+  - platforms and applications are not
+- high operational cost in platforms and pplications
+  - 1000 alerts per day
+* Monitoring systems and data platforms 
+- alert generator
+- metrics aggregator
+- hosts with metric sensors
+- mismatch of automation
+  - monitoring components: manually configured
+  - infra: fully
+  - mismatch: hard to keep configs up to date
+  - many false alerts, while many resources not monitored
+  - overwhelming number of alerts - outage
+* Monitoring as code
+** configuration orchestration
+- keep monitoring confs in sync with hw status
+- ci/cd pipelines
+- configurations treated the same way as sw code
+- orchestration layer on top of monitoring components w/o modifying any of the
+  componnets
+- impose standard structures on all the configuration s.t. they can be
+  automatically generated
+* data

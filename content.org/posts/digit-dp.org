@@ -1,0 +1,19 @@
+# -*- mode: org -*-
+#+HUGO_BASE_DIR: ../..
+#+HUGO_SECTION: posts
+#+HUGO_WEIGHT: 2000
+#+HUGO_AUTO_SET_LASTMOD: t
+#+TITLE: "Digit DP"
+#+DATE: 2020-02-20T09:15:31-08:00
+#+HUGO_TAGS: "dynamic programming" 
+#+HUGO_CATEGORIES: "dynamic programming" 
+#+HUGO_MENU_off: :menu "main" :weight 2000
+#+HUGO_CUSTOM_FRONT_MATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true
+#+HUGO_DRAFT: false
+
+#+STARTUP: indent hidestars showall
+* ack
+from codeforces article by flash_7
+
+* sample problem 
+how many numbers $x \in [a,b]$ 
