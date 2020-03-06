@@ -38,7 +38,7 @@ The FFT is a divide and conquer algorithm where instead of doing \(O(n)\) comput
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/fft/" />
 <meta property="article:published_time" content="2020-03-06T08:22:35-08:00" />
-<meta property="article:modified_time" content="2020-03-06T11:08:35-08:00" />
+<meta property="article:modified_time" content="2020-03-06T11:11:41-08:00" />
 <meta itemprop="name" content="FFT">
 <meta itemprop="description" content="polynomials \[ f(x) = A_0 &#43; A_1 x &#43; A_2 x^2 &#43; \cdots &#43; A_{n-1} x^{n-1} \]
 roots \begin{eqnarray} x^{n} &amp;=&amp; 1 \\\
@@ -48,7 +48,7 @@ The fourier transform is a vector of the polynomial evaluated at each of the \(k
 \[ F(k) = f(w_n^k) \]
 The FFT is a divide and conquer algorithm where instead of doing \(O(n)\) computations for each fourier coefficient \(F(k)\), we break up the problem into 2 subproblems of size \(n/2\) and do a merge which is of order \(n\).">
 <meta itemprop="datePublished" content="2020-03-06T08:22:35-08:00" />
-<meta itemprop="dateModified" content="2020-03-06T11:08:35-08:00" />
+<meta itemprop="dateModified" content="2020-03-06T11:11:41-08:00" />
 <meta itemprop="wordCount" content="269">
 
 
@@ -271,7 +271,7 @@ F(k) &amp;=&amp; f(x=w_n^k) \\\<br>
 and \(F_o(k)\):</p>
 <p>\begin{eqnarray*}
 F(k) = F_e(k) + w_n^k F_o(k)\\\<br>
-\text{ for } $k \in [0,n/2-1]
+\text{ for } k \in [0,n/2-1]
 \end{eqnarray*}</p>
 <p>We need to take care of \(k = n/2, \cdots, n-1\).</p>
 <p>Rewriting \(k = n/2, \cdots, n-1\) as \(k = n/2 + (0, \cdots, n/2-1)\).
