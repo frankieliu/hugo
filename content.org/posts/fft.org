@@ -66,7 +66,7 @@ and $F_o(k)$:
 
 \begin{eqnarray*}
 F(k) = F_e(k) + w_n^k F_o(k)\\
- \text{ for } $k \in [0,n/2-1]
+ \text{ for } k \in [0,n/2-1]
 \end{eqnarray*}
 
 We need to take care of $k = n/2, \cdots, n-1$.

@@ -2,7 +2,7 @@
 title = "FFT"
 author = ["adam"]
 date = 2020-03-06T08:22:35-08:00
-lastmod = 2020-03-06T11:08:35-08:00
+lastmod = 2020-03-06T11:11:41-08:00
 tags = ["fft", "convolution"]
 categories = ["fft", "convolution"]
 draft = false
@@ -72,7 +72,7 @@ and \\(F\_o(k)\\):
 
 \begin{eqnarray\*}
 F(k) = F\_e(k) + w\_n^k F\_o(k)\\\\\\
- \text{ for } $k \in [0,n/2-1]
+ \text{ for } k \in [0,n/2-1]
 \end{eqnarray\*}
 
 We need to take care of \\(k = n/2, \cdots, n-1\\).
