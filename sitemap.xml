@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://www.frankliu.org/hugo/posts/facebook-memcached/</loc>
+    <lastmod>2020-03-07T08:29:58-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.frankliu.org/hugo/posts/fft/</loc>
     <lastmod>2020-03-06T11:11:41-08:00</lastmod>
   </url>
@@ -129,7 +134,47 @@
   
   <url>
     <loc>https://www.frankliu.org/hugo/categories/</loc>
-    <lastmod>2020-03-06T11:11:41-08:00</lastmod>
+    <lastmod>2020-03-07T08:29:58-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/distributed-system/</loc>
+    <lastmod>2020-03-07T08:29:58-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/categories/distributed-system/</loc>
+    <lastmod>2020-03-07T08:29:58-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/distributed-systems/</loc>
+    <lastmod>2020-03-07T08:29:58-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/categories/distributed-systems/</loc>
+    <lastmod>2020-03-07T08:29:58-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/facebook/</loc>
+    <lastmod>2020-03-07T08:29:58-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/memcached/</loc>
+    <lastmod>2020-03-07T08:29:58-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/</loc>
+    <lastmod>2020-03-07T08:29:58-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/</loc>
+    <lastmod>2020-03-07T08:29:58-08:00</lastmod>
   </url>
   
   <url>
@@ -149,16 +194,6 @@
   
   <url>
     <loc>https://www.frankliu.org/hugo/categories/fft/</loc>
-    <lastmod>2020-03-06T11:11:41-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/</loc>
-    <lastmod>2020-03-06T11:11:41-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/tags/</loc>
     <lastmod>2020-03-06T11:11:41-08:00</lastmod>
   </url>
   
@@ -325,16 +360,6 @@
   <url>
     <loc>https://www.frankliu.org/hugo/categories/leetcode/</loc>
     <lastmod>2020-01-21T14:00:37-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/tags/distributed-system/</loc>
-    <lastmod>2020-01-18T20:56:55-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/categories/distributed-system/</loc>
-    <lastmod>2020-01-18T20:56:55-08:00</lastmod>
   </url>
   
   <url>

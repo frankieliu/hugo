@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>facebook on My New Hugo Site</title>
+    <link>https://www.frankliu.org/hugo/tags/facebook/</link>
+    <description>Recent content in facebook on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 Mar 2020 07:47:47 -0800</lastBuildDate>
+    
+	<atom:link href="https://www.frankliu.org/hugo/tags/facebook/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Facebook - memcached</title>
+      <link>https://www.frankliu.org/hugo/posts/facebook-memcached/</link>
+      <pubDate>Sat, 07 Mar 2020 07:47:47 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/facebook-memcached/</guid>
+      <description>Front-end cluster    read heavy workload (100:1 R/W) wide fanout handle failures  Q: what is a wide fanout
+Multiple FE clusters  single geo region control data replication data consistency  Multiple regions  muliple geo regions storage replication data consistency  Pre-memcached   High fanout    data dependency graph for a small user request  Look-aside cache   why deletes over set</description>
+    </item>
+    
+  </channel>
+</rss>
