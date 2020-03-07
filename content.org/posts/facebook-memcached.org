@@ -1,0 +1,80 @@
+# -*- mode: org -*-
+#+HUGO_BASE_DIR: ../..
+#+HUGO_SECTION: posts
+#+HUGO_WEIGHT: 2000
+#+HUGO_AUTO_SET_LASTMOD: t
+#+TITLE: "Facebook - memcached"
+#+DATE: 2020-03-07T07:47:47-08:00
+#+HUGO_TAGS: facebook memcached "distributed systems" 
+#+HUGO_CATEGORIES: "distributed systems"
+#+HUGO_MENU_off: :menu "main" :weight 2000
+#+HUGO_CUSTOM_FRONT_MATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true :toc true
+#+HUGO_DRAFT: false
+
+#+STARTUP: indent hidestars showall
+
+* Front-end cluster
+[[file:/images/facebook/front-end-cluster.png]]
+
+- read heavy workload (100:1 R/W)
+- wide fanout
+- handle failures
+
+Q: what is a wide fanout
+
+* Multiple FE clusters
+- single geo region
+- control data replication
+- data consistency
+
+* Multiple regions
+- muliple geo regions
+- storage replication
+- data consistency
+
+* Pre-memcached
+[[file:/images/facebook/pre-memcached.png]]
+
+* High fanout
+
+[[file:/images/facebook/high-fanout.png]]
+
+- data dependency graph for a small user request
+
+* Look-aside cache
+[[file:/images/facebook/look-aside-cache.png]]
+[[file:/images/facebook/look-aside-cache-update.png]]
+
+- why deletes over set
+  - idempotent
+  - demand filled
+
+- webserver specifie which keys to invalidate after DB update
+
+* Invalid sets
+
+[[file:/images/facebook/invalid-sets.png]]
+
+- attach lease-id with every miss
+- lease-id invalidated on a delete
+- cannot set if lease-id is invalidated
+
+Q: who sets the lease-id
+Q: how do you invalidate someone else's lease-id
+Q: how many do you order the lease-id
+
+- CAS : is this like load-link/store conditional
+  - CAS is weaker because it will write if value read is the same as last read
+  - LL/SC will not write if there has been an update
+  - tagged state reference (add a tag to indicate how many times modified)
+
+* Thundering herds
+
+[[file:/images/facebook/thundering-herds-1.png]]
+[[file:/images/facebook/thundering-herds-2.png]]
+
+Q: how do you prevent thundering herds?
+
+- Memcache informs WS that it will be updated soon by some other WS
+  - WS can then wait for the update or use stale value
+
