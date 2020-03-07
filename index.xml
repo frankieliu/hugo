@@ -17,8 +17,8 @@
       <pubDate>Sat, 07 Mar 2020 07:47:47 -0800</pubDate>
       
       <guid>https://www.frankliu.org/hugo/posts/facebook-memcached/</guid>
-      <description>Front-end cluster    read heavy workload (100:1 R/W) wide fanout handle failures  Q: what is a wide fanout
-Multiple FE clusters  single geo region control data replication data consistency  Multiple regions  muliple geo regions storage replication data consistency  Pre-memcached   High fanout    data dependency graph for a small user request  Look-aside cache   why deletes over set</description>
+      <description>Front-end cluster    read heavy workload (100:1 R/W) wide fanout handle failures 10 Mops/s  Q: what is a wide fanout
+Multiple FE clusters  single geo region control data replication data consistency 100 Mops/s  Multiple regions  muliple geo regions storage replication data consistency 1 Bops/s  Pre-memcached   High fanout    data dependency graph for a small user request  Look-aside cache   why deletes over set</description>
     </item>
     
     <item>

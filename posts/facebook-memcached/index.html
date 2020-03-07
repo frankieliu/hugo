@@ -14,7 +14,7 @@
 
     
     
-      <link href="https://www.frankliu.org/hugo/dist/css/app.3f5912c237ddd38c8e76debe081c7ca7.css" rel="stylesheet">
+      <link href="https://www.frankliu.org/hugo/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
     
 
     
@@ -28,25 +28,25 @@
     
     
     <meta property="og:title" content="Facebook - memcached" />
-<meta property="og:description" content="Front-end cluster    read heavy workload (100:1 R/W) wide fanout handle failures  Q: what is a wide fanout
-Multiple FE clusters  single geo region control data replication data consistency  Multiple regions  muliple geo regions storage replication data consistency  Pre-memcached   High fanout    data dependency graph for a small user request  Look-aside cache   why deletes over set" />
+<meta property="og:description" content="Front-end cluster    read heavy workload (100:1 R/W) wide fanout handle failures 10 Mops/s  Q: what is a wide fanout
+Multiple FE clusters  single geo region control data replication data consistency 100 Mops/s  Multiple regions  muliple geo regions storage replication data consistency 1 Bops/s  Pre-memcached   High fanout    data dependency graph for a small user request  Look-aside cache   why deletes over set" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/facebook-memcached/" />
 <meta property="article:published_time" content="2020-03-07T07:47:47-08:00" />
-<meta property="article:modified_time" content="2020-03-07T08:29:58-08:00" />
+<meta property="article:modified_time" content="2020-03-07T09:50:23-08:00" />
 <meta itemprop="name" content="Facebook - memcached">
-<meta itemprop="description" content="Front-end cluster    read heavy workload (100:1 R/W) wide fanout handle failures  Q: what is a wide fanout
-Multiple FE clusters  single geo region control data replication data consistency  Multiple regions  muliple geo regions storage replication data consistency  Pre-memcached   High fanout    data dependency graph for a small user request  Look-aside cache   why deletes over set">
+<meta itemprop="description" content="Front-end cluster    read heavy workload (100:1 R/W) wide fanout handle failures 10 Mops/s  Q: what is a wide fanout
+Multiple FE clusters  single geo region control data replication data consistency 100 Mops/s  Multiple regions  muliple geo regions storage replication data consistency 1 Bops/s  Pre-memcached   High fanout    data dependency graph for a small user request  Look-aside cache   why deletes over set">
 <meta itemprop="datePublished" content="2020-03-07T07:47:47-08:00" />
-<meta itemprop="dateModified" content="2020-03-07T08:29:58-08:00" />
-<meta itemprop="wordCount" content="183">
+<meta itemprop="dateModified" content="2020-03-07T09:50:23-08:00" />
+<meta itemprop="wordCount" content="354">
 
 
 
 <meta itemprop="keywords" content="facebook,memcached,distributed systems," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Facebook - memcached"/>
-<meta name="twitter:description" content="Front-end cluster    read heavy workload (100:1 R/W) wide fanout handle failures  Q: what is a wide fanout
-Multiple FE clusters  single geo region control data replication data consistency  Multiple regions  muliple geo regions storage replication data consistency  Pre-memcached   High fanout    data dependency graph for a small user request  Look-aside cache   why deletes over set"/>
+<meta name="twitter:description" content="Front-end cluster    read heavy workload (100:1 R/W) wide fanout handle failures 10 Mops/s  Q: what is a wide fanout
+Multiple FE clusters  single geo region control data replication data consistency 100 Mops/s  Multiple regions  muliple geo regions storage replication data consistency 1 Bops/s  Pre-memcached   High fanout    data dependency graph for a small user request  Look-aside cache   why deletes over set"/>
 
   </head>
 
@@ -226,6 +226,7 @@ MathJax.Hub.Config({
 <li>read heavy workload (100:1 R/W)</li>
 <li>wide fanout</li>
 <li>handle failures</li>
+<li>10 Mops/s</li>
 </ul>
 <p>Q: what is a wide fanout</p>
 <h2 id="multiple-fe-clusters">Multiple FE clusters</h2>
@@ -233,12 +234,14 @@ MathJax.Hub.Config({
 <li>single geo region</li>
 <li>control data replication</li>
 <li>data consistency</li>
+<li>100 Mops/s</li>
 </ul>
 <h2 id="multiple-regions">Multiple regions</h2>
 <ul>
 <li>muliple geo regions</li>
 <li>storage replication</li>
 <li>data consistency</li>
+<li>1 Bops/s</li>
 </ul>
 <h2 id="pre-memcached">Pre-memcached</h2>
 <figure>
@@ -301,6 +304,97 @@ Q: how many do you order the lease-id</p>
 </ul>
 </li>
 </ul>
+<h2 id="all-to-all-communication">All-to-all communication</h2>
+<figure>
+    <img src="https://www.frankliu.org/hugo/images/facebook/all-to-all.png"/> 
+</figure>
+
+<ol>
+<li>Incast congestion
+<ul>
+<li>amplification of data from memcached</li>
+<li>limit the number of outstanding requests</li>
+</ul>
+</li>
+</ol>
+<figure>
+    <img src="https://www.frankliu.org/hugo/images/facebook/incast-congestion.png"/> 
+</figure>
+
+<ol>
+<li>Limits horizontal scalability
+<ul>
+<li>multiple memcached clusters &ldquo;front&rdquo; one DB</li>
+<li>consistency</li>
+<li>over-replication</li>
+</ul>
+</li>
+</ol>
+<figure>
+    <img src="https://www.frankliu.org/hugo/images/facebook/multiple-clusters.png"/> 
+</figure>
+
+<h2 id="db-cache-invalidation">DB cache invalidation</h2>
+<figure>
+    <img src="https://www.frankliu.org/hugo/images/facebook/mcsqueal.png"/> 
+</figure>
+
+<ol>
+<li>Cached data invalidated after DB updates</li>
+<li>Issue deletes from commit log</li>
+</ol>
+<p>Q: MC still serving stale data?  Why not invalidate pre-emptively?</p>
+<ol>
+<li>Too many packets
+a. intra-cluster BW &gt; inter-cluster BW
+b. aggregation reduces packet rate by 18x
+c. easier configuration management, each layer just needs to know next
+d. each stage can buffer deletes in case of downstream components</li>
+</ol>
+<figure>
+    <img src="https://www.frankliu.org/hugo/images/facebook/memcache-routers.png"/> 
+</figure>
+
+<h2 id="geo-distributed-clusters">Geo distributed clusters</h2>
+<p><img src="https://www.frankliu.org/hugo/images/facebook/multi-region-race.png" alt="">
+<img src="https://www.frankliu.org/hugo/images/facebook/update-marker.png" alt=""></p>
+<h2 id="lessons">Lessons</h2>
+<ol>
+<li>push complexity to the client
+<ul>
+<li>there are no server to server communication</li>
+</ul>
+</li>
+<li>operation efficiency is as important
+<ul>
+<li>routing pipeline</li>
+<li>slower</li>
+<li>configuration tight and local</li>
+</ul>
+</li>
+<li>separate cache and persistance separate</li>
+</ol>
+<h2 id="q-and-a">Q&amp;A</h2>
+<ol>
+<li>bottle neck single memcache
+<ul>
+<li>tail of memcache provision for the tail</li>
+</ul>
+</li>
+<li>memcache flash</li>
+<li>have a fast in-memory
+<ul>
+<li>fetch a lot of data</li>
+<li>small data problem - not a big data problem</li>
+</ul>
+</li>
+<li>size of cache/average utilization
+<ul>
+<li>different pools</li>
+<li>cache just store the hot heads</li>
+</ul>
+</li>
+</ol>
 <ul class="pa0">
   
    <li class="list">
@@ -341,6 +435,11 @@ Q: how many do you order the lease-id</p>
     <li><a href="#look-aside-cache">Look-aside cache</a></li>
     <li><a href="#invalid-sets">Invalid sets</a></li>
     <li><a href="#thundering-herds">Thundering herds</a></li>
+    <li><a href="#all-to-all-communication">All-to-all communication</a></li>
+    <li><a href="#db-cache-invalidation">DB cache invalidation</a></li>
+    <li><a href="#geo-distributed-clusters">Geo distributed clusters</a></li>
+    <li><a href="#lessons">Lessons</a></li>
+    <li><a href="#q-and-a">Q&amp;A</a></li>
   </ul>
 </nav>
   </div>
