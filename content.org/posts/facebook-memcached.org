@@ -8,7 +8,7 @@
 #+HUGO_TAGS: facebook memcached "distributed systems" 
 #+HUGO_CATEGORIES: "distributed systems"
 #+HUGO_MENU_off: :menu "main" :weight 2000
-#+HUGO_CUSTOM_FRONT_MATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true :toc true
+#+HUGO_CUSTOM_FRONT_MATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true :toc true 
 #+HUGO_DRAFT: false
 
 #+STARTUP: indent hidestars showall
@@ -19,18 +19,20 @@
 - read heavy workload (100:1 R/W)
 - wide fanout
 - handle failures
-
+- 10 Mops/s
 Q: what is a wide fanout
 
 * Multiple FE clusters
 - single geo region
 - control data replication
 - data consistency
+- 100 Mops/s
 
 * Multiple regions
 - muliple geo regions
 - storage replication
 - data consistency
+- 1 Bops/s
 
 * Pre-memcached
 [[file:/images/facebook/pre-memcached.png]]
@@ -78,3 +80,57 @@ Q: how do you prevent thundering herds?
 - Memcache informs WS that it will be updated soon by some other WS
   - WS can then wait for the update or use stale value
 
+* All-to-all communication
+
+[[file:/images/facebook/all-to-all.png]]
+
+1. Incast congestion
+   - amplification of data from memcached
+   - limit the number of outstanding requests
+[[file:/images/facebook/incast-congestion.png]]
+
+2. Limits horizontal scalability
+   - multiple memcached clusters "front" one DB
+   - consistency
+   - over-replication
+[[file:/images/facebook/multiple-clusters.png]]
+
+* DB cache invalidation
+[[file:/images/facebook/mcsqueal.png]]
+
+1. Cached data invalidated after DB updates
+2. Issue deletes from commit log
+
+Q: MC still serving stale data?  Why not invalidate pre-emptively?
+
+3. Too many packets
+   a. intra-cluster BW > inter-cluster BW
+   b. aggregation reduces packet rate by 18x
+   c. easier configuration management, each layer just needs to know next
+   d. each stage can buffer deletes in case of downstream components
+  
+[[file:/images/facebook/memcache-routers.png]]
+
+* Geo distributed clusters
+[[file:/images/facebook/multi-region-race.png]]
+[[file:/images/facebook/update-marker.png]]
+
+* Lessons
+1. push complexity to the client
+   - there are no server to server communication
+2. operation efficiency is as important
+   - routing pipeline
+   - slower
+   - configuration tight and local
+3. separate cache and persistance separate
+
+* Q&A
+1. bottle neck single memcache
+   - tail of memcache provision for the tail
+2. memcache flash
+3. have a fast in-memory
+   - fetch a lot of data
+   - small data problem - not a big data problem
+4. size of cache/average utilization
+   - different pools
+   - cache just store the hot heads

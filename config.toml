@@ -19,4 +19,3 @@ SectionPagesMenu = "main"
     medium = "https://medium.com/eins-zwei"
     # slack = "https://zweigroup.slack.com/team/UT1E2S7GU"
 		custom_css = [ "css/test.css" ]
-		
