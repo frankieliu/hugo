@@ -6,10 +6,28 @@
     <description>Recent content in Tags on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Mar 2020 07:47:47 -0800</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2020 07:21:42 -0700</lastBuildDate>
     
 	<atom:link href="https://www.frankliu.org/hugo/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>facebook</title>
+      <link>https://www.frankliu.org/hugo/tags/facebook/</link>
+      <pubDate>Sat, 21 Mar 2020 07:21:42 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/facebook/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>graph</title>
+      <link>https://www.frankliu.org/hugo/tags/graph/</link>
+      <pubDate>Sat, 21 Mar 2020 07:21:42 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/graph/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>distributed system</title>
@@ -26,15 +44,6 @@
       <pubDate>Sat, 07 Mar 2020 07:47:47 -0800</pubDate>
       
       <guid>https://www.frankliu.org/hugo/tags/distributed-systems/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>facebook</title>
-      <link>https://www.frankliu.org/hugo/tags/facebook/</link>
-      <pubDate>Sat, 07 Mar 2020 07:47:47 -0800</pubDate>
-      
-      <guid>https://www.frankliu.org/hugo/tags/facebook/</guid>
       <description></description>
     </item>
     
