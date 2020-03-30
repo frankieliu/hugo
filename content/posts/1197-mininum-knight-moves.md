@@ -2,7 +2,7 @@
 title = "1197. Minimum Knight Moves"
 author = ["adam"]
 date = 2020-03-29T22:44:44-07:00
-lastmod = 2020-03-29T23:40:28-07:00
+lastmod = 2020-03-29T23:42:12-07:00
 tags = ["leetcode"]
 categories = ["leetcode"]
 draft = false
@@ -67,6 +67,7 @@ and for an element below \\(y=\frac{1}{2}x\\),
 y + 2\left\lfloor \frac{x-2y}{4} \right\rfloor + (x-2y) \text{ mod } 4
 \\]
 
-If \\(x-2(x-y)\\) lands at 2 or if \\(x-2y\\) lands at 1 then we take special cases
-respectively, 4 and 3 as mentioned above. And for elements at \\(y=\frac{1}{2}x\\),
-it will take \\(x-y\\) moves.
+I keep it unsimplified so that it is easy to trace the formula. If \\(x-2(x-y)\\)
+lands at 2 or if \\(x-2y\\) lands at 1 then we take special cases respectively, 4
+and 3 as mentioned above. And for elements at \\(y=\frac{1}{2}x\\), it will take
+\\(x-y\\) moves.
