@@ -60,7 +60,7 @@ following: for points above $y=\frac{1}{2}x$, the total number of moves is
 and for an element below $y=\frac{1}{2}x$,
 
 \[
-y + 2\left\lfloor \frac{x-2y}{4} \right\rfloor + x\text{ mod } 4
+y + 2\left\lfloor \frac{x-2y}{4} \right\rfloor + (x-2y) \text{ mod } 4
 \]
 
 If $x-2(x-y)$ lands at 2 or if $x-2y$ lands at 1 then we take special cases
