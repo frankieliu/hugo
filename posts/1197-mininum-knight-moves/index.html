@@ -33,13 +33,13 @@ Let&rsquo;s take a look at the diagonal section of 4,4,4 (pink), since I can get
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/1197-mininum-knight-moves/" />
 <meta property="article:published_time" content="2020-03-29T22:44:44-07:00" />
-<meta property="article:modified_time" content="2020-03-29T23:40:28-07:00" />
+<meta property="article:modified_time" content="2020-03-29T23:42:12-07:00" />
 <meta itemprop="name" content="1197. Minimum Knight Moves">
 <meta itemprop="description" content="It is easy see that if you start in a spot in the diagonal, you can get back to the diagonal in two moves. Say E-NE followed by N-NE, where I am using the the North, South, East and West conventions. Similarly for a knight at the x-axis you can get back to the x-axis with E-NE followed by E-SE.
 Let&rsquo;s take a look at the diagonal section of 4,4,4 (pink), since I can get back to the diagonal in two moves, the next section has 6,6,6 (beige).">
 <meta itemprop="datePublished" content="2020-03-29T22:44:44-07:00" />
-<meta itemprop="dateModified" content="2020-03-29T23:40:28-07:00" />
-<meta itemprop="wordCount" content="419">
+<meta itemprop="dateModified" content="2020-03-29T23:42:12-07:00" />
+<meta itemprop="wordCount" content="432">
 
 
 
@@ -260,9 +260,10 @@ following: for points above \(y=\frac{1}{2}x\), the total number of moves is</p>
 <p>\[
 y + 2\left\lfloor \frac{x-2y}{4} \right\rfloor + (x-2y) \text{ mod } 4
 \]</p>
-<p>If \(x-2(x-y)\) lands at 2 or if \(x-2y\) lands at 1 then we take special cases
-respectively, 4 and 3 as mentioned above. And for elements at \(y=\frac{1}{2}x\),
-it will take \(x-y\) moves.</p>
+<p>I keep it unsimplified so that it is easy to trace the formula. If \(x-2(x-y)\)
+lands at 2 or if \(x-2y\) lands at 1 then we take special cases respectively, 4
+and 3 as mentioned above. And for elements at \(y=\frac{1}{2}x\), it will take
+\(x-y\) moves.</p>
 <ul class="pa0">
   
    <li class="list">
