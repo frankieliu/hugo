@@ -6,10 +6,20 @@
     <description>Recent content in leetcode on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Jan 2020 23:22:01 -0800</lastBuildDate>
+    <lastBuildDate>Sun, 29 Mar 2020 22:44:44 -0700</lastBuildDate>
     
 	<atom:link href="https://www.frankliu.org/hugo/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>1197. Minimum Knight Moves</title>
+      <link>https://www.frankliu.org/hugo/posts/1197-mininum-knight-moves/</link>
+      <pubDate>Sun, 29 Mar 2020 22:44:44 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/1197-mininum-knight-moves/</guid>
+      <description>It is easy see that if you start in a spot in the diagonal, you can get back to the diagonal in two moves. Say E-NE followed by N-NE, where I am using the the North, South, East and West conventions. Similarly for a knight at the x-axis you can get back to the x-axis with E-NE followed by E-SE.
+Let&amp;rsquo;s take a look at the diagonal section of 4,4,4 (pink), since I can get back to the diagonal in two moves, the next section has 6,6,6 (beige).</description>
+    </item>
     
     <item>
       <title>Leetcode 1320. Minimum Distance to Type a Word Using Two Fingers</title>

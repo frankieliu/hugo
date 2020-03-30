@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | Articles</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.67.1" />
+    <meta name="generator" content="Hugo 0.68.3" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -182,6 +182,22 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/hugo-css-svg-social/" class="link black dim">
+        Hugo: custom css, social-follow, svg, baseurl, comments
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      hugo social buttons It stated with wanting to add social buttons on my web page. This was as easy as changing the config.toml file. For Ananke theme, it is looking for some parameters, in the [params] sections. Just add you link to facebook, twitter, etc as facebook = &quot;https://www.facebook.com/ID&quot;.
+case of missing id I was upset that it had a slack link available, but no discord one. One because I don&rsquo;t even know what is one&rsquo;s slack id.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
       <a href="https://www.frankliu.org/hugo/posts/1320-mininum-distance-to-type-a-word-using-two-fingers/" class="link black dim">
         Leetcode 1320. Minimum Distance to Type a Word Using Two Fingers
       </a>
@@ -315,26 +331,6 @@ This method of maintaining a separate branch is made easier with a worktree that
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong   Durability - committed means data will not be lost  there is no perfect guarantee    Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another   identify multi-object transaction  tie to client&rsquo;s TCP connection - bad separate transaction id    Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set      Multi-object transactions  when do you need them?
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/vector-clocks/" class="link black dim">
-        Vector clocks
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      vector clocks A, B, C, D are trying to set a date.
- Alice starts off (Wed, (A:1)) (Tue, (A:1,B:1)) (Tue, (A:1,B:1,D:1)) (Thu, (A:1,C:1)) -&gt; Conflict  (A:1,C:1) did not descencd from (A:1,B:1,D:1)
-Descend Each marker in vclk2 must have corresponding or greater marker than in vclk1
-Resolve (Thu, (A:1, B:1, C:1, D:2))
-problems width of vector clock grows with number of actors, or clients.
- keep growth under control with timestamp to prune old clocks  revisited Actor Some entity in the system that makes an update to an object
     </div>
   </div>
 </div>

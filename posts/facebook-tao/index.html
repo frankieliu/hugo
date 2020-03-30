@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | Tao</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.67.1" />
+    <meta name="generator" content="Hugo 0.68.3" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -32,12 +32,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/facebook-tao/" />
 <meta property="article:published_time" content="2020-03-21T07:21:42-07:00" />
-<meta property="article:modified_time" content="2020-03-21T15:27:43-07:00" />
+<meta property="article:modified_time" content="2020-03-28T09:41:06-07:00" />
 <meta itemprop="name" content="Tao">
 <meta itemprop="description" content="Aggregation difficulties  content tailored to each user filter item with privacy checks for each user impossible to aggregate and filter when content is crated resolve data dependencies and privacy check each time content is viewed pull vs push social graph?  extreme read demands on graph data store    Memcache  rapid deployment  data mapping cache invalidation client code that is deployed frequently   created abstractions for graphcs  r/w objects (nodes) associations (edges) direct access to MySQL deprecated for graph data tyles    Tao  service  implements objects and association model   motivation  encapsulating failures in the PHP API access graph easily from non-PHP serivces problems with lookaside cache architecture    Inefficient edge lists  KV cache is not good semantic fit for lists of edges  queries must fetch the entire edge list  list support would help   make changes to single edge causes entire list to be reloaded  requires coordination of incremental updates to cached lists      Distributed control logic  L-A $ control logic is run on clients  clients don&rsquo;t communicate with each other increases the number of failure modes difficult to avoid thundering herds  Nishtala et al.">
 <meta itemprop="datePublished" content="2020-03-21T07:21:42-07:00" />
-<meta itemprop="dateModified" content="2020-03-21T15:27:43-07:00" />
-<meta itemprop="wordCount" content="1576">
+<meta itemprop="dateModified" content="2020-03-28T09:41:06-07:00" />
+<meta itemprop="wordCount" content="2044">
 
 
 
@@ -683,7 +683,7 @@ hot objects</li>
 </ul>
 </li>
 </ul>
-<h2 id="high-degree-objects">High-degree objects</h2>
+<h2 id="high-degree-objects-5-dot-4">High-degree objects 5.4</h2>
 <ul>
 <li>many objects have 6000 associations with the same atype</li>
 <li>assoc_get(id1,id2) no edges between
@@ -706,7 +706,152 @@ then you know there is no edge to id2</li>
 </ul>
 </li>
 </ul>
-<h2 id="consistency-and-fault-tolerance">Consistency and Fault tolerance</h2>
+<h2 id="consistency-6-dot-1">Consistency 6.1</h2>
+<ul>
+<li>goal is availability and performance
+<ul>
+<li>eventual consistency model - ok to send stale data</li>
+<li>replication lag is less than 1 sec!</li>
+</ul>
+</li>
+<li>within single tier provides read-after-write consistency
+<ul>
+<li>updates cache with locally written values
+<ul>
+<li>master leader returns a changeset when write is successful</li>
+<li>changeset propagated to slave leader to follower tier that originated
+query</li>
+<li>inverse associations have to send to 2 shards
+<ul>
+<li>slave leader and follower must forward the changeset to id2&rsquo;s shard</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>changeset cannot be written right away
+<ul>
+<li>follower cache may be stale if refill or invalidate from another update
+has not been delivered
+<ul>
+<li>use version number
+<ul>
+<li>globally increment during each update</li>
+<li>follower can invalidate its local copy if the changeset&rsquo;s version is
+stale</li>
+</ul>
+</li>
+<li>in slave regions vulnerable to race condition
+<ul>
+<li>cache eviction and storage server update propagation
+<ul>
+<li>slave storage server holds older version than what was cached by
+caching server</li>
+<li>possible for the post-changeset entry to be evicted from cache then
+reloaded from the database</li>
+<li>client observes value go back in time</li>
+</ul>
+</li>
+<li>this occurs if it takes longer for the slave region storage to receive
+update than update for the cached item to be evicted from cached</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="failure-dectection-6-dot-2">Failure dectection 6.2</h2>
+<h3 id="network-failures">network failures</h3>
+<ul>
+<li>each server aborts requests to destinations it can no longer reach</li>
+<li>tao routes around failures</li>
+</ul>
+<h3 id="database-failures">database failures</h3>
+<ul>
+<li>when slave db is down
+<ul>
+<li>cache misses are redirected to TAO leaders in the region hosting the DB
+master</li>
+<li>cache consistency messages can&rsquo;t be delivered by the primary mech ?
+<ul>
+<li>additional binlog tailer is run on the master database which refills and
+invalidates are delivered inter-regionally</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="leader-cache-failure">leader cache failure</h3>
+<ul>
+<li>followers reroute to database</li>
+<li>write are rerouted to random member of the leader&rsquo;s tier
+<ul>
+<li>replacement leader performs write and associated actions
+<ul>
+<li>like modify inverse association</li>
+<li>sending invalidation to followers</li>
+<li>enqueues asynchronous invalidation to the original leader
+<ul>
+<li>async invalidates recorded on coordinating node and inserted into the
+replication stream until the leader becomes available</li>
+<li>used when leader comes back up its consistency needs to be restored</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="refill-and-invalidation-failures">refill and invalidation failures</h3>
+<ul>
+<li>follower not reachable
+<ul>
+<li>leader queues the message to disk and delivers at a later time</li>
+<li>if leader fails
+<ul>
+<li>there is a bulk invalidation of all objects and associations</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="follower-failures">follower failures</h3>
+<ul>
+<li>follower in other tiers share the responsibility of serving the failed host&rsquo;s
+shards</li>
+<li>each tao client has a primary and a backup follower tier</li>
+<li>failing over between different tiers may cause read-after-write violation
+<ul>
+<li>read reaches the failover target before the write&rsquo;s refill or invalidate</li>
+</ul>
+</li>
+</ul>
+<h2 id="multi-tenancy-7">Multi-tenancy 7</h2>
+<ul>
+<li>amortize operational cost</li>
+<li>share excess capacity</li>
+<li>enable applications to link to existing data</li>
+<li>important for objects
+<ul>
+<li>allows entire 64-bit id space to be handled uniformly without an extra step
+to resolve the otype</li>
+</ul>
+</li>
+</ul>
+<h2 id="region-7">Region 7</h2>
+<ul>
+<li>follower tiers spread across several geographical regions</li>
+<li>each region has
+<ul>
+<li>one complete set of databases</li>
+<li>one leader cache tier</li>
+<li>two or more follower tiers</li>
+</ul>
+</li>
+<li>1e9 reads 1e6 writes / s</li>
+</ul>
 <ul class="pa0">
   
    <li class="list">
@@ -754,8 +899,19 @@ then you know there is no edge to id2</li>
     <li><a href="#optimization">Optimization</a></li>
     <li><a href="#mysql-rows">MySQL rows</a></li>
     <li><a href="#hot-spots">Hot spots</a></li>
-    <li><a href="#high-degree-objects">High-degree objects</a></li>
-    <li><a href="#consistency-and-fault-tolerance">Consistency and Fault tolerance</a></li>
+    <li><a href="#high-degree-objects-5-dot-4">High-degree objects 5.4</a></li>
+    <li><a href="#consistency-6-dot-1">Consistency 6.1</a></li>
+    <li><a href="#failure-dectection-6-dot-2">Failure dectection 6.2</a>
+      <ul>
+        <li><a href="#network-failures">network failures</a></li>
+        <li><a href="#database-failures">database failures</a></li>
+        <li><a href="#leader-cache-failure">leader cache failure</a></li>
+        <li><a href="#refill-and-invalidation-failures">refill and invalidation failures</a></li>
+        <li><a href="#follower-failures">follower failures</a></li>
+      </ul>
+    </li>
+    <li><a href="#multi-tenancy-7">Multi-tenancy 7</a></li>
+    <li><a href="#region-7">Region 7</a></li>
   </ul>
 </nav>
   </div>

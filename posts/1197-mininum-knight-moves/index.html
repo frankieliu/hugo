@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>My New Hugo Site  | distributed systems</title>
+    <title>My New Hugo Site  | 1197. Minimum Knight Moves</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="generator" content="Hugo 0.68.3" />
     
@@ -27,29 +27,37 @@
 
     
     
-      <link href="https://www.frankliu.org/hugo/tags/distributed-systems/index.xml" rel="alternate" type="application/rss+xml" title="My New Hugo Site" />
-      <link href="https://www.frankliu.org/hugo/tags/distributed-systems/index.xml" rel="feed" type="application/rss+xml" title="My New Hugo Site" />
-      
-    
-    
-    <meta property="og:title" content="distributed systems" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.frankliu.org/hugo/tags/distributed-systems/" />
-<meta property="og:updated_time" content="2020-03-07T07:47:47-08:00" />
-<meta itemprop="name" content="distributed systems">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="distributed systems"/>
-<meta name="twitter:description" content=""/>
+    <meta property="og:title" content="1197. Minimum Knight Moves" />
+<meta property="og:description" content="It is easy see that if you start in a spot in the diagonal, you can get back to the diagonal in two moves. Say E-NE followed by N-NE, where I am using the the North, South, East and West conventions. Similarly for a knight at the x-axis you can get back to the x-axis with E-NE followed by E-SE.
+Let&rsquo;s take a look at the diagonal section of 4,4,4 (pink), since I can get back to the diagonal in two moves, the next section has 6,6,6 (beige)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.frankliu.org/hugo/posts/1197-mininum-knight-moves/" />
+<meta property="article:published_time" content="2020-03-29T22:44:44-07:00" />
+<meta property="article:modified_time" content="2020-03-29T23:35:59-07:00" />
+<meta itemprop="name" content="1197. Minimum Knight Moves">
+<meta itemprop="description" content="It is easy see that if you start in a spot in the diagonal, you can get back to the diagonal in two moves. Say E-NE followed by N-NE, where I am using the the North, South, East and West conventions. Similarly for a knight at the x-axis you can get back to the x-axis with E-NE followed by E-SE.
+Let&rsquo;s take a look at the diagonal section of 4,4,4 (pink), since I can get back to the diagonal in two moves, the next section has 6,6,6 (beige).">
+<meta itemprop="datePublished" content="2020-03-29T22:44:44-07:00" />
+<meta itemprop="dateModified" content="2020-03-29T23:35:59-07:00" />
+<meta itemprop="wordCount" content="418">
+
+
+
+<meta itemprop="keywords" content="leetcode," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="1197. Minimum Knight Moves"/>
+<meta name="twitter:description" content="It is easy see that if you start in a spot in the diagonal, you can get back to the diagonal in two moves. Say E-NE followed by N-NE, where I am using the the North, South, East and West conventions. Similarly for a knight at the x-axis you can get back to the x-axis with E-NE followed by E-SE.
+Let&rsquo;s take a look at the diagonal section of 4,4,4 (pink), since I can get back to the diagonal in two moves, the next section has 6,6,6 (beige)."/>
 
   </head>
 
   <body class="ma0 avenir bg-near-white">
 
     
+   
+  
 
   <header>
-    <div class="pb3-m pb6-l bg-black">
+    <div class="bg-black">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
     <a href="https://www.frankliu.org/hugo/" class="f3 fw2 hover-white no-underline white-90 dib">
@@ -161,46 +169,154 @@
   </div>
 </nav>
 
-      <div class="tc-l pv3 ph3 ph4-ns">
-        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
-          distributed systems
-        </h1>
-        
-      </div>
     </div>
   </header>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+    extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+    });
+</script>
+
 
 
     <main class="pb7" role="main">
       
-  <article class="cf pa3 pa4-m pa4-l">
-    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links nested-img mid-gray">
-      <p>Below you will find pages that utilize the taxonomy term “distributed systems”</p>
-    </div>
-  </article>
-  <div class="mw8 center">    
-    <section class="flex-ns flex-wrap justify-around mt5">
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        ARTICLES
+      </p>
+      <h1 class="f1 athelas mb1">1197. Minimum Knight Moves</h1>
       
-        <div class="relative w-100  mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/facebook-memcached/" class="link black dim">
-        Facebook - memcached
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Requirements  real-time aggregate dispersed data access hot set scale refs [1,2,5,6,12,14,34,36]  Front-end cluster    read heavy workload (100:1 R/W) wide fanout handle failures 10 Mops/s  Q: what is a wide fanout
-Multiple FE clusters  single geo region control data replication data consistency 100 Mops/s  Multiple regions  muliple geo regions storage replication data consistency 1 Bops/s  Pre-memcached   High fanout    data dependency graph for a small user request  Look-aside cache   why deletes over set
-    </div>
+      <p class="tracked">
+          By <strong>
+          
+              adam
+          
+          </strong>
+      </p>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-03-29T22:44:44-07:00">March 29, 2020</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><figure>
+    <img src="https://www.frankliu.org/hugo/images/1197-knight/knights.svg"/> 
+</figure>
+
+<p>It is easy see that if you start in a spot in the diagonal, you can get back to
+the diagonal in two moves. Say E-NE followed by N-NE, where I am using the the
+North, South, East and West conventions. Similarly for a knight at the x-axis
+you can get back to the x-axis with E-NE followed by E-SE.</p>
+<p>Let&rsquo;s take a look at the diagonal section of 4,4,4 (pink), since I can get back
+to the diagonal in two moves, the next section has 6,6,6 (beige). Similarly in
+you take a look at the horizontal section 2,3,4,5 (red) in two moves you will
+get back to the horizontal at 4,5,6,7 (green).  The pattern breaks close to 0,0,
+but interestingly it only breaks at two coordinates (0,1) and (2,2), so these
+become two special conditions to check for.</p>
+<p>Now let&rsquo;s formulate the number of moves from a diagonal element at \((x,x)\) to
+the origin,</p>
+<p>\[
+2\left\lceil \frac{x}{3} \right\rceil
+\]</p>
+<p>and for an element on the x-axis at \((x,0)\) to the origin,</p>
+<p>\[
+2\left\lfloor \frac{x}{4} \right\rfloor + x\text{ mod } 4
+\]</p>
+<p>The only remaining part is the number of moves required to move a piece to
+either the diagonal or the x-axis. First note that by symmetry we can always
+transform a point \((x,y)\) into a point in the lower half of the first quadrant
+via reflections over the x-axis, y-axis or \(x=y\). At this lower half of the 1st
+quadrant an optimal move from a far-away \((x,y)\) where \(x&gt;y\) to the origin is
+always W-SW, unless at the boundaries of this region. This means that a piece
+beginning above the \(y=\frac{1}{2}x\) line (orange section), will always hit a
+diagonal element in \((x-y)\) moves because \(x&gt;y\) and for every W-SW move the
+difference goes between \(x\) and \(y\) goes down by one. Similarly for an element
+below the \(y=\frac{1}{2}x\) line will hit the x-axis in \(y\) moves since a W-SW
+move decrements in \(y\) by one. If an element begins at the \(y=\frac{1}{2}x\) it
+obviously will take \((x-y)\) moves to reach the origin. So finally we have the
+following: for points above \(y=\frac{1}{2}x\), the total number of moves is</p>
+<p>\[
+(x-y) + 2\left\lceil \frac{x-2(x-y)}{3} \right\rceil
+\]</p>
+<p>and for an element below \(y=\frac{1}{2}x\),</p>
+<p>\[
+y + 2\left\lfloor \frac{x-2y}{4} \right\rfloor + x\text{ mod } 4
+\]</p>
+<p>If \(x-2(x-y)\) lands at 2 or if \(x-2y\) lands at 1 then we take special cases
+respectively, 4 and 3 as mentioned above. And for elements at \(y=\frac{1}{2}x\),
+it will take \(x-y\) moves.</p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/leetcode" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">leetcode</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+      
+      
+			<script src="https://utteranc.es/client.js"
+        repo="frankieliu/hugo"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+      </script>
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l"><div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">What&#39;s in this posts</p>
+      <nav id="TableOfContents"></nav>
   </div>
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="https://www.frankliu.org/hugo/posts/1320-mininum-distance-to-type-a-word-using-two-fingers/">Leetcode 1320. Minimum Distance to Type a Word Using Two Fingers</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://www.frankliu.org/hugo/posts/460-lfu-cache/">Leetcode 460. LFU Cache</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://www.frankliu.org/hugo/posts/731-my-calendar-ii-segment-tree/">731 My Calendar II</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://www.frankliu.org/hugo/posts/920-number-of-music-playlists/">920 Number of music playlists</a>
+        </li>
+	    
+    </ul>
 </div>
 
-        </div>
-      
-    </section>
-  </div>
+</aside>
+
+  </article>
 
     </main>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">

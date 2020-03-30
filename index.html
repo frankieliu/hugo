@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | My Hugo Site</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.67.1" />
+    <meta name="generator" content="Hugo 0.68.3" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -36,7 +36,7 @@
 <meta property="og:description" content="A blog for programming and scalable systems" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/" />
-<meta property="og:updated_time" content="2020-03-21T07:21:42-07:00" />
+<meta property="og:updated_time" content="2020-03-29T22:44:44-07:00" />
 <meta itemprop="name" content="My Hugo Site">
 <meta itemprop="description" content="A blog for programming and scalable systems"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="My Hugo Site"/>
@@ -212,6 +212,31 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="https://www.frankliu.org/hugo/posts/1197-mininum-knight-moves/" class="color-inherit dim link">
+            1197. Minimum Knight Moves
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          It is easy see that if you start in a spot in the diagonal, you can get back to the diagonal in two moves. Say E-NE followed by N-NE, where I am using the the North, South, East and West conventions. Similarly for a knight at the x-axis you can get back to the x-axis with E-NE followed by E-SE.
+Let&rsquo;s take a look at the diagonal section of 4,4,4 (pink), since I can get back to the diagonal in two moves, the next section has 6,6,6 (beige).
+        </div>
+          <a href="https://www.frankliu.org/hugo/posts/1197-mininum-knight-moves/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="https://www.frankliu.org/hugo/posts/facebook-tao/" class="color-inherit dim link">
             Tao
             </a>
@@ -253,42 +278,18 @@ Multiple FE clusters  single geo region control data replication data consistenc
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://www.frankliu.org/hugo/posts/fft/" class="color-inherit dim link">
-            FFT
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          polynomials \[ f(x) = A_0 + A_1 x + A_2 x^2 + \cdots + A_{n-1} x^{n-1} \]
-roots \begin{eqnarray} x^{n} &amp;=&amp; 1 \\\
-x &amp;=&amp; e^{i \frac{2\pi}{n}} \end{eqnarray}
-Call \(e^{i \frac{2\pi}{n}} = w_n\) the fundamental, then there are \(n\) such roots, \(w_n^k\) for \(k = 0,\cdots,n-1\).
-The fourier transform is a vector of the polynomial evaluated at each of the \(k\) roots.
-\[ F(k) = f(w_n^k) \]
-The FFT is a divide and conquer algorithm where instead of doing \(O(n)\) computations for each fourier coefficient \(F(k)\), we break up the problem into 2 subproblems of size \(n/2\) and do a merge which is of order \(n\).
-        </div>
-          <a href="https://www.frankliu.org/hugo/posts/fft/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="https://www.frankliu.org/hugo/posts/fft/" class="link black dim">
+              FFT
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="https://www.frankliu.org/hugo/posts/ericcto-segment-tree/" class="link black dim">
@@ -305,12 +306,6 @@ The FFT is a divide and conquer algorithm where instead of doing \(O(n)\) comput
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="https://www.frankliu.org/hugo/posts/usaco-jan-2020-bronze-race/" class="link black dim">
               USACO Jan 2020 Bronze - Race
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://www.frankliu.org/hugo/posts/alpha-beta-pruning/" class="link black dim">
-              Minimax - alpha beta pruning
             </a>
           </h2>
         
