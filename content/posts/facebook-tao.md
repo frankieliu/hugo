@@ -2,7 +2,7 @@
 title = "Tao"
 author = ["adam"]
 date = 2020-03-21T07:21:42-07:00
-lastmod = 2020-03-21T15:27:43-07:00
+lastmod = 2020-03-28T09:41:06-07:00
 tags = ["facebook", "graph"]
 categories = ["distributed systems"]
 draft = false
@@ -319,7 +319,7 @@ toc = true
         hot objects
 
 
-## High-degree objects {#high-degree-objects}
+## High-degree objects 5.4 {#high-degree-objects-5-dot-4}
 
 -   many objects have 6000 associations with the same atype
 -   assoc\_get(id1,id2) no edges between
@@ -334,4 +334,100 @@ toc = true
         then you know there is no edge to id2
 
 
-## Consistency and Fault tolerance {#consistency-and-fault-tolerance}
+## Consistency 6.1 {#consistency-6-dot-1}
+
+-   goal is availability and performance
+    -   eventual consistency model - ok to send stale data
+    -   replication lag is less than 1 sec!
+-   within single tier provides read-after-write consistency
+    -   updates cache with locally written values
+        -   master leader returns a changeset when write is successful
+        -   changeset propagated to slave leader to follower tier that originated
+            query
+        -   inverse associations have to send to 2 shards
+            -   slave leader and follower must forward the changeset to id2's shard
+    -   changeset cannot be written right away
+        -   follower cache may be stale if refill or invalidate from another update
+            has not been delivered
+            -   use version number
+                -   globally increment during each update
+                -   follower can invalidate its local copy if the changeset's version is
+                    stale
+            -   in slave regions vulnerable to race condition
+                -   cache eviction and storage server update propagation
+                    -   slave storage server holds older version than what was cached by
+                        caching server
+                    -   possible for the post-changeset entry to be evicted from cache then
+                        reloaded from the database
+                    -   client observes value go back in time
+                -   this occurs if it takes longer for the slave region storage to receive
+                    update than update for the cached item to be evicted from cached
+
+
+## Failure dectection 6.2 {#failure-dectection-6-dot-2}
+
+
+### network failures {#network-failures}
+
+-   each server aborts requests to destinations it can no longer reach
+-   tao routes around failures
+
+
+### database failures {#database-failures}
+
+-   when slave db is down
+    -   cache misses are redirected to TAO leaders in the region hosting the DB
+        master
+    -   cache consistency messages can't be delivered by the primary mech ?
+        -   additional binlog tailer is run on the master database which refills and
+            invalidates are delivered inter-regionally
+
+
+### leader cache failure {#leader-cache-failure}
+
+-   followers reroute to database
+-   write are rerouted to random member of the leader's tier
+    -   replacement leader performs write and associated actions
+        -   like modify inverse association
+        -   sending invalidation to followers
+        -   enqueues asynchronous invalidation to the original leader
+            -   async invalidates recorded on coordinating node and inserted into the
+                replication stream until the leader becomes available
+            -   used when leader comes back up its consistency needs to be restored
+
+
+### refill and invalidation failures {#refill-and-invalidation-failures}
+
+-   follower not reachable
+    -   leader queues the message to disk and delivers at a later time
+    -   if leader fails
+        -   there is a bulk invalidation of all objects and associations
+
+
+### follower failures {#follower-failures}
+
+-   follower in other tiers share the responsibility of serving the failed host's
+    shards
+-   each tao client has a primary and a backup follower tier
+-   failing over between different tiers may cause read-after-write violation
+    -   read reaches the failover target before the write's refill or invalidate
+
+
+## Multi-tenancy 7 {#multi-tenancy-7}
+
+-   amortize operational cost
+-   share excess capacity
+-   enable applications to link to existing data
+-   important for objects
+    -   allows entire 64-bit id space to be handled uniformly without an extra step
+        to resolve the otype
+
+
+## Region 7 {#region-7}
+
+-   follower tiers spread across several geographical regions
+-   each region has
+    -   one complete set of databases
+    -   one leader cache tier
+    -   two or more follower tiers
+-   1e9 reads 1e6 writes / s
