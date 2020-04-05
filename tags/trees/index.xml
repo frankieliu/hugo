@@ -6,10 +6,24 @@
     <description>Recent content in trees on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Jan 2020 18:21:28 -0800</lastBuildDate>
+    <lastBuildDate>Sun, 05 Apr 2020 07:46:12 -0700</lastBuildDate>
     
 	<atom:link href="https://www.frankliu.org/hugo/tags/trees/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tree longest path by dfs 2x</title>
+      <link>https://www.frankliu.org/hugo/posts/longest-path-dfs-2/</link>
+      <pubDate>Sun, 05 Apr 2020 07:46:12 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/longest-path-dfs-2/</guid>
+      <description>Definition of a tree (Taken from Wikipedia)
+A tree is an undirected graph \(G\) that satisfies any of the following equivalent conditions:
+  \(G\) is connected and acyclic (contains no cycles).
+  \(G\) is acyclic, and a simple cycle is formed if any edge is added to \(G\).
+  \(G\) is connected, but would become disconnected if any single edge is removed from \(G\).
+  \(G\) is connected and the 3-vertex complete graph \(K_3\) is not a minor of \(G\).</description>
+    </item>
     
     <item>
       <title>Tree Depth - USACO Platimum Dec19</title>

@@ -6,10 +6,37 @@
     <description>Recent content in Tags on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 29 Mar 2020 22:44:44 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 05 Apr 2020 07:46:12 -0700</lastBuildDate>
     
 	<atom:link href="https://www.frankliu.org/hugo/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>algorithms</title>
+      <link>https://www.frankliu.org/hugo/tags/algorithms/</link>
+      <pubDate>Sun, 05 Apr 2020 07:46:12 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/algorithms/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dfs</title>
+      <link>https://www.frankliu.org/hugo/tags/dfs/</link>
+      <pubDate>Sun, 05 Apr 2020 07:46:12 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/dfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>trees</title>
+      <link>https://www.frankliu.org/hugo/tags/trees/</link>
+      <pubDate>Sun, 05 Apr 2020 07:46:12 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/trees/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>leetcode</title>
@@ -264,15 +291,6 @@
     </item>
     
     <item>
-      <title>trees</title>
-      <link>https://www.frankliu.org/hugo/tags/trees/</link>
-      <pubDate>Wed, 15 Jan 2020 18:21:28 -0800</pubDate>
-      
-      <guid>https://www.frankliu.org/hugo/tags/trees/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>blackhole</title>
       <link>https://www.frankliu.org/hugo/tags/blackhole/</link>
       <pubDate>Thu, 28 Nov 2019 18:10:58 -0800</pubDate>
@@ -413,15 +431,6 @@
       <pubDate>Fri, 25 Oct 2019 17:50:20 -0700</pubDate>
       
       <guid>https://www.frankliu.org/hugo/tags/transactions/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>algorithms</title>
-      <link>https://www.frankliu.org/hugo/tags/algorithms/</link>
-      <pubDate>Wed, 23 Oct 2019 22:43:03 -0700</pubDate>
-      
-      <guid>https://www.frankliu.org/hugo/tags/algorithms/</guid>
       <description></description>
     </item>
     
