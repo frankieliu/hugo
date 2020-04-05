@@ -2,7 +2,7 @@
 title = "Tree longest path by dfs 2x"
 author = ["adam"]
 date = 2020-04-05T07:46:12-07:00
-lastmod = 2020-04-05T09:10:34-07:00
+lastmod = 2020-04-05T09:11:53-07:00
 tags = ["dfs", "trees", "algorithms"]
 categories = ["dfs", "trees", "algorithms"]
 draft = false
@@ -122,7 +122,7 @@ respectively.  If \\(TB > TD\\), then \\(CTB > CTD\\) which breaks our assumptio
 
 In the above, \\(D\\) and \\(C\\) can be interchanged. The analysis doesn't really
 depend on their labels, just on their relative distance to the connections with
-\\(A\\). It might be simpler to consider a point \\(T\\) in case I and a point \\(S\\) in
+\\(A\\). It might be simpler to consider a point \\(S\\) in case I and a point \\(T\\) in
 case II that lies in the middle of \\(DC\\).
 
 Since there is cannot be a point \\(B \ne D\\) or \\(C\\), then \\(B\\) must necessarily be
