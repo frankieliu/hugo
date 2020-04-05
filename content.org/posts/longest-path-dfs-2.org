@@ -79,11 +79,11 @@ equivalent longest paths, but for simplicity we will assume there is a unique
 longest path.  We will prove that:
 
 - the vertex furthest away from $A$ cannot be some other node $B$, it must be
-  either $D$ or $C$ which are part of the longest path.
+  either $D$ or $C$ which are the endpoints of the longest path.
 
 There are two possibilities for the path from $A$ to $B$ either it will
 intersect with the longest path $DC$ (case I) or it will not (case II). We will
-consider eah of these possibilities in turn.
+consider each of these possibilities in turn.
 
 [[file:/images/trees/dfs-2.svg]]
 

@@ -2,7 +2,7 @@
 title = "Tree longest path by dfs 2x"
 author = ["adam"]
 date = 2020-04-05T07:46:12-07:00
-lastmod = 2020-04-05T08:58:00-07:00
+lastmod = 2020-04-05T08:58:56-07:00
 tags = ["dfs", "trees", "algorithms"]
 categories = ["dfs", "trees", "algorithms"]
 draft = false
@@ -89,11 +89,11 @@ equivalent longest paths, but for simplicity we will assume there is a unique
 longest path.  We will prove that:
 
 -   the vertex furthest away from \\(A\\) cannot be some other node \\(B\\), it must be
-    either \\(D\\) or \\(C\\) which are part of the longest path.
+    either \\(D\\) or \\(C\\) which are the endpoints of the longest path.
 
 There are two possibilities for the path from \\(A\\) to \\(B\\) either it will
 intersect with the longest path \\(DC\\) (case I) or it will not (case II). We will
-consider eah of these possibilities in turn.
+consider each of these possibilities in turn.
 
 {{< figure src="/images/trees/dfs-2.svg" >}}
 
