@@ -47,10 +47,10 @@ is that they are all equivalent definitions for a tree.
 
 ** minor and complete graphs
 There are a couple of interesting ones, in particular $K_3$ cannot be a minor of
-$G$.  $K_3$ is a fully connected graph with 3 vertices, which is essentially a
+$G$. $K_3$ is a fully connected graph with 3 vertices, which is essentially a
 cycle, and a minor is a cool concept of allowing deletion and contraction of
-edges, so saying that $K_3$ is not a minor is equivalent to saying that it
-doesn't have a $k$.
+edges, so saying that $K_3$ is not a minor of $G$ is equivalent to saying that
+$G$ doesn't have a cycle.
 
 ** degeneracy
 $k$-degenerate means that every subgraph (another graph containing a subset of
@@ -103,7 +103,7 @@ also implies that $TB >TD$, by adding and subtracting $ST$ from $SB$ and $SD$
 respectively.  If $TB > TD$, then $CTB > CTD$ which breaks our assumption that
 $DC$ is the longest path.
 
-** conclusion
+** Conclusion
 In the above, $D$ and $C$ can be interchanged. The analysis doesn't really
 depend on them, just on their relative distance to the connections with $A$. It
 might be simpler to consider a point $T$ in case I and a point $S$ in case II

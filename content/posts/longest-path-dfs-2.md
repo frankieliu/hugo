@@ -2,7 +2,7 @@
 title = "Tree longest path by dfs 2x"
 author = ["adam"]
 date = 2020-04-05T07:46:12-07:00
-lastmod = 2020-04-05T08:52:23-07:00
+lastmod = 2020-04-05T08:55:10-07:00
 tags = ["dfs", "trees", "algorithms"]
 categories = ["dfs", "trees", "algorithms"]
 draft = false
@@ -54,10 +54,10 @@ is that they are all equivalent definitions for a tree.
 ### minor and complete graphs {#minor-and-complete-graphs}
 
 There are a couple of interesting ones, in particular \\(K\_3\\) cannot be a minor of
-\\(G\\).  \\(K\_3\\) is a fully connected graph with 3 vertices, which is essentially a
+\\(G\\). \\(K\_3\\) is a fully connected graph with 3 vertices, which is essentially a
 cycle, and a minor is a cool concept of allowing deletion and contraction of
-edges, so saying that \\(K\_3\\) is not a minor is equivalent to saying that it
-doesn't have a \\(k\\).
+edges, so saying that \\(K\_3\\) is not a minor of \\(G\\) is equivalent to saying that
+\\(G\\) doesn't have a cycle.
 
 
 ### degeneracy {#degeneracy}
@@ -117,7 +117,7 @@ respectively.  If \\(TB > TD\\), then \\(CTB > CTD\\) which breaks our assumptio
 \\(DC\\) is the longest path.
 
 
-### conclusion {#conclusion}
+### Conclusion {#conclusion}
 
 In the above, \\(D\\) and \\(C\\) can be interchanged. The analysis doesn't really
 depend on them, just on their relative distance to the connections with \\(A\\). It
