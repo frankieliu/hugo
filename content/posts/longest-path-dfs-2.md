@@ -2,7 +2,7 @@
 title = "Tree longest path by dfs 2x"
 author = ["adam"]
 date = 2020-04-05T07:46:12-07:00
-lastmod = 2020-04-05T09:01:04-07:00
+lastmod = 2020-04-05T09:02:07-07:00
 tags = ["dfs", "trees", "algorithms"]
 categories = ["dfs", "trees", "algorithms"]
 draft = false
@@ -84,9 +84,9 @@ I am not sure if this is the most concise way of proving this method:
 Here is my proof, if you have a more concise proof, please share it.
 
 I basically broke down the problem into two parts. Label the initial node as
-\\(A\\). Assume that the longest path is \\(DC\\) unique: there may be multiple
-equivalent longest paths, but for simplicity we will assume there is a unique
-longest path.  We will prove that:
+\\(A\\). Assume that the longest path is \\(DC\\) and that it is unique: there may be
+multiple equivalent longest paths, but for simplicity we will assume there is a
+unique longest path. We will prove that:
 
 -   the vertex furthest away from \\(A\\) cannot be some other node \\(B\\), it must be
     either \\(D\\) or \\(C\\) which are the endpoints of the longest path.
