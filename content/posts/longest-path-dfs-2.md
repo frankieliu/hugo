@@ -2,7 +2,7 @@
 title = "Tree longest path by dfs 2x"
 author = ["adam"]
 date = 2020-04-05T07:46:12-07:00
-lastmod = 2020-04-05T09:02:07-07:00
+lastmod = 2020-04-05T09:03:14-07:00
 tags = ["dfs", "trees", "algorithms"]
 categories = ["dfs", "trees", "algorithms"]
 draft = false
@@ -100,7 +100,7 @@ consider each of these possibilities in turn.
 
 ### Case I {#case-i}
 
-For this look at the left subfigure.  Suppose there \\(AB\\) is the longest starting
+For this look at the left subfigure.  Suppose \\(AB\\) is the longest starting
 at \\(A\\).  If \\(AB\\) is the longest path from \\(A\\), this implies that \\(TB > TD\\),
 since the stub \\(AS\\) and \\(ST\\) are in common to both \\(AD\\) and \\(AB\\).  If \\(TB >
 TD\\) this simplies that \\(CTB > CD\\) breaking our assumption that \\(DC\\) is the

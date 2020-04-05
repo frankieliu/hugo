@@ -89,7 +89,7 @@ consider each of these possibilities in turn.
 
 ** Case I
 
-For this look at the left subfigure.  Suppose there $AB$ is the longest starting
+For this look at the left subfigure.  Suppose $AB$ is the longest starting
 at $A$.  If $AB$ is the longest path from $A$, this implies that $TB > TD$,
 since the stub $AS$ and $ST$ are in common to both $AD$ and $AB$.  If $TB >
 TD$ this simplies that $CTB > CD$ breaking our assumption that $DC$ is the
