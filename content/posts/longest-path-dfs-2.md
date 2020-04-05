@@ -2,7 +2,7 @@
 title = "Tree longest path by dfs 2x"
 author = ["adam"]
 date = 2020-04-05T07:46:12-07:00
-lastmod = 2020-04-05T09:17:28-07:00
+lastmod = 2020-04-05T12:22:23-07:00
 tags = ["dfs", "trees", "algorithms"]
 categories = ["dfs", "trees", "algorithms"]
 draft = false
@@ -122,6 +122,8 @@ respectively.  If \\(TB > TD\\), then \\(CTB > CTD\\) which breaks our assumptio
 
 I will note in passing that both cases are really the same case, if you allow
 the stub point \\(S\\) to move anywhere in the graph.
+
+{{< figure src="/images/trees/dfs-2-anim/animatedGIF.gif" >}}
 
 
 ### Conclusion {#conclusion}
