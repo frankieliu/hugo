@@ -104,6 +104,10 @@ also implies that $TB >TD$, by adding and subtracting $ST$ from $SB$ and $SD$
 respectively.  If $TB > TD$, then $CTB > CTD$ which breaks our assumption that
 $DC$ is the longest path.
 
+** Case I and II
+I will note in passing that both cases are really the same case, if you allow
+the stub point $S$ to move anywhere in the graph.
+
 ** Conclusion
 In the above, $D$ and $C$ can be interchanged. The analysis doesn't really
 depend on their labels, just on their relative distance to the connections with

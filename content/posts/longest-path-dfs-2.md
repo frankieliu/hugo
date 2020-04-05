@@ -2,7 +2,7 @@
 title = "Tree longest path by dfs 2x"
 author = ["adam"]
 date = 2020-04-05T07:46:12-07:00
-lastmod = 2020-04-05T09:11:53-07:00
+lastmod = 2020-04-05T09:15:57-07:00
 tags = ["dfs", "trees", "algorithms"]
 categories = ["dfs", "trees", "algorithms"]
 draft = false
@@ -116,6 +116,12 @@ remove the stub \\(AS\\) as that is common between \\(AB\\) and \\(AD\\) and sin
 also implies that \\(TB >TD\\), by adding and subtracting \\(ST\\) from \\(SB\\) and \\(SD\\)
 respectively.  If \\(TB > TD\\), then \\(CTB > CTD\\) which breaks our assumption that
 \\(DC\\) is the longest path.
+
+
+### Case I and II {#case-i-and-ii}
+
+I will note in passing that both cases are really the same case, if you allow
+the stub point \\(S\\) to move anywhere in the graph.
 
 
 ### Conclusion {#conclusion}
