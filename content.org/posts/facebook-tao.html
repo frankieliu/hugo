@@ -1,0 +1,967 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-03-31 Tue 08:17 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>"Tao"</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="adam" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">"Tao"</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgd7bb95d">1. Aggregation difficulties</a></li>
+<li><a href="#org2db7116">2. Memcache</a></li>
+<li><a href="#org9bcf98d">3. Tao</a></li>
+<li><a href="#org2d3911c">4. Inefficient edge lists</a></li>
+<li><a href="#org473f7bb">5. Distributed control logic</a></li>
+<li><a href="#orgc85c0db">6. Expensive read after write consistency</a></li>
+<li><a href="#org88035cb">7. Functional requirements</a></li>
+<li><a href="#org2251270">8. Data model</a></li>
+<li><a href="#orgee5aa0f">9. Objects and associations</a></li>
+<li><a href="#org4f109bb">10. Actions and objects</a></li>
+<li><a href="#orga704765">11. Object API</a></li>
+<li><a href="#org2ad7510">12. Association API</a></li>
+<li><a href="#org07c6d08">13. Association query API</a></li>
+<li><a href="#orgd5c740a">14. Tao architecture</a></li>
+<li><a href="#org937fe8e">15. Cache</a></li>
+<li><a href="#org88db2ec">16. Multi-region</a></li>
+<li><a href="#org36fba6b">17. Optimization</a></li>
+<li><a href="#org68fe42e">18. MySQL rows</a></li>
+<li><a href="#org8f0fe3f">19. Hot spots</a></li>
+<li><a href="#orgacd6fb1">20. High-degree objects 5.4</a></li>
+<li><a href="#org0029857">21. Consistency 6.1</a></li>
+<li><a href="#orga53f770">22. Failure dectection 6.2</a>
+<ul>
+<li><a href="#orgdbf9e04">22.1. network failures</a></li>
+<li><a href="#org0a89388">22.2. database failures</a></li>
+<li><a href="#orgbbacee8">22.3. leader cache failure</a></li>
+<li><a href="#orgfafece9">22.4. refill and invalidation failures</a></li>
+<li><a href="#org501eb0b">22.5. follower failures</a></li>
+</ul>
+</li>
+<li><a href="#org9c344ba">23. Multi-tenancy 7</a></li>
+<li><a href="#orgcf30e80">24. Region 7</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd7bb95d" class="outline-2">
+<h2 id="orgd7bb95d"><span class="section-number-2">1</span> Aggregation difficulties</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>content tailored to each user</li>
+<li>filter item with privacy checks for each user</li>
+<li>impossible to aggregate and filter when content is crated</li>
+<li>resolve data dependencies and privacy check each time content is viewed</li>
+<li>pull vs push social graph?
+<ul class="org-ul">
+<li>extreme read demands on graph data store</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2db7116" class="outline-2">
+<h2 id="org2db7116"><span class="section-number-2">2</span> Memcache</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>rapid deployment
+<ul class="org-ul">
+<li>data mapping</li>
+<li>cache invalidation</li>
+<li>client code that is deployed frequently</li>
+</ul></li>
+<li>created abstractions for graphcs
+<ul class="org-ul">
+<li>r/w objects (nodes)</li>
+<li>associations (edges)</li>
+<li>direct access to MySQL deprecated for graph data tyles</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9bcf98d" class="outline-2">
+<h2 id="org9bcf98d"><span class="section-number-2">3</span> Tao</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>service
+<ul class="org-ul">
+<li>implements objects</li>
+<li>and association model</li>
+</ul></li>
+<li>motivation
+<ul class="org-ul">
+<li>encapsulating failures in the PHP API</li>
+<li>access graph easily from non-PHP serivces</li>
+<li>problems with lookaside cache architecture</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2d3911c" class="outline-2">
+<h2 id="org2d3911c"><span class="section-number-2">4</span> Inefficient edge lists</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>KV cache is not good semantic fit for lists of edges
+<ul class="org-ul">
+<li>queries must fetch the entire edge list
+<ul class="org-ul">
+<li>list support would help</li>
+</ul></li>
+<li>make changes to single edge causes entire list to be reloaded
+<ul class="org-ul">
+<li>requires coordination of incremental updates to cached lists</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org473f7bb" class="outline-2">
+<h2 id="org473f7bb"><span class="section-number-2">5</span> Distributed control logic</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li>L-A $ control logic is run on clients
+<ul class="org-ul">
+<li>clients don't communicate with each other</li>
+<li>increases the number of failure modes</li>
+<li>difficult to avoid thundering herds
+<ul class="org-ul">
+<li>Nishtala et al. leases as a general solution</li>
+</ul></li>
+</ul></li>
+<li>For graphs (objects and associations)
+<ul class="org-ul">
+<li>API allows one to move control logic into the cache itself</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc85c0db" class="outline-2">
+<h2 id="orgc85c0db"><span class="section-number-2">6</span> Expensive read after write consistency</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li>FB uses asynchronous master/slave replication for MySQL
+<ul class="org-ul">
+<li>problem for caches using a replica
+<ul class="org-ul">
+<li>write to master</li>
+<li>take time to appear in replica</li>
+<li>Nishtala remote makers track keys that are known to be stale
+forwarding reads to keys to master region</li>
+</ul></li>
+<li>restricting data model to objects and associations
+<ul class="org-ul">
+<li>update replica's cache at write time</li>
+<li>use graph semantics to interpret cache maintenance messages from
+concurrent updates
+<ul class="org-ul">
+<li>provides read-after-write consistency for all clients that share a cache
+without requiring inter-regional communication</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org88035cb" class="outline-2">
+<h2 id="org88035cb"><span class="section-number-2">7</span> Functional requirements</h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li>access to nodes and edges</li>
+<li>constantly changing graph</li>
+<li>multiple region support</li>
+<li>heavy read optimized</li>
+<li>favors efficiency and availability over consistency
+<ul class="org-ul">
+<li>tolerate some staleness</li>
+</ul></li>
+<li>fine grained customized content from highly interconnected data</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2251270" class="outline-2">
+<h2 id="org2251270"><span class="section-number-2">8</span> Data model</h2>
+<div class="outline-text-2" id="text-8">
+<ul class="org-ul">
+<li>Alice uses her mobile phone to record her visit to GG bridge with Bob.</li>
+<li>Cathy makes a comment</li>
+<li>David likes the comment</li>
+</ul>
+
+<div class="figure">
+<p><img src="file:///images/facebook/tao/entities.png" alt="entities.png" />
+</p>
+</div>
+<ul class="org-ul">
+<li>application servers query events underlying nodes and edges <b>every</b> time it is
+rendered</li>
+<li>fine-grained privacy control means each user sees a different view of the same
+event
+<ul class="org-ul">
+<li>nodes and edges can be reused by views</li>
+<li>but aggregated content and results from privacy checks cannot</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgee5aa0f" class="outline-2">
+<h2 id="orgee5aa0f"><span class="section-number-2">9</span> Objects and associations</h2>
+<div class="outline-text-2" id="text-9">
+<ul class="org-ul">
+<li>64-bit id</li>
+<li>associations source object, association type (atype), destination object
+<ul class="org-ul">
+<li>at most one association of a given type between any two objects</li>
+</ul></li>
+<li>objects and associations may contain data</li>
+<li>per-type schema
+<ul class="org-ul">
+<li>possible keys, value type, and default value</li>
+</ul></li>
+<li>32-bit time field - generic application-assigned integer</li>
+<li>Object: (id) -&gt; (otype, (key-&gt;value)*)</li>
+<li>Assoc: (id1,atype,id2) -&gt; (time, (key-&gt;value)*)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4f109bb" class="outline-2">
+<h2 id="org4f109bb"><span class="section-number-2">10</span> Actions and objects</h2>
+<div class="outline-text-2" id="text-10">
+<ul class="org-ul">
+<li>two actions comment and like</li>
+<li>comment resulted in an object</li>
+<li>like resulted in an association</li>
+<li>associations naturally model actions that
+<ul class="org-ul">
+<li>can happen at most once</li>
+<li>record state transitions</li>
+</ul></li>
+<li>repeatable actions better represented as objects</li>
+<li>associations are directed, but often have a inverse edges
+<ul class="org-ul">
+<li>COMMENT doesn't have inverse edge to CHECKIN
+<ul class="org-ul">
+<li>application doesn't need it</li>
+<li>once a CHECKIN id is known, you only need to traverse outbound edges</li>
+<li>discovering the CHECKIN object requires inbound edges</li>
+</ul></li>
+</ul></li>
+<li>schema for objects and associations describe only the data contained in
+instances
+<ul class="org-ul">
+<li>do not impose any restriction on edge types that can connect to a node</li>
+<li>do not import any restriction on node types that can terminate an edges</li>
+</ul></li>
+<li>why is there no object type?
+<ul class="org-ul">
+<li>wouldn't you have a different schema depending on the object type?</li>
+</ul></li>
+<li>atype for AUTHOR is the same for CHECKIN and for COMMENT</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga704765" class="outline-2">
+<h2 id="orga704765"><span class="section-number-2">11</span> Object API</h2>
+<div class="outline-text-2" id="text-11">
+<ul class="org-ul">
+<li>Create (New)</li>
+<li>Read</li>
+<li>Update
+<ul class="org-ul">
+<li>can be applied to a subset of the fields</li>
+</ul></li>
+<li>Delete</li>
+<li>no CAS</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2ad7510" class="outline-2">
+<h2 id="org2ad7510"><span class="section-number-2">12</span> Association API</h2>
+<div class="outline-text-2" id="text-12">
+<ul class="org-ul">
+<li>Symmetric FRIEND</li>
+<li>Asymmetric AUTHORED vs AUTHORED<sub>BY</sub></li>
+<li>support for keeping associations in sync with inverse
+<ul class="org-ul">
+<li>atype can be configured with inverse type</li>
+<li>symmetric association are their own inverse</li>
+</ul></li>
+<li>write:
+<ul class="org-ul">
+<li>assoc<sub>add</sub>(id1, atype, id2, time, (k-&gt;v)*)</li>
+<li>assoc<sub>delete</sub>(id1, atype, id2)</li>
+<li>assoc<sub>change</sub><sub>type</sub>(id1, atype, id2, newtype)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org07c6d08" class="outline-2">
+<h2 id="org07c6d08"><span class="section-number-2">13</span> Association query API</h2>
+<div class="outline-text-2" id="text-13">
+<ul class="org-ul">
+<li>query needs to have an origination object and a association type
+<ul class="org-ul">
+<li>CHECKIN object and tagged users and comments</li>
+</ul></li>
+<li>creation-time locality
+<ul class="org-ul">
+<li>focuses on recent items</li>
+<li>if Alice is famous, only the most recent comments will be rendered</li>
+</ul></li>
+<li>association lists
+<ul class="org-ul">
+<li>list of all associations with a particular id1 and atype arranged in
+descending order by time field</li>
+<li>Association List: (id1, atype) -&gt; [a<sub>1000</sub>, a<sub>999</sub>, a<sub>998</sub>, &#x2026;. a<sub>old</sub>]</li>
+</ul></li>
+<li>queries
+<ul class="org-ul">
+<li>assoc<sub>get</sub>(id1, atype, id2set, high?, low?)</li>
+<li>assoc<sub>count</sub>(id1, atype)</li>
+<li>assoc<sub>range</sub>(id1, atype, pos, list)</li>
+<li>assoc<sub>time</sub><sub>range</sub>(id1, atype, high, low, limit)</li>
+</ul></li>
+<li>per-type upper bound (6000)
+<ul class="org-ul">
+<li>limit for an association query</li>
+<li>if you want more you need to issue multiple queries with pos or high</li>
+</ul></li>
+<li>50 most recent comments from Alice's checkin
+<ul class="org-ul">
+<li>assoc<sub>range</sub>(632, COMMENT, 0, 50)</li>
+</ul></li>
+<li>how many checking at the GG bridge?
+<ul class="org-ul">
+<li>assoc<sub>count</sub>(534, CHECKIN)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd5c740a" class="outline-2">
+<h2 id="orgd5c740a"><span class="section-number-2">14</span> Tao architecture</h2>
+</div>
+
+<div id="outline-container-org937fe8e" class="outline-2">
+<h2 id="org937fe8e"><span class="section-number-2">15</span> Cache</h2>
+<div class="outline-text-2" id="text-15">
+<ul class="org-ul">
+<li>tier
+<ul class="org-ul">
+<li>multiple cache servers</li>
+</ul></li>
+<li>leader/follower tiers
+<ul class="org-ul">
+<li>one leader multiple follower tiers</li>
+<li>one leader (coordinator) per database</li>
+</ul></li>
+<li>in single tier configuration
+<ul class="org-ul">
+<li>each tier contains set of cache servers that can respond to any query</li>
+<li>large single tier is problematic
+<ul class="org-ul">
+<li>prone to hot spots</li>
+<li>quadratic growth in all-to-all connections</li>
+</ul></li>
+</ul></li>
+<li>followers communicate with leader</li>
+<li>clients only communicate with follower tier (and neighboring ones/failure)</li>
+<li>writes for same key go to same leader shard</li>
+<li>followers must be notified of updates from other follower tiers
+<ul class="org-ul">
+<li>leader enqueues invalidation messages to each corresponding follower
+<ul class="org-ul">
+<li>follower issuing write is update synchronously on reply from leader
+<ul class="org-ul">
+<li>version number allows it to be ignored if arrives late</li>
+</ul></li>
+<li>cache only contiguous prefixes of association lists
+<ul class="org-ul">
+<li>invalidating an association might truncate the list and
+discard many edges</li>
+<li>instead leader sends a refill message to notify followers about
+as association write</li>
+<li>follower that cached the association with refill request triggers a
+query to leader to update its stale association list</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>leaders serialize concurrent writes
+<ul class="org-ul">
+<li>also protects database from thundering herds</li>
+<li>it does not issue concurrent overlapping queries to DB</li>
+<li>also limts the max number of pending queries to a shard</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org88db2ec" class="outline-2">
+<h2 id="org88db2ec"><span class="section-number-2">16</span> Multi-region</h2>
+<div class="outline-text-2" id="text-16">
+<ul class="org-ul">
+<li>follower tiers can be thousands of miles apart</li>
+<li>read misses by followers are 25x as frequent as writes
+<ul class="org-ul">
+<li>writes go to master</li>
+<li>read misses serviced locally</li>
+</ul></li>
+<li>propagation of update notifications are asynchronous</li>
+</ul>
+
+<div class="figure">
+<p><img src="file:///images/facebook/tao/multi-region.png" alt="multi-region.png" />
+</p>
+</div>
+<ul class="org-ul">
+<li>too expensive to provide full replicas in every data center
+<ul class="org-ul">
+<li>choose data center locations that are clustered into a few regions
+<ul class="org-ul">
+<li>intra-region latency small (1ms)</li>
+</ul></li>
+<li>sufficient to store one complete copy of the social graph per region</li>
+</ul></li>
+<li>followers behave identically in all regions
+<ul class="org-ul">
+<li>forward misses and writes to local region's leader tier</li>
+<li>leader query local region's db regardless whether it is a master/slave
+<ul class="org-ul">
+<li>read latency is independent of inter-region latency</li>
+</ul></li>
+<li>writes are forwarded by the local leader to the leader with master</li>
+</ul></li>
+<li>we prefer to locate all of the master DBs in a single region ???
+<ul class="org-ul">
+<li>when inverse association is mastered in a different region
+<ul class="org-ul">
+<li>must traverse inter-reiong link to forward the inverse write</li>
+</ul></li>
+</ul></li>
+<li>invalidations and refill messages are delivered immediately after a
+transaction has been replicated to a slave database
+<ul class="org-ul">
+<li>prevents cache inconsistencies</li>
+<li>use same pipeline for delivery of invalidations as memcache</li>
+</ul></li>
+<li>forward writes from local leader
+<ul class="org-ul">
+<li>local leader will update its cache with fresh value
+<ul class="org-ul">
+<li>local slave DB doesn't have updates yet</li>
+<li>followers receive two invalidates or refills from the write
+<ul class="org-ul">
+<li>one sent with write succeeds</li>
+<li>one sent when the write's transaction is replicated</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org36fba6b" class="outline-2">
+<h2 id="org36fba6b"><span class="section-number-2">17</span> Optimization</h2>
+<div class="outline-text-2" id="text-17">
+<ul class="org-ul">
+<li>Slab allocator
+<ul class="org-ul">
+<li>manages slabs of equal size items</li>
+</ul></li>
+<li>Thread-safe hash table</li>
+<li>LRU eviction among items of equal size</li>
+<li>Dynamic slab rebalancer keeps LRU eviction ages similar across slabs</li>
+<li>Slab item can hold one node or one edge list</li>
+<li>RAM partitioned into arenas
+<ul class="org-ul">
+<li>arena selected by object or association type</li>
+<li>allows lifetime of important types</li>
+</ul></li>
+<li>for small fixed-size items like association counts
+<ul class="org-ul">
+<li>memory overhead of pointer for bucket items in main hash table become
+significant</li>
+<li>use direct-mapped 8-way associated cache that require no pointers</li>
+</ul></li>
+</ul>
+<p>
+<img src="file:///images/facebook/tao/direct-mapped-cache.jpg" alt="direct-mapped-cache.jpg" />
+<img src="file:///images/facebook/tao/multi-way-associative-cache.jpg" alt="multi-way-associative-cache.jpg" />
+</p>
+<ul class="org-ul">
+<li>LRU slides entries down</li>
+</ul>
+<ul class="org-ul">
+<li>map each atype to 16 bit value
+<ul class="org-ul">
+<li>id1,atype : id was 64-bit or 8 bytes, if atype is 16 bits or 2 bytes
+then total is 10 bytes.  Why is there a 32 bit count in 14 bytes.
+32 bit count is 4 bytes, so maybe total count would be 10+4 bytes
+10 bytes if there is no id2 (negative entry) in 10 bytes, since
+no count.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org68fe42e" class="outline-2">
+<h2 id="org68fe42e"><span class="section-number-2">18</span> MySQL rows</h2>
+<div class="outline-text-2" id="text-18">
+<ul class="org-ul">
+<li>all fields of an object are serialized into a single 'data' column</li>
+<li>allow us to store objects of different types within the same table</li>
+<li>associations support range queries, so have index based on 
+id1,atype,time</li>
+<li>association counts are stored in a separate table</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8f0fe3f" class="outline-2">
+<h2 id="org8f0fe3f"><span class="section-number-2">19</span> Hot spots</h2>
+<div class="outline-text-2" id="text-19">
+<ul class="org-ul">
+<li>shard clones
+<ul class="org-ul">
+<li>follower for a hot shard is cloned</li>
+<li>place high hit objects in a small client-side cache</li>
+</ul></li>
+<li>when follower responds to a query for hot item
+<ul class="org-ul">
+<li>includes the object or association's access rate</li>
+<li>if rate exceeds a certain threshold, tao client caches the data
+and version, version number allows follower to omit data in replies
+if the data has not changed</li>
+<li>access rate can also be used to throttle client requests for very
+hot objects</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgacd6fb1" class="outline-2">
+<h2 id="orgacd6fb1"><span class="section-number-2">20</span> High-degree objects 5.4</h2>
+<div class="outline-text-2" id="text-20">
+<ul class="org-ul">
+<li>many objects have 6000 associations with the same atype</li>
+<li>assoc<sub>get</sub>(id1,id2) no edges between
+<ul class="org-ul">
+<li>for high-degree objects these queries will always go to the DB</li>
+<li>because id2 could be in the uncached tail of the association list!</li>
+<li>use assoc<sub>count</sub> to choose query direction
+<ul class="org-ul">
+<li>checking the inverse edge id2 -&gt; id1 is equivalent</li>
+<li>if both ends are high-degree - use application domain knowledge</li>
+</ul></li>
+</ul></li>
+<li>since an edge to a node can only be created after a node has been created then
+you can limit id2 search to time &gt; its creation time
+<ul class="org-ul">
+<li>if an edge order than the id2's creation time exists in the association list
+then you know there is no edge to id2</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0029857" class="outline-2">
+<h2 id="org0029857"><span class="section-number-2">21</span> Consistency 6.1</h2>
+<div class="outline-text-2" id="text-21">
+<ul class="org-ul">
+<li>goal is availability and performance
+<ul class="org-ul">
+<li>eventual consistency model - ok to send stale data</li>
+<li>replication lag is less than 1 sec!</li>
+</ul></li>
+<li>within single tier provides read-after-write consistency
+<ul class="org-ul">
+<li>updates cache with locally written values
+<ul class="org-ul">
+<li>master leader returns a changeset when write is successful</li>
+<li>changeset propagated to slave leader to follower tier that originated
+query</li>
+<li>inverse associations have to send to 2 shards
+<ul class="org-ul">
+<li>slave leader and follower must forward the changeset to id2's shard</li>
+</ul></li>
+</ul></li>
+<li>changeset cannot be written right away
+<ul class="org-ul">
+<li>follower cache may be stale if refill or invalidate from another update
+has not been delivered
+<ul class="org-ul">
+<li>use version number
+<ul class="org-ul">
+<li>globally increment during each update</li>
+<li>follower can invalidate its local copy if the changeset's version is
+stale</li>
+</ul></li>
+<li>in slave regions vulnerable to race condition
+<ul class="org-ul">
+<li>cache eviction and storage server update propagation
+<ul class="org-ul">
+<li>slave storage server holds older version than what was cached by
+caching server</li>
+<li>possible for the post-changeset entry to be evicted from cache then
+reloaded from the database</li>
+<li>client observes value go back in time</li>
+</ul></li>
+<li>this occurs if it takes longer for the slave region storage to receive
+update than update for the cached item to be evicted from cached</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga53f770" class="outline-2">
+<h2 id="orga53f770"><span class="section-number-2">22</span> Failure dectection 6.2</h2>
+<div class="outline-text-2" id="text-22">
+</div>
+<div id="outline-container-orgdbf9e04" class="outline-3">
+<h3 id="orgdbf9e04"><span class="section-number-3">22.1</span> network failures</h3>
+<div class="outline-text-3" id="text-22-1">
+<ul class="org-ul">
+<li>each server aborts requests to destinations it can no longer reach</li>
+<li>tao routes around failures</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0a89388" class="outline-3">
+<h3 id="org0a89388"><span class="section-number-3">22.2</span> database failures</h3>
+<div class="outline-text-3" id="text-22-2">
+<ul class="org-ul">
+<li>when slave db is down
+<ul class="org-ul">
+<li>cache misses are redirected to TAO leaders in the region hosting the DB
+master</li>
+<li>cache consistency messages can't be delivered by the primary mech ?
+<ul class="org-ul">
+<li>additional binlog tailer is run on the master database which refills and
+invalidates are delivered inter-regionally</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbbacee8" class="outline-3">
+<h3 id="orgbbacee8"><span class="section-number-3">22.3</span> leader cache failure</h3>
+<div class="outline-text-3" id="text-22-3">
+<ul class="org-ul">
+<li>followers reroute to database</li>
+<li>write are rerouted to random member of the leader's tier
+<ul class="org-ul">
+<li>replacement leader performs write and associated actions
+<ul class="org-ul">
+<li>like modify inverse association</li>
+<li>sending invalidation to followers</li>
+<li>enqueues asynchronous invalidation to the original leader
+<ul class="org-ul">
+<li>async invalidates recorded on coordinating node and inserted into the
+replication stream until the leader becomes available</li>
+<li>used when leader comes back up its consistency needs to be restored</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfafece9" class="outline-3">
+<h3 id="orgfafece9"><span class="section-number-3">22.4</span> refill and invalidation failures</h3>
+<div class="outline-text-3" id="text-22-4">
+<ul class="org-ul">
+<li>follower not reachable
+<ul class="org-ul">
+<li>leader queues the message to disk and delivers at a later time</li>
+<li>if leader fails
+<ul class="org-ul">
+<li>there is a bulk invalidation of all objects and associations</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org501eb0b" class="outline-3">
+<h3 id="org501eb0b"><span class="section-number-3">22.5</span> follower failures</h3>
+<div class="outline-text-3" id="text-22-5">
+<ul class="org-ul">
+<li>follower in other tiers share the responsibility of serving the failed host's
+shards</li>
+<li>each tao client has a primary and a backup follower tier</li>
+<li>failing over between different tiers may cause read-after-write violation
+<ul class="org-ul">
+<li>read reaches the failover target before the write's refill or invalidate</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org9c344ba" class="outline-2">
+<h2 id="org9c344ba"><span class="section-number-2">23</span> Multi-tenancy 7</h2>
+<div class="outline-text-2" id="text-23">
+<ul class="org-ul">
+<li>amortize operational cost</li>
+<li>share excess capacity</li>
+<li>enable applications to link to existing data</li>
+<li>important for objects
+<ul class="org-ul">
+<li>allows entire 64-bit id space to be handled uniformly without an extra step
+to resolve the otype</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgcf30e80" class="outline-2">
+<h2 id="orgcf30e80"><span class="section-number-2">24</span> Region 7</h2>
+<div class="outline-text-2" id="text-24">
+<ul class="org-ul">
+<li>follower tiers spread across several geographical regions</li>
+<li>each region has
+<ul class="org-ul">
+<li>one complete set of databases</li>
+<li>one leader cache tier</li>
+<li>two or more follower tiers</li>
+</ul></li>
+<li>1e9 reads 1e6 writes / s</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2020-03-21T07:21:42-07:00</p>
+<p class="author">Author: adam</p>
+<p class="date">Created: 2020-03-31 Tue 08:17</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

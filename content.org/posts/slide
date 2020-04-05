@@ -1,0 +1,15 @@
+1) end-to-end description of the method (exact ACLs, packets, collected data, derivation of packet loss and path from the collected data)
+
+End to end description:
+1. measure number of packets entering a particular port and exiting at a particular port
+2. use ACL permit on TTL 30 at dev1 for entering and ACL permit on TTL 31 at dev2
+3. collect data via existing polling infrastructure on ACL count
+4. packet loss = out - in
+5. path loss measurements not relevant
+
+2) estimates of required per agent packet rate allowing to detect chosen loss ratio with chosen statistical validity (for example 1% loss with 75% confidence in 5 minutes). A graph showing packet rate as function of target loss ratio and confidence interval would be great
+
+This discussion is tangential, it doesn't matter if we use color sync method or other method.
+The figures are the same.
+
+3) optimal setup, i.e. the best compromise between packet rate, loss resolution, statistical confidence and time resolution - or an approach how find the optimum
