@@ -37,7 +37,7 @@ A tree is an undirected graph \(G\) that satisfies any of the following equivale
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/longest-path-dfs-2/" />
 <meta property="article:published_time" content="2020-04-05T07:46:12-07:00" />
-<meta property="article:modified_time" content="2020-04-05T09:06:19-07:00" />
+<meta property="article:modified_time" content="2020-04-05T09:07:30-07:00" />
 <meta itemprop="name" content="Tree longest path by dfs 2x">
 <meta itemprop="description" content="Definition of a tree (Taken from Wikipedia)
 A tree is an undirected graph \(G\) that satisfies any of the following equivalent conditions:
@@ -46,8 +46,8 @@ A tree is an undirected graph \(G\) that satisfies any of the following equivale
   \(G\) is connected, but would become disconnected if any single edge is removed from \(G\).
   \(G\) is connected and the 3-vertex complete graph \(K_3\) is not a minor of \(G\).">
 <meta itemprop="datePublished" content="2020-04-05T07:46:12-07:00" />
-<meta itemprop="dateModified" content="2020-04-05T09:06:19-07:00" />
-<meta itemprop="wordCount" content="808">
+<meta itemprop="dateModified" content="2020-04-05T09:07:30-07:00" />
+<meta itemprop="wordCount" content="811">
 
 
 
@@ -330,11 +330,11 @@ respectively.  If \(TB &gt; TD\), then \(CTB &gt; CTD\) which breaks our assumpt
 depend on them, just on their relative distance to the connections with \(A\). It
 might be simpler to consider a point \(T\) in case I and a point \(S\) in case II
 that lies in the middle of \(DC\).</p>
-<p>Since there is cannot be a point \(B \ne D\) or \(C\), then \(B\) must be necessarily
-be either \(D\) or \(C\). Then if the furthest point from \(A\) is one of the
-endpoints in the longest path, either \(C\) or \(D\), then the furthest point from
-one of these two endpoints will be the other corresponding vertex by our
-assumption of longest path.</p>
+<p>Since there is cannot be a point \(B \ne D\) or \(C\), then \(B\) must necessarily be
+either \(D\) or \(C\). Then if the furthest point from \(A\) is one of the endpoints
+in the longest path, either \(C\) or \(D\), then the furthest point from one of
+these two endpoints will be the other corresponding vertex in the longest path
+by our assumption of longest path.</p>
 <ul class="pa0">
   
    <li class="list">
