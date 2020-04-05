@@ -2,7 +2,7 @@
 title = "Tree longest path by dfs 2x"
 author = ["adam"]
 date = 2020-04-05T07:46:12-07:00
-lastmod = 2020-04-05T08:55:10-07:00
+lastmod = 2020-04-05T08:58:00-07:00
 tags = ["dfs", "trees", "algorithms"]
 categories = ["dfs", "trees", "algorithms"]
 draft = false
@@ -66,8 +66,9 @@ $k$-degenerate means that every subgraph (another graph containing a subset of
 vertices/edges of \\(G\\)) has vertices with degree at most \\(k\\). In particular the
 definition above says 1-degenerate, meaning that there is always a leaf or
 unconnected node in every subgraph of \\(G\\). This one is a little harder to
-understand, but it boils down to not having cycles. Because if you could there
-were no vertices with 0 or 1 degree, then there would necessarily be a cycle.
+understand, but it boils down to not having cycles. Because a subgraph with no
+vertices with 0 or 1 degree, implies that all vertices have degree of at least
+2, i.e. there is a cycle.
 
 
 ## Regarding DFS and longest path in a tree {#regarding-dfs-and-longest-path-in-a-tree}
@@ -78,7 +79,7 @@ I am not sure if this is the most concise way of proving this method:
 
 2.  From this vertex find the furthest vertex from it.
 
-3.  The path between the latter two vertices is a longest path in a tree
+3.  The path between the latter two vertices is a longest path in a tree.
 
 Here is my proof, if you have a more concise proof, please share it.
 
