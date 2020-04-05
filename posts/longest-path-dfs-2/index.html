@@ -37,7 +37,7 @@ A tree is an undirected graph \(G\) that satisfies any of the following equivale
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/longest-path-dfs-2/" />
 <meta property="article:published_time" content="2020-04-05T07:46:12-07:00" />
-<meta property="article:modified_time" content="2020-04-05T08:52:23-07:00" />
+<meta property="article:modified_time" content="2020-04-05T08:55:10-07:00" />
 <meta itemprop="name" content="Tree longest path by dfs 2x">
 <meta itemprop="description" content="Definition of a tree (Taken from Wikipedia)
 A tree is an undirected graph \(G\) that satisfies any of the following equivalent conditions:
@@ -46,8 +46,8 @@ A tree is an undirected graph \(G\) that satisfies any of the following equivale
   \(G\) is connected, but would become disconnected if any single edge is removed from \(G\).
   \(G\) is connected and the 3-vertex complete graph \(K_3\) is not a minor of \(G\).">
 <meta itemprop="datePublished" content="2020-04-05T07:46:12-07:00" />
-<meta itemprop="dateModified" content="2020-04-05T08:52:23-07:00" />
-<meta itemprop="wordCount" content="792">
+<meta itemprop="dateModified" content="2020-04-05T08:55:10-07:00" />
+<meta itemprop="wordCount" content="794">
 
 
 
@@ -270,10 +270,10 @@ zero or one incident edges. (That is, \(G\) is connected and 1-degenerate.)</p>
 is that they are all equivalent definitions for a tree.</p>
 <h3 id="minor-and-complete-graphs">minor and complete graphs</h3>
 <p>There are a couple of interesting ones, in particular \(K_3\) cannot be a minor of
-\(G\).  \(K_3\) is a fully connected graph with 3 vertices, which is essentially a
+\(G\). \(K_3\) is a fully connected graph with 3 vertices, which is essentially a
 cycle, and a minor is a cool concept of allowing deletion and contraction of
-edges, so saying that \(K_3\) is not a minor is equivalent to saying that it
-doesn&rsquo;t have a \(k\).</p>
+edges, so saying that \(K_3\) is not a minor of \(G\) is equivalent to saying that
+\(G\) doesn&rsquo;t have a cycle.</p>
 <h3 id="degeneracy">degeneracy</h3>
 <p>$k$-degenerate means that every subgraph (another graph containing a subset of
 vertices/edges of \(G\)) has vertices with degree at most \(k\). In particular the
@@ -324,7 +324,7 @@ remove the stub \(AS\) as that is common between \(AB\) and \(AD\) and since \(S
 also implies that \(TB &gt;TD\), by adding and subtracting \(ST\) from \(SB\) and \(SD\)
 respectively.  If \(TB &gt; TD\), then \(CTB &gt; CTD\) which breaks our assumption that
 \(DC\) is the longest path.</p>
-<h3 id="conclusion">conclusion</h3>
+<h3 id="conclusion">Conclusion</h3>
 <p>In the above, \(D\) and \(C\) can be interchanged. The analysis doesn&rsquo;t really
 depend on them, just on their relative distance to the connections with \(A\). It
 might be simpler to consider a point \(T\) in case I and a point \(S\) in case II
@@ -376,7 +376,7 @@ will be the other corresponding vertex by our assumption of longest path.</p>
       <ul>
         <li><a href="#case-i">Case I</a></li>
         <li><a href="#case-ii">Case II</a></li>
-        <li><a href="#conclusion">conclusion</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
       </ul>
     </li>
   </ul>
