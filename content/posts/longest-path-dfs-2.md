@@ -2,7 +2,7 @@
 title = "Tree longest path by dfs 2x"
 author = ["adam"]
 date = 2020-04-05T07:46:12-07:00
-lastmod = 2020-04-05T08:58:56-07:00
+lastmod = 2020-04-05T09:01:04-07:00
 tags = ["dfs", "trees", "algorithms"]
 categories = ["dfs", "trees", "algorithms"]
 draft = false
@@ -62,7 +62,7 @@ edges, so saying that \\(K\_3\\) is not a minor of \\(G\\) is equivalent to sayi
 
 ### degeneracy {#degeneracy}
 
-$k$-degenerate means that every subgraph (another graph containing a subset of
+\\(k\\) -degenerate means that every subgraph (another graph containing a subset of
 vertices/edges of \\(G\\)) has vertices with degree at most \\(k\\). In particular the
 definition above says 1-degenerate, meaning that there is always a leaf or
 unconnected node in every subgraph of \\(G\\). This one is a little harder to

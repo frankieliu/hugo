@@ -53,7 +53,7 @@ edges, so saying that $K_3$ is not a minor of $G$ is equivalent to saying that
 $G$ doesn't have a cycle.
 
 ** degeneracy
-$k$-degenerate means that every subgraph (another graph containing a subset of
+$k$ -degenerate means that every subgraph (another graph containing a subset of
 vertices/edges of $G$) has vertices with degree at most $k$. In particular the
 definition above says 1-degenerate, meaning that there is always a leaf or
 unconnected node in every subgraph of $G$. This one is a little harder to
