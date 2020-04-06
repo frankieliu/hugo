@@ -108,13 +108,15 @@ $DC$ is the longest path.
 I will note in passing that both cases are really the same case, if you allow
 the stub point $S$ to move anywhere in the graph.
 
+[[file:/images/trees/dfs-2-anim/animatedGIF.gif]]
+
 ** Conclusion
 In the above, $D$ and $C$ can be interchanged. The analysis doesn't really
 depend on their labels, just on their relative distance to the connections with
 $A$. It might be simpler to consider a point $S$ in case I and a point $T$ in
 case II that lies in the middle of $DC$.
 
-Since there is cannot be a point $B \ne D$ or $C$, then $B$ must necessarily be
+Since there cannot be a point $B \ne D$ or $C$, then $B$ must necessarily be
 either $D$ or $C$. Then if the furthest point from $A$ is one of the endpoints
 in the longest path, either $C$ or $D$, then the furthest point from one of
 these two endpoints will be the other corresponding vertex in the longest path

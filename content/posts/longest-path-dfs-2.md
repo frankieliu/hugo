@@ -2,7 +2,7 @@
 title = "Tree longest path by dfs 2x"
 author = ["adam"]
 date = 2020-04-05T07:46:12-07:00
-lastmod = 2020-04-05T12:22:23-07:00
+lastmod = 2020-04-05T18:58:06-07:00
 tags = ["dfs", "trees", "algorithms"]
 categories = ["dfs", "trees", "algorithms"]
 draft = false
@@ -133,7 +133,7 @@ depend on their labels, just on their relative distance to the connections with
 \\(A\\). It might be simpler to consider a point \\(S\\) in case I and a point \\(T\\) in
 case II that lies in the middle of \\(DC\\).
 
-Since there is cannot be a point \\(B \ne D\\) or \\(C\\), then \\(B\\) must necessarily be
+Since there cannot be a point \\(B \ne D\\) or \\(C\\), then \\(B\\) must necessarily be
 either \\(D\\) or \\(C\\). Then if the furthest point from \\(A\\) is one of the endpoints
 in the longest path, either \\(C\\) or \\(D\\), then the furthest point from one of
 these two endpoints will be the other corresponding vertex in the longest path
