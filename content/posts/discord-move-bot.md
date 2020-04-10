@@ -2,7 +2,7 @@
 title = "Discord: creating a bot"
 author = ["adam"]
 date = 2020-04-09T15:12:31-07:00
-lastmod = 2020-04-09T17:42:44-07:00
+lastmod = 2020-04-09T17:44:24-07:00
 tags = ["discord", "bot"]
 categories = ["discord", "bot"]
 draft = false
@@ -46,7 +46,7 @@ In particular, ctx.message.channel points to the originating channel.
 But if you wanted to get a list of all the channels in the server you would be
 looking at them in ctx.guild.channels, and you could also get all the members of
 the server with ctx.guild.members, or if looking for a particular user use
-ctx.guild.get\_member\_named, whch allows you to find by name or
+ctx.guild.get\_member\_named(), which allows you to find by name or
 name#discriminator where the discriminator is a 4 digit number.
 
 
