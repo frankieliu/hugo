@@ -121,3 +121,7 @@ either $D$ or $C$. Then if the furthest point from $A$ is one of the endpoints
 in the longest path, either $C$ or $D$, then the furthest point from one of
 these two endpoints will be the other corresponding vertex in the longest path
 by our assumption of longest path.
+
+#+BEGIN_COMMENT
+https://www.reddit.com/r/algorithms/comments/76retc/algorithm_for_finding_the_longest_path_in_an/
+#+END_COMMENT
