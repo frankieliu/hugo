@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>discord on My New Hugo Site</title>
+    <link>https://www.frankliu.org/hugo/tags/discord/</link>
+    <description>Recent content in discord on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 09 Apr 2020 15:12:31 -0700</lastBuildDate>
+    
+	<atom:link href="https://www.frankliu.org/hugo/tags/discord/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Discord: creating a bot</title>
+      <link>https://www.frankliu.org/hugo/posts/discord-move-bot/</link>
+      <pubDate>Thu, 09 Apr 2020 15:12:31 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/discord-move-bot/</guid>
+      <description>Creating a bot on discord While there are some samples in discord.py. The API is fairly flat and hard to navigate.
+Here are the links to getting started:
+commands
+Understanding the context The Context (ctx) is often the first argument in the functions from @bot.command. This ctx contains most of the things needed to identify the message triggering the robot to respond (ctx fields):
+ guild - on which server the robot was triggered message - the message of the command author - the author of the message send() - a function that allows the robot to respond back as a response to the trigger  From this it is obvious you need some other way of getting at the channel where the message was sent.</description>
+    </item>
+    
+  </channel>
+</rss>

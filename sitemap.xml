@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://www.frankliu.org/hugo/posts/discord-move-bot/</loc>
+    <lastmod>2020-04-09T17:42:44-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.frankliu.org/hugo/posts/longest-path-dfs-2/</loc>
     <lastmod>2020-04-05T18:58:06-07:00</lastmod>
   </url>
@@ -148,6 +153,41 @@
   </url>
   
   <url>
+    <loc>https://www.frankliu.org/hugo/tags/bot/</loc>
+    <lastmod>2020-04-09T17:42:44-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/categories/bot/</loc>
+    <lastmod>2020-04-09T17:42:44-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/categories/</loc>
+    <lastmod>2020-04-09T17:42:44-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/discord/</loc>
+    <lastmod>2020-04-09T17:42:44-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/categories/discord/</loc>
+    <lastmod>2020-04-09T17:42:44-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/</loc>
+    <lastmod>2020-04-09T17:42:44-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/</loc>
+    <lastmod>2020-04-09T17:42:44-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.frankliu.org/hugo/tags/algorithms/</loc>
     <lastmod>2020-04-05T18:58:06-07:00</lastmod>
   </url>
@@ -158,27 +198,12 @@
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/categories/</loc>
-    <lastmod>2020-04-05T18:58:06-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://www.frankliu.org/hugo/tags/dfs/</loc>
     <lastmod>2020-04-05T18:58:06-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/categories/dfs/</loc>
-    <lastmod>2020-04-05T18:58:06-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/</loc>
-    <lastmod>2020-04-05T18:58:06-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/tags/</loc>
     <lastmod>2020-04-05T18:58:06-07:00</lastmod>
   </url>
   
