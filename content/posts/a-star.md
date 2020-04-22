@@ -2,7 +2,7 @@
 title = "A-star"
 author = ["adam"]
 date = 2020-04-21T19:15:00-07:00
-lastmod = 2020-04-22T15:51:38-07:00
+lastmod = 2020-04-22T15:52:03-07:00
 tags = ["a-star", "search"]
 categories = ["a-star", "search"]
 draft = false
@@ -179,7 +179,7 @@ determining whether a particular heuristic is better than another.
 path from \\(s\\) to \\(t\\). Then \\(b\\), the branching factor can be estimated from the
 above,
 
-\\(b^{d-1} - (N+1)b + N = 0\\)
+\\(b^{d+1} - (N+1)b + N = 0\\)
 
 There is a trivial solution \\(b==1\\), so in using a method like $Newton's method
 to solve the above equation begin with a initial solution bigger than \\(1\\) like
