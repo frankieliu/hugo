@@ -6,10 +6,31 @@
     <description>Recent content in My Hugo Site on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Apr 2020 15:12:31 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 21 Apr 2020 19:15:00 -0700</lastBuildDate>
     
 	<atom:link href="https://www.frankliu.org/hugo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A-star</title>
+      <link>https://www.frankliu.org/hugo/posts/a-star/</link>
+      <pubDate>Tue, 21 Apr 2020 19:15:00 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/a-star/</guid>
+      <description>Heuristic paper &amp;ldquo;A Formal Basis for the Heuristic Determination of Minimum Cost Paths&amp;rdquo;, Peter E. Hart, Nils J. Nilsson, and Bertram Raphael.
+Definitions For any subgraph \(G_s\) and any goal set \(T\) and starting state \(s\):
+Let \(f^*(n)\) be the actual cost of an optimal path constrained through \(n\), from \(s\) to \(n\) to a preferred goal node \(n\).
+From this definition, the (&amp;lsquo;unconstrained&amp;rsquo;) optimal path can be written as \(f^*(s) = h^*(s)\), where \(h^*(n)\) is the optimal path from node \(n\) to the preferred goal node of \(s\).</description>
+    </item>
+    
+    <item>
+      <title>Flink</title>
+      <link>https://www.frankliu.org/hugo/posts/flink/</link>
+      <pubDate>Sat, 18 Apr 2020 08:49:58 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/flink/</guid>
+      <description>What is it  a distributed runtime uses pipelines for execution exactly-once state consistency lightweight checkpoint iterative processing windows semantics out-of-order processing  Iteration control   // set up execution environment env = ExecutionEnvironment.getExecutionEnvironment(); // get input data: // read the points and centroids from the provided paths // or fall back to default data points = getPointDataSet(params, env); centroids = getCentroidDataSet(params, env); // set number of bulk iterations for KMeans algorithm loop = centroids.</description>
+    </item>
     
     <item>
       <title>Discord: creating a bot</title>

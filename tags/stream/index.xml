@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>stream on My New Hugo Site</title>
+    <link>https://www.frankliu.org/hugo/tags/stream/</link>
+    <description>Recent content in stream on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 18 Apr 2020 08:49:58 -0700</lastBuildDate>
+    
+	<atom:link href="https://www.frankliu.org/hugo/tags/stream/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Flink</title>
+      <link>https://www.frankliu.org/hugo/posts/flink/</link>
+      <pubDate>Sat, 18 Apr 2020 08:49:58 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/flink/</guid>
+      <description>What is it  a distributed runtime uses pipelines for execution exactly-once state consistency lightweight checkpoint iterative processing windows semantics out-of-order processing  Iteration control   // set up execution environment env = ExecutionEnvironment.getExecutionEnvironment(); // get input data: // read the points and centroids from the provided paths // or fall back to default data points = getPointDataSet(params, env); centroids = getCentroidDataSet(params, env); // set number of bulk iterations for KMeans algorithm loop = centroids.</description>
+    </item>
+    
+  </channel>
+</rss>

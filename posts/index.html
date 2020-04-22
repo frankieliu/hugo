@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | Articles</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.68.3" />
+    <meta name="generator" content="Hugo 0.69.1" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -182,6 +182,39 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/a-star/" class="link black dim">
+        A-star
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Heuristic paper &ldquo;A Formal Basis for the Heuristic Determination of Minimum Cost Paths&rdquo;, Peter E. Hart, Nils J. Nilsson, and Bertram Raphael.
+Definitions For any subgraph \(G_s\) and any goal set \(T\) and starting state \(s\):
+Let \(f^*(n)\) be the actual cost of an optimal path constrained through \(n\), from \(s\) to \(n\) to a preferred goal node \(n\).
+From this definition, the (&lsquo;unconstrained&rsquo;) optimal path can be written as \(f^*(s) = h^*(s)\), where \(h^*(n)\) is the optimal path from node \(n\) to the preferred goal node of \(s\).
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/flink/" class="link black dim">
+        Flink
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      What is it  a distributed runtime uses pipelines for execution exactly-once state consistency lightweight checkpoint iterative processing windows semantics out-of-order processing  Iteration control   // set up execution environment env = ExecutionEnvironment.getExecutionEnvironment(); // get input data: // read the points and centroids from the provided paths // or fall back to default data points = getPointDataSet(params, env); centroids = getCentroidDataSet(params, env); // set number of bulk iterations for KMeans algorithm loop = centroids.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
       <a href="https://www.frankliu.org/hugo/posts/discord-move-bot/" class="link black dim">
         Discord: creating a bot
       </a>
@@ -312,39 +345,6 @@ Basically the original range is stored at some offset that correspond to largest
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       questions  what is the interface provided  simple k,v store    what are the guarantees discussed  strong and eventual consistency  chain replication  where are requests handled?  write at head read at tail   what is the dotted line going back from tail to head  reply to the &ldquo;write&rdquo; client - committed   why is this cheaper than other topologies  because of pipelining of the writes down the chain   what consistency does CR achieve?
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/usaco-jan-2020-bronze-race/" class="link black dim">
-        USACO Jan 2020 Bronze - Race
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      \(O(1)\) solution I am surprised that the solution posted is \(O(n)\) since \(n\) can be as large as \(10^9\).
-In coming up with a solution for \(O(1)\) we consider three phases. The first phase accelerates the &lsquo;left hand&rsquo; speed until it reaches the terminal speed. If it can&rsquo;t reach the terminal speed then it just reaches whatever speed it can and terminates.
-The second phase is like a palindrome stage, where I remove similar increasing speeds from both ends, kind of like climbing up a tall peak from both ends.
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/alpha-beta-pruning/" class="link black dim">
-        Minimax - alpha beta pruning
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Mnemoic Minimax, alpha beta. Min comes before Max, alpha comes before beta. Minimizer uses alpha, maximizer uses beta.
-Pruning alpha is passed from maximizer to minimizer. maximizer says, beat a score of 10 (it wants something greater). minimizer gets one score of 8. minimizer stops because it can&rsquo;t get above 8, it is a minimizer after all so exploration will only reduce this score, and it will not be useful by the maximizer.
     </div>
   </div>
 </div>

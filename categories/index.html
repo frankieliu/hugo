@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site </title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.68.3" />
+    <meta name="generator" content="Hugo 0.69.1" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -36,7 +36,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/categories/" />
-<meta property="og:updated_time" content="2020-04-09T15:12:31-07:00" />
+<meta property="og:updated_time" content="2020-04-21T19:15:00-07:00" />
 <meta itemprop="name" content="Categories">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Categories"/>
@@ -181,6 +181,31 @@
   </article>
   <div class="mw8 center">
     <section class="ph4">
+      
+        <h2 class="f1">
+          <a href="https://www.frankliu.org/hugo/categories/a-star" class="link blue hover-black">
+            Category: a-star
+          </a>
+        </h2>
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/a-star/" class="link black dim">
+        A-star
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Heuristic paper &ldquo;A Formal Basis for the Heuristic Determination of Minimum Cost Paths&rdquo;, Peter E. Hart, Nils J. Nilsson, and Bertram Raphael.
+Definitions For any subgraph \(G_s\) and any goal set \(T\) and starting state \(s\):
+Let \(f^*(n)\) be the actual cost of an optimal path constrained through \(n\), from \(s\) to \(n\) to a preferred goal node \(n\).
+From this definition, the (&lsquo;unconstrained&rsquo;) optimal path can be written as \(f^*(s) = h^*(s)\), where \(h^*(n)\) is the optimal path from node \(n\) to the preferred goal node of \(s\).
+    </div>
+  </div>
+</div>
+
+        
       
         <h2 class="f1">
           <a href="https://www.frankliu.org/hugo/categories/algorithms" class="link blue hover-black">
@@ -452,6 +477,21 @@ Understanding the context The Context (ctx) is often the first argument in the f
             Category: distributed-systems
           </a>
         </h2>
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/flink/" class="link black dim">
+        Flink
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      What is it  a distributed runtime uses pipelines for execution exactly-once state consistency lightweight checkpoint iterative processing windows semantics out-of-order processing  Iteration control   // set up execution environment env = ExecutionEnvironment.getExecutionEnvironment(); // get input data: // read the points and centroids from the provided paths // or fall back to default data points = getPointDataSet(params, env); centroids = getCentroidDataSet(params, env); // set number of bulk iterations for KMeans algorithm loop = centroids.
+    </div>
+  </div>
+</div>
+
         
           <div class="relative w-100 mb4 bg-white nested-copy-line-height">
   <div class="bg-white mb3 pa4 gray overflow-hidden">
@@ -878,6 +918,31 @@ problems width of vector clock grows with number of actors, or clients.
         
       
         <h2 class="f1">
+          <a href="https://www.frankliu.org/hugo/categories/search" class="link blue hover-black">
+            Category: search
+          </a>
+        </h2>
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/a-star/" class="link black dim">
+        A-star
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Heuristic paper &ldquo;A Formal Basis for the Heuristic Determination of Minimum Cost Paths&rdquo;, Peter E. Hart, Nils J. Nilsson, and Bertram Raphael.
+Definitions For any subgraph \(G_s\) and any goal set \(T\) and starting state \(s\):
+Let \(f^*(n)\) be the actual cost of an optimal path constrained through \(n\), from \(s\) to \(n\) to a preferred goal node \(n\).
+From this definition, the (&lsquo;unconstrained&rsquo;) optimal path can be written as \(f^*(s) = h^*(s)\), where \(h^*(n)\) is the optimal path from node \(n\) to the preferred goal node of \(s\).
+    </div>
+  </div>
+</div>
+
+        
+      
+        <h2 class="f1">
           <a href="https://www.frankliu.org/hugo/categories/segment-tree" class="link blue hover-black">
             Category: segment-tree
           </a>
@@ -964,6 +1029,28 @@ mix output  command space - midi audio midi setup click on the plus sign at bott
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       Key to paper TrueTime exposes clock uncertainty, if the uncertainty is large, Spanner slows down to wait out the uncertainty. TS reflect serialization order, external consistency, or linearizability.
 Spanner zones Zone  zonemaster assigns data to spanservers (1000) location proxies used by clients to locate spanservers  Spanserver  responsible for 1000 tablets  Tablet  (key: string, timestamp: int64) -&gt; string more like multiversion kv store state store in a set of B-tree-like files and a write ahead log  in DFS called colossus   one Paxos state machine per tablet  Paxos  long time leader leases (10 sec) implements a consistently replicated bag of mappings writes initiates paxos protocol at leader reads access state directly from any replica set of replicas called Paxos group  Logs:  every &lsquo;Paxos write&rsquo; goes to tablet log and to Paxos logic  Replica leader  every leader replica implements a lock table contains the state for 2-phase locking  maps ranges of keys to lock states   leaders are long lived to maintain this lock table  performs poorly under optimistic concurrency control   replicas in paxos group called participant slaves implements a transaction manager  implements a participant leader used between other paxos groups for 2-phase commit    Participant/Coordinator  one participant leader (leader to a paxos group) is chosen as coordinator leader, other replica leader called coordinator slaves state of transaction manager store in underlying paxos group    Directory and placement directory  set of contiguous keys with common prefix unit of data placement -&gt; same replica config unit of data movement between paxos groups  paxos group/tablet  contains multiple directories not necessarily lex.
+    </div>
+  </div>
+</div>
+
+        
+      
+        <h2 class="f1">
+          <a href="https://www.frankliu.org/hugo/categories/stream" class="link blue hover-black">
+            Category: stream
+          </a>
+        </h2>
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/flink/" class="link black dim">
+        Flink
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      What is it  a distributed runtime uses pipelines for execution exactly-once state consistency lightweight checkpoint iterative processing windows semantics out-of-order processing  Iteration control   // set up execution environment env = ExecutionEnvironment.getExecutionEnvironment(); // get input data: // read the points and centroids from the provided paths // or fall back to default data points = getPointDataSet(params, env); centroids = getCentroidDataSet(params, env); // set number of bulk iterations for KMeans algorithm loop = centroids.
     </div>
   </div>
 </div>
