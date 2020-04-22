@@ -2,7 +2,7 @@
 title = "A-star"
 author = ["adam"]
 date = 2020-04-21T19:15:00-07:00
-lastmod = 2020-04-22T15:41:06-07:00
+lastmod = 2020-04-22T15:48:00-07:00
 tags = ["a-star", "search"]
 categories = ["a-star", "search"]
 draft = false
@@ -110,7 +110,7 @@ that \\(n\\) will be picked from the priority queue prior to getting to the targ
 This is because the estimated cost at \\(n\\), i.e. \\(f(n)=g(n)+h(n)\\), will be
 smaller than the optimal cost by the admissability condition. Note that \\(g(n)\\)
 in a tree is always \\(g^\*(n)\\) (there is only one way to arrive at node \\(n\\)) and
-since \\(f^\*(n) = g^\*(n) + h^\*(n)\\), $f(n) &le; \\(f^\*(n) = f(s)\\) (since \\(n\\) is in
+since \\(f^\*(n) = g^\*(n) + h^\*(n)\\), \\(f(n) \le f^\*(n) = f(s)\\) (since \\(n\\) is in
 the optimal path).
 
 The proof is very similar. Basically assume that a node \\(n\\) in the optimal path
