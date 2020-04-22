@@ -35,14 +35,14 @@ From this definition, the (&lsquo;unconstrained&rsquo;) optimal path can be writ
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/a-star/" />
 <meta property="article:published_time" content="2020-04-21T19:15:00-07:00" />
-<meta property="article:modified_time" content="2020-04-22T15:41:06-07:00" />
+<meta property="article:modified_time" content="2020-04-22T15:48:00-07:00" />
 <meta itemprop="name" content="A-star">
 <meta itemprop="description" content="Heuristic paper &ldquo;A Formal Basis for the Heuristic Determination of Minimum Cost Paths&rdquo;, Peter E. Hart, Nils J. Nilsson, and Bertram Raphael.
 Definitions For any subgraph \(G_s\) and any goal set \(T\) and starting state \(s\):
 Let \(f^*(n)\) be the actual cost of an optimal path constrained through \(n\), from \(s\) to \(n\) to a preferred goal node \(n\).
 From this definition, the (&lsquo;unconstrained&rsquo;) optimal path can be written as \(f^*(s) = h^*(s)\), where \(h^*(n)\) is the optimal path from node \(n\) to the preferred goal node of \(s\).">
 <meta itemprop="datePublished" content="2020-04-21T19:15:00-07:00" />
-<meta itemprop="dateModified" content="2020-04-22T15:41:06-07:00" />
+<meta itemprop="dateModified" content="2020-04-22T15:48:00-07:00" />
 <meta itemprop="wordCount" content="1124">
 
 
@@ -288,7 +288,7 @@ that \(n\) will be picked from the priority queue prior to getting to the target
 <p>This is because the estimated cost at \(n\), i.e. \(f(n)=g(n)+h(n)\), will be
 smaller than the optimal cost by the admissability condition. Note that \(g(n)\)
 in a tree is always \(g^*(n)\) (there is only one way to arrive at node \(n\)) and
-since \(f^*(n) = g^*(n) + h^*(n)\), $f(n) ≤ \(f^*(n) = f(s)\) (since \(n\) is in
+since \(f^*(n) = g^*(n) + h^*(n)\), \(f(n) \le f^*(n) = f(s)\) (since \(n\) is in
 the optimal path).</p>
 <p>The proof is very similar. Basically assume that a node \(n\) in the optimal path
 was not chosen, then you arrive at a contradiction because \(f(n) \le f(s)\), so
