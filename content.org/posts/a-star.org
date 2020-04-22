@@ -171,7 +171,7 @@ above,
 
 $b^{d+1} - (N+1)b + N = 0$
 
-There is a trivial solution $b==1$, so in using a method like $Newton's method
+There is a trivial solution $b=1$, so in using a method like $Newton's method
 to solve the above equation begin with a initial solution bigger than $1$ like
 $10$.
 
