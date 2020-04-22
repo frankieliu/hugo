@@ -2,7 +2,7 @@
 title = "A-star"
 author = ["adam"]
 date = 2020-04-21T19:15:00-07:00
-lastmod = 2020-04-22T15:52:58-07:00
+lastmod = 2020-04-22T15:53:35-07:00
 tags = ["a-star", "search"]
 categories = ["a-star", "search"]
 draft = false
@@ -181,7 +181,7 @@ above,
 
 \\(b^{d+1} - (N+1)b + N = 0\\)
 
-There is a trivial solution \\(b=1\\), so in using a method like $Newton's method
+There is a trivial solution \\(b=1\\), so in using a method like Newton's method
 to solve the above equation begin with a initial solution bigger than \\(1\\) like
 \\(10\\).
 
