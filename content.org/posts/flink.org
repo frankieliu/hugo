@@ -1,0 +1,192 @@
+# -*- mode: org -*-
+#+HUGO_BASE_DIR: ../..
+#+HUGO_SECTION: posts
+#+HUGO_WEIGHT: 2000
+#+HUGO_AUTO_SET_LASTMOD: t
+#+TITLE: "Flink"
+#+DATE: 2020-04-18T08:49:58-07:00
+#+HUGO_TAGS: stream "distributed systems"
+#+HUGO_CATEGORIES: stream "distributed systems"
+#+HUGO_MENU_off: :menu "main" :weight 2000
+#+HUGO_CUSTOM_FRONT_MATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true :toc true
+#+HUGO_DRAFT: false
+
+#+STARTUP: indent hidestars showall
+* What is it
+- a distributed runtime
+- uses pipelines for execution
+- exactly-once state consistency
+- lightweight checkpoint
+- iterative processing
+- windows semantics
+- out-of-order processing
+* fault tolerance
+- promises exactly once processing consistency
+- uses checkpointing and partial re-execution
+  - data sources are persistent and replayable
+- take consistent snapshot of all operators
+  - must refer to same logical time in the computation
+- Asynchronous Barrier Snapshotting
+  - operator receives barriers from upstream
+  - perform alignment
+    - make sure barriers from all inputs have been received
+  - operator writes its state to persistent storage
+  - after backup, forwards the barrier
+file:/images/flink/abs.png
+- Example:
+  snapshot t2 contains all operator states that are the result of consuming all
+  records before t2 barrier.
+- don't need to snapshot in-flight records
+- restart from lastest barrier with a snapshot
+- guarantees:
+  - exactly once state updates
+  - decoupled from control
+  - decoupled from how it is stored 
+* iterative dataflows
+file:/images/flink/iteration-model.png
+- implemented as iteration steps
+- special operator that can contain an execution graph
+- to maintain DAG
+  - introduce an iteration head and tail tasks
+    - implicitly connected with feedback edges
+  - tasks establish active feedback channel
+  - provide coordination for processing data records
+* time
+- event time
+- process time
+- low watermarks mark gloval progress measure
+  - time t such that all events lower than t have already entered operators
+  - allow processing in correct event order and serialize operations
+  - originate from the sources
+  - propagates to other operators
+    - map and filter just forward the watermarks
+    - complex operators compute events triggered by a watermark, then fwd
+    - if more than one input, only fwd the min of incoming watermarks
+- processing time used for lower latency
+- ingestion time: somewhere in between event time and processing time
+* stateful stream
+- windows are stateful operators
+  - fill memory buckets
+- operator annotation used to statically register explicit local variables
+- k-v states declared with an operator
+- registered state is durable with exactly-one update
+* windows
+- definition
+  - assigner: assign record to logical window
+    - a record can be assigned to multiple windows
+      - as in sliding window
+  - trigger: defines when the operation will be performed
+  - evictor: determines what to keep
+- types
+  - periodic time
+  - count windows
+  - punctuation
+  - landmark
+  - session
+  - delta
+** Example
+#+begin_src java
+  stream
+      .window(SlidingTimeWindows.of(Time.of(6, SECONDS), Time.of(2, SECONDS))
+              .trigger(EventTimeTrigger.create()) 
+#+end_src
+- assigner: range 6 seconds, every 2 seconds
+- trigger: results computed once the watermark passes the end of the window
+
+#+begin_src java
+  stream
+      .window(GlobalWindow.create())
+      .trigger(Count.of(1000))
+      .evict(Count.of(100))
+#+end_src
+
+- assigner: all events go to a single logical group
+- trigger: every 1000 events
+- evictor: keep only the last 100 elements
+
+* async stream iteration
+feedback streams are treated as operator state
+
+* Batch analytics
+- query optimiztion
+- memory management
+- batch iterations
+
+* Query optimization
+- optimizer doesn't know about UDF's
+- cardinality: uses hints from the programmer
+- plan uses costs like network disk I/O and CPU
+- strategies
+  - repartitioning
+  - broadcast data transfer
+  - sort based grouping
+  - sort based and hash based join
+
+* Memory management
+- manages data into memory segments
+- sorting and joining work on binary
+- off-heap and binary
+  - reduce gb
+  - cache efficient
+
+* Iteration control
+file:/images/flink/iterate.png
+
+#+begin_comment
+https://github.com/apache/flink/blob/master//flink-examples/flink-examples-batch/src/main/java/org/apache/flink/examples/java/clustering/KMeans.java
+#+end_comment
+
+#+begin_src java
+  // set up execution environment
+  env = ExecutionEnvironment.getExecutionEnvironment();
+
+  // get input data:
+  // read the points and centroids from the provided paths
+  // or fall back to default data
+  points = getPointDataSet(params, env);
+  centroids = getCentroidDataSet(params, env);
+
+  // set number of bulk iterations for KMeans algorithm
+  loop = centroids.iterate(params.getInt("iterations", 10));
+
+  newCentroids = points
+        // compute closest centroid for each point
+        .map(new SelectNearestCenter()).withBroadcastSet(loop, "centroids")
+        // count and sum point coordinates for each centroid
+        .map(new CountAppender())
+        .groupBy(0).reduce(new CentroidAccumulator())
+        // compute new centroids from point counts and coordinate sums
+        .map(new CentroidAverager());
+
+  // feed new centroids back into next iteration
+  finalCentroids = loop.closeWith(newCentroids);
+#+end_src
+** delta iterate
+file:/images/flink/delta.png
+file:/images/flink/connected-components.png
+
+** Bulk synchronous parallel
+- concurrent computation
+- communication
+- barrier synchronization
+[[file:/images/flink/bsp.png]]
+- cost of BSP from wikipedia
+  $$\max_i w_i + \max_i h_ig + l$$
+  - $w_i$ is the computation cost
+  - $h_i$ the number of messages
+  - $g$ cost per message
+  - $l$ barrier synchronization cost
+- this is for one superstep
+** superstep synchronization
+[[https://ci.apache.org/projects/flink/flink-docs-stable/dev/batch/iterations.html][iterations]]
+[[file:/images/flink/barrier-flink.png]]
+
+** Stale synchronous parallel
+[[file:/images/flink/ssp.png]]
+- workers at clock $c$ can see updates at $[0,c-s-1]$
+- here $c$ counts the iterations in some algorithm, not wall clock time
+- $s$ is a bound for staleness, guarantee that all workers at at most
+  $s$ cycles away from each other
+- workers can always see their own updates $[0,c-1]$
+- workers may see some updates from other workers $[c-s,c+s-1]$
+ 

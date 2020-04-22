@@ -20,7 +20,17 @@ navigate.
 
 Here are the links to getting started:
 
-[[https://discordpy.readthedocs.io/en/latest/ext/commands/commands.html][commands]]
+- [[https://discordpy.readthedocs.io/en/latest/ext/commands/commands.html][Commands]]
+- [[https://discordpy.readthedocs.io/en/latest/ext/commands/api.html][Ext commands]]
+- [[https://discordpy.readthedocs.io/en/latest/index.html#extensions][extensions]]
+- [[https://discordpy.readthedocs.io/en/latest/api.html][discord.py api]]
+- [[https://discord.js.org/#/docs/main/stable/class/User?scrollTo=tag][discord.js]] [[https://discord.js.org/#/docs/main/stable/examples/greeting][js sample]]
+
+Registering the bot: [[https://discordapp.com/developers/applications][applications]]
+
+Minimal bot: [[https://discordpy.readthedocs.io/en/latest/quickstart.html][minimal]]
+
+Hosting a bot: [[https://www.reddit.com/r/discordapp/comments/5guuiz/how_to_host_a_discord_bot_for_free/][free]]
 
 * Understanding the context
 
@@ -28,10 +38,11 @@ The Context (ctx) is often the first argument in the functions from @bot.command
 This ctx contains most of the things needed to identify the message triggering
 the robot to respond (ctx fields):
 
-- guild - on which server the robot was triggered 
+- guild - on which server the robot was triggered [[https://discordpy.readthedocs.io/en/latest/api.html#guild][guild]]
 - message - the message of the command
 - author - the author of the message
-- send() - a function that allows the robot to respond back as a response to the trigger
+- send() - a function that allows the robot to respond back as a response to the
+  trigger [[https://discordpy.readthedocs.io/en/latest/ext/commands/api.html#discord.ext.commands.Context.guild][send]]
 
 From this it is obvious you need some other way of getting at the channel where
 the message was sent.  Fortunately many of the things you need are actually
@@ -49,6 +60,7 @@ name#discriminator where the discriminator is a 4 digit number.
 It is possible to create webhooks from a particular channel, this webhook is
 essential in that it allows a send() inclusing a username and avatar_url.  This
 comes in handy when moving a message from one channel to another channel.
+[[https://discordpy.readthedocs.io/en/latest/api.html#webhook-support][webhooks]]
 
 * Message
 Given a messageId, it is possible to fetch a message in a particular channel.
@@ -73,14 +85,150 @@ This can be compared with the usual tag which is
 
 Note that author.mention doesn't contain the exclamation mark.
 
+[[https://stackoverflow.com/questions/43964328/how-do-i-mention-a-user-using-users-id-in-discord-py][mention]]
+[[https://discord.js.org/#/docs/main/stable/examples/greeting][js sample]]
+
+* Understanding the context
+
+The Context (ctx) is often the first argument in the functions from @bot.command.
+This ctx contains most of the things needed to identify the message triggering
+the robot to respond (ctx fields):
+
+- guild - on which server the robot was triggered [[https://discordpy.readthedocs.io/en/latest/api.html#guild][guild]]
+- message - the message of the command
+- author - the author of the message
+- send() - a function that allows the robot to respond back as a response to the
+  trigger [[https://discordpy.readthedocs.io/en/latest/ext/commands/api.html#discord.ext.commands.Context.guild][send]]
+
+
+From this it is obvious you need some other way of getting at the channel where
+the message was sent.  Fortunately many of the things you need are actually
+included in ctx.message.
+
+In particular, ctx.message.channel points to the originating channel.
+
+But if you wanted to get a list of all the channels in the server you would be
+looking at them in ctx.guild.channels, and you could also get all the members of
+the server with ctx.guild.members, or if looking for a particular user use
+ctx.guild.get_member_named(), which allows you to find by name or
+name#discriminator where the discriminator is a 4 digit number.
+
+* Webhook
+It is possible to create webhooks from a particular channel, this webhook is
+essential in that it allows a send() inclusing a username and avatar_url.  This
+comes in handy when moving a message from one channel to another channel.
+[[https://discordpy.readthedocs.io/en/latest/api.html#webhook-support][webhooks]]
+
+* Message
+Given a messageId, it is possible to fetch a message in a particular channel.
+There are a few fields that are particularly useful:
+
+- content
+- author
+- embeds
+- attachments
+- created_at
+- edited_at
+
+* Mention
+The string in the message content that signifies a mention has the following
+format:
+
+<@!{author.id}>
+
+This can be compared with the usual tag which is
+
+{author.name}#{author.discriminator}
+
+Note that author.mention doesn't contain the exclamation mark.
+
+[[https://stackoverflow.com/questions/43964328/how-do-i-mention-a-user-using-users-id-in-discord-py][mention]]
+[[https://discord.js.org/#/docs/main/stable/examples/greeting][js sample]]
+
+* Understanding the context
+
+The Context (ctx) is often the first argument in the functions from @bot.command.
+This ctx contains most of the things needed to identify the message triggering
+the robot to respond (ctx fields):
+
+- guild - on which server the robot was triggered [[https://discordpy.readthedocs.io/en/latest/api.html#guild][guild]]
+- message - the message of the command
+- author - the author of the message
+- send() - a function that allows the robot to respond back as a response to the
+  trigger [[https://discordpy.readthedocs.io/en/latest/ext/commands/api.html#discord.ext.commands.Context.guild][send]]
+
+From this it is obvious you need some other way of getting at the channel where
+the message was sent.  Fortunately many of the things you need are actually
+included in ctx.message.
+
+In particular, ctx.message.channel points to the originating channel.
+
+But if you wanted to get a list of all the channels in the server you would be
+looking at them in ctx.guild.channels, and you could also get all the members of
+the server with ctx.guild.members, or if looking for a particular user use
+ctx.guild.get_member_named(), which allows you to find by name or
+name#discriminator where the discriminator is a 4 digit number.
+
+Links:
+[[https://discordpy.readthedocs.io/en/latest/api.html#textchannel][channels]]
+
+* Webhook
+It is possible to create webhooks from a particular channel, this webhook is
+essential in that it allows a send() inclusing a username and avatar_url.  This
+comes in handy when moving a message from one channel to another channel.
+[[https://discordpy.readthedocs.io/en/latest/api.html#webhook-support][webhooks]]
+
+* Message
+Given a messageId, it is possible to fetch a message in a particular channel.
+There are a few fields that are particularly useful:
+
+- content
+- author
+- embeds
+- attachments
+- created_at
+- edited_at
+
+* Mention
+The string in the message content that signifies a mention has the following
+format:
+
+<@!{author.id}>
+
+This can be compared with the usual tag which is
+
+{author.name}#{author.discriminator}
+
+Note that author.mention doesn't contain the exclamation mark.
+
+Links:
+- [[https://stackoverflow.com/questions/43964328/how-do-i-mention-a-user-using-users-id-in-discord-py][mention]]
+- [[https://www.reddit.com/r/discordapp/comments/8yfe5f/discordjs_bot_get_username_and_tag/][tag]]
+- [[https://discordpy.readthedocs.io/en/latest/api.html#discord.AllowedMentions][allowed mentions]]
+
 * Avatar
 The avatars are stored in a cdn and can be obtained from author.avatar_url
 
-* Python types
+* Odds and ends
+** Python types
 
 Union and Optional type hints.
 
 [[https://stackoverflow.com/questions/51710037/how-should-i-use-the-optional-type-hint][stackoverflow]]
+
+** Horizontal rule
+`~~            ~~`
+If you put a bunch of spaces in between looks like a decent horizontal rule.
+
+** Slack to discord
+This [[https://thomasloupe.com/project/slackord/][bot]] allows moving of slack messages to a discord channel.
+Github: [[https://github.com/thomasloupe/Slackord/blob/master/README.md][Slackord]]
+
+** Quoting bot
+[[https://top.gg/bot/403644354591326218][QuoteBot]]
+
+** A move implementation in js
+A reddit about creating a move bot [[https://pastebin.com/raw/H8inQcnZ][move]].  Original reddit: [[https://www.reddit.com/r/discordapp/comments/9ew2cl/i_have_created_a_bot_which_moves_a_message_from/][redit]]
 
 * full implementation
 
