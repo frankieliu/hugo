@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | Flink</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.69.1" />
+    <meta name="generator" content="Hugo 0.69.2" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -28,22 +28,22 @@
     
     
     <meta property="og:title" content="Flink" />
-<meta property="og:description" content="What is it  a distributed runtime uses pipelines for execution exactly-once state consistency lightweight checkpoint iterative processing windows semantics out-of-order processing  Iteration control   // set up execution environment env = ExecutionEnvironment.getExecutionEnvironment(); // get input data: // read the points and centroids from the provided paths // or fall back to default data points = getPointDataSet(params, env); centroids = getCentroidDataSet(params, env); // set number of bulk iterations for KMeans algorithm loop = centroids." />
+<meta property="og:description" content="What is it  a distributed runtime uses pipelines for execution exactly-once state consistency lightweight checkpoint iterative processing windows semantics out-of-order processing  2 architecture cluster  client job manager task manager (1 or more)  client  takes a program xforms to dataflow graph submits to job manager creates data schema and serializers cost-based query optmization  job manager  coordinates distributed execution of dataflow tracks state and progress of each operator and stream schedules new operators coordinates checkpoints and recovery persists minimal set of data for checkpoint and recovery  task manager  executes one or more operators report status to job manager maintain buffer pools to buffer or materialize streams maintain network connections to exchange of streams between operators    3." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/flink/" />
 <meta property="article:published_time" content="2020-04-18T08:49:58-07:00" />
-<meta property="article:modified_time" content="2020-04-18T10:37:08-07:00" />
+<meta property="article:modified_time" content="2020-04-25T11:29:15-07:00" />
 <meta itemprop="name" content="Flink">
-<meta itemprop="description" content="What is it  a distributed runtime uses pipelines for execution exactly-once state consistency lightweight checkpoint iterative processing windows semantics out-of-order processing  Iteration control   // set up execution environment env = ExecutionEnvironment.getExecutionEnvironment(); // get input data: // read the points and centroids from the provided paths // or fall back to default data points = getPointDataSet(params, env); centroids = getCentroidDataSet(params, env); // set number of bulk iterations for KMeans algorithm loop = centroids.">
+<meta itemprop="description" content="What is it  a distributed runtime uses pipelines for execution exactly-once state consistency lightweight checkpoint iterative processing windows semantics out-of-order processing  2 architecture cluster  client job manager task manager (1 or more)  client  takes a program xforms to dataflow graph submits to job manager creates data schema and serializers cost-based query optmization  job manager  coordinates distributed execution of dataflow tracks state and progress of each operator and stream schedules new operators coordinates checkpoints and recovery persists minimal set of data for checkpoint and recovery  task manager  executes one or more operators report status to job manager maintain buffer pools to buffer or materialize streams maintain network connections to exchange of streams between operators    3.">
 <meta itemprop="datePublished" content="2020-04-18T08:49:58-07:00" />
-<meta itemprop="dateModified" content="2020-04-18T10:37:08-07:00" />
-<meta itemprop="wordCount" content="230">
+<meta itemprop="dateModified" content="2020-04-25T11:29:15-07:00" />
+<meta itemprop="wordCount" content="1141">
 
 
 
 <meta itemprop="keywords" content="stream,distributed systems," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Flink"/>
-<meta name="twitter:description" content="What is it  a distributed runtime uses pipelines for execution exactly-once state consistency lightweight checkpoint iterative processing windows semantics out-of-order processing  Iteration control   // set up execution environment env = ExecutionEnvironment.getExecutionEnvironment(); // get input data: // read the points and centroids from the provided paths // or fall back to default data points = getPointDataSet(params, env); centroids = getCentroidDataSet(params, env); // set number of bulk iterations for KMeans algorithm loop = centroids."/>
+<meta name="twitter:description" content="What is it  a distributed runtime uses pipelines for execution exactly-once state consistency lightweight checkpoint iterative processing windows semantics out-of-order processing  2 architecture cluster  client job manager task manager (1 or more)  client  takes a program xforms to dataflow graph submits to job manager creates data schema and serializers cost-based query optmization  job manager  coordinates distributed execution of dataflow tracks state and progress of each operator and stream schedules new operators coordinates checkpoints and recovery persists minimal set of data for checkpoint and recovery  task manager  executes one or more operators report status to job manager maintain buffer pools to buffer or materialize streams maintain network connections to exchange of streams between operators    3."/>
 
   </head>
 
@@ -224,6 +224,393 @@ MathJax.Hub.Config({
 <li>windows semantics</li>
 <li>out-of-order processing</li>
 </ul>
+<h2 id="2-architecture">2 architecture</h2>
+<h3 id="cluster">cluster</h3>
+<ul>
+<li>client</li>
+<li>job manager</li>
+<li>task manager (1 or more)</li>
+</ul>
+<h3 id="client">client</h3>
+<ul>
+<li>takes a program</li>
+<li>xforms to dataflow graph</li>
+<li>submits to job manager</li>
+<li>creates data schema and serializers</li>
+<li>cost-based query optmization</li>
+</ul>
+<h3 id="job-manager">job manager</h3>
+<ul>
+<li>coordinates distributed execution of dataflow</li>
+<li>tracks state and progress of each operator and stream</li>
+<li>schedules new operators</li>
+<li>coordinates checkpoints and recovery</li>
+<li>persists minimal set of data for checkpoint and recovery</li>
+</ul>
+<h3 id="task-manager">task manager</h3>
+<ul>
+<li>executes one or more operators</li>
+<li>report status to job manager</li>
+<li>maintain buffer pools to buffer or materialize streams</li>
+<li>maintain network connections to exchange of streams between operators</li>
+</ul>
+<figure>
+    <img src="https://www.frankliu.org/hugo/images/flink/process.png"/> 
+</figure>
+
+<h2 id="3-dot-1-dataflow-graphs">3.1 dataflow graphs</h2>
+<ul>
+<li>stateful operators</li>
+<li>data streams</li>
+<li>data-parallel fashion</li>
+<li>operators
+-parallelized into one or more parallel instances (subtasks)</li>
+<li>stream split into one or more stream partitions</li>
+</ul>
+<h2 id="3-dot-2-data-exchange">3.2 data exchange</h2>
+<h3 id="intermediate-data-streams">Intermediate data streams</h3>
+<ul>
+<li>core abstraction for data-exchange between operators</li>
+<li>represents a logical handle</li>
+</ul>
+<h3 id="pipelined-streams">Pipelined streams</h3>
+<ul>
+<li>propagate back pressure from consumers to producers
+<ul>
+<li>via intermediate buffer pools</li>
+<li>avoid materializatoin when possible</li>
+</ul>
+</li>
+</ul>
+<h3 id="blocking-streams">Blocking streams</h3>
+<ul>
+<li>buffers all the producing operators data before making
+available for consumers</li>
+<li>used to isolate successive operators
+<ul>
+<li>ex. sort-merge joins may cause distributed deadlock
+<img src="https://www.frankliu.org/hugo/images/flink/sort-merge-join.png" alt="">
+<img src="https://www.frankliu.org/hugo/images/flink/radix-hash-join.png" alt=""></li>
+</ul>
+</li>
+</ul>
+<h3 id="implementation">implementation</h3>
+<ul>
+<li>exchange of buffers</li>
+<li>set high buffer size (1kB) for high throughput</li>
+<li>set low timeout (2 ms) for low latency</li>
+</ul>
+<h3 id="control">control</h3>
+<ul>
+<li>checkpoint barriers</li>
+<li>watermark signals</li>
+<li>iteration barriers</li>
+<li>unary operators consule in FIFO order</li>
+<li>more than one stream merge in arrival order
+<ul>
+<li>Flink does not provide ordering guarantees after repartitioning</li>
+<li>let the operators figure out how to deal with out of order</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-dot-3-fault-tolerance">3.3 fault tolerance</h2>
+<ul>
+<li>promises exactly once processing consistency</li>
+<li>uses checkpointing and partial re-execution
+<ul>
+<li>data sources are persistent and replayable</li>
+</ul>
+</li>
+<li>take consistent snapshot of all operators
+<ul>
+<li>must refer to same logical time in the computation</li>
+</ul>
+</li>
+<li>Asynchronous Barrier Snapshotting
+<ul>
+<li>operator receives barriers from upstream</li>
+<li>perform alignment
+<ul>
+<li>make sure barriers from all inputs have been received</li>
+</ul>
+</li>
+<li>operator writes its state to persistent storage</li>
+<li>after backup, forwards the barrier</li>
+</ul>
+</li>
+</ul>
+<figure>
+    <img src="https://www.frankliu.org/hugo/images/flink/abs.png"/> 
+</figure>
+
+<ul>
+<li>Example:
+snapshot t2 contains all operator states that are the result of consuming all
+records before t2 barrier.</li>
+<li>don&rsquo;t need to snapshot in-flight records</li>
+<li>restart from lastest barrier with a snapshot</li>
+<li>guarantees:
+<ul>
+<li>exactly once state updates</li>
+<li>decoupled from control</li>
+<li>decoupled from how it is stored</li>
+</ul>
+</li>
+</ul>
+<h3 id="details">Details</h3>
+<ul>
+<li>
+<p>Paper: Lightweight Asynchronous Snapshots for Distributed Dataflows</p>
+</li>
+<li>
+<p>Central coordinator periodically injects stage barriers</p>
+</li>
+<li>
+<p>When source receives a barrier</p>
+<ul>
+<li>
+<p>takes snapshot of its current state</p>
+</li>
+<li>
+<p>broadcasts the barrier to all its output</p>
+<figure>
+    <img src="https://www.frankliu.org/hugo/images/flink/abs-1.png"/> 
+</figure>
+
+</li>
+</ul>
+</li>
+<li>
+<p>When a non-source task receives a barrier</p>
+<ul>
+<li>
+<p>blocks that input until it receives a barrier from all inputs</p>
+<figure>
+    <img src="https://www.frankliu.org/hugo/images/flink/abs-2.png"/> 
+</figure>
+
+</li>
+<li>
+<p>when all barriers have been received
+task takes snapshot of current state and broadcasts
+the barrier to its outputs</p>
+<figure>
+    <img src="https://www.frankliu.org/hugo/images/flink/abs-3.png"/> 
+</figure>
+
+</li>
+<li>
+<p>task unblocks its input channels to continue computation</p>
+<figure>
+    <img src="https://www.frankliu.org/hugo/images/flink/abs-4.png"/> 
+</figure>
+
+</li>
+</ul>
+</li>
+<li>
+<p>legend</p>
+<figure>
+    <img src="https://www.frankliu.org/hugo/images/flink/abs-5.png"/> 
+</figure>
+
+</li>
+<li>
+<p>The complete global snapshot \(G^* = (T^*, E^*)\) will contain only
+snapshots of the operator states, edge states don&rsquo;t need to be saved</p>
+</li>
+<li>
+<p>Algorithm for non-cyclic graphs</p>
+<figure>
+    <img src="https://www.frankliu.org/hugo/images/flink/abs-6.png"/> 
+</figure>
+
+</li>
+</ul>
+<h3 id="cyclic-graphs">cyclic graphs</h3>
+<ul>
+<li>
+<p>with cycles you will end up in a deadlock</p>
+<ul>
+<li>downstream tasks will be blocked because they
+have not received a barrier</li>
+</ul>
+</li>
+<li>
+<p>records in transit in cycle would not be included
+in snapshot</p>
+</li>
+<li>
+<p>first indentify:</p>
+<ol>
+<li>back-edges</li>
+<li>\(G(T,E\L)\) remove them, now you have a DAG</li>
+<li>backup records received from back-edges
+<ul>
+<li>task \(t\) that has a back-edge: \(L_t \in I_t\)</li>
+<li>\(I_t\) creates a backup log of all records received
+from \(L_t\), when it forwards barriers until receiving
+the barrier back in \(L_t\)</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>Tasks with back-edge inputs create a local copy of their
+state once all the regular (\(e \notin L\)) channels delivered
+barriers.</p>
+<p><img src="https://www.frankliu.org/hugo/images/flink/abs-7.png" alt="">
+<img src="https://www.frankliu.org/hugo/images/flink/abs-8.png" alt=""></p>
+</li>
+<li>
+<p>Allows all pre-shot recods that are in transit with loops
+to be included in the current snapshot</p>
+<figure>
+    <img src="https://www.frankliu.org/hugo/images/flink/abs-9.png"/> 
+</figure>
+
+<p>The final global snapshot will include the back-edge records
+in transit: \(G^* = (T^*, L^*)\).</p>
+</li>
+<li>
+<p>Algorithm</p>
+<figure>
+    <img src="https://www.frankliu.org/hugo/images/flink/abs-10.png"/> 
+</figure>
+
+</li>
+</ul>
+<h2 id="3-dot-4-iterative-dataflows">3.4 iterative dataflows</h2>
+<figure>
+    <img src="https://www.frankliu.org/hugo/images/flink/iteration-model.png"/> 
+</figure>
+
+<ul>
+<li>implemented as iteration steps</li>
+<li>special operator that can contain an execution graph</li>
+<li>to maintain DAG
+<ul>
+<li>introduce an iteration head and tail tasks
+<ul>
+<li>implicitly connected with feedback edges</li>
+</ul>
+</li>
+<li>tasks establish active feedback channel</li>
+<li>provide coordination for processing data records</li>
+</ul>
+</li>
+</ul>
+<h2 id="time">time</h2>
+<ul>
+<li>event time</li>
+<li>process time</li>
+<li>low watermarks mark gloval progress measure
+<ul>
+<li>time t such that all events lower than t have already entered operators</li>
+<li>allow processing in correct event order and serialize operations</li>
+<li>originate from the sources</li>
+<li>propagates to other operators
+<ul>
+<li>map and filter just forward the watermarks</li>
+<li>complex operators compute events triggered by a watermark, then fwd</li>
+<li>if more than one input, only fwd the min of incoming watermarks</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>processing time used for lower latency</li>
+<li>ingestion time: somewhere in between event time and processing time</li>
+</ul>
+<h2 id="stateful-stream">stateful stream</h2>
+<ul>
+<li>windows are stateful operators
+<ul>
+<li>fill memory buckets</li>
+</ul>
+</li>
+<li>operator annotation used to statically register explicit local variables</li>
+<li>k-v states declared with an operator</li>
+<li>registered state is durable with exactly-one update</li>
+</ul>
+<h2 id="windows">windows</h2>
+<ul>
+<li>definition
+<ul>
+<li>assigner: assign record to logical window
+<ul>
+<li>a record can be assigned to multiple windows
+<ul>
+<li>as in sliding window</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>trigger: defines when the operation will be performed</li>
+<li>evictor: determines what to keep</li>
+</ul>
+</li>
+<li>types
+<ul>
+<li>periodic time</li>
+<li>count windows</li>
+<li>punctuation</li>
+<li>landmark</li>
+<li>session</li>
+<li>delta</li>
+</ul>
+</li>
+</ul>
+<h3 id="example">Example</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">stream
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">window</span><span style="color:#f92672">(</span>SlidingTimeWindows<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span>Time<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span>6<span style="color:#f92672">,</span> SECONDS<span style="color:#f92672">),</span> Time<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span>2<span style="color:#f92672">,</span> SECONDS<span style="color:#f92672">))</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">trigger</span><span style="color:#f92672">(</span>EventTimeTrigger<span style="color:#f92672">.</span><span style="color:#a6e22e">create</span><span style="color:#f92672">())</span>
+</code></pre></div><ul>
+<li>assigner: range 6 seconds, every 2 seconds</li>
+<li>trigger: results computed once the watermark passes the end of the window</li>
+</ul>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">stream
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">window</span><span style="color:#f92672">(</span>GlobalWindow<span style="color:#f92672">.</span><span style="color:#a6e22e">create</span><span style="color:#f92672">())</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">trigger</span><span style="color:#f92672">(</span>Count<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span>1000<span style="color:#f92672">))</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">evict</span><span style="color:#f92672">(</span>Count<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span>100<span style="color:#f92672">))</span>
+</code></pre></div><ul>
+<li>assigner: all events go to a single logical group</li>
+<li>trigger: every 1000 events</li>
+<li>evictor: keep only the last 100 elements</li>
+</ul>
+<h2 id="async-stream-iteration">async stream iteration</h2>
+<p>feedback streams are treated as operator state</p>
+<h2 id="batch-analytics">Batch analytics</h2>
+<ul>
+<li>query optimiztion</li>
+<li>memory management</li>
+<li>batch iterations</li>
+</ul>
+<h2 id="query-optimization">Query optimization</h2>
+<ul>
+<li>optimizer doesn&rsquo;t know about UDF&rsquo;s</li>
+<li>cardinality: uses hints from the programmer</li>
+<li>plan uses costs like network disk I/O and CPU</li>
+<li>strategies
+<ul>
+<li>repartitioning</li>
+<li>broadcast data transfer</li>
+<li>sort based grouping</li>
+<li>sort based and hash based join</li>
+</ul>
+</li>
+</ul>
+<h2 id="memory-management">Memory management</h2>
+<ul>
+<li>manages data into memory segments</li>
+<li>sorting and joining work on binary</li>
+<li>off-heap and binary
+<ul>
+<li>reduce gb</li>
+<li>cache efficient</li>
+</ul>
+</li>
+</ul>
 <h2 id="iteration-control">Iteration control</h2>
 <figure>
     <img src="https://www.frankliu.org/hugo/images/flink/iterate.png"/> 
@@ -280,7 +667,7 @@ newCentroids <span style="color:#f92672">=</span> points
 <h3 id="superstep-synchronization">superstep synchronization</h3>
 <p><a href="https://ci.apache.org/projects/flink/flink-docs-stable/dev/batch/iterations.html">iterations</a>
 <img src="https://www.frankliu.org/hugo/images/flink/barrier-flink.png" alt=""></p>
-<h2 id="stale-synchronous-parallel">Stale synchronous parallel</h2>
+<h3 id="stale-synchronous-parallel">Stale synchronous parallel</h3>
 <figure>
     <img src="https://www.frankliu.org/hugo/images/flink/ssp.png"/> 
 </figure>
@@ -322,14 +709,50 @@ newCentroids <span style="color:#f92672">=</span> points
       <nav id="TableOfContents">
   <ul>
     <li><a href="#what-is-it">What is it</a></li>
+    <li><a href="#2-architecture">2 architecture</a>
+      <ul>
+        <li><a href="#cluster">cluster</a></li>
+        <li><a href="#client">client</a></li>
+        <li><a href="#job-manager">job manager</a></li>
+        <li><a href="#task-manager">task manager</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-dot-1-dataflow-graphs">3.1 dataflow graphs</a></li>
+    <li><a href="#3-dot-2-data-exchange">3.2 data exchange</a>
+      <ul>
+        <li><a href="#intermediate-data-streams">Intermediate data streams</a></li>
+        <li><a href="#pipelined-streams">Pipelined streams</a></li>
+        <li><a href="#blocking-streams">Blocking streams</a></li>
+        <li><a href="#implementation">implementation</a></li>
+        <li><a href="#control">control</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-dot-3-fault-tolerance">3.3 fault tolerance</a>
+      <ul>
+        <li><a href="#details">Details</a></li>
+        <li><a href="#cyclic-graphs">cyclic graphs</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-dot-4-iterative-dataflows">3.4 iterative dataflows</a></li>
+    <li><a href="#time">time</a></li>
+    <li><a href="#stateful-stream">stateful stream</a></li>
+    <li><a href="#windows">windows</a>
+      <ul>
+        <li><a href="#example">Example</a></li>
+      </ul>
+    </li>
+    <li><a href="#async-stream-iteration">async stream iteration</a></li>
+    <li><a href="#batch-analytics">Batch analytics</a></li>
+    <li><a href="#query-optimization">Query optimization</a></li>
+    <li><a href="#memory-management">Memory management</a></li>
     <li><a href="#iteration-control">Iteration control</a>
       <ul>
         <li><a href="#delta-iterate">delta iterate</a></li>
         <li><a href="#bulk-synchronous-parallel">Bulk synchronous parallel</a></li>
         <li><a href="#superstep-synchronization">superstep synchronization</a></li>
+        <li><a href="#stale-synchronous-parallel">Stale synchronous parallel</a></li>
       </ul>
     </li>
-    <li><a href="#stale-synchronous-parallel">Stale synchronous parallel</a></li>
   </ul>
 </nav>
   </div>
