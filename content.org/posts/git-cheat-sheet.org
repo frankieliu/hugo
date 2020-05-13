@@ -1,0 +1,33 @@
+# -*- mode: org -*-
+#+HUGO_BASE_DIR: ../..
+#+HUGO_SECTION: posts
+#+HUGO_WEIGHT: 2000
+#+HUGO_AUTO_SET_LASTMOD: t
+#+TITLE: "git cheatsheet"
+#+DATE: 2020-04-29T11:33:30-07:00
+#+HUGO_TAGS: git 
+#+HUGO_CATEGORIES: git
+#+HUGO_MENU_off: :menu "main" :weight 2000
+#+HUGO_CUSTOM_FRONT_MATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true :toc true
+#+HUGO_DRAFT: false
+
+#+STARTUP: indent hidestars showall
+* Upstream and origin
+[[file:/images/git/upstream-origin.png]]
+
+[[https://stackoverflow.com/questions/9257533/what-is-the-difference-between-origin-and-upstream-on-github?answertab=active#tab-top][stack]] answer
+
+[[https://stackoverflow.com/questions/2739376/definition-of-downstream-and-upstream/2749166#2749166][stack]] better explanation for upstream and downstream
+
+#+begin_src bash
+  git remote add upstream git://github.com/<owner_original>/<repo_original.git>
+
+  # keep your local copy up-to-date with original
+  git fetch upstream
+
+  # make changes to your locl
+  git pull  # after you have fetched the original repo to your forked repo
+  git push  # push to your remote forked repo
+#+end_src
+
+

@@ -1,0 +1,60 @@
+# -*- mode: org -*-
+#+HUGO_BASE_DIR: ../..
+#+HUGO_SECTION: posts
+#+HUGO_WEIGHT: 2000
+#+HUGO_AUTO_SET_LASTMOD: t
+#+TITLE: "Ascii Diagrams"
+#+DATE: 2020-04-29T11:37:40-07:00
+#+HUGO_TAGS: ascii diagrams
+#+HUGO_CATEGORIES: ascii diagrams
+#+HUGO_MENU_off: :menu "main" :weight 2000
+#+HUGO_CUSTOM_FRONT_MATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true :toc true
+#+HUGO_DRAFT: false
+
+#+STARTUP: indent hidestars showall
+
+* Asciio
+
+** Modifications
+- clone P5-App-Asciio
+- change the zoom in and zoom out keys
+./setup/actions/unsorted.pl:	'Zoom in' => ['000-plus', \&zoom, 1]
+
+** Building prep
+perl Build.PL
+
+** Dependencies
+In Ubuntu most dependencies can be resolved by
+
+#+begin_src bash
+  sudo aptitude install lib<Module>-<Submodule>-perl
+#+end_src
+
+For example if the dependencies require `Foo::Bar`, install it with
+`sudo aptitude install libfoo-bar-perl`
+
+Hash::Slice unfortunately is not part of Ubuntu distribution so you will have to
+install it via CPAN
+
+#+begin_src bash
+  cpan Hash::Slice
+#+end_src
+
+** Building
+#+begin_src bash
+  ./Build
+  ./Build test
+  sudo ./Build install
+#+end_src
+
+** Changed file:
+#+begin_src perl
+  (
+   'Zoom in' => ['000-KP_Add', \&zoom, 1],
+   'Zoom in' => ['00S-plus', \&zoom, 1],
+   'Zoom out' => ['000-KP_Subtract', \&zoom, -1],
+   'Zoom out' => ['000-minus', \&zoom, -1],
+  )
+#+end_src
+
+Note that the latter ones overwrite previous ones.

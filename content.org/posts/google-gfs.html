@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-05-09 Sat 11:14 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>"Google File System"</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="adam" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">"Google File System"</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgdef8944">1. 5.1 High Availability</a>
+<ul>
+<li><a href="#org0f73da6">1.1. Chunk Replication</a></li>
+<li><a href="#org15c29e3">1.2. Master Replication</a></li>
+</ul>
+</li>
+<li><a href="#orgb0739fe">2. 5.2 Data Integrity</a></li>
+<li><a href="#org80c9151">3. 6 Measurements</a></li>
+<li><a href="#org58a310b">4. 6.1.1 Reads</a></li>
+<li><a href="#orga1a0488">5. 6.1.2 Writes</a></li>
+<li><a href="#orge255c21">6. 6.1.3 Appends</a></li>
+<li><a href="#org92da799">7. 6.2.4 Master Load</a></li>
+<li><a href="#org8ef8a47">8. 6.2.5 Recovery time</a></li>
+<li><a href="#org30ae72e">9. 6.3.2 Chuckserver Workload</a>
+<ul>
+<li><a href="#orge726718">9.1. Bimodal</a></li>
+</ul>
+</li>
+<li><a href="#org0213f30">10. 6.3.3 Appends vs Writes</a></li>
+<li><a href="#orga488e8a">11. 6.3.4 Master Workload</a></li>
+<li><a href="#org108ddfd">12. 7 Experiences</a>
+<ul>
+<li><a href="#orgffa718e">12.1. RW lock</a></li>
+</ul>
+</li>
+<li><a href="#orgade7f9d">13. Summary</a>
+<ul>
+<li><a href="#orga237fd9">13.1. design space</a></li>
+<li><a href="#org84a9dad">13.2. fault tolerance</a></li>
+<li><a href="#org5bf5c67">13.3. high throughput</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgdef8944" class="outline-2">
+<h2 id="orgdef8944"><span class="section-number-2">1</span> 5.1 High Availability</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org0f73da6" class="outline-3">
+<h3 id="org0f73da6"><span class="section-number-3">1.1</span> Chunk Replication</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>RF of 3</li>
+<li>master clones existing replicas when chunkservers go offline or detect
+corrupted replicas</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org15c29e3" class="outline-3">
+<h3 id="org15c29e3"><span class="section-number-3">1.2</span> Master Replication</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>operation log and checkpoints replicas</li>
+<li>"shadow" masters provide read-only access
+<ul class="org-ul">
+<li>file metadata like directory contest could be stale</li>
+<li>reads replica information from logs</li>
+<li>pools from chunkservers to locate chunk replicas</li>
+<li>depends on primary for decisions to create and delete replicas</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb0739fe" class="outline-2">
+<h2 id="orgb0739fe"><span class="section-number-2">2</span> 5.2 Data Integrity</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>impractical to very replica data between replicas</li>
+<li>use 32bit checksum on 64KB blocks
+<ul class="org-ul">
+<li>stored persistently with logging and separate from user data</li>
+</ul></li>
+<li>in reads:
+<ul class="org-ul">
+<li>chunkserver verifies the checksum before returning data</li>
+<li>client reads from another replica</li>
+<li>master creates a different replica and delete the corrupted one</li>
+</ul></li>
+<li>in appends:
+<ul class="org-ul">
+<li>incrementally update the checksum for last partial checksum blocks</li>
+<li>even if last partial checksum is corrupted, new checksum value will
+not match stored data and corruption will be detected</li>
+</ul></li>
+<li>in writes:
+<ul class="org-ul">
+<li>if write overwrites an existing range on the chunk, need to verify
+the first and last blocks of the range being overwritten</li>
+<li>calculate new checksums based from previous checksum so that corruption
+of unchanged areas will be detected</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org80c9151" class="outline-2">
+<h2 id="org80c9151"><span class="section-number-2">3</span> 6 Measurements</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>1 master, two master replicas, 16 chunkservers, and 16 clients</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org58a310b" class="outline-2">
+<h2 id="org58a310b"><span class="section-number-2">4</span> 6.1.1 Reads</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>random 4MB read from 320 GB file set</li>
+<li>chunkservers only have 32 GB of memory, expect at most 10% hit rate</li>
+<li>theoretical limit 125MB/s with 1Gbps link becomes saturated
+<ul class="org-ul">
+<li>12.5 MB/s per client when 100Mbps network interface gets saturated</li>
+<li>observed 10MB/s when one client reading</li>
+<li>aggregate read 94 MB/s for 16 readers</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga1a0488" class="outline-2">
+<h2 id="orga1a0488"><span class="section-number-2">5</span> 6.1.2 Writes</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li>1GB of data in 1MB writes</li>
+<li>Limits at 67 MB/s because need to write each byte to 3 of the 16 chunkservers
+each with a 12.5 MB/s input</li>
+<li>write rate for one client is 6.3MB/s - delays in propagating data to replicas</li>
+<li>aggregate 35MB/s for 16 clients, multiple clients writing concurrently to same
+chunkservers</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge255c21" class="outline-2">
+<h2 id="orge255c21"><span class="section-number-2">6</span> 6.1.3 Appends</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li>limited by BW of the chunkservers storing the last chunk of the file</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org92da799" class="outline-2">
+<h2 id="org92da799"><span class="section-number-2">7</span> 6.2.4 Master Load</h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li>200-500 ops/s</li>
+<li>master bottlenecs scanning through large directories looking for particular
+files, change to binary seraches through namespace</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8ef8a47" class="outline-2">
+<h2 id="org8ef8a47"><span class="section-number-2">8</span> 6.2.5 Recovery time</h2>
+<div class="outline-text-2" id="text-8">
+<ul class="org-ul">
+<li>experiment: kill chunkserver with 15,000 chunks 600GB of data</li>
+<li>what does 91 concurrent clonings mean?</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org30ae72e" class="outline-2">
+<h2 id="org30ae72e"><span class="section-number-2">9</span> 6.3.2 Chuckserver Workload</h2>
+<div class="outline-text-2" id="text-9">
+</div>
+<div id="outline-container-orge726718" class="outline-3">
+<h3 id="orge726718"><span class="section-number-3">9.1</span> Bimodal</h3>
+<div class="outline-text-3" id="text-9-1">
+<ul class="org-ul">
+<li>small reads &lt;64KB from seek-intensive clients</li>
+<li>large reads &gt;512KB from long sequential reads</li>
+<li>small writes for clients that checkpoint or sync more often</li>
+<li>large writes for clients that do more buffering</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0213f30" class="outline-2">
+<h2 id="org0213f30"><span class="section-number-2">10</span> 6.3.3 Appends vs Writes</h2>
+<div class="outline-text-2" id="text-10">
+<ul class="org-ul">
+<li>100x more appends than writes</li>
+<li>mutations are mostly appends and not overwriting</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga488e8a" class="outline-2">
+<h2 id="orga488e8a"><span class="section-number-2">11</span> 6.3.4 Master Workload</h2>
+<div class="outline-text-2" id="text-11">
+<ul class="org-ul">
+<li>FindLocation - request for chunk locations (for reads)</li>
+<li>FindLeaseLocker - lease holder information (for mutations)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org108ddfd" class="outline-2">
+<h2 id="org108ddfd"><span class="section-number-2">12</span> 7 Experiences</h2>
+<div class="outline-text-2" id="text-12">
+</div>
+<div id="outline-container-orgffa718e" class="outline-3">
+<h3 id="orgffa718e"><span class="section-number-3">12.1</span> RW lock</h3>
+<div class="outline-text-3" id="text-12-1">
+<p>
+lock blocked network thread while disk threads were paging in previously mapped
+data, solution let threads read from a copy so that network thread is not blocked
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgade7f9d" class="outline-2">
+<h2 id="orgade7f9d"><span class="section-number-2">13</span> Summary</h2>
+<div class="outline-text-2" id="text-13">
+</div>
+<div id="outline-container-orga237fd9" class="outline-3">
+<h3 id="orga237fd9"><span class="section-number-3">13.1</span> design space</h3>
+<div class="outline-text-3" id="text-13-1">
+<ul class="org-ul">
+<li>common failures</li>
+<li>optimize for huge files</li>
+<li>most append only and sequential reads</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org84a9dad" class="outline-3">
+<h3 id="org84a9dad"><span class="section-number-3">13.2</span> fault tolerance</h3>
+<div class="outline-text-3" id="text-13-2">
+<ul class="org-ul">
+<li>constant monitoring
+<ul class="org-ul">
+<li>checksum to detect data corruption</li>
+</ul></li>
+<li>replicating crucial data
+<ul class="org-ul">
+<li>chuck replication</li>
+</ul></li>
+<li>fast and automatic recovery
+<ul class="org-ul">
+<li>online repair system compensates for lost resplicas asap</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5bf5c67" class="outline-3">
+<h3 id="org5bf5c67"><span class="section-number-3">13.3</span> high throughput</h3>
+<div class="outline-text-3" id="text-13-3">
+<ul class="org-ul">
+<li>separate file system control from data transfer</li>
+<li>file system control handled by master</li>
+<li>data transfer handled by chunkservers</li>
+<li>master involvement is minimized
+<ul class="org-ul">
+<li>large chunk size</li>
+<li>chunk leases - delegates authority to primary replicas</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2020-05-09T10:08:17-07:00</p>
+<p class="author">Author: adam</p>
+<p class="date">Created: 2020-05-09 Sat 11:14</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
