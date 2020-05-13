@@ -36,7 +36,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/tags/distributed-systems/" />
-<meta property="og:updated_time" content="2020-04-18T08:49:58-07:00" />
+<meta property="og:updated_time" content="2020-05-09T10:08:17-07:00" />
 <meta itemprop="name" content="distributed systems">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="distributed systems"/>
@@ -180,6 +180,23 @@
   </article>
   <div class="mw8 center">    
     <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/google-gfs/" class="link black dim">
+        Google File System
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      5.1 High Availability Chunk Replication  RF of 3 master clones existing replicas when chunkservers go offline or detect corrupted replicas  Master Replication  operation log and checkpoints replicas &ldquo;shadow&rdquo; masters provide read-only access  file metadata like directory contest could be stale reads replica information from logs pools from chunkservers to locate chunk replicas depends on primary for decisions to create and delete replicas    5.2 Data Integrity  impractical to very replica data between replicas use 32bit checksum on 64KB blocks  stored persistently with logging and separate from user data   in reads:  chunkserver verifies the checksum before returning data client reads from another replica master creates a different replica and delete the corrupted one   in appends:  incrementally update the checksum for last partial checksum blocks even if last partial checksum is corrupted, new checksum value will not match stored data and corruption will be detected   in writes:  if write overwrites an existing range on the chunk, need to verify the first and last blocks of the range being overwritten calculate new checksums based from previous checksum so that corruption of unchanged areas will be detected    6 Measurements  1 master, two master replicas, 16 chunkservers, and 16 clients  6.
+    </div>
+  </div>
+</div>
+
+        </div>
       
         <div class="relative w-100  mb4 bg-white">
           <div class="relative w-100 mb4 bg-white nested-copy-line-height">

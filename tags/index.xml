@@ -6,10 +6,73 @@
     <description>Recent content in Tags on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 Apr 2020 19:15:00 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 09 May 2020 10:08:17 -0700</lastBuildDate>
     
 	<atom:link href="https://www.frankliu.org/hugo/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>distributed system</title>
+      <link>https://www.frankliu.org/hugo/tags/distributed-system/</link>
+      <pubDate>Sat, 09 May 2020 10:08:17 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/distributed-system/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>distributed systems</title>
+      <link>https://www.frankliu.org/hugo/tags/distributed-systems/</link>
+      <pubDate>Sat, 09 May 2020 10:08:17 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/distributed-systems/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>file systems</title>
+      <link>https://www.frankliu.org/hugo/tags/file-systems/</link>
+      <pubDate>Sat, 09 May 2020 10:08:17 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/file-systems/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gfs</title>
+      <link>https://www.frankliu.org/hugo/tags/gfs/</link>
+      <pubDate>Sat, 09 May 2020 10:08:17 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/gfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ascii</title>
+      <link>https://www.frankliu.org/hugo/tags/ascii/</link>
+      <pubDate>Wed, 29 Apr 2020 11:37:40 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/ascii/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>diagrams</title>
+      <link>https://www.frankliu.org/hugo/tags/diagrams/</link>
+      <pubDate>Wed, 29 Apr 2020 11:37:40 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/diagrams/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>https://www.frankliu.org/hugo/tags/git/</link>
+      <pubDate>Wed, 29 Apr 2020 11:33:30 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/git/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>a-star</title>
@@ -26,24 +89,6 @@
       <pubDate>Tue, 21 Apr 2020 19:15:00 -0700</pubDate>
       
       <guid>https://www.frankliu.org/hugo/tags/search/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>distributed system</title>
-      <link>https://www.frankliu.org/hugo/tags/distributed-system/</link>
-      <pubDate>Sat, 18 Apr 2020 08:49:58 -0700</pubDate>
-      
-      <guid>https://www.frankliu.org/hugo/tags/distributed-system/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>distributed systems</title>
-      <link>https://www.frankliu.org/hugo/tags/distributed-systems/</link>
-      <pubDate>Sat, 18 Apr 2020 08:49:58 -0700</pubDate>
-      
-      <guid>https://www.frankliu.org/hugo/tags/distributed-systems/</guid>
       <description></description>
     </item>
     

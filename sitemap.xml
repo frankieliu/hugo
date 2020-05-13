@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://www.frankliu.org/hugo/posts/google-gfs/</loc>
+    <lastmod>2020-05-09T11:16:19-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/posts/asciio/</loc>
+    <lastmod>2020-04-29T12:09:16-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/posts/git-cheat-sheet/</loc>
+    <lastmod>2020-04-29T12:09:08-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.frankliu.org/hugo/posts/a-star/</loc>
     <lastmod>2020-04-22T15:53:35-07:00</lastmod>
   </url>
@@ -59,7 +74,7 @@
   
   <url>
     <loc>https://www.frankliu.org/hugo/posts/alpha-beta-pruning/</loc>
-    <lastmod>2020-02-01T18:59:00-08:00</lastmod>
+    <lastmod>2020-05-13T00:08:05-07:00</lastmod>
   </url>
   
   <url>
@@ -163,6 +178,86 @@
   </url>
   
   <url>
+    <loc>https://www.frankliu.org/hugo/categories/</loc>
+    <lastmod>2020-05-13T00:08:05-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/distributed-system/</loc>
+    <lastmod>2020-05-09T11:16:19-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/distributed-systems/</loc>
+    <lastmod>2020-05-09T11:16:19-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/categories/distributeed-systems/</loc>
+    <lastmod>2020-05-09T11:16:19-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/file-systems/</loc>
+    <lastmod>2020-05-09T11:16:19-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/categories/file-systems/</loc>
+    <lastmod>2020-05-09T11:16:19-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/gfs/</loc>
+    <lastmod>2020-05-09T11:16:19-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/categories/google/</loc>
+    <lastmod>2020-05-09T11:16:19-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/</loc>
+    <lastmod>2020-05-13T00:08:05-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/</loc>
+    <lastmod>2020-05-13T00:08:05-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/ascii/</loc>
+    <lastmod>2020-04-29T12:09:16-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/categories/ascii/</loc>
+    <lastmod>2020-04-29T12:09:16-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/diagrams/</loc>
+    <lastmod>2020-04-29T12:09:16-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/categories/diagrams/</loc>
+    <lastmod>2020-04-29T12:09:16-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/git/</loc>
+    <lastmod>2020-04-29T12:09:08-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/categories/git/</loc>
+    <lastmod>2020-04-29T12:09:08-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.frankliu.org/hugo/tags/a-star/</loc>
     <lastmod>2020-04-22T15:53:35-07:00</lastmod>
   </url>
@@ -170,16 +265,6 @@
   <url>
     <loc>https://www.frankliu.org/hugo/categories/a-star/</loc>
     <lastmod>2020-04-22T15:53:35-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/categories/</loc>
-    <lastmod>2020-04-25T11:29:15-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/</loc>
-    <lastmod>2020-04-25T11:29:15-07:00</lastmod>
   </url>
   
   <url>
@@ -193,22 +278,7 @@
   </url>
   
   <url>
-    <loc>https://www.frankliu.org/hugo/tags/</loc>
-    <lastmod>2020-04-25T11:29:15-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/tags/distributed-system/</loc>
-    <lastmod>2020-04-25T11:29:15-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://www.frankliu.org/hugo/categories/distributed-system/</loc>
-    <lastmod>2020-04-25T11:29:15-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/tags/distributed-systems/</loc>
     <lastmod>2020-04-25T11:29:15-07:00</lastmod>
   </url>
   
@@ -384,17 +454,17 @@
   
   <url>
     <loc>https://www.frankliu.org/hugo/tags/alpha-beta-pruning/</loc>
-    <lastmod>2020-02-01T18:59:00-08:00</lastmod>
+    <lastmod>2020-05-13T00:08:05-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/tags/minimax/</loc>
-    <lastmod>2020-02-01T18:59:00-08:00</lastmod>
+    <lastmod>2020-05-13T00:08:05-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/categories/minimax/</loc>
-    <lastmod>2020-02-01T18:59:00-08:00</lastmod>
+    <lastmod>2020-05-13T00:08:05-07:00</lastmod>
   </url>
   
   <url>

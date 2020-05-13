@@ -12,6 +12,38 @@
     
     
     <item>
+      <title>Google File System</title>
+      <link>https://www.frankliu.org/hugo/posts/google-gfs/</link>
+      <pubDate>Sat, 09 May 2020 10:08:17 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/google-gfs/</guid>
+      <description>5.1 High Availability Chunk Replication  RF of 3 master clones existing replicas when chunkservers go offline or detect corrupted replicas  Master Replication  operation log and checkpoints replicas &amp;ldquo;shadow&amp;rdquo; masters provide read-only access  file metadata like directory contest could be stale reads replica information from logs pools from chunkservers to locate chunk replicas depends on primary for decisions to create and delete replicas    5.2 Data Integrity  impractical to very replica data between replicas use 32bit checksum on 64KB blocks  stored persistently with logging and separate from user data   in reads:  chunkserver verifies the checksum before returning data client reads from another replica master creates a different replica and delete the corrupted one   in appends:  incrementally update the checksum for last partial checksum blocks even if last partial checksum is corrupted, new checksum value will not match stored data and corruption will be detected   in writes:  if write overwrites an existing range on the chunk, need to verify the first and last blocks of the range being overwritten calculate new checksums based from previous checksum so that corruption of unchanged areas will be detected    6 Measurements  1 master, two master replicas, 16 chunkservers, and 16 clients  6.</description>
+    </item>
+    
+    <item>
+      <title>Ascii Diagrams</title>
+      <link>https://www.frankliu.org/hugo/posts/asciio/</link>
+      <pubDate>Wed, 29 Apr 2020 11:37:40 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/asciio/</guid>
+      <description>Asciio Modifications  clone P5-App-Asciio change the zoom in and zoom out keys  ./setup/actions/unsorted.pl:	&amp;lsquo;Zoom in&amp;rsquo; =&amp;gt; [&amp;lsquo;000-plus&amp;rsquo;, \&amp;amp;zoom, 1]
+Building prep perl Build.PL
+Dependencies In Ubuntu most dependencies can be resolved by
+sudo aptitude install lib&amp;lt;Module&amp;gt;-&amp;lt;Submodule&amp;gt;-perl For example if the dependencies require `Foo::Bar`, install it with `sudo aptitude install libfoo-bar-perl`
+Hash::Slice unfortunately is not part of Ubuntu distribution so you will have to install it via CPAN
+cpan Hash::Slice Building .</description>
+    </item>
+    
+    <item>
+      <title>git cheatsheet</title>
+      <link>https://www.frankliu.org/hugo/posts/git-cheat-sheet/</link>
+      <pubDate>Wed, 29 Apr 2020 11:33:30 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/git-cheat-sheet/</guid>
+      <description>Upstream and origin   </description>
+    </item>
+    
+    <item>
       <title>A-star</title>
       <link>https://www.frankliu.org/hugo/posts/a-star/</link>
       <pubDate>Tue, 21 Apr 2020 19:15:00 -0700</pubDate>
@@ -140,8 +172,9 @@ The second phase is like a palindrome stage, where I remove similar increasing s
       <pubDate>Sat, 01 Feb 2020 18:50:57 -0800</pubDate>
       
       <guid>https://www.frankliu.org/hugo/posts/alpha-beta-pruning/</guid>
-      <description>Mnemoic Minimax, alpha beta. Min comes before Max, alpha comes before beta. Minimizer uses alpha, maximizer uses beta.
-Pruning alpha is passed from maximizer to minimizer. maximizer says, beat a score of 10 (it wants something greater). minimizer gets one score of 8. minimizer stops because it can&amp;rsquo;t get above 8, it is a minimizer after all so exploration will only reduce this score, and it will not be useful by the maximizer.</description>
+      <description>Normal pruning   Imagine you are given the following problem: Find the depth of the smallest leaf in a tree.
+def smallest_depth(node, depth): if node is None: return depth - 1 a = smallest_depth(node.left, depth + 1) b = smallest_depth(node.right, depth + 1) return min(a, b) You could improve this a little bit by passing some information to your children:
+def smallest_depth(node, smallest_sofar, depth): if node is None: return depth - 1 if depth &amp;gt;= smallest_sofar: return depth a = smallest_depth(node.</description>
     </item>
     
     <item>

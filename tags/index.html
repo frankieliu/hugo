@@ -36,7 +36,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/tags/" />
-<meta property="og:updated_time" content="2020-04-21T19:15:00-07:00" />
+<meta property="og:updated_time" content="2020-05-09T10:08:17-07:00" />
 <meta itemprop="name" content="Tags">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Tags"/>
@@ -265,8 +265,9 @@ A tree is an undirected graph \(G\) that satisfies any of the following equivale
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Mnemoic Minimax, alpha beta. Min comes before Max, alpha comes before beta. Minimizer uses alpha, maximizer uses beta.
-Pruning alpha is passed from maximizer to minimizer. maximizer says, beat a score of 10 (it wants something greater). minimizer gets one score of 8. minimizer stops because it can&rsquo;t get above 8, it is a minimizer after all so exploration will only reduce this score, and it will not be useful by the maximizer.
+      Normal pruning   Imagine you are given the following problem: Find the depth of the smallest leaf in a tree.
+def smallest_depth(node, depth): if node is None: return depth - 1 a = smallest_depth(node.left, depth + 1) b = smallest_depth(node.right, depth + 1) return min(a, b) You could improve this a little bit by passing some information to your children:
+def smallest_depth(node, smallest_sofar, depth): if node is None: return depth - 1 if depth &gt;= smallest_sofar: return depth a = smallest_depth(node.
     </div>
   </div>
 </div>
@@ -335,6 +336,33 @@ case of missing id I was upset that it had a slack link available, but no discor
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       Getting started Appscript is pretty powerful and free, it is javascript with google api for manipulating things.
  Begin with a sheets document. Open tools/script editor Write in Code.gs Rename to some  Run with the triangle button Ctrl + Enter to see the Log Save it  Since most of the time I am operating on some selected range, you would first select on some cells before running the script.
+    </div>
+  </div>
+</div>
+
+        
+      
+        <h2 class="f1">
+          <a href="https://www.frankliu.org/hugo/tags/ascii" class="link blue hover-black">
+            Tag: ascii
+          </a>
+        </h2>
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/asciio/" class="link black dim">
+        Ascii Diagrams
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Asciio Modifications  clone P5-App-Asciio change the zoom in and zoom out keys  ./setup/actions/unsorted.pl:	&lsquo;Zoom in&rsquo; =&gt; [&lsquo;000-plus&rsquo;, \&amp;zoom, 1]
+Building prep perl Build.PL
+Dependencies In Ubuntu most dependencies can be resolved by
+sudo aptitude install lib&lt;Module&gt;-&lt;Submodule&gt;-perl For example if the dependencies require `Foo::Bar`, install it with `sudo aptitude install libfoo-bar-perl`
+Hash::Slice unfortunately is not part of Ubuntu distribution so you will have to install it via CPAN
+cpan Hash::Slice Building .
     </div>
   </div>
 </div>
@@ -685,6 +713,33 @@ A tree is an undirected graph \(G\) that satisfies any of the following equivale
         
       
         <h2 class="f1">
+          <a href="https://www.frankliu.org/hugo/tags/diagrams" class="link blue hover-black">
+            Tag: diagrams
+          </a>
+        </h2>
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/asciio/" class="link black dim">
+        Ascii Diagrams
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Asciio Modifications  clone P5-App-Asciio change the zoom in and zoom out keys  ./setup/actions/unsorted.pl:	&lsquo;Zoom in&rsquo; =&gt; [&lsquo;000-plus&rsquo;, \&amp;zoom, 1]
+Building prep perl Build.PL
+Dependencies In Ubuntu most dependencies can be resolved by
+sudo aptitude install lib&lt;Module&gt;-&lt;Submodule&gt;-perl For example if the dependencies require `Foo::Bar`, install it with `sudo aptitude install libfoo-bar-perl`
+Hash::Slice unfortunately is not part of Ubuntu distribution so you will have to install it via CPAN
+cpan Hash::Slice Building .
+    </div>
+  </div>
+</div>
+
+        
+      
+        <h2 class="f1">
           <a href="https://www.frankliu.org/hugo/tags/discord" class="link blue hover-black">
             Tag: discord
           </a>
@@ -737,6 +792,21 @@ Understanding the context The Context (ctx) is often the first argument in the f
             Tag: distributed-systems
           </a>
         </h2>
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/google-gfs/" class="link black dim">
+        Google File System
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      5.1 High Availability Chunk Replication  RF of 3 master clones existing replicas when chunkservers go offline or detect corrupted replicas  Master Replication  operation log and checkpoints replicas &ldquo;shadow&rdquo; masters provide read-only access  file metadata like directory contest could be stale reads replica information from logs pools from chunkservers to locate chunk replicas depends on primary for decisions to create and delete replicas    5.2 Data Integrity  impractical to very replica data between replicas use 32bit checksum on 64KB blocks  stored persistently with logging and separate from user data   in reads:  chunkserver verifies the checksum before returning data client reads from another replica master creates a different replica and delete the corrupted one   in appends:  incrementally update the checksum for last partial checksum blocks even if last partial checksum is corrupted, new checksum value will not match stored data and corruption will be detected   in writes:  if write overwrites an existing range on the chunk, need to verify the first and last blocks of the range being overwritten calculate new checksums based from previous checksum so that corruption of unchanged areas will be detected    6 Measurements  1 master, two master replicas, 16 chunkservers, and 16 clients  6.
+    </div>
+  </div>
+</div>
+
         
           <div class="relative w-100 mb4 bg-white nested-copy-line-height">
   <div class="bg-white mb3 pa4 gray overflow-hidden">
@@ -906,6 +976,28 @@ The FFT is a divide and conquer algorithm where instead of doing \(O(n)\) comput
         
       
         <h2 class="f1">
+          <a href="https://www.frankliu.org/hugo/tags/file-systems" class="link blue hover-black">
+            Tag: file-systems
+          </a>
+        </h2>
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/google-gfs/" class="link black dim">
+        Google File System
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      5.1 High Availability Chunk Replication  RF of 3 master clones existing replicas when chunkservers go offline or detect corrupted replicas  Master Replication  operation log and checkpoints replicas &ldquo;shadow&rdquo; masters provide read-only access  file metadata like directory contest could be stale reads replica information from logs pools from chunkservers to locate chunk replicas depends on primary for decisions to create and delete replicas    5.2 Data Integrity  impractical to very replica data between replicas use 32bit checksum on 64KB blocks  stored persistently with logging and separate from user data   in reads:  chunkserver verifies the checksum before returning data client reads from another replica master creates a different replica and delete the corrupted one   in appends:  incrementally update the checksum for last partial checksum blocks even if last partial checksum is corrupted, new checksum value will not match stored data and corruption will be detected   in writes:  if write overwrites an existing range on the chunk, need to verify the first and last blocks of the range being overwritten calculate new checksums based from previous checksum so that corruption of unchanged areas will be detected    6 Measurements  1 master, two master replicas, 16 chunkservers, and 16 clients  6.
+    </div>
+  </div>
+</div>
+
+        
+      
+        <h2 class="f1">
           <a href="https://www.frankliu.org/hugo/tags/generating-functions" class="link blue hover-black">
             Tag: generating-functions
           </a>
@@ -923,6 +1015,50 @@ The FFT is a divide and conquer algorithm where instead of doing \(O(n)\) comput
       This is a commentary on the solution from Benjamin Qi.
 from permutation to tree generation Before we go into the solution of this problem it is good to be able to understand how to create a tree using a permutation.
 First how does a permutation \(a\) translate into a tree? Think of \(a[i]\) as the time in which node \(i\) is inserted to the tree. We&rsquo;ll use the following \(a=42315\) for illustration.
+    </div>
+  </div>
+</div>
+
+        
+      
+        <h2 class="f1">
+          <a href="https://www.frankliu.org/hugo/tags/gfs" class="link blue hover-black">
+            Tag: gfs
+          </a>
+        </h2>
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/google-gfs/" class="link black dim">
+        Google File System
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      5.1 High Availability Chunk Replication  RF of 3 master clones existing replicas when chunkservers go offline or detect corrupted replicas  Master Replication  operation log and checkpoints replicas &ldquo;shadow&rdquo; masters provide read-only access  file metadata like directory contest could be stale reads replica information from logs pools from chunkservers to locate chunk replicas depends on primary for decisions to create and delete replicas    5.2 Data Integrity  impractical to very replica data between replicas use 32bit checksum on 64KB blocks  stored persistently with logging and separate from user data   in reads:  chunkserver verifies the checksum before returning data client reads from another replica master creates a different replica and delete the corrupted one   in appends:  incrementally update the checksum for last partial checksum blocks even if last partial checksum is corrupted, new checksum value will not match stored data and corruption will be detected   in writes:  if write overwrites an existing range on the chunk, need to verify the first and last blocks of the range being overwritten calculate new checksums based from previous checksum so that corruption of unchanged areas will be detected    6 Measurements  1 master, two master replicas, 16 chunkservers, and 16 clients  6.
+    </div>
+  </div>
+</div>
+
+        
+      
+        <h2 class="f1">
+          <a href="https://www.frankliu.org/hugo/tags/git" class="link blue hover-black">
+            Tag: git
+          </a>
+        </h2>
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/git-cheat-sheet/" class="link black dim">
+        git cheatsheet
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Upstream and origin   
     </div>
   </div>
 </div>
@@ -1342,8 +1478,9 @@ Multiple FE clusters  single geo region control data replication data consistenc
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Mnemoic Minimax, alpha beta. Min comes before Max, alpha comes before beta. Minimizer uses alpha, maximizer uses beta.
-Pruning alpha is passed from maximizer to minimizer. maximizer says, beat a score of 10 (it wants something greater). minimizer gets one score of 8. minimizer stops because it can&rsquo;t get above 8, it is a minimizer after all so exploration will only reduce this score, and it will not be useful by the maximizer.
+      Normal pruning   Imagine you are given the following problem: Find the depth of the smallest leaf in a tree.
+def smallest_depth(node, depth): if node is None: return depth - 1 a = smallest_depth(node.left, depth + 1) b = smallest_depth(node.right, depth + 1) return min(a, b) You could improve this a little bit by passing some information to your children:
+def smallest_depth(node, smallest_sofar, depth): if node is None: return depth - 1 if depth &gt;= smallest_sofar: return depth a = smallest_depth(node.
     </div>
   </div>
 </div>

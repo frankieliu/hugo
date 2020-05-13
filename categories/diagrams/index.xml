@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>diagrams on My New Hugo Site</title>
+    <link>https://www.frankliu.org/hugo/categories/diagrams/</link>
+    <description>Recent content in diagrams on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 29 Apr 2020 11:37:40 -0700</lastBuildDate>
+    
+	<atom:link href="https://www.frankliu.org/hugo/categories/diagrams/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ascii Diagrams</title>
+      <link>https://www.frankliu.org/hugo/posts/asciio/</link>
+      <pubDate>Wed, 29 Apr 2020 11:37:40 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/asciio/</guid>
+      <description>Asciio Modifications  clone P5-App-Asciio change the zoom in and zoom out keys  ./setup/actions/unsorted.pl:	&amp;lsquo;Zoom in&amp;rsquo; =&amp;gt; [&amp;lsquo;000-plus&amp;rsquo;, \&amp;amp;zoom, 1]
+Building prep perl Build.PL
+Dependencies In Ubuntu most dependencies can be resolved by
+sudo aptitude install lib&amp;lt;Module&amp;gt;-&amp;lt;Submodule&amp;gt;-perl For example if the dependencies require `Foo::Bar`, install it with `sudo aptitude install libfoo-bar-perl`
+Hash::Slice unfortunately is not part of Ubuntu distribution so you will have to install it via CPAN
+cpan Hash::Slice Building .</description>
+    </item>
+    
+  </channel>
+</rss>

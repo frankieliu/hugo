@@ -182,6 +182,56 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/google-gfs/" class="link black dim">
+        Google File System
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      5.1 High Availability Chunk Replication  RF of 3 master clones existing replicas when chunkservers go offline or detect corrupted replicas  Master Replication  operation log and checkpoints replicas &ldquo;shadow&rdquo; masters provide read-only access  file metadata like directory contest could be stale reads replica information from logs pools from chunkservers to locate chunk replicas depends on primary for decisions to create and delete replicas    5.2 Data Integrity  impractical to very replica data between replicas use 32bit checksum on 64KB blocks  stored persistently with logging and separate from user data   in reads:  chunkserver verifies the checksum before returning data client reads from another replica master creates a different replica and delete the corrupted one   in appends:  incrementally update the checksum for last partial checksum blocks even if last partial checksum is corrupted, new checksum value will not match stored data and corruption will be detected   in writes:  if write overwrites an existing range on the chunk, need to verify the first and last blocks of the range being overwritten calculate new checksums based from previous checksum so that corruption of unchanged areas will be detected    6 Measurements  1 master, two master replicas, 16 chunkservers, and 16 clients  6.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/asciio/" class="link black dim">
+        Ascii Diagrams
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Asciio Modifications  clone P5-App-Asciio change the zoom in and zoom out keys  ./setup/actions/unsorted.pl:	&lsquo;Zoom in&rsquo; =&gt; [&lsquo;000-plus&rsquo;, \&amp;zoom, 1]
+Building prep perl Build.PL
+Dependencies In Ubuntu most dependencies can be resolved by
+sudo aptitude install lib&lt;Module&gt;-&lt;Submodule&gt;-perl For example if the dependencies require `Foo::Bar`, install it with `sudo aptitude install libfoo-bar-perl`
+Hash::Slice unfortunately is not part of Ubuntu distribution so you will have to install it via CPAN
+cpan Hash::Slice Building .
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/git-cheat-sheet/" class="link black dim">
+        git cheatsheet
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Upstream and origin   
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
       <a href="https://www.frankliu.org/hugo/posts/a-star/" class="link black dim">
         A-star
       </a>
@@ -292,59 +342,6 @@ Let&rsquo;s take a look at the diagonal section of 4,4,4 (pink), since I can get
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       Requirements  real-time aggregate dispersed data access hot set scale refs [1,2,5,6,12,14,34,36]  Front-end cluster    read heavy workload (100:1 R/W) wide fanout handle failures 10 Mops/s  Q: what is a wide fanout
 Multiple FE clusters  single geo region control data replication data consistency 100 Mops/s  Multiple regions  muliple geo regions storage replication data consistency 1 Bops/s  Pre-memcached   High fanout    data dependency graph for a small user request  Look-aside cache   why deletes over set
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/fft/" class="link black dim">
-        FFT
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      polynomials \[ f(x) = A_0 + A_1 x + A_2 x^2 + \cdots + A_{n-1} x^{n-1} \]
-roots \begin{eqnarray} x^{n} &amp;=&amp; 1 \\\
-x &amp;=&amp; e^{i \frac{2\pi}{n}} \end{eqnarray}
-Call \(e^{i \frac{2\pi}{n}} = w_n\) the fundamental, then there are \(n\) such roots, \(w_n^k\) for \(k = 0,\cdots,n-1\).
-The fourier transform is a vector of the polynomial evaluated at each of the \(k\) roots.
-\[ F(k) = f(w_n^k) \]
-The FFT is a divide and conquer algorithm where instead of doing \(O(n)\) computations for each fourier coefficient \(F(k)\), we break up the problem into 2 subproblems of size \(n/2\) and do a merge which is of order \(n\).
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/ericcto-segment-tree/" class="link black dim">
-        Errichto - segment tree
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Segment tree   Preliminaries The data structure in this segment tree information according to Antti Laaksonen in the Competitive Programmer&rsquo;s Handbook comes from
-[62] P. Stańczyk. Algorytmika praktyczna w konkursach Informatycznych, MSc thesis, University of Warsaw, 2006.
-Basically the original range is stored at some offset that correspond to largest power of two that is greater or equal to the size of the range. For example a size 16 array would be stored at an offset of 16 in the array.
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/craq-terrace-freedman/" class="link black dim">
-        Craq - Terrace and Freedman
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      questions  what is the interface provided  simple k,v store    what are the guarantees discussed  strong and eventual consistency  chain replication  where are requests handled?  write at head read at tail   what is the dotted line going back from tail to head  reply to the &ldquo;write&rdquo; client - committed   why is this cheaper than other topologies  because of pipelining of the writes down the chain   what consistency does CR achieve?
     </div>
   </div>
 </div>

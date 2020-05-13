@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>file systems on My New Hugo Site</title>
+    <link>https://www.frankliu.org/hugo/categories/file-systems/</link>
+    <description>Recent content in file systems on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 09 May 2020 10:08:17 -0700</lastBuildDate>
+    
+	<atom:link href="https://www.frankliu.org/hugo/categories/file-systems/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Google File System</title>
+      <link>https://www.frankliu.org/hugo/posts/google-gfs/</link>
+      <pubDate>Sat, 09 May 2020 10:08:17 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/google-gfs/</guid>
+      <description>5.1 High Availability Chunk Replication  RF of 3 master clones existing replicas when chunkservers go offline or detect corrupted replicas  Master Replication  operation log and checkpoints replicas &amp;ldquo;shadow&amp;rdquo; masters provide read-only access  file metadata like directory contest could be stale reads replica information from logs pools from chunkservers to locate chunk replicas depends on primary for decisions to create and delete replicas    5.2 Data Integrity  impractical to very replica data between replicas use 32bit checksum on 64KB blocks  stored persistently with logging and separate from user data   in reads:  chunkserver verifies the checksum before returning data client reads from another replica master creates a different replica and delete the corrupted one   in appends:  incrementally update the checksum for last partial checksum blocks even if last partial checksum is corrupted, new checksum value will not match stored data and corruption will be detected   in writes:  if write overwrites an existing range on the chunk, need to verify the first and last blocks of the range being overwritten calculate new checksums based from previous checksum so that corruption of unchanged areas will be detected    6 Measurements  1 master, two master replicas, 16 chunkservers, and 16 clients  6.</description>
+    </item>
+    
+  </channel>
+</rss>

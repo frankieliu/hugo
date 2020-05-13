@@ -17,8 +17,9 @@
       <pubDate>Sat, 01 Feb 2020 18:50:57 -0800</pubDate>
       
       <guid>https://www.frankliu.org/hugo/posts/alpha-beta-pruning/</guid>
-      <description>Mnemoic Minimax, alpha beta. Min comes before Max, alpha comes before beta. Minimizer uses alpha, maximizer uses beta.
-Pruning alpha is passed from maximizer to minimizer. maximizer says, beat a score of 10 (it wants something greater). minimizer gets one score of 8. minimizer stops because it can&amp;rsquo;t get above 8, it is a minimizer after all so exploration will only reduce this score, and it will not be useful by the maximizer.</description>
+      <description>Normal pruning   Imagine you are given the following problem: Find the depth of the smallest leaf in a tree.
+def smallest_depth(node, depth): if node is None: return depth - 1 a = smallest_depth(node.left, depth + 1) b = smallest_depth(node.right, depth + 1) return min(a, b) You could improve this a little bit by passing some information to your children:
+def smallest_depth(node, smallest_sofar, depth): if node is None: return depth - 1 if depth &amp;gt;= smallest_sofar: return depth a = smallest_depth(node.</description>
     </item>
     
   </channel>
