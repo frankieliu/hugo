@@ -172,7 +172,7 @@ The second phase is like a palindrome stage, where I remove similar increasing s
       <pubDate>Sat, 01 Feb 2020 18:50:57 -0800</pubDate>
       
       <guid>https://www.frankliu.org/hugo/posts/alpha-beta-pruning/</guid>
-      <description>Normal pruning   Imagine you are given the following problem: Find the depth of the smallest leaf in a tree.
+      <description>Normal pruning   Imagine you are given the following problem: Find the depth of the the leaf closest to the root of a tree.
 def smallest_depth(node, depth): if node is None: return depth - 1 a = smallest_depth(node.left, depth + 1) b = smallest_depth(node.right, depth + 1) return min(a, b) You could improve this a little bit by passing some information to your children:
 def smallest_depth(node, smallest_sofar, depth): if node is None: return depth - 1 if depth &amp;gt;= smallest_sofar: return depth a = smallest_depth(node.</description>
     </item>

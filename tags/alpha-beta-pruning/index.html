@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | alpha beta pruning</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.69.2" />
+    <meta name="generator" content="Hugo 0.70.0" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -191,7 +191,7 @@
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Normal pruning   Imagine you are given the following problem: Find the depth of the smallest leaf in a tree.
+      Normal pruning   Imagine you are given the following problem: Find the depth of the the leaf closest to the root of a tree.
 def smallest_depth(node, depth): if node is None: return depth - 1 a = smallest_depth(node.left, depth + 1) b = smallest_depth(node.right, depth + 1) return min(a, b) You could improve this a little bit by passing some information to your children:
 def smallest_depth(node, smallest_sofar, depth): if node is None: return depth - 1 if depth &gt;= smallest_sofar: return depth a = smallest_depth(node.
     </div>

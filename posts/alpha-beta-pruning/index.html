@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | Minimax - alpha beta pruning</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.69.2" />
+    <meta name="generator" content="Hugo 0.70.0" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -28,26 +28,26 @@
     
     
     <meta property="og:title" content="Minimax - alpha beta pruning" />
-<meta property="og:description" content="Normal pruning   Imagine you are given the following problem: Find the depth of the smallest leaf in a tree.
+<meta property="og:description" content="Normal pruning   Imagine you are given the following problem: Find the depth of the the leaf closest to the root of a tree.
 def smallest_depth(node, depth): if node is None: return depth - 1 a = smallest_depth(node.left, depth &#43; 1) b = smallest_depth(node.right, depth &#43; 1) return min(a, b) You could improve this a little bit by passing some information to your children:
 def smallest_depth(node, smallest_sofar, depth): if node is None: return depth - 1 if depth &gt;= smallest_sofar: return depth a = smallest_depth(node." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/alpha-beta-pruning/" />
 <meta property="article:published_time" content="2020-02-01T18:50:57-08:00" />
-<meta property="article:modified_time" content="2020-05-13T00:08:05-07:00" />
+<meta property="article:modified_time" content="2020-05-13T17:28:03-07:00" />
 <meta itemprop="name" content="Minimax - alpha beta pruning">
-<meta itemprop="description" content="Normal pruning   Imagine you are given the following problem: Find the depth of the smallest leaf in a tree.
+<meta itemprop="description" content="Normal pruning   Imagine you are given the following problem: Find the depth of the the leaf closest to the root of a tree.
 def smallest_depth(node, depth): if node is None: return depth - 1 a = smallest_depth(node.left, depth &#43; 1) b = smallest_depth(node.right, depth &#43; 1) return min(a, b) You could improve this a little bit by passing some information to your children:
 def smallest_depth(node, smallest_sofar, depth): if node is None: return depth - 1 if depth &gt;= smallest_sofar: return depth a = smallest_depth(node.">
 <meta itemprop="datePublished" content="2020-02-01T18:50:57-08:00" />
-<meta itemprop="dateModified" content="2020-05-13T00:08:05-07:00" />
-<meta itemprop="wordCount" content="693">
+<meta itemprop="dateModified" content="2020-05-13T17:28:03-07:00" />
+<meta itemprop="wordCount" content="698">
 
 
 
 <meta itemprop="keywords" content="minimax,alpha beta pruning," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Minimax - alpha beta pruning"/>
-<meta name="twitter:description" content="Normal pruning   Imagine you are given the following problem: Find the depth of the smallest leaf in a tree.
+<meta name="twitter:description" content="Normal pruning   Imagine you are given the following problem: Find the depth of the the leaf closest to the root of a tree.
 def smallest_depth(node, depth): if node is None: return depth - 1 a = smallest_depth(node.left, depth &#43; 1) b = smallest_depth(node.right, depth &#43; 1) return min(a, b) You could improve this a little bit by passing some information to your children:
 def smallest_depth(node, smallest_sofar, depth): if node is None: return depth - 1 if depth &gt;= smallest_sofar: return depth a = smallest_depth(node."/>
 
@@ -226,7 +226,7 @@ MathJax.Hub.Config({
 </figure>
 
 <p>Imagine you are given the following problem: Find the depth of the
-smallest leaf in a tree.</p>
+the leaf closest to the root of a tree.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">smallest_depth</span>(node, depth):
     <span style="color:#66d9ef">if</span> node <span style="color:#f92672">is</span> None:
         <span style="color:#66d9ef">return</span> depth <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
@@ -261,10 +261,10 @@ bit more.</p>
     <span style="color:#66d9ef">return</span> v
 </code></pre></div><p>In this case, I have not specified the <code>value</code> function. But it may need some
 information about the running max <code>v</code> and the <code>critical_max</code> to stop its
-evaluation early. What is known, however, is that this function calculates a
-running <code>max</code>, and there is a <code>critical_max</code> which is some upper bound that must
-not be crossed. Or if it is crossed, further visitation on <code>child</code> states
-are not necessary.</p>
+evaluation early. What is known, however, is that this function (<code>max_value</code>)
+calculates a running <code>max</code>, and there is a <code>critical_max</code> which is some upper
+bound that must not be crossed. Or if it is crossed, further visitation on
+<code>child</code> states are not necessary.</p>
 <p>This is pretty close to alpha-beta pruning already.  Now, we just add the idea
 that the <code>value</code> function for the next state is a <code>min_value</code> function, and we
 pass to it a <code>critical_min</code> which will be the running max of this stage.  Why
