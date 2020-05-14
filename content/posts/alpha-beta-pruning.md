@@ -2,7 +2,7 @@
 title = "Minimax - alpha beta pruning"
 author = ["adam"]
 date = 2020-02-01T18:50:57-08:00
-lastmod = 2020-05-13T00:08:05-07:00
+lastmod = 2020-05-13T17:28:03-07:00
 tags = ["minimax", "alpha beta pruning"]
 categories = ["minimax"]
 draft = false
@@ -21,7 +21,7 @@ toc = true
 {{< figure src="/images/alpha-beta/alpha-beta.png" >}}
 
 Imagine you are given the following problem: Find the depth of the
-smallest leaf in a tree.
+the leaf closest to the root of a tree.
 
 ```python
 def smallest_depth(node, depth):
@@ -68,10 +68,10 @@ def max_value(state, critical_max):
 
 In this case, I have not specified the `value` function. But it may need some
 information about the running max `v` and the `critical_max` to stop its
-evaluation early. What is known, however, is that this function calculates a
-running `max`, and there is a `critical_max` which is some upper bound that must
-not be crossed. Or if it is crossed, further visitation on `child` states
-are not necessary.
+evaluation early. What is known, however, is that this function (`max_value`)
+calculates a running `max`, and there is a `critical_max` which is some upper
+bound that must not be crossed. Or if it is crossed, further visitation on
+`child` states are not necessary.
 
 This is pretty close to alpha-beta pruning already.  Now, we just add the idea
 that the `value` function for the next state is a `min_value` function, and we

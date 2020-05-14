@@ -18,7 +18,7 @@
 [[file:images/alpha-beta/alpha-beta.png]]
 
 Imagine you are given the following problem: Find the depth of the
-smallest leaf in a tree.
+the leaf closest to the root of a tree.
 
 #+begin_src python
   def smallest_depth(node, depth):
@@ -65,10 +65,10 @@ bit more.
 
 In this case, I have not specified the ~value~ function. But it may need some
 information about the running max ~v~ and the ~critical_max~ to stop its
-evaluation early. What is known, however, is that this function calculates a
-running ~max~, and there is a ~critical_max~ which is some upper bound that must
-not be crossed. Or if it is crossed, further visitation on ~child~ states
-are not necessary.
+evaluation early. What is known, however, is that this function (~max_value~)
+calculates a running ~max~, and there is a ~critical_max~ which is some upper
+bound that must not be crossed. Or if it is crossed, further visitation on
+~child~ states are not necessary.
 
 This is pretty close to alpha-beta pruning already.  Now, we just add the idea
 that the ~value~ function for the next state is a ~min_value~ function, and we
