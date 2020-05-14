@@ -2,7 +2,7 @@
 title = "Minimax - alpha beta pruning"
 author = ["adam"]
 date = 2020-02-01T18:50:57-08:00
-lastmod = 2020-05-13T17:28:03-07:00
+lastmod = 2020-05-13T17:30:27-07:00
 tags = ["minimax", "alpha beta pruning"]
 categories = ["minimax"]
 draft = false
@@ -101,7 +101,7 @@ def max_value(state, critical_max, critical_min):
     return v
 ```
 
-The only thing that we has been added here (in addition to the foregoing
+The only thing that has been added here (in addition to the foregoing
 discussion) is that a predecessor's `critical_min` may be tighter than the current
 running max at this stage so it may over ride the current running max.
 

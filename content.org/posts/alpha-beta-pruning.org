@@ -98,7 +98,7 @@ get successively tighter (increasing lower) bounds.
       return v
 #+end_src
 
-The only thing that we has been added here (in addition to the foregoing
+The only thing that has been added here (in addition to the foregoing
 discussion) is that a predecessor's ~critical_min~ may be tighter than the current
 running max at this stage so it may over ride the current running max.
 
