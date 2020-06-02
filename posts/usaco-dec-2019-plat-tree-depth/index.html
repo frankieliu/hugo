@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | Tree Depth - USACO Platimum Dec19</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.70.0" />
+    <meta name="generator" content="Hugo 0.72.0" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -251,7 +251,7 @@ another branch of node \(4\). This is not possible because both nodes \(2\) and 
 lie on the same subtree since they both come after node \(4\) and lie to the same
 side of node \(4\).</p>
 <p>Note the independence of left and right sides from the previous statement, it
-doesn&rsquo;t matter whether node \(2\) is below or above node \(4\) from \(3\)&lsquo;s
+doesn&rsquo;t matter whether node \(2\) is below or above node \(4\) from \(3\)&rsquo;s
 perspective, it only needs to know how many ancestors are above it. This will
 come in handy later.</p>
 <p>Node \(3\) was kind of obvious, we look to the left and right and found two nodes
@@ -260,7 +260,7 @@ tricky. If you apply the same logic as before, nodes \(2,3,4\) all have \(a[2 ..
 &lt; a[1]\) they all could be potential ancestors for \(1\). If you think of them in
 order, however, you will note the following. For \(a[4]\), it is clear that it is
 the root, everything to its right is irrelevant to \(1\). For \(3\) it is not clear
-whether it is an ancestor of \(1\). Node \(1\) could potentially lie on \(3\)&lsquo;s left
+whether it is an ancestor of \(1\). Node \(1\) could potentially lie on \(3\)&rsquo;s left
 branch from its positioning, unless there is a node between \(3\) and \(1\) that
 separates them into separate branches. Indeed there is such a node: \(2\). Node
 \(2\) comes before \(3\) and therefore separates \(1\) from \(3\) into different
@@ -312,7 +312,7 @@ to include permutations unconstrained by the value of \(a[j&rsquo;]\).</p>
 <p>With the independence property, we can now independently consider contributions
 of depth to a particular node, say node \(i\).  For a particular node \(i\) we will
 also consider a particular node \(j\) that is a potential ancestor and tabulate
-how many permutations have node \(j\) as \(i\)&lsquo;s ancestor.  We are free to tabulate
+how many permutations have node \(j\) as \(i\)&rsquo;s ancestor.  We are free to tabulate
 all these permutations as long as they follow two rules.</p>
 <p>One, the total number of inversions has to be \(k\) and two, for these
 permutations there are no node smaller than \(a[j]\) for nodes in \(i\ldots j\).</p>

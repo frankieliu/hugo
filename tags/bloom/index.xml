@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bloom on My New Hugo Site</title>
+    <link>https://www.frankliu.org/hugo/tags/bloom/</link>
+    <description>Recent content in bloom on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 30 May 2020 07:18:38 -0700</lastBuildDate>
+    
+	<atom:link href="https://www.frankliu.org/hugo/tags/bloom/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bloom, count min sketch</title>
+      <link>https://www.frankliu.org/hugo/posts/bloom/</link>
+      <pubDate>Sat, 30 May 2020 07:18:38 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/bloom/</guid>
+      <description>Bloom Probability of false positive Probability that BF reports positive set membership for an element that is not in the set
+\[ {\displaystyle \varepsilon =\left(1-\left[1-{\frac {1}{m}}\right]^{kn}\right)^{k}\approx \left(1-e^{-kn/m}\right)^{k}.} \]
+\(k\) is the number of hash functions, \(m\) is the number of bits in the array, and \(n\) is the number of entries inserted into the table.
+Obviously increasing \(m\) and decreasing \(n\) would decrease the \(\varepsilon\) however \(k\) has a optimal point.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | Leetcode 1320. Minimum Distance to Type a Word Using Two Fingers</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.70.0" />
+    <meta name="generator" content="Hugo 0.72.0" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -236,7 +236,7 @@ of the fingers will take the next character.  Since we don&rsquo;t know the futu
 characters, we have to keep an account of both possibilities.  Let&rsquo;s say
 that \(dp[a][b]\) represents the cost so far for ending with fingers at \(a\)
 and \(b\).  Then when a new character comes, \(c\), then there are two possibilities
-\(dp[a][c]\) or \(dp[c][b]\).  Note that we can discard all other \(dp[a][b]\)&lsquo;s for
+\(dp[a][c]\) or \(dp[c][b]\).  Note that we can discard all other \(dp[a][b]\)&rsquo;s for
 the next round of computation since one of the fingers has to be at \(c\).</p>
 <p>Let&rsquo;s just compute one more round for a new character, \(d\).  In this case,
 we have \(dp[a][d], dp[d][c], dp[c][d], dp[d][b]\).  Here we note that there

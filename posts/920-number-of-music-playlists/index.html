@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | 920 Number of music playlists</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.70.0" />
+    <meta name="generator" content="Hugo 0.72.0" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -251,7 +251,7 @@ a window \(K+1\) of non-repeating characters. Let&rsquo;s take \(K+1 = 2\) for t
 above. That means for the \(c_3\), its choice of characters must come from the set
 \(\left\{1,2\right\}\) and in addition it must be different from character at
 position \(2\) (&quot;\(2\)&rdquo; in the example above). This restriction implies that there
-is only one possible choice for \(c_3\), namely &ldquo;\(1\)&quot;. We will count this
+is only one possible choice for \(c_3\), namely &ldquo;\(1\)&rdquo;. We will count this
 possibility as \(1^\delta\), where \(\delta\) denotes the number of characters
 between the first occurrence of the \(K+1\) th character and the first occurrence
 of the \(K+2\) th character, or \(x_{K+2}-x_{K+1}-1\) from \(\bar{x}\). Similarly for
@@ -267,7 +267,7 @@ that the author also thinks in terms of a window of \(K\) unique characters rath
 than of \(K+1\) characters, thus interchanging the usage of the \(K\) previous other
 characters with the window length for unique characters. To be consistent, I
 stick with the definition of \(K\) in the problem statement.</p>
-<p>Given \(N\), \(L\), and \(K\), how many \(\delta\)&lsquo;s are there? This should be equal to
+<p>Given \(N\), \(L\), and \(K\), how many \(\delta\)&rsquo;s are there? This should be equal to
 the number of unique characters discounting the grouping at the beginning or
 \(N-K \equiv P\). Conveniently, the article suggests adding a \(x_{N+1} = L+1\) to
 \(\bar{x}\) so the last \(\delta\) can be determined from \(\bar{x}\).</p>
@@ -275,10 +275,10 @@ the number of unique characters discounting the grouping at the beginning or
 for a given \(\bar{x}\) corresponds to the spacing between first occurrences, the
 total sum of spaces plus the unique characters must sum to \(L\), in other words,
 \(\sum \delta_i + N = L\), or \(\sum \delta_i = L-N \equiv S\), where I have appended
-a subscript \(i\) to enumerate each spacing. Note that a vector of \(\delta_i\)&lsquo;s
+a subscript \(i\) to enumerate each spacing. Note that a vector of \(\delta_i\)&rsquo;s
 uniquely determines an \(\bar{x}\). So an enumeration of all possible \(\bar{x}\) is
 equivalent to enumerating all possible \(\bar{\delta}\), where a \(\bar{\delta}\)
-denotes a n-tuple of \(\delta_i\)&lsquo;s corresponding to some \(\bar{x}\). The article
+denotes a n-tuple of \(\delta_i\)&rsquo;s corresponding to some \(\bar{x}\). The article
 expresses the sum of all these enumerations as
 \[
 \sum_{\bar{\delta}\ \rm{ s.t. }\sum \delta_i = S} \cdots

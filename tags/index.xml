@@ -6,17 +6,17 @@
     <description>Recent content in Tags on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 May 2020 10:08:17 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 30 May 2020 07:18:38 -0700</lastBuildDate>
     
 	<atom:link href="https://www.frankliu.org/hugo/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>distributed system</title>
-      <link>https://www.frankliu.org/hugo/tags/distributed-system/</link>
-      <pubDate>Sat, 09 May 2020 10:08:17 -0700</pubDate>
+      <title>bloom</title>
+      <link>https://www.frankliu.org/hugo/tags/bloom/</link>
+      <pubDate>Sat, 30 May 2020 07:18:38 -0700</pubDate>
       
-      <guid>https://www.frankliu.org/hugo/tags/distributed-system/</guid>
+      <guid>https://www.frankliu.org/hugo/tags/bloom/</guid>
       <description></description>
     </item>
     
@@ -363,6 +363,15 @@
     </item>
     
     <item>
+      <title>distributed system</title>
+      <link>https://www.frankliu.org/hugo/tags/distributed-system/</link>
+      <pubDate>Sat, 18 Jan 2020 19:24:37 -0800</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/distributed-system/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>generating functions</title>
       <link>https://www.frankliu.org/hugo/tags/generating-functions/</link>
       <pubDate>Wed, 15 Jan 2020 18:21:28 -0800</pubDate>
@@ -413,15 +422,6 @@
       <pubDate>Wed, 20 Nov 2019 23:21:28 -0800</pubDate>
       
       <guid>https://www.frankliu.org/hugo/tags/computational-geometry/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R</title>
-      <link>https://www.frankliu.org/hugo/tags/r/</link>
-      <pubDate>Wed, 20 Nov 2019 23:21:28 -0800</pubDate>
-      
-      <guid>https://www.frankliu.org/hugo/tags/r/</guid>
       <description></description>
     </item>
     
@@ -548,6 +548,15 @@
       <pubDate>Sat, 12 Oct 2019 12:46:54 -0700</pubDate>
       
       <guid>https://www.frankliu.org/hugo/tags/vector-clocks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>https://www.frankliu.org/hugo/tags/r/</link>
+      <pubDate>Fri, 04 Oct 2019 22:35:02 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/r/</guid>
       <description></description>
     </item>
     

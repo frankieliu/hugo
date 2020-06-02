@@ -12,6 +12,18 @@
     
     
     <item>
+      <title>Bloom, count min sketch</title>
+      <link>https://www.frankliu.org/hugo/posts/bloom/</link>
+      <pubDate>Sat, 30 May 2020 07:18:38 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/bloom/</guid>
+      <description>Bloom Probability of false positive Probability that BF reports positive set membership for an element that is not in the set
+\[ {\displaystyle \varepsilon =\left(1-\left[1-{\frac {1}{m}}\right]^{kn}\right)^{k}\approx \left(1-e^{-kn/m}\right)^{k}.} \]
+\(k\) is the number of hash functions, \(m\) is the number of bits in the array, and \(n\) is the number of entries inserted into the table.
+Obviously increasing \(m\) and decreasing \(n\) would decrease the \(\varepsilon\) however \(k\) has a optimal point.</description>
+    </item>
+    
+    <item>
       <title>Google File System</title>
       <link>https://www.frankliu.org/hugo/posts/google-gfs/</link>
       <pubDate>Sat, 09 May 2020 10:08:17 -0700</pubDate>
