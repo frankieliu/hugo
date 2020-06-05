@@ -28,49 +28,34 @@
     
     
     <meta property="og:title" content="Bomb lab" />
-<meta property="og:description" content="sample bomb http://csapp.cs.cmu.edu/3e/labs.html
-name list (nm), strings, objdump  nm bomb strings objdump  start gdb in gui mode gdb -tui bomb
-https://sourceware.org/gdb/current/onlinedocs/gdb/TUI-Keys.html#TUI-Keys
-Keyboard shortcut   C-x a : enter or leave TUI mode
-  C-x 1 : one window
-  C-x 2 : two windows
-also cycles through different layouts
-  C-x o : &lsquo;other&rsquo;
-  C-l : refresh
-  Navication up, down, left, right, pgup, pgdown" />
+<meta property="og:description" content="Description From Bryant and O&rsquo;Hallaron&rsquo;s book Computer Systems: A Programmer&rsquo;s Perspective.
+ http://www.cs.cmu.edu/~bryant/ http://www.cs.cmu.edu/~droh/ http://csapp.cs.cmu.edu/  One of the first labs. The Bomb Lab, contains a binary bomb that must be diffused, by disassembling the executable.
+sample bomb A sample bomb can be obtained here.
+ http://csapp.cs.cmu.edu/3e/labs.html  problem set and blog Here are a couple of helpful resources:
+ https://web.stanford.edu/class/archive/cs/cs107/cs107.1174/assign5/advice.html http://zpalexander.com/binary-bomb-lab-phase-1/  name list (nm), strings, objdump These are kind of unnecessary, all can be done within gdb." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/bomb/" />
 <meta property="article:published_time" content="2020-06-02T12:13:39-07:00" />
-<meta property="article:modified_time" content="2020-06-03T16:19:46-07:00" />
+<meta property="article:modified_time" content="2020-06-05T07:05:14-07:00" />
 <meta itemprop="name" content="Bomb lab">
-<meta itemprop="description" content="sample bomb http://csapp.cs.cmu.edu/3e/labs.html
-name list (nm), strings, objdump  nm bomb strings objdump  start gdb in gui mode gdb -tui bomb
-https://sourceware.org/gdb/current/onlinedocs/gdb/TUI-Keys.html#TUI-Keys
-Keyboard shortcut   C-x a : enter or leave TUI mode
-  C-x 1 : one window
-  C-x 2 : two windows
-also cycles through different layouts
-  C-x o : &lsquo;other&rsquo;
-  C-l : refresh
-  Navication up, down, left, right, pgup, pgdown">
+<meta itemprop="description" content="Description From Bryant and O&rsquo;Hallaron&rsquo;s book Computer Systems: A Programmer&rsquo;s Perspective.
+ http://www.cs.cmu.edu/~bryant/ http://www.cs.cmu.edu/~droh/ http://csapp.cs.cmu.edu/  One of the first labs. The Bomb Lab, contains a binary bomb that must be diffused, by disassembling the executable.
+sample bomb A sample bomb can be obtained here.
+ http://csapp.cs.cmu.edu/3e/labs.html  problem set and blog Here are a couple of helpful resources:
+ https://web.stanford.edu/class/archive/cs/cs107/cs107.1174/assign5/advice.html http://zpalexander.com/binary-bomb-lab-phase-1/  name list (nm), strings, objdump These are kind of unnecessary, all can be done within gdb.">
 <meta itemprop="datePublished" content="2020-06-02T12:13:39-07:00" />
-<meta itemprop="dateModified" content="2020-06-03T16:19:46-07:00" />
-<meta itemprop="wordCount" content="594">
+<meta itemprop="dateModified" content="2020-06-05T07:05:14-07:00" />
+<meta itemprop="wordCount" content="876">
 
 
 
 <meta itemprop="keywords" content="bomb lab,assembly,debugger," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Bomb lab"/>
-<meta name="twitter:description" content="sample bomb http://csapp.cs.cmu.edu/3e/labs.html
-name list (nm), strings, objdump  nm bomb strings objdump  start gdb in gui mode gdb -tui bomb
-https://sourceware.org/gdb/current/onlinedocs/gdb/TUI-Keys.html#TUI-Keys
-Keyboard shortcut   C-x a : enter or leave TUI mode
-  C-x 1 : one window
-  C-x 2 : two windows
-also cycles through different layouts
-  C-x o : &lsquo;other&rsquo;
-  C-l : refresh
-  Navication up, down, left, right, pgup, pgdown"/>
+<meta name="twitter:description" content="Description From Bryant and O&rsquo;Hallaron&rsquo;s book Computer Systems: A Programmer&rsquo;s Perspective.
+ http://www.cs.cmu.edu/~bryant/ http://www.cs.cmu.edu/~droh/ http://csapp.cs.cmu.edu/  One of the first labs. The Bomb Lab, contains a binary bomb that must be diffused, by disassembling the executable.
+sample bomb A sample bomb can be obtained here.
+ http://csapp.cs.cmu.edu/3e/labs.html  problem set and blog Here are a couple of helpful resources:
+ https://web.stanford.edu/class/archive/cs/cs107/cs107.1174/assign5/advice.html http://zpalexander.com/binary-bomb-lab-phase-1/  name list (nm), strings, objdump These are kind of unnecessary, all can be done within gdb."/>
 
   </head>
 
@@ -241,21 +226,44 @@ MathJax.Hub.Config({
       
     </header>
 
-    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h2 id="sample-bomb">sample bomb</h2>
-<p><a href="http://csapp.cs.cmu.edu/3e/labs.html">http://csapp.cs.cmu.edu/3e/labs.html</a></p>
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h2 id="description">Description</h2>
+<p>From Bryant and O&rsquo;Hallaron&rsquo;s book Computer Systems: A Programmer&rsquo;s Perspective.</p>
+<ul>
+<li><a href="http://www.cs.cmu.edu/~bryant/">http://www.cs.cmu.edu/~bryant/</a></li>
+<li><a href="http://www.cs.cmu.edu/~droh/">http://www.cs.cmu.edu/~droh/</a></li>
+<li><a href="http://csapp.cs.cmu.edu/">http://csapp.cs.cmu.edu/</a></li>
+</ul>
+<p>One of the first labs.  The Bomb Lab, contains a binary bomb that must be
+diffused, by disassembling the executable.</p>
+<h2 id="sample-bomb">sample bomb</h2>
+<p>A sample bomb can be obtained here.</p>
+<ul>
+<li><a href="http://csapp.cs.cmu.edu/3e/labs.html">http://csapp.cs.cmu.edu/3e/labs.html</a></li>
+</ul>
+<h2 id="problem-set-and-blog">problem set and blog</h2>
+<p>Here are a couple of helpful resources:</p>
+<ul>
+<li><a href="https://web.stanford.edu/class/archive/cs/cs107/cs107.1174/assign5/advice.html">https://web.stanford.edu/class/archive/cs/cs107/cs107.1174/assign5/advice.html</a></li>
+<li><a href="http://zpalexander.com/binary-bomb-lab-phase-1/">http://zpalexander.com/binary-bomb-lab-phase-1/</a></li>
+</ul>
 <h2 id="name-list--nm--strings-objdump">name list (nm), strings, objdump</h2>
+<p>These are kind of unnecessary, all can be done within gdb.</p>
 <ul>
 <li>nm bomb</li>
-<li>strings</li>
-<li>objdump</li>
+<li>strings bomb</li>
+<li>objdump -t bomb : print&rsquo;s program&rsquo;s symbol table</li>
+<li>objdump -d bomb : print&rsquo;s program&rsquo;s assembly code</li>
 </ul>
-<h2 id="start-gdb-in-gui-mode">start gdb in gui mode</h2>
+<h2 id="gdb-built-in-gui-mode">gdb built in gui mode</h2>
 <p>gdb -tui bomb</p>
 <p><a href="https://sourceware.org/gdb/current/onlinedocs/gdb/TUI-Keys.html#TUI-Keys">https://sourceware.org/gdb/current/onlinedocs/gdb/TUI-Keys.html#TUI-Keys</a></p>
-<h3 id="keyboard-shortcut">Keyboard shortcut</h3>
+<h3 id="keyboard-shortcuts">Keyboard shortcuts</h3>
 <ul>
 <li>
 <p>C-x a : enter or leave TUI mode</p>
+</li>
+<li>
+<p>C-x C-a : enter or leave TUI mode</p>
 </li>
 <li>
 <p>C-x 1 : one window</p>
@@ -277,6 +285,7 @@ MathJax.Hub.Config({
 <h4 id="single-key-mode">Single key mode</h4>
 <ul>
 <li>C-x s : single key mode</li>
+<li>C-x C-s : single key mode</li>
 <li>(c) continue</li>
 <li>(d) down</li>
 <li>(f) finish</li>
@@ -287,9 +296,11 @@ MathJax.Hub.Config({
 <li>(v) info locals</li>
 <li>(w) where</li>
 </ul>
-<h2 id="getting-started">getting started</h2>
-<p><a href="https://www.youtube.com/watch?v=-n9Fkq1e6sg">https://www.youtube.com/watch?v=-n9Fkq1e6sg</a></p>
-<h3 id="source-file">source file</h3>
+<h2 id="getting-started-with-gdb">getting started with gdb</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=-n9Fkq1e6sg">https://www.youtube.com/watch?v=-n9Fkq1e6sg</a></li>
+</ul>
+<h3 id="sample-source-file">sample source file</h3>
 <p><code>test.c</code></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
@@ -320,11 +331,17 @@ MathJax.Hub.Config({
 <p>get information about local context variables</p>
 </dd>
 <dt>gdb</dt>
-<dd>disable main</dd>
+<dd>disable #
+<p>disables a break point</p>
+</dd>
 <dt>gdb</dt>
-<dd>delete main</dd>
+<dd>delete #
+<p>deletes a breakpoint</p>
+</dd>
 <dt>gdb</dt>
-<dd>list</dd>
+<dd>list
+<p>prints the program source code</p>
+</dd>
 <dt>gdb</dt>
 <dd>list 1,16
 <p>lists line numbers</p>
@@ -332,9 +349,16 @@ MathJax.Hub.Config({
 <dt>gdb</dt>
 <dd>run</dd>
 <dt>gdb</dt>
-<dd>disassemble</dd>
+<dd>start
+<p>start is like run but automatically sets a breakpoint at the beginning</p>
+</dd>
+<dt>gdb</dt>
+<dd>disassemble
+<p>shows assembly</p>
+</dd>
 </dl>
 <h2 id="registers">registers</h2>
+<p><a href="http://web.stanford.edu/class/cs107/guide/x86-64.html">http://web.stanford.edu/class/cs107/guide/x86-64.html</a></p>
 <dl>
 <dt>ebp</dt>
 <dd>base point stack register</dd>
@@ -452,7 +476,26 @@ the next instruction</p>
 <h2 id="variables">variables</h2>
 <dl>
 <dt>p</dt>
-<dd>print</dd>
+<dd>print
+<p><a href="https://sourceware.org/gdb/onlinedocs/gdb/Output-Formats.html">https://sourceware.org/gdb/onlinedocs/gdb/Output-Formats.html</a></p>
+<ul>
+<li>output format
+<ul>
+<li><strong>x:</strong> hex</li>
+<li><strong>d:</strong> decimal</li>
+<li><strong>u:</strong> unsigned decimal</li>
+<li><strong>o:</strong> octal</li>
+<li><strong>t:</strong> binary</li>
+<li><strong>a:</strong> as address, both absolute hex and offset from nearest symbol</li>
+<li><strong>c:</strong> character</li>
+<li><strong>f:</strong> floating</li>
+<li><strong>s:</strong> string</li>
+<li><strong>z:</strong> like x but leading zeros added to pad to integer</li>
+<li><strong>r:</strong> raw</li>
+</ul>
+</li>
+</ul>
+</dd>
 <dt>w</dt>
 <dd>watch
 <p>whenever variable changes then will break when the variable
@@ -542,6 +585,69 @@ x &amp;<!-- raw HTML omitted --> will work</p>
 <p>reverse-continue</p>
 </li>
 </ol>
+<h2 id="bomb-1">Bomb 1</h2>
+<ol>
+<li>add the following to ~/.gdbinit</li>
+</ol>
+<p><a href="https://sourceware.org/gdb/onlinedocs/gdb/gdbinit-man.html">https://sourceware.org/gdb/onlinedocs/gdb/gdbinit-man.html</a>
+<a href="https://ccrma.stanford.edu/~jos/stkintro/Example%5Fgdbinit%5FFile.html">https://ccrma.stanford.edu/~jos/stkintro/Example%5Fgdbinit%5FFile.html</a>
+<a href="https://gist.github.com/CocoaBeans/1879270">https://gist.github.com/CocoaBeans/1879270</a></p>
+<p>set auto-load safe-path /</p>
+<ol>
+<li>add the following to local ./.gdbinit</li>
+</ol>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># CLI args https://visualgdb.com/gdbreference/commands/set_args</span>
+<span style="color:#75715e"># or STDIN https://stackoverflow.com/questions/13104206/how-to-debug-a-program-that-takes-user-input-from-stdin-with-gdb</span>
+<span style="color:#75715e"># run &lt;foo.txt</span>
+echo    set args foo.txt <span style="color:#ae81ff">\n</span>
+set args foo.txt
+
+#
+<span style="color:#75715e"># phase 1</span>
+#
+echo    b bomb.c:73 <span style="color:#ae81ff">\n</span>
+b bomb.c:73
+
+#
+<span style="color:#75715e"># phase 2</span>
+#
+echo    b bomb.c:82 <span style="color:#ae81ff">\n</span>
+b bomb.c:82
+
+echo    run <span style="color:#ae81ff">\n</span>
+run
+</code></pre></div><ol>
+<li>create a foo.txt with the following</li>
+</ol>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">password1
+password2
+password3
+password4
+password5
+password6
+</code></pre></div><ol>
+<li>
+<p>gdb bomb</p>
+</li>
+<li>
+<p>step into (si) phase_1, C-x C-a to be on tui</p>
+</li>
+<li>
+<p>layout asm</p>
+</li>
+<li>
+<p>si a few times until the comparison</p>
+</li>
+<li>
+<p>x /s $eax</p>
+</li>
+<li>
+<p>this will show the string which is the first password</p>
+</li>
+<li></li>
+</ol>
 <ul class="pa0">
   
    <li class="list">
@@ -574,16 +680,18 @@ x &amp;<!-- raw HTML omitted --> will work</p>
     <p class="f5 b mb3">What&#39;s in this posts</p>
       <nav id="TableOfContents">
   <ul>
+    <li><a href="#description">Description</a></li>
     <li><a href="#sample-bomb">sample bomb</a></li>
+    <li><a href="#problem-set-and-blog">problem set and blog</a></li>
     <li><a href="#name-list--nm--strings-objdump">name list (nm), strings, objdump</a></li>
-    <li><a href="#start-gdb-in-gui-mode">start gdb in gui mode</a>
+    <li><a href="#gdb-built-in-gui-mode">gdb built in gui mode</a>
       <ul>
-        <li><a href="#keyboard-shortcut">Keyboard shortcut</a></li>
+        <li><a href="#keyboard-shortcuts">Keyboard shortcuts</a></li>
       </ul>
     </li>
-    <li><a href="#getting-started">getting started</a>
+    <li><a href="#getting-started-with-gdb">getting started with gdb</a>
       <ul>
-        <li><a href="#source-file">source file</a></li>
+        <li><a href="#sample-source-file">sample source file</a></li>
         <li><a href="#gdb">gdb</a></li>
       </ul>
     </li>
@@ -602,6 +710,7 @@ x &amp;<!-- raw HTML omitted --> will work</p>
     <li><a href="#set-variable">set variable</a></li>
     <li><a href="#python">python</a></li>
     <li><a href="#command">command</a></li>
+    <li><a href="#bomb-1">Bomb 1</a></li>
   </ul>
 </nav>
   </div>
