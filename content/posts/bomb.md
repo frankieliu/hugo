@@ -2,7 +2,7 @@
 title = "Bomb lab"
 author = ["adam"]
 date = 2020-06-02T12:13:39-07:00
-lastmod = 2020-06-03T16:19:46-07:00
+lastmod = 2020-06-05T07:05:14-07:00
 tags = ["bomb lab", "assembly", "debugger"]
 categories = ["assembly", "debugger"]
 draft = false
@@ -16,28 +16,54 @@ mathjax = true
 toc = true
 +++
 
+## Description {#description}
+
+From Bryant and O'Hallaron's book Computer Systems: A Programmer's Perspective.
+
+-   <http://www.cs.cmu.edu/~bryant/>
+-   <http://www.cs.cmu.edu/~droh/>
+-   <http://csapp.cs.cmu.edu/>
+
+One of the first labs.  The Bomb Lab, contains a binary bomb that must be
+diffused, by disassembling the executable.
+
+
 ## sample bomb {#sample-bomb}
 
-<http://csapp.cs.cmu.edu/3e/labs.html>
+A sample bomb can be obtained here.
+
+-   <http://csapp.cs.cmu.edu/3e/labs.html>
+
+
+## problem set and blog {#problem-set-and-blog}
+
+Here are a couple of helpful resources:
+
+-   <https://web.stanford.edu/class/archive/cs/cs107/cs107.1174/assign5/advice.html>
+-   <http://zpalexander.com/binary-bomb-lab-phase-1/>
 
 
 ## name list (nm), strings, objdump {#name-list--nm--strings-objdump}
 
+These are kind of unnecessary, all can be done within gdb.
+
 -   nm bomb
--   strings
--   objdump
+-   strings bomb
+-   objdump -t bomb : print's program's symbol table
+-   objdump -d bomb : print's program's assembly code
 
 
-## start gdb in gui mode {#start-gdb-in-gui-mode}
+## gdb built in gui mode {#gdb-built-in-gui-mode}
 
 gdb -tui bomb
 
 <https://sourceware.org/gdb/current/onlinedocs/gdb/TUI-Keys.html#TUI-Keys>
 
 
-### Keyboard shortcut {#keyboard-shortcut}
+### Keyboard shortcuts {#keyboard-shortcuts}
 
 -   C-x a : enter or leave TUI mode
+-   C-x C-a : enter or leave TUI mode
 -   C-x 1 : one window
 -   C-x 2 : two windows
 
@@ -57,6 +83,7 @@ c-p, c-n on the gdb history while in tui mode
 #### Single key mode {#single-key-mode}
 
 -   C-x s : single key mode
+-   C-x C-s : single key mode
 -   (c) continue
 -   (d) down
 -   (f) finish
@@ -68,12 +95,12 @@ c-p, c-n on the gdb history while in tui mode
 -   (w) where
 
 
-## getting started {#getting-started}
+## getting started with gdb {#getting-started-with-gdb}
 
-<https://www.youtube.com/watch?v=-n9Fkq1e6sg>
+-   <https://www.youtube.com/watch?v=-n9Fkq1e6sg>
 
 
-### source file {#source-file}
+### sample source file {#sample-source-file}
 
 `test.c`
 
@@ -119,15 +146,21 @@ gdb
 
 
 gdb
-: disable main
+: disable #
+
+    disables a break point
 
 
 gdb
-: delete main
+: delete #
+
+    deletes a breakpoint
 
 
 gdb
 : list
+
+    prints the program source code
 
 
 gdb
@@ -139,12 +172,21 @@ gdb
 gdb
 : run
 
+gdb
+: start
+
+    start is like run but automatically sets a breakpoint at the beginning
+
 
 gdb
 : disassemble
 
+    shows assembly
+
 
 ## registers {#registers}
+
+<http://web.stanford.edu/class/cs107/guide/x86-64.html>
 
 ebp
 : base point stack register
@@ -306,6 +348,22 @@ gdb
 p
 : print
 
+    <https://sourceware.org/gdb/onlinedocs/gdb/Output-Formats.html>
+
+    -   output format
+        -   **x:** hex
+        -   **d:** decimal
+        -   **u:** unsigned decimal
+        -   **o:** octal
+        -   **t:** binary
+        -   **a:** as address, both absolute hex and offset from nearest symbol
+        -   **c:** character
+        -   **f:** floating
+        -   **s:** string
+        -   **z:** like x but leading zeros added to pad to integer
+        -   **r:** raw
+
+
 w
 : watch
 
@@ -423,3 +481,68 @@ Lightning Talks and Lunch Sessions / gdb
     watch **(long \***) 0x14
 
     reverse-continue
+
+
+## Bomb 1 {#bomb-1}
+
+1.  add the following to ~/.gdbinit
+
+<https://sourceware.org/gdb/onlinedocs/gdb/gdbinit-man.html>
+<https://ccrma.stanford.edu/~jos/stkintro/Example%5Fgdbinit%5FFile.html>
+<https://gist.github.com/CocoaBeans/1879270>
+
+set auto-load safe-path /
+
+1.  add the following to local ./.gdbinit
+
+<!--listend-->
+
+```bash
+# CLI args https://visualgdb.com/gdbreference/commands/set_args
+# or STDIN https://stackoverflow.com/questions/13104206/how-to-debug-a-program-that-takes-user-input-from-stdin-with-gdb
+# run <foo.txt
+echo    set args foo.txt \n
+set args foo.txt
+
+#
+# phase 1
+#
+echo    b bomb.c:73 \n
+b bomb.c:73
+
+#
+# phase 2
+#
+echo    b bomb.c:82 \n
+b bomb.c:82
+
+echo    run \n
+run
+```
+
+1.  create a foo.txt with the following
+
+<!--listend-->
+
+```text
+password1
+password2
+password3
+password4
+password5
+password6
+```
+
+1.  gdb bomb
+
+2.  step into (si) phase\_1, C-x C-a to be on tui
+
+3.  layout asm
+
+4.  si a few times until the comparison
+
+5.  x /s $eax
+
+6.  this will show the string which is the first password
+
+7.
