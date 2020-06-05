@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>assembly on My New Hugo Site</title>
+    <link>https://www.frankliu.org/hugo/tags/assembly/</link>
+    <description>Recent content in assembly on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 02 Jun 2020 12:13:39 -0700</lastBuildDate>
+    
+	<atom:link href="https://www.frankliu.org/hugo/tags/assembly/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bomb lab</title>
+      <link>https://www.frankliu.org/hugo/posts/bomb/</link>
+      <pubDate>Tue, 02 Jun 2020 12:13:39 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/bomb/</guid>
+      <description>sample bomb http://csapp.cs.cmu.edu/3e/labs.html
+name list (nm), strings, objdump  nm bomb strings objdump  start gdb in gui mode gdb -tui bomb
+https://sourceware.org/gdb/current/onlinedocs/gdb/TUI-Keys.html#TUI-Keys
+Keyboard shortcut   C-x a : enter or leave TUI mode
+  C-x 1 : one window
+  C-x 2 : two windows
+also cycles through different layouts
+  C-x o : &amp;lsquo;other&amp;rsquo;
+  C-l : refresh
+  Navication up, down, left, right, pgup, pgdown</description>
+    </item>
+    
+  </channel>
+</rss>

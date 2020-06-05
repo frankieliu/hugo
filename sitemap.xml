@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://www.frankliu.org/hugo/posts/codeforces-190-div1-e/</loc>
+    <lastmod>2020-06-05T06:54:35-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/posts/bomb/</loc>
+    <lastmod>2020-06-03T16:19:46-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.frankliu.org/hugo/posts/bloom/</loc>
     <lastmod>2020-05-30T11:30:46-07:00</lastmod>
   </url>
@@ -183,27 +193,77 @@
   </url>
   
   <url>
+    <loc>https://www.frankliu.org/hugo/categories/</loc>
+    <lastmod>2020-06-05T06:54:35-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/ciel-and-gondolas/</loc>
+    <lastmod>2020-06-05T06:54:35-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/codeforces/</loc>
+    <lastmod>2020-06-05T06:54:35-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/categories/codeforces/</loc>
+    <lastmod>2020-06-05T06:54:35-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/dp-optimizations/</loc>
+    <lastmod>2020-06-05T06:54:35-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/categories/dp-optimizations/</loc>
+    <lastmod>2020-06-05T06:54:35-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/</loc>
+    <lastmod>2020-06-05T06:54:35-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/</loc>
+    <lastmod>2020-06-05T06:54:35-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/assembly/</loc>
+    <lastmod>2020-06-03T16:19:46-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/categories/assembly/</loc>
+    <lastmod>2020-06-03T16:19:46-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/bomb-lab/</loc>
+    <lastmod>2020-06-03T16:19:46-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/debugger/</loc>
+    <lastmod>2020-06-03T16:19:46-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/categories/debugger/</loc>
+    <lastmod>2020-06-03T16:19:46-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.frankliu.org/hugo/tags/bloom/</loc>
     <lastmod>2020-05-30T11:30:46-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/categories/bloom/</loc>
-    <lastmod>2020-05-30T11:30:46-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/categories/</loc>
-    <lastmod>2020-05-30T11:30:46-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/</loc>
-    <lastmod>2020-05-30T11:30:46-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/tags/</loc>
     <lastmod>2020-05-30T11:30:46-07:00</lastmod>
   </url>
   

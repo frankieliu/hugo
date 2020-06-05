@@ -6,10 +6,39 @@
     <description>Recent content in My Hugo Site on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 May 2020 07:18:38 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2020 06:34:39 -0700</lastBuildDate>
     
 	<atom:link href="https://www.frankliu.org/hugo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Codeforces-190-Div1-E Ciel and Gondolas</title>
+      <link>https://www.frankliu.org/hugo/posts/codeforces-190-div1-e/</link>
+      <pubDate>Fri, 05 Jun 2020 06:34:39 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/codeforces-190-div1-e/</guid>
+      <description>E. Ciel and Gondolas Fox Ciel went into an amusement park. She is in line for the Ferris wheel. There are \(n\) foxes in the queue. We will assume that the first fox is at the beginning of the queue, and the \(n\) th fox is at the tail of the queue.
+In total there are \(k\) gondolas. We distribute foxes into gondolas as follows:
+When the first gondola swims up, \(q_1\) foxes enter from the front of the line into the gondola.</description>
+    </item>
+    
+    <item>
+      <title>Bomb lab</title>
+      <link>https://www.frankliu.org/hugo/posts/bomb/</link>
+      <pubDate>Tue, 02 Jun 2020 12:13:39 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/bomb/</guid>
+      <description>sample bomb http://csapp.cs.cmu.edu/3e/labs.html
+name list (nm), strings, objdump  nm bomb strings objdump  start gdb in gui mode gdb -tui bomb
+https://sourceware.org/gdb/current/onlinedocs/gdb/TUI-Keys.html#TUI-Keys
+Keyboard shortcut   C-x a : enter or leave TUI mode
+  C-x 1 : one window
+  C-x 2 : two windows
+also cycles through different layouts
+  C-x o : &amp;lsquo;other&amp;rsquo;
+  C-l : refresh
+  Navication up, down, left, right, pgup, pgdown</description>
+    </item>
     
     <item>
       <title>Bloom, count min sketch</title>

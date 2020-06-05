@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>My New Hugo Site  | Articles</title>
+    <title>My New Hugo Site  | assembly</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="generator" content="Hugo 0.72.0" />
     
@@ -27,19 +27,19 @@
 
     
     
-      <link href="https://www.frankliu.org/hugo/posts/index.xml" rel="alternate" type="application/rss+xml" title="My New Hugo Site" />
-      <link href="https://www.frankliu.org/hugo/posts/index.xml" rel="feed" type="application/rss+xml" title="My New Hugo Site" />
+      <link href="https://www.frankliu.org/hugo/tags/assembly/index.xml" rel="alternate" type="application/rss+xml" title="My New Hugo Site" />
+      <link href="https://www.frankliu.org/hugo/tags/assembly/index.xml" rel="feed" type="application/rss+xml" title="My New Hugo Site" />
       
     
     
-    <meta property="og:title" content="Articles" />
+    <meta property="og:title" content="assembly" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.frankliu.org/hugo/posts/" />
-<meta property="og:updated_time" content="2017-03-02T12:00:00-05:00" />
-<meta itemprop="name" content="Articles">
+<meta property="og:url" content="https://www.frankliu.org/hugo/tags/assembly/" />
+<meta property="og:updated_time" content="2020-06-03T16:19:46-07:00" />
+<meta itemprop="name" content="assembly">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Articles"/>
+<meta name="twitter:title" content="assembly"/>
 <meta name="twitter:description" content=""/>
 
   </head>
@@ -163,7 +163,7 @@
 
       <div class="tc-l pv3 ph3 ph4-ns">
         <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
-          Articles
+          assembly
         </h1>
         
       </div>
@@ -173,232 +173,42 @@
 
     <main class="pb7" role="main">
       
-  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
-    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"><p>Articles are paginated with only three posts here for example. You can set the number of entries to show on this page with the &ldquo;pagination&rdquo; setting in the config file.</p>
-</section>
+  <article class="cf pa3 pa4-m pa4-l">
+    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links nested-img mid-gray">
+      <p>Below you will find pages that utilize the taxonomy term “assembly”</p>
+    </div>
+  </article>
+  <div class="mw8 center">    
     <section class="flex-ns flex-wrap justify-around mt5">
       
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/vector-clocks/" class="link black dim">
-        Vector clocks
+      <a href="https://www.frankliu.org/hugo/posts/bomb/" class="link black dim">
+        Bomb lab
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      vector clocks A, B, C, D are trying to set a date.
- Alice starts off (Wed, (A:1)) (Tue, (A:1,B:1)) (Tue, (A:1,B:1,D:1)) (Thu, (A:1,C:1)) -&gt; Conflict  (A:1,C:1) did not descencd from (A:1,B:1,D:1)
-Descend Each marker in vclk2 must have corresponding or greater marker than in vclk1
-Resolve (Thu, (A:1, B:1, C:1, D:2))
-problems width of vector clock grows with number of actors, or clients.
- keep growth under control with timestamp to prune old clocks  revisited Actor Some entity in the system that makes an update to an object
+      sample bomb http://csapp.cs.cmu.edu/3e/labs.html
+name list (nm), strings, objdump  nm bomb strings objdump  start gdb in gui mode gdb -tui bomb
+https://sourceware.org/gdb/current/onlinedocs/gdb/TUI-Keys.html#TUI-Keys
+Keyboard shortcut   C-x a : enter or leave TUI mode
+  C-x 1 : one window
+  C-x 2 : two windows
+also cycles through different layouts
+  C-x o : &lsquo;other&rsquo;
+  C-l : refresh
+  Navication up, down, left, right, pgup, pgdown
     </div>
   </div>
 </div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/rlang/" class="link black dim">
-        R lang
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      operators Exponent: ^ Bit: &amp; | Conditional: &amp;&amp; ||
-difference between = and &lt;- operators Just use =
-vectors (range)  everything is a vector 1:9, 1:2:9, c(1,3,2,-8.1) c() for concat  vector addition  v1 + v2 : element wise  matrices  matrix(c(1,2,3,4,5,6,7,8,9), nrow=3) nrow is the number of rows or ncol for number of columns fills in column order, i.e. [[1,4,7],[2,5,8],[3,6,9]] matrix(1:9, nrow=3, byrow=T) : fills in row order  matrix multiplication  m1 %*% m2  transpose  t(m1)  slicing  m1[1,3] m1[,3] : all elements on third column m1[1,] : all elements on first rows m1[,-2] : all but the second column m1[1,1] = 15 m1[,2:3] = 1 : set columns 2 and 3 to 2 m1[,2:3] = 4:9 : set columns 2 and 3 to col2:4,5,6, col3:7,8,9 m1[m1&gt;5] : filter elements in m1 that are greater than 5 m1[m1&gt;5] = 3 : set all elements greater than 5 to 3  loops for(i in 1:3) { print(i) } while(sum(v1)&gt;=5) {}
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/spanner/" class="link black dim">
-        Spanner
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Key to paper TrueTime exposes clock uncertainty, if the uncertainty is large, Spanner slows down to wait out the uncertainty. TS reflect serialization order, external consistency, or linearizability.
-Spanner zones Zone  zonemaster assigns data to spanservers (1000) location proxies used by clients to locate spanservers  Spanserver  responsible for 1000 tablets  Tablet  (key: string, timestamp: int64) -&gt; string more like multiversion kv store state store in a set of B-tree-like files and a write ahead log  in DFS called colossus   one Paxos state machine per tablet  Paxos  long time leader leases (10 sec) implements a consistently replicated bag of mappings writes initiates paxos protocol at leader reads access state directly from any replica set of replicas called Paxos group  Logs:  every &lsquo;Paxos write&rsquo; goes to tablet log and to Paxos logic  Replica leader  every leader replica implements a lock table contains the state for 2-phase locking  maps ranges of keys to lock states   leaders are long lived to maintain this lock table  performs poorly under optimistic concurrency control   replicas in paxos group called participant slaves implements a transaction manager  implements a participant leader used between other paxos groups for 2-phase commit    Participant/Coordinator  one participant leader (leader to a paxos group) is chosen as coordinator leader, other replica leader called coordinator slaves state of transaction manager store in underlying paxos group    Directory and placement directory  set of contiguous keys with common prefix unit of data placement -&gt; same replica config unit of data movement between paxos groups  paxos group/tablet  contains multiple directories not necessarily lex.
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/kmp/" class="link black dim">
-        KMP and Aho-Corasick
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Main concept of KMP Consider the following string:
-\(\underbrace{a_1 a_2 a_3 a_4}_\text{text1}\)
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/731-my-calendar-ii-segment-tree/" class="link black dim">
-        731 My Calendar II
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Acknowledgement Taken from fun4leet&rsquo;s My Calendar II wonderful article
-tl;dr A max segment tree, with an incremental update function is sufficient for this problem. Max is used because such tree allows quick query of the max number of bookings given a range. Incremental update is useful because each time book is called, one needs to increment the bookings in a particular range.
-Data structure 4 things: a range \([l,r]\), data, lazy flag
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/920-number-of-music-playlists/" class="link black dim">
-        920 Number of music playlists
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Notes on solution to Leetcode 920 Let&rsquo;s take the example from the article, songs: \(\left\{abcde\right\}\), playlist: \(abacabdcbaeacbd\),
-\(\bar{x} = (1,2,4,7,11)\)
-For \(\bar{x}\), each number in the n-tuple indicates a position in the playlist for the first occurrence of a particular unique song. The article uses 1-indexing so I will use the same to be consistent.
-As an example for the \(\bar{x}\) above, consider the playlist family:
-\(p_l = (1_1,2_2,c_3,3_4,c_5,c_6,4_7,c_8,c_9,c_{10},5_{11},c_{12},c_{13},c_{14})\)
-Here I have used the numbers (characters) \(1-5\), to indicate a song number, instead of the \(a-e\) in the article.
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/mathjax-hugo/" class="link black dim">
-        Setting up mathjax for hugo
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Problem Adding mathjax support for posts
-Solution  Modify the current theme Add a partial template Add a parameter called mathjax: true in the frontmatter  Details Modifying the current theme  Note that the current theme is set in config.tolm  theme = &#34;ananke&#34; 
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/dynamo/" class="link black dim">
-        DynamoDB
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Highlights  kv store data partitioning and replication by consistent hashing consistency facilitated by object versioning consistency among replicas during update by quorum decentralized replica synchronization gossip based distributed failure detection and membership  Background  Authors confuse &lsquo;C&rsquo; in ACID with &lsquo;C&rsquo; in CAP  2.3  optimistic replication - conflict resolution when you need item allow writes/updates - &ldquo;always writable&rdquo; pushes complex conflict resolution on the reader  at data store means &ldquo;last write wins&rdquo; too simple, allow client to do the conflict resolution    Related work  &ldquo;always writable&rdquo; requirement trusted nodes simple k-v latency ~ 100-200ms  zero-hop DHT, each node can route request to appropriate node      System architecture  components:  data persistence component load balancing membership failure detection failure recovery replica synchronization overload handling state transfer concurrency job scheduling request marshalling request routing system monitoring system alarming configuration management   cover:  partitioning replication versioning membership failure handling scaling    system interface  api get and put get(key)  locates object replicas returns with conflicting versions returns with a context   put(key, context, object)  determines which replica context : metadata such as version   key and object are opaque array of bytes  use MD5 hash to generate a 128-bit id    partitioning  consistent hashing each node assigned a random position in the ring each data item hashed to ring and served by first node larger position each node serves data between it and its predecessor each node actually mapped to multiple points in the ring (tokens) virtual node advantages  if node goes down, load gets handled more evenly by other nodes    replication  data item is replicated at \(N\) hosts each key assigned to a coordinator node coordinator is in charge of replication of the data items that fall in its range coordinator replicates key at N-1 clockwise successor nodes in the ring  each node is responsible for between it and its \(N\) th predecessor   preference list is the list of nodes responsible for a key every node in the system can determine which nodes for a key the pref list skips positions in the ring to ensure that it contains only distinct physical nodes  data versioning  eventual consistency, data propagates asynchronously guarantees that writes cannot be forgotten or rejected  each modificaiton is a new and immutable version of the data   version branching can happen in the presence of failures resulting in conflicting versions, client must perform reconciliation vector clocks used to capture causality  (node, counter) if the counters of an object are less-than-or-equal to all the nodes in a second clock, the first is an ancestor   on update, client must specify which version is being updated  pass the context from earlier read       timestamp is used to truncate the clock which may be growing  get and put operations  route request through LB use partition aware client library that routes to coordinator requests received through a LB routed to any random node in ring  node will forward to the first among top \(N\) in preference list   quorum protocol \(R+W &gt; N\) put(), coordinator generates vector clock for new version  sends to \(N\) highest-ranked reachable nodes if \(W-1\) nodes respond then the write is considered successful   get(), coordinator requests all existing versions of data forward for that key, wiates for \(R\) responses before returning value to client  handling failure   hinted handoff
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/fb-distributed-data-store-tao/" class="link black dim">
-        Fb Distributed Data Store Tao
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      intro   read-optimized social graph memcache and look-aside    The distinction between look-aside and look-through caches is not whether data is fetched from the cache and memory in serial or in parallel. The distinction is whether the fetch to memory on a cache miss originates from the caller or the cache. If the fetch to memory originates from the caller on cache miss, then you’re using a look-aside cache.
-    </div>
-  </div>
-</div>
-</div>
+
+        </div>
       
     </section>
-
-<ul class="pagination">
-    
-    <li class="page-item">
-        <a href="https://www.frankliu.org/hugo/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-    <a href="https://www.frankliu.org/hugo/posts/page/3/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="https://www.frankliu.org/hugo/posts/">1</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="https://www.frankliu.org/hugo/posts/page/2/">2</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="https://www.frankliu.org/hugo/posts/page/3/">3</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item active"><a class="page-link" href="https://www.frankliu.org/hugo/posts/page/4/">4</a></li>
-    
-    
-    <li class="page-item disabled">
-    <a  class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-        <a href="https://www.frankliu.org/hugo/posts/page/4/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-    </li>
-    
-</ul>
-
-</article>
+  </div>
 
     </main>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">

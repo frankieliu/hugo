@@ -36,7 +36,7 @@
 <meta property="og:description" content="A blog for programming and scalable systems" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/" />
-<meta property="og:updated_time" content="2020-05-30T11:30:46-07:00" />
+<meta property="og:updated_time" content="2020-06-05T06:54:35-07:00" />
 <meta itemprop="name" content="My Hugo Site">
 <meta itemprop="description" content="A blog for programming and scalable systems"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="My Hugo Site"/>
@@ -212,6 +212,65 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="https://www.frankliu.org/hugo/posts/codeforces-190-div1-e/" class="color-inherit dim link">
+            Codeforces-190-Div1-E Ciel and Gondolas
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          E. Ciel and Gondolas Fox Ciel went into an amusement park. She is in line for the Ferris wheel. There are \(n\) foxes in the queue. We will assume that the first fox is at the beginning of the queue, and the \(n\) th fox is at the tail of the queue.
+In total there are \(k\) gondolas. We distribute foxes into gondolas as follows:
+When the first gondola swims up, \(q_1\) foxes enter from the front of the line into the gondola.
+        </div>
+          <a href="https://www.frankliu.org/hugo/posts/codeforces-190-div1-e/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="https://www.frankliu.org/hugo/posts/bomb/" class="color-inherit dim link">
+            Bomb lab
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          sample bomb http://csapp.cs.cmu.edu/3e/labs.html
+name list (nm), strings, objdump  nm bomb strings objdump  start gdb in gui mode gdb -tui bomb
+https://sourceware.org/gdb/current/onlinedocs/gdb/TUI-Keys.html#TUI-Keys
+Keyboard shortcut   C-x a : enter or leave TUI mode
+  C-x 1 : one window
+  C-x 2 : two windows
+also cycles through different layouts
+  C-x o : &lsquo;other&rsquo;
+  C-l : refresh
+  Navication up, down, left, right, pgup, pgdown
+        </div>
+          <a href="https://www.frankliu.org/hugo/posts/bomb/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="https://www.frankliu.org/hugo/posts/bloom/" class="color-inherit dim link">
             Bloom, count min sketch
             </a>
@@ -231,65 +290,24 @@ Obviously increasing \(m\) and decreasing \(n\) would decrease the \(\varepsilon
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://www.frankliu.org/hugo/posts/google-gfs/" class="color-inherit dim link">
-            Google File System
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          5.1 High Availability Chunk Replication  RF of 3 master clones existing replicas when chunkservers go offline or detect corrupted replicas  Master Replication  operation log and checkpoints replicas &ldquo;shadow&rdquo; masters provide read-only access  file metadata like directory contest could be stale reads replica information from logs pools from chunkservers to locate chunk replicas depends on primary for decisions to create and delete replicas    5.2 Data Integrity  impractical to very replica data between replicas use 32bit checksum on 64KB blocks  stored persistently with logging and separate from user data   in reads:  chunkserver verifies the checksum before returning data client reads from another replica master creates a different replica and delete the corrupted one   in appends:  incrementally update the checksum for last partial checksum blocks even if last partial checksum is corrupted, new checksum value will not match stored data and corruption will be detected   in writes:  if write overwrites an existing range on the chunk, need to verify the first and last blocks of the range being overwritten calculate new checksums based from previous checksum so that corruption of unchanged areas will be detected    6 Measurements  1 master, two master replicas, 16 chunkservers, and 16 clients  6.
-        </div>
-          <a href="https://www.frankliu.org/hugo/posts/google-gfs/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://www.frankliu.org/hugo/posts/asciio/" class="color-inherit dim link">
-            Ascii Diagrams
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          Asciio Modifications  clone P5-App-Asciio change the zoom in and zoom out keys  ./setup/actions/unsorted.pl:	&lsquo;Zoom in&rsquo; =&gt; [&lsquo;000-plus&rsquo;, \&amp;zoom, 1]
-Building prep perl Build.PL
-Dependencies In Ubuntu most dependencies can be resolved by
-sudo aptitude install lib&lt;Module&gt;-&lt;Submodule&gt;-perl For example if the dependencies require `Foo::Bar`, install it with `sudo aptitude install libfoo-bar-perl`
-Hash::Slice unfortunately is not part of Ubuntu distribution so you will have to install it via CPAN
-cpan Hash::Slice Building .
-        </div>
-          <a href="https://www.frankliu.org/hugo/posts/asciio/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="https://www.frankliu.org/hugo/posts/google-gfs/" class="link black dim">
+              Google File System
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="https://www.frankliu.org/hugo/posts/asciio/" class="link black dim">
+              Ascii Diagrams
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="https://www.frankliu.org/hugo/posts/git-cheat-sheet/" class="link black dim">
@@ -300,18 +318,6 @@ cpan Hash::Slice Building .
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="https://www.frankliu.org/hugo/posts/a-star/" class="link black dim">
               A-star
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://www.frankliu.org/hugo/posts/flink/" class="link black dim">
-              Flink
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://www.frankliu.org/hugo/posts/discord-move-bot/" class="link black dim">
-              Discord: creating a bot
             </a>
           </h2>
         

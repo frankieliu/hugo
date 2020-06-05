@@ -6,10 +6,64 @@
     <description>Recent content in Tags on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 May 2020 07:18:38 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2020 06:34:39 -0700</lastBuildDate>
     
 	<atom:link href="https://www.frankliu.org/hugo/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ciel and Gondolas</title>
+      <link>https://www.frankliu.org/hugo/tags/ciel-and-gondolas/</link>
+      <pubDate>Fri, 05 Jun 2020 06:34:39 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/ciel-and-gondolas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>codeforces</title>
+      <link>https://www.frankliu.org/hugo/tags/codeforces/</link>
+      <pubDate>Fri, 05 Jun 2020 06:34:39 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/codeforces/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dp optimizations</title>
+      <link>https://www.frankliu.org/hugo/tags/dp-optimizations/</link>
+      <pubDate>Fri, 05 Jun 2020 06:34:39 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/dp-optimizations/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>assembly</title>
+      <link>https://www.frankliu.org/hugo/tags/assembly/</link>
+      <pubDate>Tue, 02 Jun 2020 12:13:39 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/assembly/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bomb lab</title>
+      <link>https://www.frankliu.org/hugo/tags/bomb-lab/</link>
+      <pubDate>Tue, 02 Jun 2020 12:13:39 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/bomb-lab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>debugger</title>
+      <link>https://www.frankliu.org/hugo/tags/debugger/</link>
+      <pubDate>Tue, 02 Jun 2020 12:13:39 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/tags/debugger/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>bloom</title>
