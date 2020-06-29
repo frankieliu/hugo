@@ -6,10 +6,19 @@
     <description>Recent content in Categories on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 05 Jun 2020 06:34:39 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 28 Jun 2020 06:56:36 -0700</lastBuildDate>
     
 	<atom:link href="https://www.frankliu.org/hugo/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>segment tree</title>
+      <link>https://www.frankliu.org/hugo/categories/segment-tree/</link>
+      <pubDate>Sun, 28 Jun 2020 06:56:36 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/categories/segment-tree/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>codeforces</title>
@@ -215,15 +224,6 @@
       <pubDate>Fri, 06 Mar 2020 08:22:35 -0800</pubDate>
       
       <guid>https://www.frankliu.org/hugo/categories/fft/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>segment tree</title>
-      <link>https://www.frankliu.org/hugo/categories/segment-tree/</link>
-      <pubDate>Fri, 07 Feb 2020 16:03:25 -0800</pubDate>
-      
-      <guid>https://www.frankliu.org/hugo/categories/segment-tree/</guid>
       <description></description>
     </item>
     

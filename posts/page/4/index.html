@@ -6,7 +6,7 @@
     
     <title>My New Hugo Site  | Articles</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.72.0" />
+    <meta name="generator" content="Hugo 0.73.0" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -182,6 +182,21 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/kleppmann-ch07-transactions/" class="link black dim">
+        Kleppmann Chapter 07 - Transactions
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Definition of transaction  a group of several reads and writes logical unit - looks like one operation all or nothing (commit or abort/rollback)  Who needs transactions  when you need certain guarantees  Acid  Atomicity - abortability (resiliant to faults) Consistency - some invariants about the data must be true Isolation - concurrent transactions are isolated  serializability - too strong   Durability - committed means data will not be lost  there is no perfect guarantee    Base  Basically Available, Soft state, and Eventual consistency  Single-Object vs Multi-Object Operations  many writes  atomicity : all written or none isolation : one transaction cannot see a partial write of another   identify multi-object transaction  tie to client&rsquo;s TCP connection - bad separate transaction id    Single object writes  Storage engine  atomicity : log for crash recovery isolation : using a lock atomic operations  increment compare-and-set      Multi-object transactions  when do you need them?
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
       <a href="https://www.frankliu.org/hugo/posts/vector-clocks/" class="link black dim">
         Vector clocks
       </a>
@@ -331,71 +346,31 @@ Solution  Modify the current theme Add a partial template Add a parameter called
 </div>
       
     </section>
-
 <ul class="pagination">
-    
-    <li class="page-item">
-        <a href="https://www.frankliu.org/hugo/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-    </li>
-    
-    <li class="page-item">
+  <li class="page-item">
+    <a href="https://www.frankliu.org/hugo/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item">
     <a href="https://www.frankliu.org/hugo/posts/page/3/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="https://www.frankliu.org/hugo/posts/">1</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="https://www.frankliu.org/hugo/posts/page/2/">2</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="https://www.frankliu.org/hugo/posts/page/3/">3</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item active"><a class="page-link" href="https://www.frankliu.org/hugo/posts/page/4/">4</a></li>
-    
-    
-    <li class="page-item disabled">
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="https://www.frankliu.org/hugo/posts/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="https://www.frankliu.org/hugo/posts/page/2/">2</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="https://www.frankliu.org/hugo/posts/page/3/">3</a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="https://www.frankliu.org/hugo/posts/page/4/">4</a>
+  </li>
+  <li class="page-item disabled">
     <a  class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-        <a href="https://www.frankliu.org/hugo/posts/page/4/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-    </li>
-    
+  </li>
+  <li class="page-item">
+    <a href="https://www.frankliu.org/hugo/posts/page/4/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
 </ul>
 
 </article>

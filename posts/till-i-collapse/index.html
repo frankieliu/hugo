@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>My New Hugo Site  | About</title>
+    <title>My New Hugo Site  | Codeforces Till-I-Collapse</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="generator" content="Hugo 0.73.0" />
     
@@ -27,29 +27,43 @@
 
     
     
-      <link href="https://www.frankliu.org/hugo/about/index.xml" rel="alternate" type="application/rss+xml" title="My New Hugo Site" />
-      <link href="https://www.frankliu.org/hugo/about/index.xml" rel="feed" type="application/rss+xml" title="My New Hugo Site" />
-      
-    
-    
-    <meta property="og:title" content="About" />
-<meta property="og:description" content="Monty Python&#39;s Holy Grail: -ANANKEeeeeeeeee." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.frankliu.org/hugo/about/" />
+    <meta property="og:title" content="Codeforces Till-I-Collapse" />
+<meta property="og:description" content="This is ershov.stanislav&rsquo;s solution to the problem.
+Given an array of integers (colors), find the mininum nunber of consecutive grouping containing at most \(k\) colors (number of unique integers in a subarray).
+For a single \(k\) one can take \(O(n)\) time to greedily scan through the array and accumulate \(k\) unique integers at a time.
+However, given the size of the problem (\(10^5\)) and the fact that we must do this for \(k \in {1,\cdots,n}\) implies that we must look for a better solution." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.frankliu.org/hugo/posts/till-i-collapse/" />
+<meta property="article:published_time" content="2020-06-28T06:56:36-07:00" />
+<meta property="article:modified_time" content="2020-06-28T23:35:49-07:00" />
+<meta itemprop="name" content="Codeforces Till-I-Collapse">
+<meta itemprop="description" content="This is ershov.stanislav&rsquo;s solution to the problem.
+Given an array of integers (colors), find the mininum nunber of consecutive grouping containing at most \(k\) colors (number of unique integers in a subarray).
+For a single \(k\) one can take \(O(n)\) time to greedily scan through the array and accumulate \(k\) unique integers at a time.
+However, given the size of the problem (\(10^5\)) and the fact that we must do this for \(k \in {1,\cdots,n}\) implies that we must look for a better solution.">
+<meta itemprop="datePublished" content="2020-06-28T06:56:36-07:00" />
+<meta itemprop="dateModified" content="2020-06-28T23:35:49-07:00" />
+<meta itemprop="wordCount" content="1129">
 
-<meta itemprop="name" content="About">
-<meta itemprop="description" content="Monty Python&#39;s Holy Grail: -ANANKEeeeeeeeee."><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="About"/>
-<meta name="twitter:description" content="Monty Python&#39;s Holy Grail: -ANANKEeeeeeeeee."/>
+
+
+<meta itemprop="keywords" content="segment tree," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Codeforces Till-I-Collapse"/>
+<meta name="twitter:description" content="This is ershov.stanislav&rsquo;s solution to the problem.
+Given an array of integers (colors), find the mininum nunber of consecutive grouping containing at most \(k\) colors (number of unique integers in a subarray).
+For a single \(k\) one can take \(O(n)\) time to greedily scan through the array and accumulate \(k\) unique integers at a time.
+However, given the size of the problem (\(10^5\)) and the fact that we must do this for \(k \in {1,\cdots,n}\) implies that we must look for a better solution."/>
 
   </head>
 
   <body class="ma0 avenir bg-near-white">
 
     
+   
+  
 
   <header>
-    <div class="pb3-m pb6-l bg-black">
+    <div class="bg-black">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
     <a href="https://www.frankliu.org/hugo/" class="f3 fw2 hover-white no-underline white-90 dib">
@@ -161,30 +175,197 @@
   </div>
 </nav>
 
-      <div class="tc-l pv3 ph3 ph4-ns">
-        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
-          About
-        </h1>
-        
-          <h2 class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">
-            Monty Python&#39;s Holy Grail: -ANANKEeeeeeeeee.
-          </h2>
-        
-      </div>
     </div>
   </header>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+    extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+    });
+</script>
+
 
 
     <main class="pb7" role="main">
       
-  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
-    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"><p>The theme being used for this blog is Ananke.  Still trying to figure out how to customize it.</p>
-</section>
-    <section class="flex-ns flex-wrap justify-around mt5">
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        ARTICLES
+      </p>
+      <h1 class="f1 athelas mb1">Codeforces Till-I-Collapse</h1>
       
+      <p class="tracked">
+          By <strong>
+          
+              adam
+          
+          </strong>
+      </p>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-06-28T06:56:36-07:00">June 28, 2020</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>This is ershov.stanislav&rsquo;s solution to the problem.</p>
+<p>Given an array of integers (colors), find the mininum nunber of consecutive
+grouping containing at most \(k\) colors (number of unique integers in a
+subarray).</p>
+<p>For a single \(k\) one can take \(O(n)\) time to greedily scan through the array and
+accumulate \(k\) unique integers at a time.</p>
+<p>However, given the size of the problem (\(10^5\)) and the fact that we
+must do this for \(k \in {1,\cdots,n}\) implies that we must look for a better
+solution.</p>
+<p>Ershov&rsquo;s solution does a couple of neat little tricks:</p>
+<ul>
+<li>every node of the tree gives the number of elements under it</li>
+<li>the query is a reverse query for the range satisfying a particular condition</li>
+</ul>
+<p>Updates happen from top to bottom.  When an element is added from the root, it
+immediately adds to the root&rsquo;s value.  As it recursively goes down the tree, it
+updates the nodes it encounters.  Note that the same can be done while on the
+way back up the tree, as in the traditional sum segment tree.  However that note
+doing on the way up requires the querying of the both the left and right childs,
+so it is less efficient than updating directly while descending the tree.</p>
+<p>The query is kind of an inverse range query.  Typically one asks for the
+sum in a given range \(l,r\).  However in this case one is asking what range
+satisfy some constraint.</p>
+<p>In this particular example, we would like to know a prefix range \((0,r)\)
+containing exactly \(k\) elements.</p>
+<p>Since the segment tree is storing at each node how many elements in the
+particular subtree, we can ask the following as we descend down the tree.
+For example at a particular node, we have the number of elements covered
+by that particular range.</p>
+<p>Let&rsquo;s say we are looking for a prefix range covering 5 elements. Suppose that at
+the current node we have 10 elements. Then we the upper bound for the range must
+terminate in this subtree. We can recurse first to left child and check. If the
+left branch has 4 elements, then we know we must look for the remaining element
+in the right child.</p>
+<p>How do we return a range? If a node contains less elements that the desired
+number of elements, then we know that the answer must lie in the right child.
+The parent can the remove the number of remaining elements that have not been
+covered by the left branch and do a similar query to the right child for the
+remaining elements.</p>
+<p>Ershov&rsquo;s code automatically decrements the number of remaining elements as
+it traverses the tree.  However it seems to do extra work in figuring the
+extent of the range, i.e. why add the ranges and propagate them up?</p>
+<p>I guess the alternative is to descend to the corresponding leaf node and
+correctly percolate this result up the tree, I think this is just as good
+doing the addition on the way up.</p>
+<p>I have been talking about worms in subsequence problems.  I think
+the particular solution falls into this category.  Worms can be thought as
+possible solutions that exists at particular positions in the array.</p>
+<p>For example, if at each position in the array we know how many worms
+can originate from that position, then we can add to the count for that
+particular worm.</p>
+<p>Each worm has a particular characteristic, a \(k\) number.  Here the
+characteristic corresponds to the number of unique characters in a
+particular subarray.  The end position of a worm born at the \(i\) th
+position can be determined using the segment tree.</p>
+<p>At any particular point in time the segment tree keeps track of the
+left most unique elements in the array beginning at a particular position
+in the array.  For example, say we are at position 3 in the array, then
+the segment tree will have information about the leftmost unique elements
+for the suffix array from 3 to the end.</p>
+<p>This information is useful because we can determine the end position of the
+\(k\) - worm. Since the \(k\) - worm will be ending at the position in the segment
+tree where we have accumulated exactly \(k\) distinct colors, let&rsquo;s call this
+position \(r\). We store this information in an array \(b[pos]\) which contains
+information about all the worms originating at position \(pos\).</p>
+<p>Since we are considering beginning positions for each \(k\) - worm it makes sense
+that we are interested in the next tail of the worm.  The segment tree only
+keeps track of the location of the next unique elements from the current
+position going forward.  Therefore we need to eliminate the unique elements
+that have already been encountered before the current position and make
+sure that we insert into the tree the next unique elements at the current
+position and up.</p>
+<p>This can be done by selectively removing the item at the previous position and
+inserting the same color element if it comes later in the array. The idea is to
+always keep a fresh set of new unique elements in the tree so that the
+computation of the next worm head can be done in log time.</p>
+<p>This is an interesting problem in that we tie up into thinking of a
+particular way of using a segment tree and not notice that in fact a segment
+tree is just a tree, so doing tree like operations such as finding the location
+of the \(k\) th element on the tree should be possible.</p>
+<p>For an estimate of the complexity, I came up with the following.  Say the
+total range of numbers is \(1\) to \(n\).  Then there are about \(n/2\) worms of
+size \(k=2\) and \(n/3\) worms of size \(k=3\), etc.  Then the total number of
+worms in the range is roughly \(n \log n\).  Since we are enumerating all the
+worms in the range and for each worm we need to query on the segment tree
+to find the next head position the overall complexity is \(n \log^2 n\).</p>
+<p>There are other factor involved including the calculation of the &lsquo;next&rsquo;
+numbers, but this will take \(O(n)\) and the updates of the segment tree
+only occur \(n\) times, thus taking \(O(n \log n)\).</p>
+<figure>
+    <img src="https://www.frankliu.org/hugo/images/till-i-collapse/till-i-collapse.svg"/> 
+</figure>
+
+<p>In the above picutre, I display two unique colors at position 1 and 2.
+As the cursor moves to another position, the green color at position 1
+needs to find a correspond &lsquo;next&rsquo; position in the segment tree.  Each
+node in the segment tree stores the number of unique colors in its
+subtree.  Thus we can query in log time for the location of the \(k\) th
+unique color in \(\log n\) time.  Since there is roughly \(\log n\) such
+queries per position, \(n\) positions, the total complexity is
+\(O(n \log^ n)\)</p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="https://www.frankliu.org/hugo/tags/segment-tree" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">segment tree</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+      
+      
+			<script src="https://utteranc.es/client.js"
+        repo="frankieliu/hugo"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+      </script>
+      </div>
     </section>
 
-</article>
+    <aside class="w-30-l mt6-l"><div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">What&#39;s in this posts</p>
+      <nav id="TableOfContents"></nav>
+  </div>
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="https://www.frankliu.org/hugo/posts/ericcto-segment-tree/">Errichto - segment tree</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
 
     </main>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">

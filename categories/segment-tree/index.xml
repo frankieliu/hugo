@@ -6,10 +6,22 @@
     <description>Recent content in segment tree on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 07 Feb 2020 16:03:25 -0800</lastBuildDate>
+    <lastBuildDate>Sun, 28 Jun 2020 06:56:36 -0700</lastBuildDate>
     
 	<atom:link href="https://www.frankliu.org/hugo/categories/segment-tree/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Codeforces Till-I-Collapse</title>
+      <link>https://www.frankliu.org/hugo/posts/till-i-collapse/</link>
+      <pubDate>Sun, 28 Jun 2020 06:56:36 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/till-i-collapse/</guid>
+      <description>This is ershov.stanislav&amp;rsquo;s solution to the problem.
+Given an array of integers (colors), find the mininum nunber of consecutive grouping containing at most \(k\) colors (number of unique integers in a subarray).
+For a single \(k\) one can take \(O(n)\) time to greedily scan through the array and accumulate \(k\) unique integers at a time.
+However, given the size of the problem (\(10^5\)) and the fact that we must do this for \(k \in {1,\cdots,n}\) implies that we must look for a better solution.</description>
+    </item>
     
     <item>
       <title>Errichto - segment tree</title>

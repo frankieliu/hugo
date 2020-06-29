@@ -12,6 +12,18 @@
     
     
     <item>
+      <title>Codeforces Till-I-Collapse</title>
+      <link>https://www.frankliu.org/hugo/posts/till-i-collapse/</link>
+      <pubDate>Sun, 28 Jun 2020 06:56:36 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/till-i-collapse/</guid>
+      <description>This is ershov.stanislav&amp;rsquo;s solution to the problem.
+Given an array of integers (colors), find the mininum nunber of consecutive grouping containing at most \(k\) colors (number of unique integers in a subarray).
+For a single \(k\) one can take \(O(n)\) time to greedily scan through the array and accumulate \(k\) unique integers at a time.
+However, given the size of the problem (\(10^5\)) and the fact that we must do this for \(k \in {1,\cdots,n}\) implies that we must look for a better solution.</description>
+    </item>
+    
+    <item>
       <title>Codeforces-190-Div1-E Ciel and Gondolas</title>
       <link>https://www.frankliu.org/hugo/posts/codeforces-190-div1-e/</link>
       <pubDate>Fri, 05 Jun 2020 06:34:39 -0700</pubDate>
