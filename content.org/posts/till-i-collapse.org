@@ -150,11 +150,11 @@ only occur $n$ times, thus taking $O(n \log n)$.
 
 [[file:/images/till-i-collapse/till-i-collapse.svg]] 
 
-In the above picutre, I display two unique colors at position 1 and 2.
+In the above picture, I display two unique colors at position 1 and 2.
 As the cursor moves to another position, the green color at position 1
 needs to find a correspond 'next' position in the segment tree.  Each 
 node in the segment tree stores the number of unique colors in its
 subtree.  Thus we can query in log time for the location of the $k$ th
 unique color in $\log n$ time.  Since there is roughly $\log n$ such
 queries per position, $n$ positions, the total complexity is
-$O(n \log^ n)$
+$O(n \log^ n)$.
