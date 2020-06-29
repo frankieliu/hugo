@@ -2,7 +2,7 @@
 title = "Codeforces Till-I-Collapse"
 author = ["adam"]
 date = 2020-06-28T06:56:36-07:00
-lastmod = 2020-06-28T23:41:44-07:00
+lastmod = 2020-06-28T23:42:37-07:00
 tags = ["segment tree"]
 categories = ["segment tree"]
 draft = false
@@ -55,7 +55,7 @@ node, we have the number of elements covered by that particular range.  If
 this number is greater than \\(k\\) then the answer must be in this subtree.
 
 Let's say we are looking for a prefix range covering 5 elements. Suppose that at
-the current node we have 10 elements. Then we the upper bound for the range must
+the current node we have 10 elements. Then the upper bound for the range must
 terminate in this subtree. We can recurse first to left child and check. If the
 left branch has 4 elements, then we know we must look for the remaining element
 in the right child.
