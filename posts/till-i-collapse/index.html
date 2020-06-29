@@ -28,31 +28,31 @@
     
     
     <meta property="og:title" content="Codeforces Till-I-Collapse" />
-<meta property="og:description" content="This is ershov.stanislav&rsquo;s solution to the problem.
-Given an array of integers (colors), find the mininum nunber of consecutive grouping containing at most \(k\) colors (number of unique integers in a subarray).
-For a single \(k\) one can take \(O(n)\) time to greedily scan through the array and accumulate \(k\) unique integers at a time.
-However, given the size of the problem (\(10^5\)) and the fact that we must do this for \(k \in {1,\cdots,n}\) implies that we must look for a better solution." />
+<meta property="og:description" content="credit This is ershov.stanislav&rsquo;s solution to the problem.
+summary of problem Given an array of integers (colors), find the mininum nunber of consecutive grouping containing at most \(k\) colors (number of unique integers in a subarray).
+greedy For a single \(k\) one can take \(O(n)\) time to greedily scan through the array and accumulate \(k\) unique integers at a time.
+problem size However, given the size of the problem (\(10^5\)) and the fact that we must do this for \(k \in {1,\cdots,n}\) implies that we must look for a better solution." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/till-i-collapse/" />
 <meta property="article:published_time" content="2020-06-28T06:56:36-07:00" />
-<meta property="article:modified_time" content="2020-06-29T11:26:27-07:00" />
+<meta property="article:modified_time" content="2020-06-29T15:38:35-07:00" />
 <meta itemprop="name" content="Codeforces Till-I-Collapse">
-<meta itemprop="description" content="This is ershov.stanislav&rsquo;s solution to the problem.
-Given an array of integers (colors), find the mininum nunber of consecutive grouping containing at most \(k\) colors (number of unique integers in a subarray).
-For a single \(k\) one can take \(O(n)\) time to greedily scan through the array and accumulate \(k\) unique integers at a time.
-However, given the size of the problem (\(10^5\)) and the fact that we must do this for \(k \in {1,\cdots,n}\) implies that we must look for a better solution.">
+<meta itemprop="description" content="credit This is ershov.stanislav&rsquo;s solution to the problem.
+summary of problem Given an array of integers (colors), find the mininum nunber of consecutive grouping containing at most \(k\) colors (number of unique integers in a subarray).
+greedy For a single \(k\) one can take \(O(n)\) time to greedily scan through the array and accumulate \(k\) unique integers at a time.
+problem size However, given the size of the problem (\(10^5\)) and the fact that we must do this for \(k \in {1,\cdots,n}\) implies that we must look for a better solution.">
 <meta itemprop="datePublished" content="2020-06-28T06:56:36-07:00" />
-<meta itemprop="dateModified" content="2020-06-29T11:26:27-07:00" />
-<meta itemprop="wordCount" content="1152">
+<meta itemprop="dateModified" content="2020-06-29T15:38:35-07:00" />
+<meta itemprop="wordCount" content="1176">
 
 
 
 <meta itemprop="keywords" content="segment tree," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Codeforces Till-I-Collapse"/>
-<meta name="twitter:description" content="This is ershov.stanislav&rsquo;s solution to the problem.
-Given an array of integers (colors), find the mininum nunber of consecutive grouping containing at most \(k\) colors (number of unique integers in a subarray).
-For a single \(k\) one can take \(O(n)\) time to greedily scan through the array and accumulate \(k\) unique integers at a time.
-However, given the size of the problem (\(10^5\)) and the fact that we must do this for \(k \in {1,\cdots,n}\) implies that we must look for a better solution."/>
+<meta name="twitter:description" content="credit This is ershov.stanislav&rsquo;s solution to the problem.
+summary of problem Given an array of integers (colors), find the mininum nunber of consecutive grouping containing at most \(k\) colors (number of unique integers in a subarray).
+greedy For a single \(k\) one can take \(O(n)\) time to greedily scan through the array and accumulate \(k\) unique integers at a time.
+problem size However, given the size of the problem (\(10^5\)) and the fact that we must do this for \(k \in {1,\cdots,n}\) implies that we must look for a better solution."/>
 
   </head>
 
@@ -223,26 +223,33 @@ MathJax.Hub.Config({
       
     </header>
 
-    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>This is ershov.stanislav&rsquo;s solution to the problem.</p>
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h2 id="credit">credit</h2>
+<p>This is ershov.stanislav&rsquo;s solution to the problem.</p>
+<h2 id="summary-of-problem">summary of problem</h2>
 <p>Given an array of integers (colors), find the mininum nunber of consecutive
 grouping containing at most \(k\) colors (number of unique integers in a
 subarray).</p>
+<h2 id="greedy">greedy</h2>
 <p>For a single \(k\) one can take \(O(n)\) time to greedily scan through the array and
 accumulate \(k\) unique integers at a time.</p>
+<h2 id="problem-size">problem size</h2>
 <p>However, given the size of the problem (\(10^5\)) and the fact that we
 must do this for \(k \in {1,\cdots,n}\) implies that we must look for a better
 solution.</p>
+<h2 id="segment-tree">segment tree</h2>
 <p>Ershov&rsquo;s solution does a couple of neat little tricks:</p>
 <ul>
 <li>every node of the tree gives the number of elements under it</li>
 <li>the query is a reverse query for the range satisfying a particular condition</li>
 </ul>
+<h2 id="number-of-elements">number of elements</h2>
 <p>Updates happen from top to bottom.  When an element is added from the root, it
 immediately adds to the root&rsquo;s value.  As it recursively goes down the tree, it
 updates the nodes it encounters.  Note that the same can be done while on the
 way back up the tree, as in the traditional sum segment tree.  However that note
 doing on the way up requires the querying of the both the left and right childs,
 so it is less efficient than updating directly while descending the tree.</p>
+<h2 id="query-for-the-range">query for the range</h2>
 <p>The query is kind of an inverse range query.  Typically one asks for the
 sum in a given range \(l,r\).  However in this case one is asking what range
 satisfy some constraint.</p>
@@ -269,6 +276,7 @@ extent of the range, i.e. why add the ranges and propagate them up?</p>
 <p>I guess the alternative is to descend to the corresponding leaf node and
 correctly percolate this result up the tree, I think this is just as good
 doing the addition on the way up.</p>
+<h2 id="worms-et-cetera">worms et cetera</h2>
 <p>I have been talking about worms in subsequence problems.  I think
 the particular solution falls into this category.  Worms can be thought as
 possible solutions that exists at particular positions in the array.</p>
@@ -289,6 +297,7 @@ for the suffix array from 3 to the end.</p>
 tree where we have accumulated exactly \(k\) distinct colors, let&rsquo;s call this
 position \(r\). We store this information in an array \(b[pos]\) which contains
 information about all the worms originating at position \(pos\).</p>
+<h2 id="next-positions">next positions</h2>
 <p>Since we are considering beginning positions for each \(k\) - worm it makes sense
 that we are interested in the next tail of the worm.  The segment tree only
 keeps track of the location of the next unique elements from the current
@@ -300,10 +309,12 @@ position and up.</p>
 inserting the same color element if it comes later in the array. The idea is to
 always keep a fresh set of new unique elements in the tree so that the
 computation of the next worm head can be done in log time.</p>
+<h2 id="reflections">reflections</h2>
 <p>This is an interesting problem in that we tie up into thinking of a
 particular way of using a segment tree and not notice that in fact a segment
 tree is just a tree, so doing tree like operations such as finding the location
 of the \(k\) th element on the tree should be possible.</p>
+<h2 id="complexity">complexity</h2>
 <p>For an estimate of the complexity, I came up with the following.  Say the
 total range of numbers is \(1\) to \(n\).  Then there are about \(n/2\) worms of
 size \(k=2\) and \(n/3\) worms of size \(k=3\), etc.  Then the total number of
@@ -313,6 +324,7 @@ to find the next head position the overall complexity is \(n \log^2 n\).</p>
 <p>There are other factor involved including the calculation of the &lsquo;next&rsquo;
 numbers, but this will take \(O(n)\) and the updates of the segment tree
 only occur \(n\) times, thus taking \(O(n \log n)\).</p>
+<h2 id="pictorial">pictorial</h2>
 <figure>
     <img src="https://www.frankliu.org/hugo/images/till-i-collapse/till-i-collapse.svg"/> 
 </figure>
@@ -347,7 +359,22 @@ queries per position, \(n\) positions, the total complexity is
 
     <aside class="w-30-l mt6-l"><div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
     <p class="f5 b mb3">What&#39;s in this posts</p>
-      <nav id="TableOfContents"></nav>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#credit">credit</a></li>
+    <li><a href="#summary-of-problem">summary of problem</a></li>
+    <li><a href="#greedy">greedy</a></li>
+    <li><a href="#problem-size">problem size</a></li>
+    <li><a href="#segment-tree">segment tree</a></li>
+    <li><a href="#number-of-elements">number of elements</a></li>
+    <li><a href="#query-for-the-range">query for the range</a></li>
+    <li><a href="#worms-et-cetera">worms et cetera</a></li>
+    <li><a href="#next-positions">next positions</a></li>
+    <li><a href="#reflections">reflections</a></li>
+    <li><a href="#complexity">complexity</a></li>
+    <li><a href="#pictorial">pictorial</a></li>
+  </ul>
+</nav>
   </div>
 
 
