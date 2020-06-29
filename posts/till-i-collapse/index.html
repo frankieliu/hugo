@@ -35,14 +35,14 @@ However, given the size of the problem (\(10^5\)) and the fact that we must do t
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/till-i-collapse/" />
 <meta property="article:published_time" content="2020-06-28T06:56:36-07:00" />
-<meta property="article:modified_time" content="2020-06-28T23:42:37-07:00" />
+<meta property="article:modified_time" content="2020-06-28T23:46:53-07:00" />
 <meta itemprop="name" content="Codeforces Till-I-Collapse">
 <meta itemprop="description" content="This is ershov.stanislav&rsquo;s solution to the problem.
 Given an array of integers (colors), find the mininum nunber of consecutive grouping containing at most \(k\) colors (number of unique integers in a subarray).
 For a single \(k\) one can take \(O(n)\) time to greedily scan through the array and accumulate \(k\) unique integers at a time.
 However, given the size of the problem (\(10^5\)) and the fact that we must do this for \(k \in {1,\cdots,n}\) implies that we must look for a better solution.">
 <meta itemprop="datePublished" content="2020-06-28T06:56:36-07:00" />
-<meta itemprop="dateModified" content="2020-06-28T23:42:37-07:00" />
+<meta itemprop="dateModified" content="2020-06-28T23:46:53-07:00" />
 <meta itemprop="wordCount" content="1152">
 
 
@@ -317,14 +317,14 @@ only occur \(n\) times, thus taking \(O(n \log n)\).</p>
     <img src="https://www.frankliu.org/hugo/images/till-i-collapse/till-i-collapse.svg"/> 
 </figure>
 
-<p>In the above picutre, I display two unique colors at position 1 and 2.
+<p>In the above picture, I display two unique colors at position 1 and 2.
 As the cursor moves to another position, the green color at position 1
 needs to find a correspond &lsquo;next&rsquo; position in the segment tree.  Each
 node in the segment tree stores the number of unique colors in its
 subtree.  Thus we can query in log time for the location of the \(k\) th
 unique color in \(\log n\) time.  Since there is roughly \(\log n\) such
 queries per position, \(n\) positions, the total complexity is
-\(O(n \log^ n)\)</p>
+\(O(n \log^ n)\).</p>
 <ul class="pa0">
   
    <li class="list">
