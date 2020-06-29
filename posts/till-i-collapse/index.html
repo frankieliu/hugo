@@ -35,15 +35,15 @@ However, given the size of the problem (\(10^5\)) and the fact that we must do t
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/till-i-collapse/" />
 <meta property="article:published_time" content="2020-06-28T06:56:36-07:00" />
-<meta property="article:modified_time" content="2020-06-28T23:41:44-07:00" />
+<meta property="article:modified_time" content="2020-06-28T23:42:37-07:00" />
 <meta itemprop="name" content="Codeforces Till-I-Collapse">
 <meta itemprop="description" content="This is ershov.stanislav&rsquo;s solution to the problem.
 Given an array of integers (colors), find the mininum nunber of consecutive grouping containing at most \(k\) colors (number of unique integers in a subarray).
 For a single \(k\) one can take \(O(n)\) time to greedily scan through the array and accumulate \(k\) unique integers at a time.
 However, given the size of the problem (\(10^5\)) and the fact that we must do this for \(k \in {1,\cdots,n}\) implies that we must look for a better solution.">
 <meta itemprop="datePublished" content="2020-06-28T06:56:36-07:00" />
-<meta itemprop="dateModified" content="2020-06-28T23:41:44-07:00" />
-<meta itemprop="wordCount" content="1153">
+<meta itemprop="dateModified" content="2020-06-28T23:42:37-07:00" />
+<meta itemprop="wordCount" content="1152">
 
 
 
@@ -254,7 +254,7 @@ the current subtree contain the solution or not. For example at a particular
 node, we have the number of elements covered by that particular range.  If
 this number is greater than \(k\) then the answer must be in this subtree.</p>
 <p>Let&rsquo;s say we are looking for a prefix range covering 5 elements. Suppose that at
-the current node we have 10 elements. Then we the upper bound for the range must
+the current node we have 10 elements. Then the upper bound for the range must
 terminate in this subtree. We can recurse first to left child and check. If the
 left branch has 4 elements, then we know we must look for the remaining element
 in the right child.</p>
