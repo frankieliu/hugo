@@ -2,7 +2,7 @@
 title = "Codeforces Till-I-Collapse"
 author = ["adam"]
 date = 2020-06-28T06:56:36-07:00
-lastmod = 2020-06-28T23:46:53-07:00
+lastmod = 2020-06-29T11:26:27-07:00
 tags = ["segment tree"]
 categories = ["segment tree"]
 draft = false
@@ -137,4 +137,4 @@ node in the segment tree stores the number of unique colors in its
 subtree.  Thus we can query in log time for the location of the \\(k\\) th
 unique color in \\(\log n\\) time.  Since there is roughly \\(\log n\\) such
 queries per position, \\(n\\) positions, the total complexity is
-\\(O(n \log^ n)\\).
+\\(O(n \log^2 n)\\).

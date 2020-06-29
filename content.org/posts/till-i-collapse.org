@@ -157,4 +157,4 @@ node in the segment tree stores the number of unique colors in its
 subtree.  Thus we can query in log time for the location of the $k$ th
 unique color in $\log n$ time.  Since there is roughly $\log n$ such
 queries per position, $n$ positions, the total complexity is
-$O(n \log^ n)$.
+$O(n \log^2 n)$.
