@@ -1,0 +1,158 @@
+# -*- mode: org -*-
+#+HUGO_BASE_DIR: ../..
+#+HUGO_SECTION: posts
+#+HUGO_WEIGHT: 2000
+#+HUGO_AUTO_SET_LASTMOD: t
+#+TITLE: "Microsoft FaRM"
+#+DATE: 2020-06-06T06:07:15-07:00
+#+HUGO_TAGS: "distributed systems" transactions cap 
+#+HUGO_CATEGORIES: "distributed systems" 
+#+HUGO_MENU_off: :menu "main" :weight 2000
+#+HUGO_CUSTOM_FRONT_MATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true :toc true
+#+HUGO_DRAFT: false
+
+#+STARTUP: indent hidestars showall
+|              | FaRM       | RAMCloud | Spanner | HERD | Silo                 |
+|--------------+------------+----------+---------+------+----------------------|
+| memory       | distr      |          |         |      | single main memory   |
+| durability   | nvram      |          |         |      | disk log in batchees |
+| failure      |            |          |         |      | checkpoints/log      |
+| availability | nvram repl |          |         |      | local storage        |
+
+* Memory
+- Main memory
+
+* Transaction
+- ACID transactions
+- strict serializability
+- high availability
+- high throughput
+- low latency
+** Hw trends
+- commodity networks with RDMA
+  - uses to remote CPU
+  - avoid most local CPU
+- non-volative DRAM
+  - batteries
+- eliminate storage and network bottlenecks
+** protocols
+- reduce message counts
+- use one-sided RDMA instead of R/W
+- exploit ||
+** Lifecycle
+- (3) application thread starts a transactoin at any time
+- becomes the transaction coordinator
+- can read write allocate and free objects
+- at the end of execution thread invokes FaRM to commit transaciton
+- individual object reads are atomic
+- no atomicity across reads of different objects
+** Optimistic concurrency control
+- commits can fail due to conflicts with concurrent transaction or failures
+- strict serializability of all successful committed transactions
+- only committed data is read
+- successive reads of the same object return the same data
+- reads of objects written by the transaction return the latest value written
+- since there is no atomicity across reads of different objects
+  - commits may fail
+  - defer consistency checks until commit time instead of re-checking
+    consistency of each object reads
+  - applications must handle temporary inconsistencies during execution
+    - possible to deal with them automatically
+
+** API
+- lock-free reads
+  - optimized single-object read only transactions
+  - locality hints
+    - co-locate related objects
+
+- address space 2GB regions
+  - each replicated on one primary and f backups
+  - each machine stores several regions in non-volatile DRAM
+    - can be read by other machines using RDMA
+
+- objects are read from the primary copy of the containing region
+  - using local memory access if the region is on the local machine
+  - using one-sided RDMA reads if remote
+
+- each object has a 64-bit version
+  - used for concurrency control and replication
+
+- mapping of a region identifier to its primary and backups is maintained by the
+  CM and replicated with the region
+  - fetched on demand
+  - cached by threads - needed to issue one-sided RDAM reads to the primary
+
+- machines contact CM to allocate a new region
+  - GM assigns a region ID - monotonically increasing counter
+  - select replicas for the regions
+    - balances number of regions stored on each machine
+
+- each replica is in a different failure domain
+
+- reigon is collocated with a target region (locality constraint)
+
+- sends prepare message to select replicas with the region identifier
+  - if all replicas report allocation success
+  - CM sends commit message to all of them
+  - 2 phase protocal ensure that the mapping is valid
+
+- centralized approach provides more flexibility to sastify failure independence
+  and locality constraints than consistent hashing
+
+- 250 (2GB) regions in a typical machine
+
+- single CM can handle region allocation for thousands of machines
+
+- each machine stores ring buffers (FIFO queues)
+
+- used as transaction logs and message queues
+  - each sender-receiver pair has itw own log and message queue
+  - sender appends records to the log using one-sided RDMA writes to its tail
+  - writes are acknowledged by the NIC without involving the receiver CPU
+  - receiver periodicaclly polls the head of the log to process records
+    - lazily updates the sender when it truncates the log
+    - allowing the sender to reuse space in the ring buffer
+
+* Replication
+- vertical Paxos
+  - with primary backup replication
+- unreplicated coordinators communicate with primaries and backups
+- optimistic concurrent control
+- four phase commit protocol
+  - lock
+  - validation
+  - commit backup
+  - commit primary
+  - eliminate messages to backups in lock phase
+
+* Recovery
+- exploit ||
+- distribute recovery of every bit of state evenly across the cluster
+- parallelizes recovery across cores in each machines
+- transactions begin accessing data affected by failure after a lock recovery
+  phase (10ms)
+- transactions that are unaffected by failure continue executing without
+  blocking
+- frequent heartbeat exchange
+- uses priorities and pre-allocation to avoid false positives 
+* One sided RDMA reads
+- used during transaction execution and validation
+- coordinators use when logging records to non-volative write-ahead logs at
+  replicas
+  - coordinator uses a single one-sided RDMA to write a commit record to remote
+    backup, use no foreground CPU (which does only lazy truncation)
+- failure recovery
+  - cannot rely on servers to reject incoming requests when their leases expire
+  - precise membership
+    - machines agree on current configuration membership
+    - send one-sided operations only to machines that are members
+- cannot rely on traditional mechanism for participants have enough resources
+  during prepare phase, transaction records are written to participant logs
+  without involving the remote CPU
+  - use reservations to ensure there is enough space in the logs for all the
+    records needed to commi
+  - truncate a transaction before starting to commit
+
+* 4 Distributed transactions and replication
+1. lock
+   

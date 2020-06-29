@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-06-28 Sun 23:03 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>"Codeforces Till-I-Collapse"</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="adam" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">"Codeforces Till-I-Collapse"</h1>
+<p>
+This is ershov.stanislav's solution to the problem.
+</p>
+
+<p>
+Given an array of integers (colors), find the mininum nunber of consecutive
+grouping containing at most \(k\) colors (number of unique integers in a
+subarray).
+</p>
+
+<p>
+For a single \(k\) one can take \(O(n)\) time to greedily scan through the array and
+accumulate \(k\) unique integers at a time.
+</p>
+
+<p>
+However, given that we must be size of the problem ($10<sup>5</sup>) and the fact that we
+must do this for \(k \in {1,\cdots,n}\) implies that we must look for a better
+solution.
+</p>
+
+<p>
+Ershov's solution does a couple of neat little tricks:
+</p>
+
+<ul class="org-ul">
+<li>every node of the tree gives the number of elements under it</li>
+<li>the query is a reverse query for the range satisfying a particular condition</li>
+</ul>
+
+<p>
+Updates happen from top to bottom, and as it recursive goes down the tree, it
+updates the nodes it encounters.  The same can be done while on the way back
+up the tree, as in the traditional sum segment tree.
+</p>
+
+<p>
+The query is kind of an inverse range query.  Typically one asks the for the 
+sum in a given range \(l,r\).  However in this case one is asking what range 
+satisfy some constraint.
+</p>
+
+<p>
+In this particular example, we would like to know a prefix range \((0,r)\)
+containing exactly \(k\) elements.
+</p>
+
+<p>
+Since the segment tree is storing at each node how many elements in the
+particular subtree, we can ask the following as we descend down the tree.
+For example at a particular node, we have the number of elements covered
+by that particular range.
+</p>
+
+<p>
+Let's say we are looking for a prefix range covering 5 elements.  Suppose that
+at the current node we have 10 elements.  Then we the right end point must
+terminate in this subtree.  We can recurse first to left child and check.
+If the left branch has 4 elements, then we know we must look for the remaining
+element in the right child.
+</p>
+
+<p>
+How do we return a range? If a node contains less elements that the desired
+number of elements, then we know that the answer must lie in the right child.
+The parent can the remove the number of remaining elements that have not been
+covered by the left branch and do a similar query to the right child for the
+remaining elements.
+</p>
+
+<p>
+Ershov's code automatically decrements the number of remaining elements as
+it traverses the tree.  However it seems to do extra work in figuring the
+extent of the range, i.e. why add the ranges and propagate them up?
+</p>
+
+<p>
+I guess if one were to look for right edge, the condition might be when
+you have exactly one element and propagate this answer to the top.
+</p>
+
+<p>
+Since I have been talking about worms in subsequence problems.  I think 
+the particular solution falls in this category.  Worms can be thought as
+possible solutions that exists at particular positions in the array.
+</p>
+
+<p>
+For example, if at each position in the array we know how many worms
+can originate from that position, then we can add to the count for that
+particular worm.
+</p>
+
+<p>
+Each worm has a particular characteristic, a \(k\) number.  Here the
+characteristic corresponds to the number of unique characters in a
+particular subarray.  The end position of a worm born at the \(i\) th
+position can be determined using the segment tree.
+</p>
+
+<p>
+At any particular point in time the segment tree keeps track of the
+left most unique elements in the array beginning at a particular position
+in the array.  For example, say we are at position 3 in the array, then
+the segment tree will have information about the leftmost unique elements
+for the suffix array from 3 to the end.
+</p>
+
+<p>
+This information is useful because we can determine the end position of
+the \(k\) - worm.  Since the \(k\) - worm will be ending at the position in
+the segment tree where we have accumulated exactly \(k\) distinct colors,
+let's call this position \(r\).  Then we can store this information in an 
+array \(b[pos]\) where we store all the worms that begin at position \(pos\).
+</p>
+
+<p>
+Since we are considering beginning positions for each \(k\) - worm it makes sense
+that we are interested in the next tail of the worm.  The segment tree only
+keeps track of the location of the next unique elements from the current
+position going forward.  Therefore we need to eliminate the unique elements
+that have already been encountered before the current position and make
+sure that we insert into the tree the next unique elements at the current
+position and up.
+</p>
+
+<p>
+This can be done by selectively removing the item at the previous position and
+insert the same element if it comes later in the array.  The idea is to always
+keep a fresh set of new unique elements in the tree so that the computation
+of the next worm head can be done in log time.
+</p>
+
+<p>
+This is an interesting problem in that we get tied up into thinking of a 
+particular way of using a segment tree and not notice that in fact a segment
+tree is a tree, so doing tree like operations such as finding the location 
+of the \(k\) element on the tree should be possible.
+</p>
+
+<p>
+For an estimate of the complexity, I came up with the following.  Say the
+total range of numbers is \(1\) to \(n\).  Then there are about \(n/2\) worms of
+size \(k=2\) and \(n/3\) worms of size \(k=3\), etc.  Then the total number of
+worms in the range is roughly \(n \log n\).  Since we are enumerating all the
+worms in the range and for each worm we need to query on the segment tree
+to find the next head position the overall complexity is \(n \log^2 n\).
+</p>
+
+<p>
+There are other factor involved including the calculation of the 'next'
+numbers, but this will take \(O(n)\) and the updates of the segment tree
+only occur \(n\) times, thus taking \(O(n \log n)\).
+</p>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="file:///images/till-i-collapse.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object> 
+</p>
+</div>
+
+<p>
+In the above picutre, 
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2020-06-28T06:56:36-07:00</p>
+<p class="author">Author: adam</p>
+<p class="date">Created: 2020-06-28 Sun 23:03</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
