@@ -2,7 +2,7 @@
 title = "Codeforces Till-I-Collapse"
 author = ["adam"]
 date = 2020-06-28T06:56:36-07:00
-lastmod = 2020-06-28T23:41:16-07:00
+lastmod = 2020-06-28T23:41:44-07:00
 tags = ["segment tree"]
 categories = ["segment tree"]
 draft = false
