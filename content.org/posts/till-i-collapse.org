@@ -12,35 +12,35 @@
 #+HUGO_DRAFT: false
 
 #+STARTUP: indent hidestars showall
-# credit
+* credit
 
 This is ershov.stanislav's solution to the problem.
 
-# summary of problem
+* summary of problem
 
 Given an array of integers (colors), find the mininum nunber of consecutive
 grouping containing at most $k$ colors (number of unique integers in a
 subarray).
 
-# greedy
+* greedy
 
 For a single $k$ one can take $O(n)$ time to greedily scan through the array and
 accumulate $k$ unique integers at a time.
 
-# problem size
+* problem size
 
 However, given the size of the problem ($10^5$) and the fact that we
 must do this for $k \in {1,\cdots,n}$ implies that we must look for a better
 solution.
 
-# segment tree
+* segment tree
 
 Ershov's solution does a couple of neat little tricks:
 
 - every node of the tree gives the number of elements under it
 - the query is a reverse query for the range satisfying a particular condition
 
-# number of elements
+* number of elements
 
 Updates happen from top to bottom.  When an element is added from the root, it
 immediately adds to the root's value.  As it recursively goes down the tree, it
@@ -49,7 +49,7 @@ way back up the tree, as in the traditional sum segment tree.  However that note
 doing on the way up requires the querying of the both the left and right childs,
 so it is less efficient than updating directly while descending the tree.
 
-# query for the range
+* query for the range
 
 The query is kind of an inverse range query.  Typically one asks for the 
 sum in a given range $l,r$.  However in this case one is asking what range 
@@ -84,7 +84,7 @@ I guess the alternative is to descend to the corresponding leaf node and
 correctly percolate this result up the tree, I think this is just as good
 doing the addition on the way up.
 
-# worms et cetera
+* worms et cetera
 
 I have been talking about worms in subsequence problems.  I think 
 the particular solution falls into this category.  Worms can be thought as
@@ -111,7 +111,7 @@ tree where we have accumulated exactly $k$ distinct colors, let's call this
 position $r$. We store this information in an array $b[pos]$ which contains
 information about all the worms originating at position $pos$.
 
-# next positions 
+* next positions 
 
 Since we are considering beginning positions for each $k$ - worm it makes sense
 that we are interested in the next tail of the worm.  The segment tree only
@@ -126,14 +126,14 @@ inserting the same color element if it comes later in the array. The idea is to
 always keep a fresh set of new unique elements in the tree so that the
 computation of the next worm head can be done in log time.
 
-# reflections
+* reflections
 
 This is an interesting problem in that we tie up into thinking of a 
 particular way of using a segment tree and not notice that in fact a segment
 tree is just a tree, so doing tree like operations such as finding the location 
 of the $k$ th element on the tree should be possible.
 
-# complexity
+* complexity
 
 For an estimate of the complexity, I came up with the following.  Say the
 total range of numbers is $1$ to $n$.  Then there are about $n/2$ worms of
@@ -146,7 +146,7 @@ There are other factor involved including the calculation of the 'next'
 numbers, but this will take $O(n)$ and the updates of the segment tree
 only occur $n$ times, thus taking $O(n \log n)$.
 
-# pictorial
+* pictorial
 
 [[file:/images/till-i-collapse/till-i-collapse.svg]] 
 
