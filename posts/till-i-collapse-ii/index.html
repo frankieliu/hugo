@@ -29,24 +29,24 @@
     
     <meta property="og:title" content="Codeforces Till-I-Collapse (Part II)" />
 <meta property="og:description" content="credits It is interesting that MiFaFAOvO&rsquo;s solution has the same pieces are ershov.stanislav&rsquo;s solution. In fact they both use the worm method (my own naming for subsequence like states). What is interesting from MiFaFAOvO&rsquo;s solution is that he uses a BIT to solve the problem.
-what kind of tree is a BIT While the update part of a BIT is pretty straight forward one may wonder at the reverse query part which was done in ershov&rsquo;s solution \(O(\log n)\)." />
+what kind of tree is a BIT While the update part of a BIT is pretty straightforward one may wonder at the reverse query part which was done in ershov&rsquo;s solution \(O(\log n)\)." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/till-i-collapse-ii/" />
 <meta property="article:published_time" content="2020-06-29T14:14:24-07:00" />
-<meta property="article:modified_time" content="2020-06-29T16:25:38-07:00" />
+<meta property="article:modified_time" content="2020-06-30T15:19:35-07:00" />
 <meta itemprop="name" content="Codeforces Till-I-Collapse (Part II)">
 <meta itemprop="description" content="credits It is interesting that MiFaFAOvO&rsquo;s solution has the same pieces are ershov.stanislav&rsquo;s solution. In fact they both use the worm method (my own naming for subsequence like states). What is interesting from MiFaFAOvO&rsquo;s solution is that he uses a BIT to solve the problem.
-what kind of tree is a BIT While the update part of a BIT is pretty straight forward one may wonder at the reverse query part which was done in ershov&rsquo;s solution \(O(\log n)\).">
+what kind of tree is a BIT While the update part of a BIT is pretty straightforward one may wonder at the reverse query part which was done in ershov&rsquo;s solution \(O(\log n)\).">
 <meta itemprop="datePublished" content="2020-06-29T14:14:24-07:00" />
-<meta itemprop="dateModified" content="2020-06-29T16:25:38-07:00" />
-<meta itemprop="wordCount" content="502">
+<meta itemprop="dateModified" content="2020-06-30T15:19:35-07:00" />
+<meta itemprop="wordCount" content="823">
 
 
 
 <meta itemprop="keywords" content="segment tree,codeforces," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Codeforces Till-I-Collapse (Part II)"/>
 <meta name="twitter:description" content="credits It is interesting that MiFaFAOvO&rsquo;s solution has the same pieces are ershov.stanislav&rsquo;s solution. In fact they both use the worm method (my own naming for subsequence like states). What is interesting from MiFaFAOvO&rsquo;s solution is that he uses a BIT to solve the problem.
-what kind of tree is a BIT While the update part of a BIT is pretty straight forward one may wonder at the reverse query part which was done in ershov&rsquo;s solution \(O(\log n)\)."/>
+what kind of tree is a BIT While the update part of a BIT is pretty straightforward one may wonder at the reverse query part which was done in ershov&rsquo;s solution \(O(\log n)\)."/>
 
   </head>
 
@@ -219,16 +219,16 @@ MathJax.Hub.Config({
 
     <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h2 id="credits">credits</h2>
 <p>It is interesting that MiFaFAOvO&rsquo;s solution has the same pieces are
-ershov.stanislav&rsquo;s solution.  In fact they both use the worm method
-(my own naming for subsequence like states).  What is interesting from
-MiFaFAOvO&rsquo;s solution is that he uses a BIT to solve the problem.</p>
+ershov.stanislav&rsquo;s solution. In fact they both use the worm method (my own
+naming for subsequence like states). What is interesting from MiFaFAOvO&rsquo;s
+solution is that he uses a BIT to solve the problem.</p>
 <h2 id="what-kind-of-tree-is-a-bit">what kind of tree is a BIT</h2>
-<p>While the update part of a BIT is pretty straight forward one may wonder at the
+<p>While the update part of a BIT is pretty straightforward one may wonder at the
 reverse query part which was done in ershov&rsquo;s solution \(O(\log n)\).</p>
 <p>In that I already mentioned that one should make full advantage that the segment
 tree is just like a normal binary tree with left and right branches.</p>
 <p>For a BIT however, there is not so clear how one can answer the same query.</p>
-<p>For this one needs to really understand the underpinnings of a BITs.</p>
+<p>For this one needs to really understand BITs.</p>
 <h2 id="bit-assignment">bit assignment</h2>
 <p>Underlying a BIT is the fact that a number can be broken down as a sum of
 powers of 2, i.e. a number&rsquo;s binary representation of a number.  But let&rsquo;s
@@ -239,46 +239,82 @@ be explicit and write it out:</p>
 <p>Now to obtain the prefix sum from index 1 to 28.  One would add the following
 nodes in a BIT:</p>
 <p>\[
-\Sum_{i=1}^{28} a_i = t[16] + t[24] + t[28]
+\sum_{i=1}^{28} a_i = t[16] + t[24] + t[28]
 \]</p>
-<p>Note the separation of the indexes, they correspond to the powers of two
-representation of 28</p>
+<p>Note the separation between the indexes above, they correspond to the powers of two
+representation of \(28\)</p>
 <p>\begin{eqnarray}
 16  = 16 - 0 \\\<br>
 8   = 24 - 16 \\\<br>
 4   = 28 - 24
 \end{eqnarray}</p>
-<p>Thus one can determine the region of responsibility in a BIT as
-follows</p>
 <ul>
 <li>\(t[16]\) is responsible for the range \([1,16]\)</li>
 <li>\(t[24]\) is responsible for the range \([17,24]\)</li>
 <li>\(t[28]\) is responsible for the range \([25,28]\)</li>
 </ul>
-<p>One can find the following form for the region of responsibility</p>
-<p>\(t[n]\) is responsible for the range \((n-(1&laquo;r), n]\), note that left
-end is left open, and \(r\) is the position of the LSB 1 in the number.
-For \(0b11100\) the LSB is at the third position from the left, and
-thus the region of responsibility for \(0b11100\) is \((0b11000, 0b11100]\).</p>
+<p>or written in another way</p>
+<ul>
+<li>\(t[16]\) is responsible for the range \((0,16]\)</li>
+<li>\(t[24]\) is responsible for the range \((0+16,0+16+8]\)</li>
+<li>\(t[28]\) is responsible for the range \((0+16+8,0+16+8+2]\)</li>
+</ul>
+<p>One often finds the following form for the region of responsibility
+\(t[n]\) is responsible for the range</p>
+<p>\((n-(1&laquo;r), n]\) or \([n-(1&laquo;r)+1, n]\)</p>
+<p>note that the right version is what you will often see, I prefer the left
+version because the extra one doesn&rsquo;t come to a nice &lsquo;round&rsquo; number for, i.e. I
+prefer to think of (16,24] vs [17,24]. In the above \(r\) is the bit position
+counting from the right of the right most 1 in the number. For \(0b11100\), this
+occurs at the third position from the right (or \(2^2\)), and thus the region of
+responsibility for \(0b11100\) is \((0b11000, 0b11100]\).</p>
 <p>Thus one can easily write</p>
-<p>\begin{equation}
-S[0b11100;0) &amp;=&amp; t[0b11100] + t[0b11000] + t[0b10000]\\\<br>
-&amp;=&amp; S[0b11100;0b11000) + S[0b11000;0b10000) + S[0b10000;0)
-\end{equation}</p>
-<p>where I am using the notation \(S[x,y)\) to the sum of \(a_i\) from
-\([x,y)\).  If you don&rsquo;t like the open right sided end, one can just
-add a one to \(y\), but I find it easier to look at the bits without
-adding the extra 1.</p>
-<p>From this it should be obvious to determine the size of a range.
-For example \(t[0b11100]\) the right most \(1\) is at position \(2\) thus
-the range that it covers should be of size \(2^2\).  Similarly
-\(t[0b11000]\) the right most \(1\) is at position \(3\) thus the range
-should cover a range that is \(2^3\) long.</p>
-<p>Note that typical implementations of BIT use the following to get
-at the LSB, \(r = x&amp;-x\).</p>
+<p>\begin{eqnarray}
+S(0,0b11100) &amp;=&amp; t[0b10000] + t[0b11000] + t[0b11100]\\\<br>
+&amp;=&amp; S(0,0b10000] + S(0b10000,0b11000] + S(0b11000,0b11100]
+\end{eqnarray}</p>
+<p>where I am using the notation \(S(x,y]\) to denote the sum of \(a_i\) from \((x,y]\).
+If you don&rsquo;t like the open left interval, just add a \(1\) to \(x\). But maybe you
+can see why I prefer the open notation.</p>
+<p>Note that typical implementations of BIT use the following to get at the right
+most &lsquo;1&rsquo;,</p>
+<p>\[
+r = x\&amp;-x
+\]</p>
+<h2 id="pictorial">pictorial</h2>
+<figure>
+    <img src="https://www.frankliu.org/hugo/images/till-i-collapse/bit-region-cropped.svg"/> 
+</figure>
+
+<p>From the above picture, given a node number \(n\), we can figure out
+the range of responsibility by taking a look at the right most &lsquo;1&rsquo; bit.
+This will indicate the size of the range, and the remaining bits
+determine the offset.</p>
 <h2 id="reverse-query">reverse query</h2>
-<p>Thus we are positioned to figure out at what position does the
-prefix sum equal to some \(k\).</p>
+<p>Thus we are positioned to figure out at what position does the prefix sum equals
+to some \(k\).</p>
+<p>Basically we will take the biggest chunk first and determine if we took too much
+or not. If we took too much, then we must look for a smaller chunk. Kind of a
+similar thing that we do in figuring out the binary representation of a number.
+For example, suppose we are interested in the binary representation of \(22\). We
+can begin by looking at the large powers of two, \(32\) is too big, then we look
+for the next smaller power of two \(16\), this is smaller than \(22\) so we then
+take the remainder \(22-16 = 6\) and again we look for the next power of two \(8\)
+is bigger than \(6\) so we skip till we get \(4\) and again take the remainder
+\(6-4=2\), etc.</p>
+<p>The BIT stores things in the same way. Say we are looking for prefix sum
+matching \(k\). Suppose that the answer is at position \(22\), i.e. \(\sum_{i=1}^{22}
+a_i = k\). Then we can approach this by looking at largest range containing part
+of the prefix sum, say \((0,16]\), since this smaller than the desired sum, we
+take the remainder \(k-t[16]\) and look at the next extension of the prefix
+\((16,24]\). We find that the sum in this range is larger than the remaining sum, so
+we look for the next smaller range, \((16,20]\). In essence we zero on a prefix
+range that contains the desired prefix sum.</p>
+<h2 id="details-of-the-search">details of the search</h2>
+<p>Note that there may be multiple prefixes with the same sum, and we may want to
+find the prefix with largest range matching a prefix sum. This problem also
+appears in the segment tree version. We will treat both of these problems in a
+separate article.</p>
 <ul class="pa0">
   
    <li class="list">
@@ -310,7 +346,9 @@ prefix sum equal to some \(k\).</p>
     <li><a href="#credits">credits</a></li>
     <li><a href="#what-kind-of-tree-is-a-bit">what kind of tree is a BIT</a></li>
     <li><a href="#bit-assignment">bit assignment</a></li>
+    <li><a href="#pictorial">pictorial</a></li>
     <li><a href="#reverse-query">reverse query</a></li>
+    <li><a href="#details-of-the-search">details of the search</a></li>
   </ul>
 </nav>
   </div>
