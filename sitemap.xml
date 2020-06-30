@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://www.frankliu.org/hugo/posts/till-i-collapse-ii/</loc>
+    <lastmod>2020-06-29T16:25:38-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.frankliu.org/hugo/posts/till-i-collapse/</loc>
     <lastmod>2020-06-29T15:38:35-07:00</lastmod>
   </url>
@@ -199,41 +204,41 @@
   
   <url>
     <loc>https://www.frankliu.org/hugo/categories/</loc>
-    <lastmod>2020-06-29T15:38:35-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/</loc>
-    <lastmod>2020-06-29T15:38:35-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/tags/segment-tree/</loc>
-    <lastmod>2020-06-29T15:38:35-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/categories/segment-tree/</loc>
-    <lastmod>2020-06-29T15:38:35-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/tags/</loc>
-    <lastmod>2020-06-29T15:38:35-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.frankliu.org/hugo/tags/ciel-and-gondolas/</loc>
-    <lastmod>2020-06-05T06:54:35-07:00</lastmod>
+    <lastmod>2020-06-29T16:25:38-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/tags/codeforces/</loc>
-    <lastmod>2020-06-05T06:54:35-07:00</lastmod>
+    <lastmod>2020-06-29T16:25:38-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.frankliu.org/hugo/categories/codeforces/</loc>
+    <lastmod>2020-06-29T16:25:38-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/</loc>
+    <lastmod>2020-06-29T16:25:38-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/segment-tree/</loc>
+    <lastmod>2020-06-29T16:25:38-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/categories/segment-tree/</loc>
+    <lastmod>2020-06-29T16:25:38-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/</loc>
+    <lastmod>2020-06-29T16:25:38-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.frankliu.org/hugo/tags/ciel-and-gondolas/</loc>
     <lastmod>2020-06-05T06:54:35-07:00</lastmod>
   </url>
   

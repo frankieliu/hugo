@@ -182,6 +182,22 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/appscript-sheets/" class="link black dim">
+        Appscript - Sheets
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Getting started Appscript is pretty powerful and free, it is javascript with google api for manipulating things.
+ Begin with a sheets document. Open tools/script editor Write in Code.gs Rename to some  Run with the triangle button Ctrl + Enter to see the Log Save it  Since most of the time I am operating on some selected range, you would first select on some cells before running the script.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
       <a href="https://www.frankliu.org/hugo/posts/bellman-held-karp/" class="link black dim">
         Bellman-Held-Karp Hamiltonian path and Traveling Salesman
       </a>
@@ -323,21 +339,6 @@ This method of maintaining a separate branch is made easier with a worktree that
 </div>
 </div>
       
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/kleppmann-ch09-consistency/" class="link black dim">
-        Klepmann Chapter 9 Consistency and Consensus
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Consistency Guarantees eventual consistency  eventually data converges  different than transaction isolation  isolation - avoid race conditions due to concurrent execution consistency - about coordinating replica state  levels  strongest - linearizability causality and total ordering commit in a distributed system consensus problem  Linearizability  one replica illusion (one copy of the data) guarantee read is most recent - recency guarantee read A / write C / read A ok read A / begin write C / read B / end write C / read A not ok read is concurrent with the write  linearizability, 1 always follows 1 (no flipping)   cas(x, vold, vnew)  vs Serializability  serializability is about transactions guaranteeing a sequential order linearizability is about recency guarantees on read and write  importance locking and leader election  lock must be linearizable all nodes must agree on who holds the lock  zookeeper - used for distributed locking and leader election    constraints and uniqueness guarantees  enforcing uniquess (username, filename)  similar to acquiring a lock similar to cas operation   constraints that bank balance &gt;= 0  two people don&rsquo;t book the same flight requires a single up-to-date value for account balance or seat occupancy   uniquess constraints in DBs are linearizable foreigh key and attribute constraints can be implemented without linearizability  cross-channel timing dependencies File storage service is not linearizable, that is two requests went into it, one to store the image, and the other to resize the image.
-    </div>
-  </div>
-</div>
-</div>
-      
     </section>
 <ul class="pagination">
   <li class="page-item">
@@ -359,10 +360,13 @@ This method of maintaining a separate branch is made easier with a worktree that
     <a class="page-link" href="https://www.frankliu.org/hugo/posts/page/4/">4</a>
   </li>
   <li class="page-item">
+    <a class="page-link" href="https://www.frankliu.org/hugo/posts/page/5/">5</a>
+  </li>
+  <li class="page-item">
     <a href="https://www.frankliu.org/hugo/posts/page/4/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="https://www.frankliu.org/hugo/posts/page/4/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="https://www.frankliu.org/hugo/posts/page/5/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 
