@@ -2,7 +2,7 @@
 title = "Codeforces Till-I-Collapse (Part II)"
 author = ["adam"]
 date = 2020-06-29T14:14:24-07:00
-lastmod = 2020-06-30T17:42:27-07:00
+lastmod = 2020-06-30T17:43:39-07:00
 tags = ["segment tree", "binary indexed tree", "codeforces"]
 categories = ["segment tree", "binary indexed tree", "codeforces"]
 draft = false
@@ -96,7 +96,7 @@ where I am using the notation \\(S(x,y]\\) to denote the sum of \\(a\_i\\) from 
 If you don't like the open left interval, just add a \\(1\\) to \\(x\\). But maybe you
 can see why I prefer the open notation.
 
-Note that typical implementations of BIT use the following to get at the right
+Note that typical implementations of BIT uses the following to get at the right
 most '1',
 
 \\[

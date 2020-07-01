@@ -91,7 +91,7 @@ where I am using the notation $S(x,y]$ to denote the sum of $a_i$ from $(x,y]$.
 If you don't like the open left interval, just add a $1$ to $x$. But maybe you
 can see why I prefer the open notation.
 
-Note that typical implementations of BIT use the following to get at the right
+Note that typical implementations of BIT uses the following to get at the right
 most '1',
 
 $$
