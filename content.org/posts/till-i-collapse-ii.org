@@ -5,8 +5,8 @@
 #+HUGO_AUTO_SET_LASTMOD: t
 #+TITLE: "Codeforces Till-I-Collapse (Part II)"
 #+DATE: 2020-06-29T14:14:24-07:00
-#+HUGO_TAGS: "segment tree" codeforces
-#+HUGO_CATEGORIES: "segment tree" codeforces
+#+HUGO_TAGS: "segment tree" "binary indexed tree" codeforces
+#+HUGO_CATEGORIES: "segment tree" "binary indexed tree" codeforces
 #+HUGO_MENU_off: :menu "main" :weight 2000
 #+HUGO_CUSTOM_FRONT_MATTER: :foo bar :baz zoo :alpha 1 :beta "two words" :gamma 10 :mathjax true :toc true
 #+HUGO_DRAFT: false

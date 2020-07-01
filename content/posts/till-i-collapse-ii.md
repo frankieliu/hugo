@@ -2,9 +2,9 @@
 title = "Codeforces Till-I-Collapse (Part II)"
 author = ["adam"]
 date = 2020-06-29T14:14:24-07:00
-lastmod = 2020-06-30T15:19:35-07:00
-tags = ["segment tree", "codeforces"]
-categories = ["segment tree", "codeforces"]
+lastmod = 2020-06-30T15:25:26-07:00
+tags = ["segment tree", "binary indexed tree", "codeforces"]
+categories = ["segment tree", "binary indexed tree", "codeforces"]
 draft = false
 weight = 2000
 foo = "bar"
