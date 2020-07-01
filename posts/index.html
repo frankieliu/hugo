@@ -182,6 +182,23 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/till-i-collapse-iii/" class="link black dim">
+        Codeforces Till-I-Collapse (Part III)
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      extent of region We begin with the segment tree version. Note that Ershov uses a version of the segment tree where the right side of the range of responsibility is open, i.e. \([3,4)\) is equivalent to \([3,3]\)
+The function get below will find the size of the largest range whose prefix sum is \(k\).
+int get(int v, int vl, int vr, int &amp;k) { if (k &gt;= st[v]) { k -= st[v]; return vr - vl; } if (vl == vr - 1) { return 0; } int mid = (vl + vr) / 2; int res = get(v * 2, vl, mid, k); if (res == mid - vl) { res += get(v * 2 + 1, mid, vr, k); } return res; } It does so by allowing the \(k\) to go down to \(0\), while there are empty ranges the recursion goes to the right child, until it reaches a single element range containing an element (\(&gt;0\)) at which point it returns \(0\).
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
       <a href="https://www.frankliu.org/hugo/posts/till-i-collapse-ii/" class="link black dim">
         Codeforces Till-I-Collapse (Part II)
       </a>
@@ -329,21 +346,6 @@ cpan Hash::Slice Building .
 Definitions For any subgraph \(G_s\) and any goal set \(T\) and starting state \(s\):
 Let \(f^*(n)\) be the actual cost of an optimal path constrained through \(n\), from \(s\) to \(n\) to a preferred goal node \(n\).
 From this definition, the (&lsquo;unconstrained&rsquo;) optimal path can be written as \(f^*(s) = h^*(s)\), where \(h^*(n)\) is the optimal path from node \(n\) to the preferred goal node of \(s\).
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/flink/" class="link black dim">
-        Flink
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      What is it  a distributed runtime uses pipelines for execution exactly-once state consistency lightweight checkpoint iterative processing windows semantics out-of-order processing  2 architecture cluster  client job manager task manager (1 or more)  client  takes a program xforms to dataflow graph submits to job manager creates data schema and serializers cost-based query optmization  job manager  coordinates distributed execution of dataflow tracks state and progress of each operator and stream schedules new operators coordinates checkpoints and recovery persists minimal set of data for checkpoint and recovery  task manager  executes one or more operators report status to job manager maintain buffer pools to buffer or materialize streams maintain network connections to exchange of streams between operators    3.
     </div>
   </div>
 </div>

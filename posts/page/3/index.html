@@ -182,6 +182,23 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/alpha-beta-pruning/" class="link black dim">
+        Minimax - alpha beta pruning
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Normal pruning   Imagine you are given the following problem: Find the depth of the the leaf closest to the root of a tree.
+def smallest_depth(node, depth): if node is None: return depth - 1 a = smallest_depth(node.left, depth + 1) b = smallest_depth(node.right, depth + 1) return min(a, b) You could improve this a little bit by passing some information to your children:
+def smallest_depth(node, smallest_sofar, depth): if node is None: return depth - 1 if depth &gt;= smallest_sofar: return depth a = smallest_depth(node.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
       <a href="https://www.frankliu.org/hugo/posts/appscript-sheets/" class="link black dim">
         Appscript - Sheets
       </a>
@@ -318,22 +335,6 @@ def num_rect(points): m = defaultdict(lambda: 0) answer = 0 for p in points: for
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       Requirements  O(1) insertion  requires O(1) getting the least frequently used    Suggested data structures  f: a map from frequency to a tuple containing the head and tail of a portion of a double linked list kv: a map from key to a node in the double linked list dll: a double linked list where the least frequent item is at the head of the list node: element of dll, containing frequency info, as well a prev, next, value, the usual stuff    put(a,v)  find corresponding node via kv[a] delete head of double linked list and update f accordingly delete node from its current position and insert it at the head of the next frequency, i.
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://www.frankliu.org/hugo/posts/deep-learning-book-setup/" class="link black dim">
-        Starting hugo from scratch
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      deploying hugo to github.io There are a number of ways of doing this. Since I like to keep a separate branch for the deployment, I opted for the option below. Another option would be use a docs directory and add to config.toml a line with publishDir = &ldquo;docs&rdquo;. This would also work, and you then just need to work on master branch.
-This method of maintaining a separate branch is made easier with a worktree that directly writes to a public folder in gh-pages from the master branch.
     </div>
   </div>
 </div>

@@ -36,7 +36,7 @@
 <meta property="og:description" content="A blog for programming and scalable systems" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/" />
-<meta property="og:updated_time" content="2020-06-30T15:25:26-07:00" />
+<meta property="og:updated_time" content="2020-06-30T17:09:22-07:00" />
 <meta itemprop="name" content="My Hugo Site">
 <meta itemprop="description" content="A blog for programming and scalable systems"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="My Hugo Site"/>
@@ -212,6 +212,32 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="https://www.frankliu.org/hugo/posts/till-i-collapse-iii/" class="color-inherit dim link">
+            Codeforces Till-I-Collapse (Part III)
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          extent of region We begin with the segment tree version. Note that Ershov uses a version of the segment tree where the right side of the range of responsibility is open, i.e. \([3,4)\) is equivalent to \([3,3]\)
+The function get below will find the size of the largest range whose prefix sum is \(k\).
+int get(int v, int vl, int vr, int &amp;k) { if (k &gt;= st[v]) { k -= st[v]; return vr - vl; } if (vl == vr - 1) { return 0; } int mid = (vl + vr) / 2; int res = get(v * 2, vl, mid, k); if (res == mid - vl) { res += get(v * 2 + 1, mid, vr, k); } return res; } It does so by allowing the \(k\) to go down to \(0\), while there are empty ranges the recursion goes to the right child, until it reaches a single element range containing an element (\(&gt;0\)) at which point it returns \(0\).
+        </div>
+          <a href="https://www.frankliu.org/hugo/posts/till-i-collapse-iii/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="https://www.frankliu.org/hugo/posts/till-i-collapse-ii/" class="color-inherit dim link">
             Codeforces Till-I-Collapse (Part II)
             </a>
@@ -256,38 +282,18 @@ problem size However, given the size of the problem (\(10^5\)) and the fact that
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://www.frankliu.org/hugo/posts/codeforces-190-div1-e/" class="color-inherit dim link">
-            Codeforces-190-Div1-E Ciel and Gondolas
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          E. Ciel and Gondolas Fox Ciel went into an amusement park. She is in line for the Ferris wheel. There are \(n\) foxes in the queue. We will assume that the first fox is at the beginning of the queue, and the \(n\) th fox is at the tail of the queue.
-In total there are \(k\) gondolas. We distribute foxes into gondolas as follows:
-When the first gondola swims up, \(q_1\) foxes enter from the front of the line into the gondola.
-        </div>
-          <a href="https://www.frankliu.org/hugo/posts/codeforces-190-div1-e/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="https://www.frankliu.org/hugo/posts/codeforces-190-div1-e/" class="link black dim">
+              Codeforces-190-Div1-E Ciel and Gondolas
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="https://www.frankliu.org/hugo/posts/bomb/" class="link black dim">
@@ -304,12 +310,6 @@ When the first gondola swims up, \(q_1\) foxes enter from the front of the line 
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="https://www.frankliu.org/hugo/posts/google-gfs/" class="link black dim">
               Google File System
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://www.frankliu.org/hugo/posts/asciio/" class="link black dim">
-              Ascii Diagrams
             </a>
           </h2>
         

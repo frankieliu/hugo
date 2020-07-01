@@ -36,7 +36,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/tags/" />
-<meta property="og:updated_time" content="2020-06-30T15:25:26-07:00" />
+<meta property="og:updated_time" content="2020-06-30T17:09:22-07:00" />
 <meta itemprop="name" content="Tags">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Tags"/>
@@ -405,6 +405,23 @@ sample bomb A sample bomb can be obtained here.
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/till-i-collapse-iii/" class="link black dim">
+        Codeforces Till-I-Collapse (Part III)
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      extent of region We begin with the segment tree version. Note that Ershov uses a version of the segment tree where the right side of the range of responsibility is open, i.e. \([3,4)\) is equivalent to \([3,3]\)
+The function get below will find the size of the largest range whose prefix sum is \(k\).
+int get(int v, int vl, int vr, int &amp;k) { if (k &gt;= st[v]) { k -= st[v]; return vr - vl; } if (vl == vr - 1) { return 0; } int mid = (vl + vr) / 2; int res = get(v * 2, vl, mid, k); if (res == mid - vl) { res += get(v * 2 + 1, mid, vr, k); } return res; } It does so by allowing the \(k\) to go down to \(0\), while there are empty ranges the recursion goes to the right child, until it reaches a single element range containing an element (\(&gt;0\)) at which point it returns \(0\).
+    </div>
+  </div>
+</div>
+
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
       <a href="https://www.frankliu.org/hugo/posts/till-i-collapse-ii/" class="link black dim">
         Codeforces Till-I-Collapse (Part II)
       </a>
@@ -591,6 +608,23 @@ When the first gondola swims up, \(q_1\) foxes enter from the front of the line 
             Tag: codeforces
           </a>
         </h2>
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/till-i-collapse-iii/" class="link black dim">
+        Codeforces Till-I-Collapse (Part III)
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      extent of region We begin with the segment tree version. Note that Ershov uses a version of the segment tree where the right side of the range of responsibility is open, i.e. \([3,4)\) is equivalent to \([3,3]\)
+The function get below will find the size of the largest range whose prefix sum is \(k\).
+int get(int v, int vl, int vr, int &amp;k) { if (k &gt;= st[v]) { k -= st[v]; return vr - vl; } if (vl == vr - 1) { return 0; } int mid = (vl + vr) / 2; int res = get(v * 2, vl, mid, k); if (res == mid - vl) { res += get(v * 2 + 1, mid, vr, k); } return res; } It does so by allowing the \(k\) to go down to \(0\), while there are empty ranges the recursion goes to the right child, until it reaches a single element range containing an element (\(&gt;0\)) at which point it returns \(0\).
+    </div>
+  </div>
+</div>
+
         
           <div class="relative w-100 mb4 bg-white nested-copy-line-height">
   <div class="bg-white mb3 pa4 gray overflow-hidden">
@@ -1897,6 +1931,23 @@ From this definition, the (&lsquo;unconstrained&rsquo;) optimal path can be writ
             Tag: segment-tree
           </a>
         </h2>
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://www.frankliu.org/hugo/posts/till-i-collapse-iii/" class="link black dim">
+        Codeforces Till-I-Collapse (Part III)
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      extent of region We begin with the segment tree version. Note that Ershov uses a version of the segment tree where the right side of the range of responsibility is open, i.e. \([3,4)\) is equivalent to \([3,3]\)
+The function get below will find the size of the largest range whose prefix sum is \(k\).
+int get(int v, int vl, int vr, int &amp;k) { if (k &gt;= st[v]) { k -= st[v]; return vr - vl; } if (vl == vr - 1) { return 0; } int mid = (vl + vr) / 2; int res = get(v * 2, vl, mid, k); if (res == mid - vl) { res += get(v * 2 + 1, mid, vr, k); } return res; } It does so by allowing the \(k\) to go down to \(0\), while there are empty ranges the recursion goes to the right child, until it reaches a single element range containing an element (\(&gt;0\)) at which point it returns \(0\).
+    </div>
+  </div>
+</div>
+
         
           <div class="relative w-100 mb4 bg-white nested-copy-line-height">
   <div class="bg-white mb3 pa4 gray overflow-hidden">
