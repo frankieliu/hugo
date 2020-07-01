@@ -26,9 +26,9 @@ While the update part of a BIT is pretty straightforward one may wonder at the
 reverse query part which was done in ershov's solution $O(\log n)$.
 
 In that I already mentioned that one should make full advantage that the segment
-tree is just like a normal binary tree with left and right branches.
+tree is just like a normal binary tree with left and right children.
 
-For a BIT however, there is not so clear how one can answer the same query.
+For a BIT however, it is not so clear how one can answer the same query.
 
 For this one needs to really understand BITs.
 

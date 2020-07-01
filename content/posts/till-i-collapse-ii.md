@@ -2,7 +2,7 @@
 title = "Codeforces Till-I-Collapse (Part II)"
 author = ["adam"]
 date = 2020-06-29T14:14:24-07:00
-lastmod = 2020-06-30T15:25:26-07:00
+lastmod = 2020-06-30T17:40:39-07:00
 tags = ["segment tree", "binary indexed tree", "codeforces"]
 categories = ["segment tree", "binary indexed tree", "codeforces"]
 draft = false
@@ -30,9 +30,9 @@ While the update part of a BIT is pretty straightforward one may wonder at the
 reverse query part which was done in ershov's solution \\(O(\log n)\\).
 
 In that I already mentioned that one should make full advantage that the segment
-tree is just like a normal binary tree with left and right branches.
+tree is just like a normal binary tree with left and right children.
 
-For a BIT however, there is not so clear how one can answer the same query.
+For a BIT however, it is not so clear how one can answer the same query.
 
 For this one needs to really understand BITs.
 
