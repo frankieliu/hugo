@@ -35,14 +35,14 @@ problem size However, given the size of the problem (\(10^5\)) and the fact that
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/till-i-collapse/" />
 <meta property="article:published_time" content="2020-06-28T06:56:36-07:00" />
-<meta property="article:modified_time" content="2020-06-29T15:38:35-07:00" />
+<meta property="article:modified_time" content="2020-06-30T22:39:02-07:00" />
 <meta itemprop="name" content="Codeforces Till-I-Collapse">
 <meta itemprop="description" content="credit This is ershov.stanislav&rsquo;s solution to the problem.
 summary of problem Given an array of integers (colors), find the mininum nunber of consecutive grouping containing at most \(k\) colors (number of unique integers in a subarray).
 greedy For a single \(k\) one can take \(O(n)\) time to greedily scan through the array and accumulate \(k\) unique integers at a time.
 problem size However, given the size of the problem (\(10^5\)) and the fact that we must do this for \(k \in {1,\cdots,n}\) implies that we must look for a better solution.">
 <meta itemprop="datePublished" content="2020-06-28T06:56:36-07:00" />
-<meta itemprop="dateModified" content="2020-06-29T15:38:35-07:00" />
+<meta itemprop="dateModified" content="2020-06-30T22:39:02-07:00" />
 <meta itemprop="wordCount" content="1176">
 
 
@@ -246,7 +246,7 @@ solution.</p>
 <p>Updates happen from top to bottom.  When an element is added from the root, it
 immediately adds to the root&rsquo;s value.  As it recursively goes down the tree, it
 updates the nodes it encounters.  Note that the same can be done while on the
-way back up the tree, as in the traditional sum segment tree.  However that note
+way back up the tree, as in the traditional sum segment tree.  However note that
 doing on the way up requires the querying of the both the left and right childs,
 so it is less efficient than updating directly while descending the tree.</p>
 <h2 id="query-for-the-range">query for the range</h2>
