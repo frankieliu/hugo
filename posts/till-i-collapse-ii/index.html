@@ -33,13 +33,13 @@ what kind of tree is a BIT While the update part of a BIT is pretty straightforw
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.frankliu.org/hugo/posts/till-i-collapse-ii/" />
 <meta property="article:published_time" content="2020-06-29T14:14:24-07:00" />
-<meta property="article:modified_time" content="2020-06-30T17:40:39-07:00" />
+<meta property="article:modified_time" content="2020-06-30T17:42:27-07:00" />
 <meta itemprop="name" content="Codeforces Till-I-Collapse (Part II)">
 <meta itemprop="description" content="credits It is interesting that MiFaFAOvO&rsquo;s solution has the same pieces are ershov.stanislav&rsquo;s solution. In fact they both use the worm method (my own naming for subsequence like states). What is interesting from MiFaFAOvO&rsquo;s solution is that he uses a BIT to solve the problem.
 what kind of tree is a BIT While the update part of a BIT is pretty straightforward one may wonder at the reverse query part which was done in ershov&rsquo;s solution \(O(\log n)\).">
 <meta itemprop="datePublished" content="2020-06-29T14:14:24-07:00" />
-<meta itemprop="dateModified" content="2020-06-30T17:40:39-07:00" />
-<meta itemprop="wordCount" content="823">
+<meta itemprop="dateModified" content="2020-06-30T17:42:27-07:00" />
+<meta itemprop="wordCount" content="822">
 
 
 
@@ -263,7 +263,7 @@ representation of \(28\)</p>
 \(t[n]\) is responsible for the range</p>
 <p>\((n-(1&laquo;r), n]\) or \([n-(1&laquo;r)+1, n]\)</p>
 <p>note that the right version is what you will often see, I prefer the left
-version because the extra one doesn&rsquo;t come to a nice &lsquo;round&rsquo; number for, i.e. I
+version because the extra one doesn&rsquo;t come to a nice &lsquo;round&rsquo; number, i.e. I
 prefer to think of (16,24] vs [17,24]. In the above \(r\) is the bit position
 counting from the right of the right most 1 in the number. For \(0b11100\), this
 occurs at the third position from the right (or \(2^2\)), and thus the region of
