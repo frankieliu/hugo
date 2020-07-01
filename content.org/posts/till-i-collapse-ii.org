@@ -74,7 +74,7 @@ $t[n]$ is responsible for the range
 $(n-(1<<r), n]$ or $[n-(1<<r)+1, n]$
 
 note that the right version is what you will often see, I prefer the left
-version because the extra one doesn't come to a nice 'round' number for, i.e. I
+version because the extra one doesn't come to a nice 'round' number, i.e. I
 prefer to think of (16,24] vs [17,24]. In the above $r$ is the bit position
 counting from the right of the right most 1 in the number. For $0b11100$, this
 occurs at the third position from the right (or $2^2$), and thus the region of

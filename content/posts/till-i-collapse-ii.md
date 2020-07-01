@@ -2,7 +2,7 @@
 title = "Codeforces Till-I-Collapse (Part II)"
 author = ["adam"]
 date = 2020-06-29T14:14:24-07:00
-lastmod = 2020-06-30T17:40:39-07:00
+lastmod = 2020-06-30T17:42:27-07:00
 tags = ["segment tree", "binary indexed tree", "codeforces"]
 categories = ["segment tree", "binary indexed tree", "codeforces"]
 draft = false
@@ -79,7 +79,7 @@ One often finds the following form for the region of responsibility
 \\((n-(1<<r), n]\\) or \\([n-(1<<r)+1, n]\\)
 
 note that the right version is what you will often see, I prefer the left
-version because the extra one doesn't come to a nice 'round' number for, i.e. I
+version because the extra one doesn't come to a nice 'round' number, i.e. I
 prefer to think of (16,24] vs [17,24]. In the above \\(r\\) is the bit position
 counting from the right of the right most 1 in the number. For \\(0b11100\\), this
 occurs at the third position from the right (or \\(2^2\\)), and thus the region of
