@@ -3,7 +3,7 @@
 #+HUGO_SECTION: posts
 #+HUGO_WEIGHT: 2000
 #+HUGO_AUTO_SET_LASTMOD: t
-#+TITLE: "Codeforces Till-I-Collapse (III)"
+#+TITLE: "Codeforces Till-I-Collapse (Part III)"
 #+DATE: 2020-06-30T15:22:25-07:00
 #+HUGO_TAGS: "segment tree" "binary indexed tree" codeforces
 #+HUGO_CATEGORIES: "segment tree" "binary indexed tree" codeforces
@@ -42,13 +42,14 @@ whose prefix sum is $k$.
 
 It does so by allowing the $k$ to go down to $0$, while there are empty ranges
 the recursion goes to the right child, until it reaches a single element range
-at which point it returns $0$. Thus the recursion stops under the following two
-conditions: when the remaining $k$ goes to $0$ and when we reach a leaf node of
-size greater than $0$. Since the width of this leaf node is not counted, we only
-count the size up to the element prior to this leaf node.
+containing an element ($>0$) at which point it returns $0$. Thus the recursion
+stops under the following two conditions: when the remaining $k$ goes to $0$ and
+when we reach a leaf node of size greater than $0$. Since the width of this leaf
+node is not counted, we only count the size up to the element prior to this leaf
+node.
 
 The hard part about coming up with such a solution, is the fact that we are
-stopping when we have gone past the $k$ elements, and we stop when we find a 
+stopping when we have gone past finding a $k$ sum, and we stop when we find a 
 leaf node that meets this condition.
 
 * Fenwick tree solution
@@ -70,17 +71,20 @@ This code is a bit more convoluted, and Yuhao (MiFaFaOvO) when trying to
 find the extent of the $k$, actually looks for $k+1$.  But the idea is 
 pretty simple: keep accumulating $p$ as long as the accumulated range is
 less than $k+1$.  This can be seen from ~c[] < x~ in the ~if~ statement.
-Then he return $p+1$ because that is the next potential starting of a 
-$k$ subarray.
+Then he returns $p+1$ because that is the next potential starting of a 
+$k$ subarray.  Another way to interpret the ~find~ function is to return
+the smallest range containing $x$ elements.  Note that the idea of finding
+the shortest range containing $k+1$ elements is equivalent to finding the
+longest range containing $k$ elements (plus $1$). 
 
 * contrast
 
 Both methods are quite ingenious, and while I originally felt the BIT solution
-to be hard to understand, after understanding how the BIT search works and
-looking at the code from Yuhao, I think it is easier to implement and to
-understand, whereas Ershov's code requires more careful thinking about the
-terminating conditions.  Note that one is just a ~for~ loop through the
-search space, while the other requires careful orchestration in traversing
-the segment tree.  But your opinion may differ, if you find a more intuitive
-way of explaning the above please let me know.
+to be hard to grok, after understanding how the BIT search works and looking at
+the code from Yuhao, I think it is easier to implement and to understand,
+whereas Ershov's code requires more careful thinking about the terminating
+conditions. Note that the BIT solution requires just a linear walk with a ~for~
+loop through the search space, while the segment tree solution requires careful
+orchestration in traversing the segment tree.  But your opinion may differ, if
+you find a more intuitive way of explaning the above please let me know.
 
