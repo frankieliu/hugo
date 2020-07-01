@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>binary indexed tree on My New Hugo Site</title>
+    <link>https://www.frankliu.org/hugo/tags/binary-indexed-tree/</link>
+    <description>Recent content in binary indexed tree on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 29 Jun 2020 14:14:24 -0700</lastBuildDate>
+    
+	<atom:link href="https://www.frankliu.org/hugo/tags/binary-indexed-tree/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Codeforces Till-I-Collapse (Part II)</title>
+      <link>https://www.frankliu.org/hugo/posts/till-i-collapse-ii/</link>
+      <pubDate>Mon, 29 Jun 2020 14:14:24 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/posts/till-i-collapse-ii/</guid>
+      <description>credits It is interesting that MiFaFAOvO&amp;rsquo;s solution has the same pieces are ershov.stanislav&amp;rsquo;s solution. In fact they both use the worm method (my own naming for subsequence like states). What is interesting from MiFaFAOvO&amp;rsquo;s solution is that he uses a BIT to solve the problem.
+what kind of tree is a BIT While the update part of a BIT is pretty straightforward one may wonder at the reverse query part which was done in ershov&amp;rsquo;s solution \(O(\log n)\).</description>
+    </item>
+    
+  </channel>
+</rss>
