@@ -2,7 +2,7 @@
 title = "Codeforces Till-I-Collapse"
 author = ["adam"]
 date = 2020-06-28T06:56:36-07:00
-lastmod = 2020-06-29T15:38:35-07:00
+lastmod = 2020-06-30T22:39:02-07:00
 tags = ["segment tree"]
 categories = ["segment tree"]
 draft = false
@@ -54,7 +54,7 @@ Ershov's solution does a couple of neat little tricks:
 Updates happen from top to bottom.  When an element is added from the root, it
 immediately adds to the root's value.  As it recursively goes down the tree, it
 updates the nodes it encounters.  Note that the same can be done while on the
-way back up the tree, as in the traditional sum segment tree.  However that note
+way back up the tree, as in the traditional sum segment tree.  However note that
 doing on the way up requires the querying of the both the left and right childs,
 so it is less efficient than updating directly while descending the tree.
 
