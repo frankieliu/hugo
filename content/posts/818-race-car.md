@@ -2,7 +2,7 @@
 title = "818 Race Car"
 author = ["Frankie Liu"]
 date = 2020-08-11T20:56:27-07:00
-lastmod = 2020-08-12T19:48:15-07:00
+lastmod = 2020-08-12T19:49:56-07:00
 tags = ["leetcode"]
 categories = ["leetcode"]
 draft = false
@@ -42,4 +42,4 @@ repetition one can combine the two \\(2^{k}-1\\) jumps, into a longer
 \\(2^{k+1}-1\\) jump and a \\(RAR\\), which is shorter.  This reasoning calls
 for taking the longest jump available as opposed to a series of
 shorter equal length jumps, since two shorter equal length jumps can
-be more effectively done with a one longer jump.
+be more effectively done with one longer jump.
