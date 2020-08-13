@@ -1,0 +1,46 @@
++++
+title = "818 Race Car"
+author = ["Frankie Liu"]
+date = 2020-08-11T20:56:27-07:00
+lastmod = 2020-08-12T17:54:12-07:00
+tags = ["leetcode"]
+categories = ["leetcode"]
+draft = false
+weight = 2000
+foo = "bar"
+baz = "zoo"
+alpha = 1
+beta = "two words"
+gamma = 10
+mathjax = true
++++
+
+## Proof {#proof}
+
+Consider overshooting \\(t\\) by \\(2^{n}-1\\), where \\(n\\) is the smallest
+integer that overshoots the target.
+
+We would like to prove considering a jump \\(2^{n+1}-1\\) is not going to
+yield a shorter set of actions.
+
+Note that \\(t\\) is in \\((2^{n-1}-1,2^n-1)\\), so from point A we we have a
+remaining distance in \\((2^{n-1}, 2^{n})\\).  This means that from point
+A we must use a term containing a \\(2^{n-1}-1\\) jump (why? because a
+concatenation of shorter jumps is never more efficient, see next
+paragraph).  Since this is a negative jump this means that there must
+be necessarily a cancellation with at least one of the terms in our
+original jump.  This means there is a shorter solution available, and
+thus we should not overshoot beyond \\(2^{n}-1\\).  Note that a
+cancellation means that those jumps are redundant.  One might argue
+about the extra \\(2^n\\) jump (from \\(2^n-1\\) to \\(2^{n+1}-1\\)), since
+that cannot be cancelled.  Then that necessarily gives you more jumps
+since a \\(2^n\\) distance must also must be covered by either \\(2^{n-1}-1\\)
+or a \\(2^n-1\\) which again calls for a cancellation.
+
+Note that part of reasoning also calls for the fact that one must not
+repeat any of the \\(2^{k}-1\\) jumps, because if there is a repetition one
+can combine the two \\(2^{k}-1\\) jumps, into a longer \\(2^{k+1}-1\\) jump and
+a \\(RAR\\), which is shorter.  This reasoning also calls for taking the
+longest jump available as opposed to a series of shorter jumps, since
+two shorter jumps of the same distance can be more effective done with
+a one longer jump.
