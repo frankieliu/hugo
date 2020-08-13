@@ -21,24 +21,23 @@ integer that overshoots the target.
 We would like to prove considering a jump $2^{n+1}-1$ is not going to
 yield a shorter set of actions.
 
-Note that $t$ is in $(2^{n-1}-1,2^n-1)$, so from point A we we have a
-remaining distance in $(2^{n-1}, 2^{n})$.  This means that from point
-A we must use a term containing a $2^{n-1}-1$ jump (why? because a
-concatenation of shorter jumps is never more efficient, see next
-paragraph).  Since this is a negative jump this means that there must
-be necessarily a cancellation with at least one of the terms in our
-original jump.  This means there is a shorter solution available, and
-thus we should not overshoot beyond $2^{n}-1$.  Note that a
-cancellation means that those jumps are redundant.  One might argue
-about the extra $2^n$ jump (from $2^n-1$ to $2^{n+1}-1$), since
-that cannot be cancelled.  Then that necessarily gives you more jumps
-since a $2^n$ distance must also must be covered by either $2^{n-1}-1$
-or a $2^n-1$ which again calls for a cancellation.
+Note that $t$ is in $[2^{n-1},2^n-2]$, so from point A we have a
+remaining distance in $[2^n+1, 3(2^n)-1]$.  Again if we consider the
+possible jumps from A, either we jump to $2^{n}-1$ or $2^{n+1}-1$.  Of
+course we will not take $2^{n+1}-1$ because that would mean we arrive
+back at the beginning.  If we take $2^{n}-1$ then we would be at
+location $2^{n}$ in $2n+2$ steps ($n+1 + n + R$).  Note we could have
+gotten to the same location via a forward $2^{n}-1$ step followed by
+"RRAR" or $n+4$ steps.  The difference is $n-2$ so as long as $n>2$ it
+never makes sense to make the longer jump, but also note that the
+ending speeds are different.  In the former, one would have to slow
+down the speed which would lead to further $RR$ steps thus making it
+always unfavorable to take the $2^{n+1}-1$ step.
 
-Note that part of reasoning also calls for the fact that one must not 
-repeat any of the $2^{k}-1$ jumps, because if there is a repetition one
-can combine the two $2^{k}-1$ jumps, into a longer $2^{k+1}-1$ jump and
-a $RAR$, which is shorter.  This reasoning also calls for taking the
-longest jump available as opposed to a series of shorter jumps, since
-two shorter jumps of the same distance can be more effective done with
-a one longer jump.
+Note that part of the above reasoning also calls for the fact that one
+must not repeat any of the $2^{k}-1$ jumps, because if there is a
+repetition one can combine the two $2^{k}-1$ jumps, into a longer
+$2^{k+1}-1$ jump and a $RAR$, which is shorter.  This reasoning calls
+for taking the longest jump available as opposed to a series of
+shorter equal length jumps, since two shorter equal length jumps can
+be more effective done with a one longer jump.
