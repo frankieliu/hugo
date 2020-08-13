@@ -2,7 +2,7 @@
 title = "818 Race Car"
 author = ["Frankie Liu"]
 date = 2020-08-11T20:56:27-07:00
-lastmod = 2020-08-12T19:44:51-07:00
+lastmod = 2020-08-12T19:48:13-07:00
 tags = ["leetcode"]
 categories = ["leetcode"]
 draft = false
@@ -30,7 +30,7 @@ course we will not take \\(2^{n+1}-1\\) because that would mean we arrive
 back at the beginning.  If we take \\(2^{n}-1\\) then we would be at
 location \\(2^{n}\\) in \\(2n+2\\) steps (\\(n+1 + n + R\\)).  Note we could have
 gotten to the same location via a forward \\(2^{n}-1\\) step followed by
-"RRAR" or \\(n+4\\) steps.  The difference is \\(n-2\\) so as long as \\(n>2\\) it
+\\(RRAR\\) or \\(n+4\\) steps.  The difference is \\(n-2\\) so as long as \\(n>2\\) it
 never makes sense to make the longer jump, but also note that the
 ending speeds are different.  In the former, one would have to slow
 down the speed which would lead to further \\(RR\\) steps thus making it
@@ -42,4 +42,4 @@ repetition one can combine the two \\(2^{k}-1\\) jumps, into a longer
 \\(2^{k+1}-1\\) jump and a \\(RAR\\), which is shorter.  This reasoning calls
 for taking the longest jump available as opposed to a series of
 shorter equal length jumps, since two shorter equal length jumps can
-be more effective done with a one longer jump.
+be more effectively done with a one longer jump.
