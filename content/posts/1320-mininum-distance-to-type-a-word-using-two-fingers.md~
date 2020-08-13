@@ -1,8 +1,8 @@
 +++
-title = "1320 Minimum Distance to Type a Word Using Two Fingers"
+title = "Leetcode 1320. Minimum Distance to Type a Word Using Two Fingers"
 author = ["adam"]
 date = 2020-01-20T23:22:01-08:00
-lastmod = 2020-08-12T19:56:33-07:00
+lastmod = 2020-01-21T14:00:37-08:00
 tags = ["leetcode", "dp"]
 categories = ["leetcode", "dp"]
 draft = false
@@ -54,26 +54,26 @@ of the dictionary spacing with each new character.
 ```python
 class Solution:
     def minimumDistance(self, A):
-	def d(a, b):
-	    return a and abs(a / 6 - b / 6) + abs(a % 6 - b % 6)
+        def d(a, b):
+            return a and abs(a / 6 - b / 6) + abs(a % 6 - b % 6)
 
-	dp, dp2 = {(0, 0): 0}, {}
-	for c in (ord(c) + 1 for c in A):
-	    print([[chr(x) for x in y] for y in dp.keys()],"\n")
-	    for a, b in dp:
-		dp2[c, b] = min(dp2.get((c, b), 3000), dp[a, b] + d(a, c))
-		dp2[a, c] = min(dp2.get((a, c), 3000), dp[a, b] + d(b, c))
-	    if True:
-		dp = {}
-		for (a, b) in dp2.keys():
-		    if (b, a) in dp.keys():
-			dp[b,a] = min(dp[b,a],dp2[a,b])
-			continue
-		    dp[a,b] = dp2[a,b]
-		dp2 = {}
-	    else:
-		dp, dp2 = dp2, {}
-	return min(dp.values())
+        dp, dp2 = {(0, 0): 0}, {}
+        for c in (ord(c) + 1 for c in A):
+            print([[chr(x) for x in y] for y in dp.keys()],"\n")
+            for a, b in dp:
+                dp2[c, b] = min(dp2.get((c, b), 3000), dp[a, b] + d(a, c))
+                dp2[a, c] = min(dp2.get((a, c), 3000), dp[a, b] + d(b, c))
+            if True:
+                dp = {}
+                for (a, b) in dp2.keys():
+                    if (b, a) in dp.keys():
+                        dp[b,a] = min(dp[b,a],dp2[a,b])
+                        continue
+                    dp[a,b] = dp2[a,b]
+                dp2 = {}
+            else:
+                dp, dp2 = dp2, {}
+        return min(dp.values())
 
 s=Solution()
 print(s.minimumDistance('asdfkjalskjflkweraglksjga'))
@@ -95,18 +95,18 @@ entries.
 ```python
 class Solution:
     def minimumDistance(self, A):
-	def d(a, b):
-	    return a and abs(a / 6 - b / 6) + abs(a % 6 - b % 6)
+        def d(a, b):
+            return a and abs(a / 6 - b / 6) + abs(a % 6 - b % 6)
 
-	dp, dp2 = {0: 0}, {}
-	prev = 0
-	for c in (ord(c) + 1 for c in A):
-	    for a in dp:
-		dp2[prev] = min(dp2.get(prev, 3000), dp[a] + d(a, c))  # keeping the previous
-		dp2[a] = min(dp2.get(a, 3000), dp[a] + d(prev, c))     # taking the previous
-	    dp, dp2 = dp2, {}
-	    prev = c
-	return min(dp.values())
+        dp, dp2 = {0: 0}, {}
+        prev = 0
+        for c in (ord(c) + 1 for c in A):
+            for a in dp:
+                dp2[prev] = min(dp2.get(prev, 3000), dp[a] + d(a, c))  # keeping the previous
+                dp2[a] = min(dp2.get(a, 3000), dp[a] + d(prev, c))     # taking the previous
+            dp, dp2 = dp2, {}
+            prev = c
+        return min(dp.values())
 
 s=Solution()
 print(s.minimumDistance('asdfkjalskjflkweraglksjga'))
@@ -131,11 +131,11 @@ all such possibilities.
 ```python
 def minimumDistance(self, A):
     def d(a, b):
-	return abs(a / 6 - b / 6) + abs(a % 6 - b % 6)
+        return abs(a / 6 - b / 6) + abs(a % 6 - b % 6)
     A = [ord(c) - 65 for c in A]
     dp = [0] * 26
     for b, c in zip(A, A[1:]):
-	dp[b] = max(dp[a] + d(b, c) - d(a, c) for a in xrange(26))
+        dp[b] = max(dp[a] + d(b, c) - d(a, c) for a in xrange(26))
     return sum(d(b, c) for b, c in zip(A, A[1:])) - max(dp)
 ```
 

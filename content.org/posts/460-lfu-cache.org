@@ -3,7 +3,7 @@
 #+HUGO_SECTION: posts
 #+HUGO_WEIGHT: 2000
 #+HUGO_AUTO_SET_LASTMOD: t
-#+TITLE: "Leetcode 460. LFU Cache"
+#+TITLE: "460 LFU Cache"
 #+DATE: 2019-11-18T14:40:38-08:00
 #+HUGO_TAGS: cache leetcode 
 #+HUGO_CATEGORIES: cache leetcode
