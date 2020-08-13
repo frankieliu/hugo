@@ -1,8 +1,8 @@
 +++
-title = "1197 Minimum Knight Moves"
+title = "1197. Minimum Knight Moves"
 author = ["adam"]
 date = 2020-03-29T22:44:44-07:00
-lastmod = 2020-08-12T19:59:47-07:00
+lastmod = 2020-03-29T23:42:12-07:00
 tags = ["leetcode"]
 categories = ["leetcode"]
 draft = false

@@ -3,7 +3,7 @@
 #+HUGO_SECTION: posts
 #+HUGO_WEIGHT: 2000
 #+HUGO_AUTO_SET_LASTMOD: t
-#+TITLE: "1197. Minimum Knight Moves"
+#+TITLE: "1197 Minimum Knight Moves"
 #+DATE: 2020-03-29T22:44:44-07:00
 #+HUGO_TAGS: leetcode
 #+HUGO_CATEGORIES: leetcode
