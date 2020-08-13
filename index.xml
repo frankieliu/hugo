@@ -289,7 +289,7 @@ case of missing id I was upset that it had a slack link available, but no discor
     </item>
     
     <item>
-      <title>Leetcode 1320. Minimum Distance to Type a Word Using Two Fingers</title>
+      <title>1320 Minimum Distance to Type a Word Using Two Fingers</title>
       <link>https://www.frankliu.org/hugo/posts/1320-mininum-distance-to-type-a-word-using-two-fingers/</link>
       <pubDate>Mon, 20 Jan 2020 23:22:01 -0800</pubDate>
       
@@ -340,7 +340,7 @@ def num_rect(points): m = defaultdict(lambda: 0) answer = 0 for p in points: for
     </item>
     
     <item>
-      <title>Leetcode 460. LFU Cache</title>
+      <title>460 LFU Cache</title>
       <link>https://www.frankliu.org/hugo/posts/460-lfu-cache/</link>
       <pubDate>Mon, 18 Nov 2019 14:40:38 -0800</pubDate>
       
