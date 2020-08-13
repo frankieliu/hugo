@@ -6,10 +6,19 @@
     <description>Recent content in Categories on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 30 Jun 2020 15:22:25 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 11 Aug 2020 20:56:27 -0700</lastBuildDate>
     
 	<atom:link href="https://www.frankliu.org/hugo/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>leetcode</title>
+      <link>https://www.frankliu.org/hugo/categories/leetcode/</link>
+      <pubDate>Tue, 11 Aug 2020 20:56:27 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/categories/leetcode/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>binary indexed tree</title>
@@ -35,6 +44,15 @@
       <pubDate>Tue, 30 Jun 2020 15:22:25 -0700</pubDate>
       
       <guid>https://www.frankliu.org/hugo/categories/segment-tree/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dp</title>
+      <link>https://www.frankliu.org/hugo/categories/dp/</link>
+      <pubDate>Fri, 05 Jun 2020 06:34:39 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/categories/dp/</guid>
       <description></description>
     </item>
     
@@ -147,6 +165,15 @@
     </item>
     
     <item>
+      <title>distributed system</title>
+      <link>https://www.frankliu.org/hugo/categories/distributed-system/</link>
+      <pubDate>Sat, 18 Apr 2020 08:49:58 -0700</pubDate>
+      
+      <guid>https://www.frankliu.org/hugo/categories/distributed-system/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>distributed systems</title>
       <link>https://www.frankliu.org/hugo/categories/distributed-systems/</link>
       <pubDate>Sat, 18 Apr 2020 08:49:58 -0700</pubDate>
@@ -206,15 +233,6 @@
       <pubDate>Sun, 05 Apr 2020 07:46:12 -0700</pubDate>
       
       <guid>https://www.frankliu.org/hugo/categories/trees/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>leetcode</title>
-      <link>https://www.frankliu.org/hugo/categories/leetcode/</link>
-      <pubDate>Sun, 29 Mar 2020 22:44:44 -0700</pubDate>
-      
-      <guid>https://www.frankliu.org/hugo/categories/leetcode/</guid>
       <description></description>
     </item>
     
@@ -332,24 +350,6 @@
       <pubDate>Thu, 23 Jan 2020 14:50:02 -0800</pubDate>
       
       <guid>https://www.frankliu.org/hugo/categories/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>dp</title>
-      <link>https://www.frankliu.org/hugo/categories/dp/</link>
-      <pubDate>Mon, 20 Jan 2020 23:22:01 -0800</pubDate>
-      
-      <guid>https://www.frankliu.org/hugo/categories/dp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>distributed system</title>
-      <link>https://www.frankliu.org/hugo/categories/distributed-system/</link>
-      <pubDate>Sat, 18 Jan 2020 19:24:37 -0800</pubDate>
-      
-      <guid>https://www.frankliu.org/hugo/categories/distributed-system/</guid>
       <description></description>
     </item>
     
