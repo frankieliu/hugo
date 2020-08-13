@@ -1084,7 +1084,7 @@ vectors (range)  everything is a vector 1:9, 1:2:9, c(1,3,2,-8.1) c() for concat
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       Proof Consider overshooting \(t\) by \(2^{n}-1\), where \(n\) is the smallest integer that overshoots the target.
 We would like to prove considering a jump \(2^{n+1}-1\) is not going to yield a shorter set of actions.
-Note that \(t\) is in \((2^{n-1}-1,2^n-1)\), so from point A we we have a remaining distance in \((2^{n-1}, 2^{n})\). This means that from point A we must use a term containing a \(2^{n-1}-1\) jump (why? because a concatenation of shorter jumps is never more efficient, see next paragraph).
+Note that \(t\) is in \([2^{n-1},2^n-2]\), so from point A we have a remaining distance in \([2^n+1, 3(2^n)-1]\). Again if we consider the possible jumps from A, either we jump to \(2^{n}-1\) or \(2^{n+1}-1\). Of course we will not take \(2^{n+1}-1\) because that would mean we arrive back at the beginning.
     </div>
   </div>
 </div>
