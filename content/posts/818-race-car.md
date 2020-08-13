@@ -2,7 +2,7 @@
 title = "818 Race Car"
 author = ["Frankie Liu"]
 date = 2020-08-11T20:56:27-07:00
-lastmod = 2020-08-12T19:43:44-07:00
+lastmod = 2020-08-12T19:44:51-07:00
 tags = ["leetcode"]
 categories = ["leetcode"]
 draft = false
